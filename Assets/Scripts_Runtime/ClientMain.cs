@@ -19,14 +19,20 @@ namespace TD {
             // ctx.assetsCore.LoadAll().ContinueWith((task) => {
             //     isInit = true;
             // });
-            Action action = async () => {
-                await ctx.assetsCore.LoadAll();
-                isInit = true;
-                // Login
+           Action action = async () => {
 
+                await ctx.assetsCore.LoadAll();
+
+                isInit = true;  
+
+                RoleDomain.Spawn(ctx);
+                // GameEnter;
             };
 
+            action.Invoke();
+
             Debug.Log("Start Loading Assets");
+
         }
 
         void Binding() {
@@ -38,6 +44,9 @@ namespace TD {
 
 
         void Update() {
+             if (!isInit) {
+                return;
+            }
             float dt = Time.deltaTime;
 
 

@@ -15,13 +15,13 @@ namespace TD {
 
         public AsyncOperationHandle entitiesHandle;
 
-        public Dictionary<string, GameObject> panels;
+        // public Dictionary<string, GameObject> panels;
 
-        public AsyncOperationHandle panelsHandle;
+        // public AsyncOperationHandle panelsHandle;
 
         public AssetsCore() {
             entities = new Dictionary<string, GameObject>();
-            panels = new Dictionary<string, GameObject>();
+            // panels = new Dictionary<string, GameObject>();
         }
 
 
@@ -40,19 +40,19 @@ namespace TD {
                 entitiesHandle = handle;
             }
 
-            {
-                AssetLabelReference labelReference = new AssetLabelReference();
-                labelReference.labelString = "Panel";
-                var handle = Addressables.LoadAssetsAsync<GameObject>(labelReference, null);
+            // {
+            //     AssetLabelReference labelReference = new AssetLabelReference();
+            //     labelReference.labelString = "Panel";
+            //     var handle = Addressables.LoadAssetsAsync<GameObject>(labelReference, null);
 
-                var all = await handle.Task;
+            //     var all = await handle.Task;
 
-                foreach (var item in all) {
-                    panels.Add(item.name, item);
-                }
+            //     foreach (var item in all) {
+            //         panels.Add(item.name, item);
+            //     }
 
-                panelsHandle = handle;
-            }
+            //     panelsHandle = handle;
+            // }
         }
 
 
@@ -60,11 +60,15 @@ namespace TD {
             if (entitiesHandle.IsValid()) {
                 Addressables.Release(entitiesHandle);
             }
-            if (panelsHandle.IsValid()) {
-                Addressables.Release(panelsHandle);
-            }
+            // if (panelsHandle.IsValid()) {
+            //     Addressables.Release(panelsHandle);
+            // }
         }
 
+        public GameObject Entity_GetRole(){
+            entities.TryGetValue("Entity_Role", out GameObject role);
+            return role;
+        }
 
         public GameObject Entity_GetTower() {
             entities.TryGetValue("Entity_Tower", out GameObject tower);
@@ -72,7 +76,7 @@ namespace TD {
         }
 
 
-        
+
 
     }
 }

@@ -14,10 +14,20 @@ namespace TD {
         // Core
         public AssetsCore assetsCore;
 
+        // repos
+        public RoleRepository roleRepository;
+
 
         public GameContext() {
+
             gameEntity = new GameEntity();
+
+            // Core
             assetsCore = new AssetsCore();
+
+            // Repos
+            roleRepository = new RoleRepository();
+
         }
     }
 }
