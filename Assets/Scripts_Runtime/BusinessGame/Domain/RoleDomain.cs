@@ -22,5 +22,12 @@ namespace TD {
 
             return entity;
         }
+
+        public static void Set_MoveAxis(RoleEntity entity, Vector2 moveAxis) {
+            entity.Set_MoveAxis(moveAxis);
+        }
+        
+
+
     }
 }

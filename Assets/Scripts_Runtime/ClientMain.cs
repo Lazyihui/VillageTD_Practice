@@ -16,26 +16,32 @@ namespace TD {
         void Awake() {
 
             ctx = new GameContext();
-            // ctx.assetsCore.LoadAll().ContinueWith((task) => {
-            //     isInit = true;
-            // });
-           Action action = async () => {
+            Canvas screenCanvas = GameObject.Find("ScreenCanvas").GetComponent<Canvas>();
+
+            ctx.InJect(screenCanvas);
+            Action action = async () => {
 
                 await ctx.assetsCore.LoadAll();
 
-                isInit = true;  
+                isInit = true;
 
-                RoleDomain.Spawn(ctx);
+                Logic_Business.Enter(ctx);
                 // GameEnter;
             };
 
             action.Invoke();
 
-            Debug.Log("Start Loading Assets");
-
+            Binding();
         }
 
         void Binding() {
+            var eventCenter = ctx.appUI.eventCenter;
+
+            eventCenter.OnLoginClickHandle += () => {
+                ctx.appUI.Panel_Login_Close(ctx);
+                Game_Business.Enter(ctx);
+            };
+
 
 
         }
@@ -44,11 +50,12 @@ namespace TD {
 
 
         void Update() {
-             if (!isInit) {
+            if (!isInit) {
                 return;
             }
             float dt = Time.deltaTime;
 
+            ctx.inputEntity.Process(dt);
 
         }
 
