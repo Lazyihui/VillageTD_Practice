@@ -9,7 +9,10 @@ namespace TD {
     public static class Game_Business {
 
         public static void Enter(GameContext ctx) {
-            RoleDomain.Spawn(ctx);
+
+            RoleEntity owner = RoleDomain.Spawn(ctx);
+            ctx.gameEntity.ownerID = owner.id;
+
         }
 
 
@@ -41,13 +44,17 @@ namespace TD {
 
         static void PreTick(GameContext ctx, float dt) {
 
+            RoleEntity owner = ctx.Role_GetOwner();
 
+            RoleDomain.Set_MoveAxis(owner, ctx.inputEntity.moveAxis);
 
 
         }
 
         static void LogicTick(GameContext ctx, float dt) {
+            RoleEntity owner = ctx.Role_GetOwner();
 
+            RoleDomain.Move(owner, dt);
         }
 
         static void LastTick(GameContext ctx, float dt) {

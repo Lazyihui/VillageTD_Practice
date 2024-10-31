@@ -26,8 +26,9 @@ namespace TD {
         public static void Set_MoveAxis(RoleEntity entity, Vector2 moveAxis) {
             entity.Set_MoveAxis(moveAxis);
         }
-        
 
-
+        public static void Move(RoleEntity entity, float dt) {
+            entity.Move(dt);
+        }
     }
 }

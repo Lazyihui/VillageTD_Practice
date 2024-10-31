@@ -45,5 +45,23 @@ namespace TD {
         public void InJect(Canvas screenCanvas) {
             this.screenCanvas = screenCanvas;
         }
+
+        public RoleEntity Role_GetOwner() {
+
+            bool has = roleRepository.TryGet(gameEntity.ownerID, out RoleEntity entity);
+            if (!has) {
+                Debug.LogError("GameContext.Role_GetOwner: ownerID not found");
+                return null;
+            }
+            return entity;
+        }
+        // public RoleEntity Role_GetOwner() {
+        //     bool has = roleRepo.TryGet(gameEntity.roleOwnerID, out RoleEntity entity);
+        //     if (!has) {
+        //         Debug.LogError("GameContext.Role_GetOwner: roleOwnerID not found");
+        //         return null;
+        //     }
+        //     return entity;
+        // }
     }
 }

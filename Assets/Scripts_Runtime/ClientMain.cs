@@ -40,6 +40,7 @@ namespace TD {
             eventCenter.OnLoginClickHandle += () => {
                 ctx.appUI.Panel_Login_Close(ctx);
                 Game_Business.Enter(ctx);
+                ctx.gameEntity.state = GameState.Game;  
             };
 
 
@@ -57,6 +58,11 @@ namespace TD {
 
             ctx.inputEntity.Process(dt);
 
+            if (ctx.gameEntity.state == GameState.Login) {
+
+            } else if (ctx.gameEntity.state == GameState.Game) {
+                Game_Business.Tick(ctx, dt);
+            }
         }
 
         void OnDestroy() {

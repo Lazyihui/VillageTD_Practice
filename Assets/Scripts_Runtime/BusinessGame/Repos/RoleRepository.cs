@@ -37,7 +37,8 @@ namespace TD {
 
             return all.Count;
         }
-
-
+        public bool TryGet(int id, out RoleEntity entity) {
+            return all.TryGetValue(id, out entity);
+        }
     }
 }

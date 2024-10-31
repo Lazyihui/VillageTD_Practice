@@ -11,20 +11,23 @@ namespace TD {
 
         public int id;
 
+        public float moveSpeed;
+
 
         public RoleInputComponent inputCom;
 
         public void Ctor() {
-
+            moveSpeed = 5.5f;
         }
 
         public void SetPos(Vector3 pos) {
             transform.position = pos;
         }
 
-        public void Move(float dt,Vector2 moveAxis,float moveSpeed) {
-            moveAxis = moveAxis.normalized * moveSpeed;
-            rb.velocity = moveAxis;
+        public void Move(float dt) {
+
+            inputCom.moveAxis = inputCom.moveAxis.normalized * this.moveSpeed;
+            rb.velocity = inputCom.moveAxis;
         }
 
         public void Set_MoveAxis(Vector2 moveAxis) {
