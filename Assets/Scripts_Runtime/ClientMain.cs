@@ -9,6 +9,7 @@ namespace TD {
     public class ClientMain : MonoBehaviour {
 
         GameContext ctx;
+        [SerializeField] Camera mainCamera;
 
         bool isTearDown = false;
 
@@ -18,7 +19,7 @@ namespace TD {
             ctx = new GameContext();
             Canvas screenCanvas = GameObject.Find("ScreenCanvas").GetComponent<Canvas>();
 
-            ctx.InJect(screenCanvas);
+            ctx.InJect(screenCanvas, mainCamera );
             Action action = async () => {
 
                 await ctx.assetsCore.LoadAll();
@@ -40,7 +41,7 @@ namespace TD {
             eventCenter.OnLoginClickHandle += () => {
                 ctx.appUI.Panel_Login_Close(ctx);
                 Game_Business.Enter(ctx);
-                ctx.gameEntity.state = GameState.Game;  
+                ctx.gameEntity.state = GameState.Game;
             };
 
 

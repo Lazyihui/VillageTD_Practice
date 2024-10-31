@@ -22,6 +22,8 @@ namespace TD {
 
         public InputEntity inputEntity;
 
+        public CameraCore cameraCore;
+
         public AppUI appUI;
 
         // repos
@@ -34,6 +36,7 @@ namespace TD {
 
             // Core
             assetsCore = new AssetsCore();
+            cameraCore = new CameraCore();
             inputEntity = new InputEntity();
             appUI = new AppUI();
 
@@ -42,8 +45,9 @@ namespace TD {
 
         }
 
-        public void InJect(Canvas screenCanvas) {
+        public void InJect(Canvas screenCanvas,Camera camera) {
             this.screenCanvas = screenCanvas;
+            cameraCore.Inject(camera);
         }
 
         public RoleEntity Role_GetOwner() {

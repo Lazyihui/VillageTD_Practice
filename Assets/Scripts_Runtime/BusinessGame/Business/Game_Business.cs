@@ -58,7 +58,10 @@ namespace TD {
         }
 
         static void LastTick(GameContext ctx, float dt) {
-
+            RoleEntity owner = ctx.Role_GetOwner();
+            
+            ctx.cameraCore.Follow(owner.transform.position);
+            Debug.Log("Game_Business.LastTick: " + owner.transform.position);
         }
     }
 }
