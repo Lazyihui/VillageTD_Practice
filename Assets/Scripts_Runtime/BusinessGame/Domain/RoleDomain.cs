@@ -6,7 +6,16 @@ namespace TD {
 
     public static class RoleDomain {
 
-        public static RoleEntity Spawn(GameContext ctx) {
+        public static RoleEntity Spawn(GameContext ctx,int typeID) {
+
+            
+            ctx.templateCore.ctx.Role_TryGet(typeID,out RoleTM tm);
+
+            if(tm == null) {
+                Debug.LogError("RoleDomain.Spawn: RoleTM is null");
+                return null;
+            }
+
             GameObject prefab = ctx.assetsCore.Entity_GetRole();
             if (prefab == null) {
                 Debug.LogError("Role prefab is null");
@@ -17,6 +26,10 @@ namespace TD {
             RoleEntity entity = go.GetComponent<RoleEntity>();
 
             entity.Ctor();
+
+            entity.typeID = tm.typeID;
+
+            Debug.Log("RoleDomain.Spawn: typeID = " + entity.typeID);
 
             ctx.roleRepository.Add(entity);
 

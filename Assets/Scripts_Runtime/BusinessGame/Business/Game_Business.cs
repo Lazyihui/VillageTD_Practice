@@ -10,7 +10,7 @@ namespace TD {
 
         public static void Enter(GameContext ctx) {
 
-            RoleEntity owner = RoleDomain.Spawn(ctx);
+            RoleEntity owner = RoleDomain.Spawn(ctx,1);
             ctx.gameEntity.ownerID = owner.id;
 
         }
@@ -61,7 +61,6 @@ namespace TD {
             RoleEntity owner = ctx.Role_GetOwner();
             
             ctx.cameraCore.Follow(owner.transform.position);
-            Debug.Log("Game_Business.LastTick: " + owner.transform.position);
         }
     }
 }

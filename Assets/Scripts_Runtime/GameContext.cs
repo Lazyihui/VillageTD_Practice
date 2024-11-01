@@ -24,6 +24,7 @@ namespace TD {
 
         public CameraCore cameraCore;
 
+        public TemplateCore templateCore;
         public AppUI appUI;
 
         // repos
@@ -38,6 +39,7 @@ namespace TD {
             assetsCore = new AssetsCore();
             cameraCore = new CameraCore();
             inputEntity = new InputEntity();
+            templateCore = new TemplateCore();
             appUI = new AppUI();
 
             // Repos
@@ -59,13 +61,6 @@ namespace TD {
             }
             return entity;
         }
-        // public RoleEntity Role_GetOwner() {
-        //     bool has = roleRepo.TryGet(gameEntity.roleOwnerID, out RoleEntity entity);
-        //     if (!has) {
-        //         Debug.LogError("GameContext.Role_GetOwner: roleOwnerID not found");
-        //         return null;
-        //     }
-        //     return entity;
-        // }
+       
     }
 }

@@ -11,6 +11,7 @@ namespace TD {
 
         public int id;
 
+        public int typeID;
         public float moveSpeed;
 
 
