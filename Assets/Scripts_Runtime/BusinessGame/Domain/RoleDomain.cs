@@ -9,12 +9,12 @@ namespace TD {
         public static RoleEntity Spawn(GameContext ctx,int typeID) {
 
             
-            ctx.templateCore.ctx.Role_TryGet(typeID,out RoleTM tm);
+            // ctx.templateCore.ctx.Role_TryGet(typeID,out RoleTM tm);
 
-            if(tm == null) {
-                Debug.LogError("RoleDomain.Spawn: RoleTM is null");
-                return null;
-            }
+            // if(tm == null) {
+            //     Debug.LogError("RoleDomain.Spawn: RoleTM is null");
+            //     return null;
+            // }
 
             GameObject prefab = ctx.assetsCore.Entity_GetRole();
             if (prefab == null) {
@@ -27,7 +27,7 @@ namespace TD {
 
             entity.Ctor();
 
-            entity.typeID = tm.typeID;
+            // entity.typeID = tm.typeID;
 
             Debug.Log("RoleDomain.Spawn: typeID = " + entity.typeID);
 

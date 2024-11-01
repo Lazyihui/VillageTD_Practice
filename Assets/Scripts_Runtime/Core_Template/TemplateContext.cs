@@ -26,6 +26,11 @@ namespace TD {
             this.game = game;
         }
 
+        public void Role_Add(RoleTM role) {
+            roles.Add(role.typeID, role);
+        }
+
+
         // public bool Role_TryGet() {
 
         // }

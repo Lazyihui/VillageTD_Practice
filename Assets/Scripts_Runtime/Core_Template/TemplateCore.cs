@@ -23,6 +23,7 @@ namespace TD {
                 var handle = Addressables.LoadAssetsAsync<RoleSO>(labelReference, null);
 
                 var all = await handle.Task;
+
                 foreach (var item in all) {
                     ctx.templateCore.ctx.roles.Add(item.tm.typeID, item.tm);
                 }
