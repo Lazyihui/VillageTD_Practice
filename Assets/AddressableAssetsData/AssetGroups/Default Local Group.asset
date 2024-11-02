@@ -17,12 +17,11 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: f6b556ce075db4647a780f8cd7c59b47
   m_SerializeEntries:
-  - m_GUID: aeed2dd01c19f4d458aa5e205189abff
-    m_Address: Square
+  - m_GUID: 06b6212800b32cb429965f0b39ea1d20
+    m_Address: RoleSO
     m_ReadOnly: 0
     m_SerializedLabels:
-    - RoleSO
-    - TM_Role
+    - So_Role
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: ce53ef2a080bb9e41a644841fa038063, type: 2}

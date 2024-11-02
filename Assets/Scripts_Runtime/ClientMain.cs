@@ -23,7 +23,7 @@ namespace TD {
             Action action = async () => {
 
                 await ctx.assetsCore.LoadAll();
-                // await ctx.templateCore.LoadAll(ctx);
+                await ctx.templateCore.LoadAll(ctx);
 
                 isInit = true;
 
@@ -83,7 +83,7 @@ namespace TD {
             isTearDown = true;
 
             ctx.assetsCore.UnLoadAll();
-            // ctx.templateCore.UnLoadAll();   
+            ctx.templateCore.UnLoadAll();   
         }
     }
 }

@@ -19,13 +19,14 @@ namespace TD {
             {
                 AssetLabelReference labelReference = new AssetLabelReference();
 
-                labelReference.labelString = "RoleSO";
+                labelReference.labelString = "So_Role";
                 var handle = Addressables.LoadAssetsAsync<RoleSO>(labelReference, null);
 
                 var all = await handle.Task;
 
-                foreach (var item in all) {
-                    ctx.templateCore.ctx.roles.Add(item.tm.typeID, item.tm);
+                foreach (var so in all) {
+                    var tm = so.tm;
+                    ctx.templateCore.ctx.Role_Add(tm);
                 }
 
                 ctx.templateCore.ctx.rolePtr = handle;
