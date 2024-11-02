@@ -24,7 +24,11 @@ namespace TD {
         public void SetSprite(Sprite sprite) {
             spriteRenderer.sprite = sprite;
         }
-        
+
+        public void TearDown() {
+            Destroy(gameObject);
+        }
+
 
     }
 }

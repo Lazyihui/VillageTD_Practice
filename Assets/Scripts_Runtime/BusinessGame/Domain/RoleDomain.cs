@@ -8,36 +8,7 @@ namespace TD {
 
         public static RoleEntity Spawn(GameContext ctx, int typeID) {
 
-
-            RoleTM tm;
-
-            bool has = ctx.templateCore.ctx.Role_TryGet(typeID, out tm);
-
-            if(!has) {
-                Debug.LogError("RoleDomain.Spawn: typeID = " + typeID + " not found");
-                return null;
-            }
-
-
-            GameObject prefab = ctx.assetsCore.Entity_GetRole();
-
-            GameObject go = GameObject.Instantiate(prefab);
-            RoleEntity entity = go.GetComponent<RoleEntity>();
-
-
-            Debug.Assert(entity != null, "RoleEntity is null");
-            Debug.Assert(tm != null, "RoleTM is null");
-
-            // 还没有用到SpawnTM
-
-            // mod就是图片
-            // GameObject mod = GameObject.Instantiate(tm.modPrefab, entity.transform);
-
-            entity.Ctor();
-
-            entity.typeID = tm.typeID;
-
-            // entity.typeID = tm.typeID;
+            RoleEntity entity = GameFactory.Role_Create(ctx, typeID);
 
             ctx.roleRepository.Add(entity);
 

@@ -30,6 +30,8 @@ namespace TD {
         // repos
         public RoleRepository roleRepository;
 
+        public TowerRepository towerRepository;
+
 
         public GameContext() {
 
@@ -44,6 +46,7 @@ namespace TD {
 
             // Repos
             roleRepository = new RoleRepository();
+            towerRepository = new TowerRepository();
 
         }
 
