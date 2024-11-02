@@ -13,11 +13,14 @@ namespace TD
 
         public int ownerID;
 
+        public int towerRecordID;
+
         public GameState state;
         public GameEntity()
         {
             restFixTime = 0;
             ownerID = 0;
+            towerRecordID = 0;
             state = GameState.Login;
         }
     }

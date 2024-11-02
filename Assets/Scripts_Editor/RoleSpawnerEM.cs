@@ -21,15 +21,15 @@ namespace TD {
             }
 
             var tm = so.tm;
-            var prefab = tm.modPrefab;
-            if (prefab == null) {
-                return;
-            }
+            // var prefab = tm.modPrefab;
+            // if (prefab == null) {
+            //     return;
+            // }
 
-            if (transform.childCount == 0) {
-                var mod = GameObject.Instantiate(prefab, transform);
-                Debug.Log(mod.name);
-            }
+            // if (transform.childCount == 0) {
+            //     var mod = GameObject.Instantiate(prefab, transform);
+            //     Debug.Log(mod.name);
+            // }
 
             string n = "player_" + tm.typeName;
             if (gameObject.name != n) {

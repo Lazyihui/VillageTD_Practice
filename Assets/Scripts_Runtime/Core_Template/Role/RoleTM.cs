@@ -11,7 +11,6 @@ namespace TD {
 
         public int typeID;
 
-        public RoleTM() { }
 
         public GameObject modPrefab;
 

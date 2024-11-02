@@ -37,10 +37,7 @@ namespace TD {
 
             entity.typeID = tm.typeID;
 
-
             // entity.typeID = tm.typeID;
-
-            Debug.Log("RoleDomain.Spawn: typeID = " + entity.typeID);
 
             ctx.roleRepository.Add(entity);
 

@@ -9,8 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5834b5087d578d24c926ce20cd31e6d6, type: 3}
-  m_Name: Packed Assets3_ContentUpdateGroupSchema
+  m_Script: {fileID: 11500000, guid: 1568434de4a683b45bc4d0af9171b135, type: 3}
+  m_Name: So_Tower
   m_EditorClassIdentifier: 
-  m_Group: {fileID: 11400000, guid: 7647c668f82102e48bf6c9345f44b126, type: 2}
-  m_StaticContent: 0
+  tm:
+    typeID: 0
+    hp: 5
+    maxHp: 5
+    sprite: {fileID: 21300000, guid: 346e04856d7ea7e4788dcd360ee5eb33, type: 3}

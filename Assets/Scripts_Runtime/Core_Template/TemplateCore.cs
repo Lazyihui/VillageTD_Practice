@@ -31,11 +31,30 @@ namespace TD {
 
                 ctx.templateCore.ctx.rolePtr = handle;
             }
+            {
+                AssetLabelReference labelReference = new AssetLabelReference();
+
+                labelReference.labelString = "So_Tower";
+                var handle = Addressables.LoadAssetsAsync<TowerSO>(labelReference, null);
+
+                var all = await handle.Task;
+
+                foreach (var so in all) {
+                    var tm = so.tm;
+                    ctx.templateCore.ctx.Tower_Add(tm);
+                }
+
+                ctx.templateCore.ctx.towerPtr = handle;
+            }
         }
 
         public void UnLoadAll() {
             if (ctx.rolePtr.IsValid()) {
                 Addressables.Release(ctx.rolePtr);
+            }
+
+            if (ctx.towerPtr.IsValid()) {
+                Addressables.Release(ctx.towerPtr);
             }
         }
 

@@ -70,6 +70,11 @@ namespace TD {
             return role;
         }
 
+        public GameObject Entity_GetTower() {
+            entities.TryGetValue("Entity_Tower", out GameObject tower);
+            return tower;
+        }
+
         //  panel 
 
         public GameObject Panel_GetLogin() {
