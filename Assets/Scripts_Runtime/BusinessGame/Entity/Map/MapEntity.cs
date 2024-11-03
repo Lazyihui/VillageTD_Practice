@@ -2,24 +2,24 @@ using System;
 using UnityEngine;
 
 
-namespace TD{
+namespace TD {
 
-    public class MapEntity : MonoBehaviour{
+    public class MapEntity : MonoBehaviour {
 
         public int stageID;
 
         MapGripElement groundTile;
 
-        MapGripElement treeTile;
+        public MapGripElement treeTile;
 
-        public void Ctor(){
+        public void Ctor() {
 
         }
 
-        public void Inject(MapGripElement ground,MapGripElement tree){
+        public void Inject(MapGripElement ground, MapGripElement tree) {
             this.groundTile = ground;
             this.treeTile = tree;
         }
-        
+
     }
 }

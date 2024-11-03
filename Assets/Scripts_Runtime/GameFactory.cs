@@ -42,18 +42,21 @@ namespace TD {
             GameObject go = GameObject.Instantiate(prefab);
 
             MapEntity map = go.GetComponent<MapEntity>();
+            map.stageID = ctx.gameEntity.stageID++;
+
+
             map.Ctor();
             map.stageID = typeID;
 
             // 2.Get MapGripElement prefavb
             GameObject groundPrefab = ctx.assetsCore.Entity_GetTileGround();
-            MapGripElement ground = GameObject.Instantiate(groundPrefab,map.transform).GetComponent<MapGripElement>();
+            MapGripElement ground = GameObject.Instantiate(groundPrefab, map.transform).GetComponent<MapGripElement>();
 
             GameObject treePrefab = ctx.assetsCore.Entity_GetTileTree();
-            MapGripElement tree = GameObject.Instantiate(treePrefab,map.transform).GetComponent<MapGripElement>();
+            MapGripElement tree = GameObject.Instantiate(treePrefab, map.transform).GetComponent<MapGripElement>();
 
-            
-            map.Inject(ground,tree);
+
+            map.Inject(ground, tree);
 
             return map;
         }

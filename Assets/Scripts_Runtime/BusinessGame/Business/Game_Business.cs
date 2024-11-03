@@ -64,9 +64,11 @@ namespace TD {
             int lenTower = ctx.towerRepository.TakeAll(out TowerEntity[] towers);
             for (int i = 0; i < lenTower; i++) {
                 TowerEntity tower = towers[i];
-
                 TowerDoamin.SetCollider(tower);
             }
+
+            MapEntity map = ctx.Map_GetStage();
+            MapDomain.GetTileTreePos(map.treeTile, out Vector3Int pos);
         }
 
         static void LastTick(GameContext ctx, float dt) {

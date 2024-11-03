@@ -68,5 +68,14 @@ namespace TD {
             return entity;
         }
 
+        public MapEntity Map_GetStage() {
+            bool has = mapRepository.TryGet(gameEntity.stageID, out MapEntity entity);
+            if (!has) {
+                Debug.LogError("GameContext.Map_GetStage: stageID not found");
+                return null;
+            }
+            return entity;
+        }
+
     }
 }
