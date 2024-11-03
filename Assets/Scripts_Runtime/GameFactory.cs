@@ -35,5 +35,23 @@ namespace TD {
 
             return entity;
         }
+
+        public static MapEntity Map_Create(GameContext ctx, int typeID) {
+            // 1. Get prefab
+            GameObject prefab = ctx.assetsCore.Entity_GetMap();
+            GameObject go = GameObject.Instantiate(prefab);
+
+            MapEntity map = go.GetComponent<MapEntity>();
+            map.Ctor();
+            map.stageID = typeID;
+
+            // 2.Get MapGripElement prefavb
+            GameObject gridPrefab = ctx.assetsCore.Entity_GetMapGripElement();
+            MapGripElement grid = GameObject.Instantiate(gridPrefab,map.transform).GetComponent<MapGripElement>();
+            
+            map.Inject(grid);
+
+            return map;
+        }
     }
 }

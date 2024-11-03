@@ -32,6 +32,8 @@ namespace TD {
 
         public TowerRepository towerRepository;
 
+        public MapRepository mapRepository;
+
 
         public GameContext() {
 
@@ -47,10 +49,11 @@ namespace TD {
             // Repos
             roleRepository = new RoleRepository();
             towerRepository = new TowerRepository();
+            mapRepository = new MapRepository();
 
         }
 
-        public void InJect(Canvas screenCanvas,Camera camera) {
+        public void InJect(Canvas screenCanvas, Camera camera) {
             this.screenCanvas = screenCanvas;
             cameraCore.Inject(camera);
         }
@@ -64,6 +67,6 @@ namespace TD {
             }
             return entity;
         }
-       
+
     }
 }

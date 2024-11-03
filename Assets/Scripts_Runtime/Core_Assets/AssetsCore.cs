@@ -82,7 +82,17 @@ namespace TD {
             return panel;
         }
 
+        // map
 
+        public GameObject Entity_GetMap() {
+            entities.TryGetValue("Entity_Map", out GameObject map);
+            return map;
+        }
+
+        public GameObject Entity_GetMapGripElement() {
+            entities.TryGetValue("Grid_Stage1", out GameObject mapTile);
+            return mapTile;
+        }
 
 
     }

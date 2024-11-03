@@ -8,6 +8,8 @@ namespace TD {
 
         [SerializeField] SpriteRenderer spriteRenderer;
 
+        [SerializeField] Collider2D colli;
+
         public int typeID;
 
         public int id;
@@ -19,6 +21,12 @@ namespace TD {
 
         public void Ctor() {
 
+        }
+
+        public void SetCollider() {
+            if(typeID==TowerConst.BaseTower){
+                colli.enabled = false;
+            }
         }
 
         public void SetSprite(Sprite sprite) {

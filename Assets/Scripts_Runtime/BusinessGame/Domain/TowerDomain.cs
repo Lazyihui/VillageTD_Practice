@@ -21,5 +21,9 @@ namespace TD {
             entity.TearDown();
         }
 
+
+        public static void SetCollider(TowerEntity entity) {
+            entity.SetCollider();
+        }
     }
 }

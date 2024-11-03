@@ -10,6 +10,9 @@ namespace TD {
 
         public static void Enter(GameContext ctx) {
 
+            MapEntity map = MapDomain.Spawn(ctx, 1);
+
+
             RoleEntity owner = RoleDomain.Spawn(ctx, 1);
             ctx.gameEntity.ownerID = owner.id;
 
@@ -57,6 +60,13 @@ namespace TD {
             RoleEntity owner = ctx.Role_GetOwner();
 
             RoleDomain.Move(owner, dt);
+
+            int lenTower = ctx.towerRepository.TakeAll(out TowerEntity[] towers);
+            for (int i = 0; i < lenTower; i++) {
+                TowerEntity tower = towers[i];
+
+                TowerDoamin.SetCollider(tower);
+            }
         }
 
         static void LastTick(GameContext ctx, float dt) {
