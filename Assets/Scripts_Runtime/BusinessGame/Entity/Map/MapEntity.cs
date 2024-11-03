@@ -5,17 +5,20 @@ using UnityEngine;
 namespace TD{
 
     public class MapEntity : MonoBehaviour{
-        
+
         public int stageID;
 
-        MapGripElement mapGripElement;
+        MapGripElement groundTile;
+
+        MapGripElement treeTile;
 
         public void Ctor(){
 
         }
 
-        public void Inject(MapGripElement mapGripElement){
-            this.mapGripElement = mapGripElement;
+        public void Inject(MapGripElement ground,MapGripElement tree){
+            this.groundTile = ground;
+            this.treeTile = tree;
         }
         
     }

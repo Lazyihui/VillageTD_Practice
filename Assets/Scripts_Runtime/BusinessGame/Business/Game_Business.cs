@@ -70,9 +70,10 @@ namespace TD {
         }
 
         static void LastTick(GameContext ctx, float dt) {
-            RoleEntity owner = ctx.Role_GetOwner();
 
-            ctx.cameraCore.Follow(owner.transform.position);
+            // //相机跟随   
+            // RoleEntity owner = ctx.Role_GetOwner();
+            // ctx.cameraCore.Follow(owner.transform.position);
         }
     }
 }
