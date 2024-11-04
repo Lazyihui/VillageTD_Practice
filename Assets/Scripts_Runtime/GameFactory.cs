@@ -82,8 +82,22 @@ namespace TD {
             return entity;
 
 
+        }
 
+        public static BulletEntity Bullet_Create(GameContext ctx, int typeID, Vector3 pos) {
+            BulletTM tm;
+            ctx.templateCore.ctx.Bullet_TryGet(typeID, out tm);
+            GameObject prefab = ctx.assetsCore.Entity_GetBullet();
+            GameObject go = GameObject.Instantiate(prefab);
+            BulletEntity entity = go.GetComponent<BulletEntity>();
+            entity.Ctor();
+            entity.id = ctx.gameEntity.bulletRecordID++;
 
+            entity.SetPos(pos);
+            entity.moveSpeed = tm.moveSpeed;
+
+            return entity;
         }
     }
+
 }

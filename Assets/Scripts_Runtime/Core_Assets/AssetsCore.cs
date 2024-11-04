@@ -75,6 +75,11 @@ namespace TD {
             return tower;
         }
 
+        public GameObject Entity_GetBullet() {
+            entities.TryGetValue("Entity_Bullet", out GameObject bullet);
+            return bullet;
+        }
+
         //  panel 
 
         public GameObject Panel_GetLogin() {

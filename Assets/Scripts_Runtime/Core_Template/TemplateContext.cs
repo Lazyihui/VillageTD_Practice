@@ -14,12 +14,17 @@ namespace TD {
 
         public AsyncOperationHandle rolePtr;
 
-        public Dictionary<int,TowerTM> towers;
+        public Dictionary<int, TowerTM> towers;
 
         public AsyncOperationHandle towerPtr;
+
+        public Dictionary<int, BulletTM> bullets;
+
+        public AsyncOperationHandle bulletPtr;
         public TemplateContext() {
             roles = new Dictionary<int, RoleTM>();
             towers = new Dictionary<int, TowerTM>();
+            bullets = new Dictionary<int, BulletTM>();
         }
 
         // 找种类的Role
@@ -29,6 +34,10 @@ namespace TD {
 
         public bool Tower_TryGet(int typeID, out TowerTM tower) {
             return towers.TryGetValue(typeID, out tower);
+        }
+
+        public bool Bullet_TryGet(int typeID, out BulletTM bullet) {
+            return bullets.TryGetValue(typeID, out bullet);
         }
 
 
@@ -44,6 +53,9 @@ namespace TD {
             towers.Add(tower.typeID, tower);
         }
 
+        public void Bullet_Add(BulletTM bullet) {
+            bullets.Add(bullet.typeID, bullet);
+        }
 
     }
 }

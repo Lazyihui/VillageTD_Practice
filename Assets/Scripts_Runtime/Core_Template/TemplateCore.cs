@@ -46,6 +46,21 @@ namespace TD {
 
                 ctx.templateCore.ctx.towerPtr = handle;
             }
+            {
+                AssetLabelReference labelReference = new AssetLabelReference();
+
+                labelReference.labelString = "So_Bullet";
+                var handle = Addressables.LoadAssetsAsync<BulletSO>(labelReference, null);
+
+                var all = await handle.Task;
+
+                foreach (var so in all) {
+                    var tm = so.tm;
+                    ctx.templateCore.ctx.Bullet_Add(tm);
+                }
+
+                ctx.templateCore.ctx.bulletPtr = handle;
+            }
         }
 
         public void UnLoadAll() {
@@ -55,6 +70,10 @@ namespace TD {
 
             if (ctx.towerPtr.IsValid()) {
                 Addressables.Release(ctx.towerPtr);
+            }
+
+            if (ctx.bulletPtr.IsValid()) {
+                Addressables.Release(ctx.bulletPtr);
             }
         }
 

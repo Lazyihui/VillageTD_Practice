@@ -24,12 +24,16 @@ namespace TD {
             entity.Move(dt);
         }
 
+        public static void ShootBullet(RoleEntity entity, float dt) {
+
+        }
+
         // mst
 
         public static void MstMove(RoleEntity entity, float dt) {
             entity.transform.position -= new Vector3(entity.moveSpeed * dt, 0, 0);
         }
 
-        
+
     }
 }
