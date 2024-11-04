@@ -7,7 +7,7 @@ namespace TD {
     public class MapGripElement : MonoBehaviour {
         public int stageID;
 
-        [SerializeField] Tilemap tile;
+        [SerializeField] public Tilemap tile;
 
         public void GetPos(out Vector3Int pos) {
             pos = tile.WorldToCell(transform.position);

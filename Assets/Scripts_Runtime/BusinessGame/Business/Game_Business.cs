@@ -68,7 +68,13 @@ namespace TD {
             }
 
             MapEntity map = ctx.Map_GetStage();
-            MapDomain.GetTileTreePos(map.treeTile, out Vector3Int pos);
+            // MapDomain.GetTileTreePos(map.treeTile, out Vector3Int pos);
+            HashSet<Vector2Int> tilePosHashSet = MapDomain.GetTilePos(map.treeTile.tile);
+            foreach (Vector2Int pos in tilePosHashSet) {
+                Debug.Log("Tree pos: " + pos);
+            }
+
+
         }
 
         static void LastTick(GameContext ctx, float dt) {

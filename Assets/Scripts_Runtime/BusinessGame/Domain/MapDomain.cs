@@ -1,4 +1,6 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -17,7 +19,22 @@ namespace TD {
             treeTile.GetPos(out pos);
 
             Debug.Log("Tree pos: " + pos);
+        }
 
+        public static HashSet<Vector2Int> GetTilePos(Tilemap tile) {
+            var bound = tile.cellBounds;
+            var tilePosHashSet = new HashSet<Vector2Int>();
+            foreach (var pos in bound.allPositionsWithin) {
+
+                var sprite = tile.GetSprite(pos);
+                if (sprite != null) {
+                    Vector2Int tilepos = new Vector2Int(pos.x, pos.y);
+                    tilePosHashSet.Add(tilepos);
+                    }
+                // tilePosHashSet.Add(new Vector2Int(pos.x, pos.y));
+            }
+
+            return tilePosHashSet;
         }
     }
 }
