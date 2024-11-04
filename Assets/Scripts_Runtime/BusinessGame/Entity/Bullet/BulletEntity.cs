@@ -11,8 +11,10 @@ namespace TD{
 
         public float moveSpeed;
 
-        public void Ctor() {
+        public float attackRange;
 
+        public void Ctor() {
+            attackRange = 3;
         }
 
         public void SetPos(Vector2 pos) {

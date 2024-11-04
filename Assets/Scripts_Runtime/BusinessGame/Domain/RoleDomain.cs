@@ -36,6 +36,7 @@ namespace TD {
             entity.transform.position -= new Vector3(entity.moveSpeed * dt, 0, 0);
         }
 
+       
 
     }
 }

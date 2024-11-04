@@ -28,6 +28,10 @@ namespace TD {
 
         }
 
+        public void SetRbMass(float mass) {
+            rb.mass = mass;
+        }
+
         public void SetPos(Vector3 pos) {
             transform.position = pos;
         }

@@ -13,6 +13,8 @@ namespace TD {
 
         public float moveSpeed;
 
+        public float rbMass;
+    
         [Header("Role")]
         public float attackSpeed;
 
@@ -21,6 +23,9 @@ namespace TD {
         public GameObject modPrefab;
 
         public Sprite sp;
+
+    
+
 
 
     }

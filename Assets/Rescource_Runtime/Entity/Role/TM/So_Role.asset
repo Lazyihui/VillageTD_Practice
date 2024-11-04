@@ -16,5 +16,8 @@ MonoBehaviour:
     typeName: Role
     typeID: 0
     moveSpeed: 5.5
+    rbMass: 1
+    attackSpeed: 0
+    attackRange: 0
     modPrefab: {fileID: 1638388728904251285, guid: f7088182708682a418b58aab1c748497, type: 3}
     sp: {fileID: 21300000, guid: cbac0add924421f4bb2b5fd3e3766d55, type: 3}

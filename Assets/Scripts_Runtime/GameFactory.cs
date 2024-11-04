@@ -18,8 +18,9 @@ namespace TD {
 
 
             entity.Ctor();
-            
+
             entity.moveSpeed = tm.moveSpeed;
+            entity.SetRbMass(tm.rbMass);
 
             // 要改
             entity.SetPos(pos);

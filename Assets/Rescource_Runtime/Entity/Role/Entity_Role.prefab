@@ -78,6 +78,8 @@ MonoBehaviour:
   id: 0
   typeID: 0
   moveSpeed: 0
+  attackHurt: 0
+  attackRange: 0
 --- !u!1 &7004131213781505533
 GameObject:
   m_ObjectHideFlags: 0
