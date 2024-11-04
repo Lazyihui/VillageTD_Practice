@@ -2,12 +2,10 @@ using System;
 using UnityEngine;
 
 
-namespace TD
-{
+namespace TD {
 
 
-    public class GameEntity
-    {
+    public class GameEntity {
 
         public float restFixTime;
 
@@ -17,13 +15,15 @@ namespace TD
 
         public int stageID;
 
+        public int treeRecordID;
+
         public GameState state;
-        public GameEntity()
-        {
+        public GameEntity() {
             restFixTime = 0;
             ownerID = 0;
             towerRecordID = 0;
             stageID = 0;
+            treeRecordID = 0;
             state = GameState.Login;
         }
     }

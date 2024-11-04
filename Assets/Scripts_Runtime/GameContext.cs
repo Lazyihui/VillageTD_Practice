@@ -34,6 +34,8 @@ namespace TD {
 
         public MapRepository mapRepository;
 
+        public TreeRepository treeRepository;
+
 
         public GameContext() {
 
@@ -50,6 +52,7 @@ namespace TD {
             roleRepository = new RoleRepository();
             towerRepository = new TowerRepository();
             mapRepository = new MapRepository();
+            treeRepository = new TreeRepository();
 
         }
 

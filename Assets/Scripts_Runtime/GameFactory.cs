@@ -60,5 +60,19 @@ namespace TD {
 
             return map;
         }
+
+        public static TreeEntity Tree_Create(GameContext ctx, Vector2Int pos, int typeID) {
+            TreeEntity entity = new TreeEntity();
+
+            entity.pos = pos;
+            entity.id = ctx.gameEntity.treeRecordID++;
+            entity.typeID = typeID;
+
+            return entity;
+
+
+
+
+        }
     }
 }
