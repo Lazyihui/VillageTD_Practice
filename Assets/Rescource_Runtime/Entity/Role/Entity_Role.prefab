@@ -74,6 +74,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 956352902714580615}
+  sp: {fileID: 1177170841868753582}
   id: 0
   typeID: 0
   moveSpeed: 0

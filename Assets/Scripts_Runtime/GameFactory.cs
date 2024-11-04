@@ -8,13 +8,22 @@ namespace TD {
 
         // Entity
 
-        public static RoleEntity Role_Create(GameContext ctx, int typeID) {
+        public static RoleEntity Role_Create(GameContext ctx, int typeID, Vector3 pos) {
             RoleTM tm;
             bool has = ctx.templateCore.ctx.Role_TryGet(typeID, out tm);
             GameObject prefab = ctx.assetsCore.Entity_GetRole();
             GameObject go = GameObject.Instantiate(prefab);
             RoleEntity entity = go.GetComponent<RoleEntity>();
+            entity.id = ctx.gameEntity.mstroleRecordID++;
+
+
             entity.Ctor();
+
+            // 要改
+            entity.SetPos(pos);
+
+            entity.SetSprite(tm.sp);
+            // 
             entity.typeID = tm.typeID;
             return entity;
         }

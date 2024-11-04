@@ -17,14 +17,29 @@ namespace TD {
 
         public int treeRecordID;
 
+        public int mstroleRecordID;
+
         public GameState state;
+
+
+
+        //  暂时这样写  后面用Cave代替
+        public float caveSpawnTime;
+
+        public float caveSpawnInterval;
         public GameEntity() {
             restFixTime = 0;
             ownerID = 0;
             towerRecordID = 0;
             stageID = 0;
             treeRecordID = 0;
+            mstroleRecordID = 0;
             state = GameState.Login;
+
+
+
+            caveSpawnTime = 0;
+            caveSpawnInterval = 3;
         }
     }
 }

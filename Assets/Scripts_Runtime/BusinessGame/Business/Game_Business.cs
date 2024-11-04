@@ -13,7 +13,7 @@ namespace TD {
             MapEntity map = MapDomain.Spawn(ctx, 1);
 
 
-            RoleEntity owner = RoleDomain.Spawn(ctx, 1);
+            RoleEntity owner = RoleDomain.Spawn(ctx, RoleConst.Role, new Vector2(0, 0));
             ctx.gameEntity.ownerID = owner.id;
 
             TowerDoamin.Spawn(ctx, TowerConst.BaseTower);
@@ -80,7 +80,19 @@ namespace TD {
             }
 
 
+            SpawnMst(ctx, dt);
 
+
+        }
+        // 要改
+        static void SpawnMst(GameContext ctx, float dt) {
+
+            ctx.gameEntity.caveSpawnTime += dt;
+            if (ctx.gameEntity.caveSpawnTime >= ctx.gameEntity.caveSpawnInterval) {
+                ctx.gameEntity.caveSpawnTime = 0;
+                RoleDomain.Spawn(ctx, RoleConst.Monster, new Vector2(17, 0));
+
+            }
         }
 
         static void LastTick(GameContext ctx, float dt) {

@@ -6,9 +6,9 @@ namespace TD {
 
     public static class RoleDomain {
 
-        public static RoleEntity Spawn(GameContext ctx, int typeID) {
+        public static RoleEntity Spawn(GameContext ctx, int typeID, Vector2 pos) {
 
-            RoleEntity entity = GameFactory.Role_Create(ctx, typeID);
+            RoleEntity entity = GameFactory.Role_Create(ctx, typeID, pos);
 
             ctx.roleRepository.Add(entity);
 

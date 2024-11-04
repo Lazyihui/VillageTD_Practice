@@ -8,6 +8,7 @@ namespace TD {
     public class RoleEntity : MonoBehaviour {
 
         [SerializeField] Rigidbody2D rb;
+        [SerializeField] SpriteRenderer sp;
 
         public int id;
 
@@ -33,6 +34,10 @@ namespace TD {
 
         public void Set_MoveAxis(Vector2 moveAxis) {
             inputCom.moveAxis = moveAxis;
+        }
+
+        public void SetSprite(Sprite sp) {
+            this.sp.sprite = sp;
         }
 
 

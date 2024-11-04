@@ -14,6 +14,8 @@ namespace TD {
 
         public GameObject modPrefab;
 
+        public Sprite sp;
+
 
     }
 
