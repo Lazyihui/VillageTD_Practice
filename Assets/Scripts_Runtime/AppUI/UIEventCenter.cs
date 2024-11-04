@@ -10,7 +10,15 @@ public class UIEventCenter {
 
     public void OnLoginClick() {
         if (OnLoginClickHandle != null) {
-            OnLoginClickHandle();
+            OnLoginClickHandle.Invoke();
+        }
+    }
+
+    public Action OnHatChetClickHandle;
+
+    public void OnHatChetClick() {
+        if (OnHatChetClickHandle != null) {
+            OnHatChetClickHandle.Invoke();
         }
     }
 }

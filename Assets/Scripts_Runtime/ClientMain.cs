@@ -24,7 +24,7 @@ namespace TD {
             ctx = new GameContext();
             Canvas screenCanvas = GameObject.Find("ScreenCanvas").GetComponent<Canvas>();
 
-            ctx.InJect(screenCanvas, mainCamera );
+            ctx.InJect(screenCanvas, mainCamera);
             Action action = async () => {
 
                 await ctx.assetsCore.LoadAll();
@@ -48,6 +48,11 @@ namespace TD {
                 ctx.appUI.Panel_Login_Close(ctx);
                 Game_Business.Enter(ctx);
                 ctx.gameEntity.state = GameState.Game;
+            };
+
+            eventCenter.OnHatChetClickHandle += () => {
+                Debug.Log("打开斧头面板");
+                Debug.Log("OnHatChetClickHandle");
             };
 
 
@@ -88,7 +93,7 @@ namespace TD {
             isTearDown = true;
 
             ctx.assetsCore.UnLoadAll();
-            ctx.templateCore.UnLoadAll();   
+            ctx.templateCore.UnLoadAll();
         }
     }
 }

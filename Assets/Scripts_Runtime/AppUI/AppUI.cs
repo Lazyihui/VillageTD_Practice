@@ -28,7 +28,7 @@ namespace TD {
 
                 panel.Ctor();
 
-                panel.OnLoginClick += () => {
+                panel.OnLoginClickHandle += () => {
 
                     ctx.appUI.eventCenter.OnLoginClick();
 
@@ -42,11 +42,33 @@ namespace TD {
 
         public void Panel_Login_Close(GameContext ctx) {
             Panel_Login panel = ctx.appUI.ctx.panel_Login;
-            if(panel == null){
+            if (panel == null) {
                 return;
             }
 
             panel.TearDown();
+
+        }
+
+        public void Panel_Manifaset_Open(GameContext ctx) {
+            Panel_Manifast panel = ctx.appUI.ctx.panel_Manifast;
+
+            if (panel == null) {
+
+                GameObject prefab = ctx.assetsCore.Panel_GetManifast();
+
+                GameObject go = GameObject.Instantiate(prefab, ctx.screenCanvas.transform);
+                panel = go.GetComponent<Panel_Manifast>();
+
+                panel.Ctor();
+
+                panel.OnHatChetClickHandle += () => {
+                    ctx.appUI.eventCenter.OnHatChetClick();
+                };
+
+            }
+            ctx.appUI.ctx.panel_Manifast = panel;
+            panel.Show();
 
         }
 

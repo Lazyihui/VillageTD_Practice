@@ -82,6 +82,11 @@ namespace TD {
             return panel;
         }
 
+        public GameObject Panel_GetManifast() {
+            panels.TryGetValue("Panel_Manifast", out GameObject panel);
+            return panel;
+        }
+
         // map
 
         public GameObject Entity_GetMap() {

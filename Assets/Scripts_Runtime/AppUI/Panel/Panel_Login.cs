@@ -11,13 +11,13 @@ namespace TD {
         [SerializeField] Button btn_Login;
 
 
-        public Action OnLoginClick;
+        public Action OnLoginClickHandle;
 
         public void Ctor() {
 
             btn_Login.onClick.AddListener(() => {
-                if (OnLoginClick != null) {
-                    OnLoginClick.Invoke();
+                if (OnLoginClickHandle != null) {
+                    OnLoginClickHandle.Invoke();
                 }
             });
 

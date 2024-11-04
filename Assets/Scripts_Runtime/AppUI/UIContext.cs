@@ -9,6 +9,8 @@ namespace TD {
 
         public Panel_Login panel_Login;
 
+        public Panel_Manifast panel_Manifast;
+
 
         public UIContext() {
 

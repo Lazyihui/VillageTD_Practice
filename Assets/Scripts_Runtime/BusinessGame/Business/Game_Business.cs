@@ -27,6 +27,8 @@ namespace TD {
 
             int len = ctx.treeRepository.TakeAll(out TreeEntity[] trees);
 
+            // panel
+            ctx.appUI.Panel_Manifaset_Open(ctx);
 
         }
 
