@@ -27,10 +27,7 @@ namespace TD {
 
             int len = ctx.treeRepository.TakeAll(out TreeEntity[] trees);
 
-            for(int i=0;i<len;i++){
-                TreeEntity tree = trees[i];
-                Debug.Log(tree.pos);
-            }
+
         }
 
 
