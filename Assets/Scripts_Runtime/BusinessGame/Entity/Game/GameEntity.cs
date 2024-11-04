@@ -39,7 +39,7 @@ namespace TD {
 
 
             caveSpawnTime = 0;
-            caveSpawnInterval = 3;
+            caveSpawnInterval = 4;
         }
     }
 }

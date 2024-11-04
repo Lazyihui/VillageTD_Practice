@@ -15,6 +15,7 @@ namespace TD {
             return entity;
         }
 
+        // Role
         public static void Set_MoveAxis(RoleEntity entity, Vector2 moveAxis) {
             entity.Set_MoveAxis(moveAxis);
         }
@@ -22,5 +23,13 @@ namespace TD {
         public static void Move(RoleEntity entity, float dt) {
             entity.Move(dt);
         }
+
+        // mst
+
+        public static void MstMove(RoleEntity entity, float dt) {
+            entity.transform.position -= new Vector3(entity.moveSpeed * dt, 0, 0);
+        }
+
+        
     }
 }

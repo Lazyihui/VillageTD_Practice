@@ -19,7 +19,6 @@ namespace TD {
         public RoleInputComponent inputCom;
 
         public void Ctor() {
-            moveSpeed = 5.5f;
         }
 
         public void SetPos(Vector3 pos) {

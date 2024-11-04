@@ -70,8 +70,19 @@ namespace TD {
 
         static void LogicTick(GameContext ctx, float dt) {
             RoleEntity owner = ctx.Role_GetOwner();
-
             RoleDomain.Move(owner, dt);
+
+
+            int lenMst = ctx.roleRepository.TakeAll(out RoleEntity[] msts);
+            for (int i = 0; i < lenMst; i++) {
+                RoleEntity mst = msts[i];
+                if (mst.typeID == RoleConst.Role) {
+                    continue;
+                }
+                RoleDomain.MstMove(mst, dt);
+
+            }
+
 
             int lenTower = ctx.towerRepository.TakeAll(out TowerEntity[] towers);
             for (int i = 0; i < lenTower; i++) {
@@ -89,6 +100,7 @@ namespace TD {
 
             ctx.gameEntity.caveSpawnTime += dt;
             if (ctx.gameEntity.caveSpawnTime >= ctx.gameEntity.caveSpawnInterval) {
+
                 ctx.gameEntity.caveSpawnTime = 0;
                 RoleDomain.Spawn(ctx, RoleConst.Monster, new Vector2(17, 0));
 

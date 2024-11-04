@@ -11,6 +11,8 @@ namespace TD {
 
         public int typeID;
 
+        public float moveSpeed;
+
 
         public GameObject modPrefab;
 

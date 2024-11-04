@@ -15,5 +15,6 @@ MonoBehaviour:
   tm:
     typeName: Mst1
     typeID: 1
+    moveSpeed: 1.5
     modPrefab: {fileID: 1638388728904251285, guid: f7088182708682a418b58aab1c748497, type: 3}
     sp: {fileID: 21300000, guid: 2471ca9f26dc2584684f9f0110db96dc, type: 3}

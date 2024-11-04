@@ -25,7 +25,7 @@ namespace TD {
 
         public void SetCollider() {
             if(typeID==TowerConst.BaseTower){
-                colli.enabled = false;
+               colli.isTrigger = true;
             }
         }
 
