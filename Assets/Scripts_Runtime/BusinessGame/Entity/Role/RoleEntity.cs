@@ -15,10 +15,17 @@ namespace TD {
         public int typeID;
         public float moveSpeed;
 
+        public float attackHurt;
+
+        public float attackRange;
+
 
         public RoleInputComponent inputCom;
 
         public void Ctor() {
+            attackRange = 3;
+            attackHurt = 1;
+
         }
 
         public void SetPos(Vector3 pos) {

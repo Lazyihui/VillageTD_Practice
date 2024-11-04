@@ -13,6 +13,10 @@ namespace TD {
 
         public float moveSpeed;
 
+        [Header("Role")]
+        public float attackSpeed;
+
+        public float attackRange;
 
         public GameObject modPrefab;
 

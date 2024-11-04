@@ -71,6 +71,7 @@ namespace TD {
         static void LogicTick(GameContext ctx, float dt) {
             RoleEntity owner = ctx.Role_GetOwner();
             RoleDomain.Move(owner, dt);
+            RoleDomain.ShootBullet(ctx, owner, dt);
 
 
             int lenMst = ctx.roleRepository.TakeAll(out RoleEntity[] msts);

@@ -24,8 +24,10 @@ namespace TD {
             entity.Move(dt);
         }
 
-        public static void ShootBullet(RoleEntity entity, float dt) {
-
+        public static void ShootBullet(GameContext ctx, RoleEntity entity, float dt) {
+            if (Input.GetMouseButtonDown(0)) {
+                BulletEntity bullet = GameFactory.Bullet_Create(ctx, 0, entity.transform.position);
+            }
         }
 
         // mst
