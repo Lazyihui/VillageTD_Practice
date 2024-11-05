@@ -18,6 +18,10 @@ namespace TD {
         public int typeID;
         public float moveSpeed;
 
+        public float hp;
+
+        public float maxHp;
+
         public float attackHurt;
 
         public float attackRange;
@@ -83,5 +87,13 @@ namespace TD {
         public void TearDown() {
             Destroy(gameObject);
         }
+
+        // void OnCollisionEnter2D(Collision2D other) {
+        //     if (other.gameObject.tag == "Mst") {
+        //         Debug.Log("RoleEntity OnCollisionEnter2D");
+        //     }
+
+        //     Debug.Log(",,,,,ssssssss");
+        // }
     }
 }

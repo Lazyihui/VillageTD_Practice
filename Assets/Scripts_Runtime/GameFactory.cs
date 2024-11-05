@@ -21,6 +21,9 @@ namespace TD {
             entity.SetCircleActive();
 
             entity.moveSpeed = tm.moveSpeed;
+            entity.hp = tm.hp;
+            entity.maxHp = tm.maxHp;
+
             entity.SetRbMass(tm.rbMass);
             entity.SetTag(tm.tag);
 

@@ -161,10 +161,12 @@ MonoBehaviour:
   rb: {fileID: 956352902714580615}
   sp: {fileID: 1177170841868753582}
   circle: {fileID: 2444858370223707961}
-  go: {fileID: 6643579047488269225}
+  go: {fileID: 7167754087257723651}
   id: 0
   typeID: 0
   moveSpeed: 0
+  hp: 0
+  maxHp: 0
   attackHurt: 0
   attackRange: 0
   shootInterval: 0
@@ -265,7 +267,7 @@ GameObject:
   - component: {fileID: 7211301249026298205}
   m_Layer: 0
   m_Name: Body
-  m_TagString: Untagged
+  m_TagString: Mst
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -12,12 +12,35 @@ namespace TD {
 
             BulletEntity entity = GameFactory.Bullet_Create(ctx, typeID, pos);
 
+            entity.onTriggerEnter = (Collider2D other) => {
+
+                BulletTrigger2D(other, ctx, entity);
+            };
+
             ctx.bulletRepository.Add(entity);
 
             return entity;
 
         }
-        
+
+
+        static void BulletTrigger2D(Collider2D other, GameContext ctx, BulletEntity entity) {
+
+            if (other.gameObject.tag == "Mst") {
+                Debug.Log(other.gameObject.name);
+
+                RoleEntity mst = other.gameObject.GetComponentInParent<RoleEntity>();
+                mst.hp -= 1;
+                if (mst.hp <= 0) {
+                    RoleDomain.UnSpawn(ctx, mst);
+                }
+                UnSpawn(ctx, entity);
+
+            }
+
+        }
+
+
         public static void UnSpawn(GameContext ctx, BulletEntity entity) {
             ctx.bulletRepository.Remove(entity);
             entity.TearDown();

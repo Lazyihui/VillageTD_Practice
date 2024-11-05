@@ -15,6 +15,12 @@ namespace TD {
             return entity;
         }
 
+
+        public static void UnSpawn(GameContext ctx, RoleEntity entity) {
+            ctx.roleRepository.Remove(entity);
+            entity.TearDown();
+        }
+
         // Role
         public static void Set_MoveAxis(RoleEntity entity, Vector2 moveAxis) {
             entity.Set_MoveAxis(moveAxis);
