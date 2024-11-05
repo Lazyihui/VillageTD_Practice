@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tm:
     typeName: Role
+    tag: Role
     typeID: 0
     moveSpeed: 5.5
     rbMass: 1

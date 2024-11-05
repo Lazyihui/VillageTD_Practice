@@ -17,6 +17,11 @@ namespace TD {
             return entity;
 
         }
+        
+        public static void UnSpawn(GameContext ctx, BulletEntity entity) {
+            ctx.bulletRepository.Remove(entity);
+            entity.TearDown();
+        }
 
         public static void FindNearest(GameContext ctx, BulletEntity entity, float dt) {
 
@@ -51,6 +56,7 @@ namespace TD {
             dir.Normalize();
             blt.transform.position += new Vector3(dir.x * dt, dir.y * dt, 0);
         }
+
 
 
     }

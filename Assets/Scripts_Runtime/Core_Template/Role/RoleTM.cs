@@ -9,6 +9,7 @@ namespace TD {
     public class RoleTM {
         public string typeName;
 
+        public string tag;
         public int typeID;
 
         public float moveSpeed;

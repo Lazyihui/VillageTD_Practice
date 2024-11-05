@@ -22,6 +22,7 @@ namespace TD {
 
             entity.moveSpeed = tm.moveSpeed;
             entity.SetRbMass(tm.rbMass);
+            entity.SetTag(tm.tag);
 
             // 要改
             entity.SetPos(pos);

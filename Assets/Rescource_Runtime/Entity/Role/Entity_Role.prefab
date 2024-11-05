@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8940631260797778599}
   m_Layer: 0
   m_Name: Circle
-  m_TagString: Untagged
+  m_TagString: Mst
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 1029799999660708733}
   m_Layer: 0
   m_Name: Entity_Role
-  m_TagString: Untagged
+  m_TagString: Mst
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -161,11 +161,14 @@ MonoBehaviour:
   rb: {fileID: 956352902714580615}
   sp: {fileID: 1177170841868753582}
   circle: {fileID: 2444858370223707961}
+  go: {fileID: 6643579047488269225}
   id: 0
   typeID: 0
   moveSpeed: 0
   attackHurt: 0
   attackRange: 0
+  shootInterval: 0
+  shootTimer: 0
 --- !u!1 &7004131213781505533
 GameObject:
   m_ObjectHideFlags: 0

@@ -15,6 +15,8 @@ namespace TD {
 
         public Vector3 targetPos;
 
+        public Action<Collider2D> onTriggerEnter;
+
         public void Ctor() {
             attackRange = 3;
         }
@@ -28,6 +30,15 @@ namespace TD {
             Destroy(gameObject);
         }
 
-        
+        void OnTriggerEnter2D(Collider2D other) {
+            onTriggerEnter?.Invoke(other);
+            if (other.tag == "Mst") {
+                Debug.Log("BulletEntity OnTriggerEnter2D");
+            }else{
+                Debug.Log("ggggg");
+
+            }
+            Debug.Log(",,,,,");
+        }
     }
 }

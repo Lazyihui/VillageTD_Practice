@@ -11,6 +11,8 @@ namespace TD {
         [SerializeField] SpriteRenderer sp;
         [SerializeField] GameObject circle;
 
+        [SerializeField] GameObject go;
+
         public int id;
 
         public int typeID;
@@ -35,6 +37,10 @@ namespace TD {
             shootInterval = 2;
             shootTimer = 2;
 
+        }
+
+        public void SetTag(string tag) {
+            go.tag = tag;
         }
 
         public void SetRbMass(float mass) {
