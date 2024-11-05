@@ -25,10 +25,32 @@ namespace TD {
         }
 
         public static void ShootBullet(GameContext ctx, RoleEntity entity, float dt) {
-            if (Input.GetMouseButtonDown(0)) {
-                BulletEntity bullet = GameFactory.Bullet_Create(ctx, 0, entity.transform.position);
+            entity.shootTimer += dt;
+            if (entity.shootTimer >= entity.shootInterval) {
+                entity.shootTimer = 0;
+                BulletDomain.Spawm(ctx, 0, entity.transform.position);
             }
         }
+        public static void SpawnBullet(GameContext ctx, RoleEntity role, float dt) {
+
+            int len = ctx.roleRepository.TakeAll(out RoleEntity[] msts);
+
+            for (int i = 0; i < len; i++) {
+                RoleEntity mst = msts[i];
+                if (mst.typeID == RoleConst.Role) {
+                } else {
+
+                    float distance = Vector2.Distance(mst.transform.position, role.transform.position);
+
+                    if (distance < role.attackRange) {
+                        ShootBullet(ctx, role, dt);
+                    }
+                }
+            }
+
+          
+        }
+
 
         // mst
 
@@ -36,7 +58,7 @@ namespace TD {
             entity.transform.position -= new Vector3(entity.moveSpeed * dt, 0, 0);
         }
 
-       
+
 
     }
 }

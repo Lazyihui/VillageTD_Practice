@@ -20,12 +20,20 @@ namespace TD {
 
         public float attackRange;
 
+        // 发射子弹的时间间隔
+        public float shootInterval;
+
+        public float shootTimer;
+
 
         public RoleInputComponent inputCom;
 
         public void Ctor() {
-            attackRange = 3;
+            attackRange = 4;
             attackHurt = 1;
+
+            shootInterval = 2;
+            shootTimer = 2;
 
         }
 

@@ -94,6 +94,7 @@ namespace TD {
             BulletEntity entity = go.GetComponent<BulletEntity>();
             entity.Ctor();
             entity.id = ctx.gameEntity.bulletRecordID++;
+            entity.typeID = tm.typeID;
 
             entity.SetPos(pos);
             entity.moveSpeed = tm.moveSpeed;

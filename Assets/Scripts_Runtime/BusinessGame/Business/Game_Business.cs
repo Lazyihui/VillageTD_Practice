@@ -71,7 +71,7 @@ namespace TD {
         static void LogicTick(GameContext ctx, float dt) {
             RoleEntity owner = ctx.Role_GetOwner();
             RoleDomain.Move(owner, dt);
-            RoleDomain.ShootBullet(ctx, owner, dt);
+            RoleDomain.SpawnBullet(ctx, owner, dt);
 
 
             int lenMst = ctx.roleRepository.TakeAll(out RoleEntity[] msts);
@@ -90,6 +90,14 @@ namespace TD {
                 TowerEntity tower = towers[i];
                 TowerDoamin.SetCollider(tower);
             }
+
+            int lenBullet = ctx.bulletRepository.TakeAll(out BulletEntity[] bullets);
+
+            for (int i = 0; i < lenBullet; i++) {
+                BulletEntity bullet = bullets[i];
+                BulletDomain.FindNearest(ctx, bullet, dt);
+            }
+            
 
 
             SpawnMst(ctx, dt);
