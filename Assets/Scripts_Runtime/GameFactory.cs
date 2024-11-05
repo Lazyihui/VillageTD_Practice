@@ -15,9 +15,10 @@ namespace TD {
             GameObject go = GameObject.Instantiate(prefab);
             RoleEntity entity = go.GetComponent<RoleEntity>();
             entity.id = ctx.gameEntity.mstroleRecordID++;
-
+            entity.typeID = tm.typeID;
 
             entity.Ctor();
+            entity.SetCircleActive();
 
             entity.moveSpeed = tm.moveSpeed;
             entity.SetRbMass(tm.rbMass);

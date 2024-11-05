@@ -9,6 +9,7 @@ namespace TD {
 
         [SerializeField] Rigidbody2D rb;
         [SerializeField] SpriteRenderer sp;
+        [SerializeField] GameObject circle;
 
         public int id;
 
@@ -50,7 +51,13 @@ namespace TD {
             this.sp.sprite = sp;
         }
 
-
+        public void SetCircleActive() {
+            if (typeID == RoleConst.Role) {
+                circle.SetActive(true);
+            } else {
+                circle.SetActive(false);
+            }
+        }
 
         public void TF_SetPostion(Vector3 pos) {
             transform.position = pos;
