@@ -12,7 +12,7 @@ namespace TD {
 
         [SerializeField] Panel_ManifastElment treeTower;
 
-        [SerializeField] Panel_ManifastElment tower;
+        [SerializeField] Panel_ManifastElment arrowTower;
 
         [SerializeField] Button btnHatChet;
 
