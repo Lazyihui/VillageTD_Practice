@@ -18,6 +18,8 @@ namespace TD {
 
         public int maxHp;
 
+        public Vector2Int gridPos;
+
 
         public void Ctor() {
 

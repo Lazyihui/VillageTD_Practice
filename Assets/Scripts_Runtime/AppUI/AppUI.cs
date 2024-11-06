@@ -59,17 +59,14 @@ namespace TD {
 
                 GameObject go = GameObject.Instantiate(prefab, ctx.screenCanvas.transform);
                 panel = go.GetComponent<Panel_Manifast>();
-
                 panel.Ctor();
-
-                panel.OnHatChetClickHandle += () => {
-                    ctx.appUI.eventCenter.OnHatChetClick();
-                };
+                // panel.OnHatChetClickHandle += () => {
+                //     ctx.appUI.eventCenter.OnHatChetClick();
+                // };
 
             }
             ctx.appUI.ctx.panel_Manifast = panel;
             panel.Show();
-
         }
 
     }

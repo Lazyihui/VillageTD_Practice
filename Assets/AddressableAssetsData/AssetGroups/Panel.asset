@@ -23,8 +23,14 @@ MonoBehaviour:
     m_SerializedLabels:
     - Panel
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 21090af8db079114fb83ed5ca6ae0e7e
+    m_Address: Panel_MainifastElement
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Panel
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 26d759b1406bba24c9122c43e819a272
-    m_Address: Panel_TowerManifast
+    m_Address: Panel_Manifast
     m_ReadOnly: 0
     m_SerializedLabels:
     - Panel

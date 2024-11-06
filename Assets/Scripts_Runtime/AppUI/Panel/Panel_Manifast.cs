@@ -7,23 +7,29 @@ namespace TD {
 
     public class Panel_Manifast : MonoBehaviour {
 
-        [SerializeField] Button btnHatChet;
 
-        public Action OnHatChetClickHandle;
+        [SerializeField] Transform group;
+
+        [SerializeField] Panel_ManifastElment prefabEle;
+
 
 
         public void Ctor() {
 
-            btnHatChet.onClick.AddListener(() => {
-                if (OnHatChetClickHandle != null) {
-                    OnHatChetClickHandle.Invoke();
-                }
-            });
-
-
         }
 
-        public void Show(){
+
+        public void AddElment(int typeID, Image image) {
+            Panel_ManifastElment ele = GameObject.Instantiate(prefabEle, group);
+            ele.Ctor();
+            ele.typeID = typeID;
+            ele.SetImage(image);
+            ele.OnHatChetClickHandle += () => {
+                Debug.Log("HatChet Click");
+            };
+        }
+
+        public void Show() {
             gameObject.SetActive(true);
         }
     }

@@ -27,7 +27,6 @@ namespace TD {
         static void BulletTrigger2D(Collider2D other, GameContext ctx, BulletEntity entity) {
 
             if (other.gameObject.tag == "Mst") {
-                Debug.Log(other.gameObject.name);
 
                 RoleEntity mst = other.gameObject.GetComponentInParent<RoleEntity>();
                 mst.hp -= 1;
