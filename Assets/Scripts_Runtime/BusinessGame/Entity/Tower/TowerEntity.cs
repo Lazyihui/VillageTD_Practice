@@ -33,6 +33,10 @@ namespace TD {
 
         }
 
+        public void SetPos(Vector3 pos) {
+            transform.position = pos;
+        }
+
         public void SetCollider() {
             if (typeID == TowerConst.BaseTower) {
                 colli.isTrigger = true;

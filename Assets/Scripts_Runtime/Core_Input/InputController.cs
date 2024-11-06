@@ -71,6 +71,24 @@ public partial class @InputController: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""MouseLeft"",
+                    ""type"": ""Button"",
+                    ""id"": ""c6053bcb-4e51-4514-b0e3-57711b1fa158"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""MouseRight"",
+                    ""type"": ""Button"",
+                    ""id"": ""15ad3f56-bbc2-4b4c-bd9d-f99f61c622af"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -172,6 +190,28 @@ public partial class @InputController: IInputActionCollection2, IDisposable
                     ""action"": ""Mouse_Pos"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2117ff3b-a9b3-4d86-a0b4-272b6736e1c8"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MouseLeft"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""075d0a7f-a4f9-46c2-b48c-5009d1124a4c"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MouseRight"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -202,6 +242,34 @@ public partial class @InputController: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""New action map"",
+            ""id"": ""4620b138-f9e9-4821-bcc5-78cc53cec761"",
+            ""actions"": [
+                {
+                    ""name"": ""New action"",
+                    ""type"": ""Button"",
+                    ""id"": ""9e3ab02d-5990-4251-be1d-4906a4859e49"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""23bddb1c-ad53-4480-ba2d-e17c8aa275d9"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""New action"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -213,9 +281,14 @@ public partial class @InputController: IInputActionCollection2, IDisposable
         m_World_KB_MoveLeft = m_World.FindAction("KB_MoveLeft", throwIfNotFound: true);
         m_World_KB_MoveRight = m_World.FindAction("KB_MoveRight", throwIfNotFound: true);
         m_World_Mouse_Pos = m_World.FindAction("Mouse_Pos", throwIfNotFound: true);
+        m_World_MouseLeft = m_World.FindAction("MouseLeft", throwIfNotFound: true);
+        m_World_MouseRight = m_World.FindAction("MouseRight", throwIfNotFound: true);
         // New action map1
         m_Newactionmap1 = asset.FindActionMap("New action map1", throwIfNotFound: true);
         m_Newactionmap1_Newaction = m_Newactionmap1.FindAction("New action", throwIfNotFound: true);
+        // New action map
+        m_Newactionmap = asset.FindActionMap("New action map", throwIfNotFound: true);
+        m_Newactionmap_Newaction = m_Newactionmap.FindAction("New action", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -282,6 +355,8 @@ public partial class @InputController: IInputActionCollection2, IDisposable
     private readonly InputAction m_World_KB_MoveLeft;
     private readonly InputAction m_World_KB_MoveRight;
     private readonly InputAction m_World_Mouse_Pos;
+    private readonly InputAction m_World_MouseLeft;
+    private readonly InputAction m_World_MouseRight;
     public struct WorldActions
     {
         private @InputController m_Wrapper;
@@ -291,6 +366,8 @@ public partial class @InputController: IInputActionCollection2, IDisposable
         public InputAction @KB_MoveLeft => m_Wrapper.m_World_KB_MoveLeft;
         public InputAction @KB_MoveRight => m_Wrapper.m_World_KB_MoveRight;
         public InputAction @Mouse_Pos => m_Wrapper.m_World_Mouse_Pos;
+        public InputAction @MouseLeft => m_Wrapper.m_World_MouseLeft;
+        public InputAction @MouseRight => m_Wrapper.m_World_MouseRight;
         public InputActionMap Get() { return m_Wrapper.m_World; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -315,6 +392,12 @@ public partial class @InputController: IInputActionCollection2, IDisposable
             @Mouse_Pos.started += instance.OnMouse_Pos;
             @Mouse_Pos.performed += instance.OnMouse_Pos;
             @Mouse_Pos.canceled += instance.OnMouse_Pos;
+            @MouseLeft.started += instance.OnMouseLeft;
+            @MouseLeft.performed += instance.OnMouseLeft;
+            @MouseLeft.canceled += instance.OnMouseLeft;
+            @MouseRight.started += instance.OnMouseRight;
+            @MouseRight.performed += instance.OnMouseRight;
+            @MouseRight.canceled += instance.OnMouseRight;
         }
 
         private void UnregisterCallbacks(IWorldActions instance)
@@ -334,6 +417,12 @@ public partial class @InputController: IInputActionCollection2, IDisposable
             @Mouse_Pos.started -= instance.OnMouse_Pos;
             @Mouse_Pos.performed -= instance.OnMouse_Pos;
             @Mouse_Pos.canceled -= instance.OnMouse_Pos;
+            @MouseLeft.started -= instance.OnMouseLeft;
+            @MouseLeft.performed -= instance.OnMouseLeft;
+            @MouseLeft.canceled -= instance.OnMouseLeft;
+            @MouseRight.started -= instance.OnMouseRight;
+            @MouseRight.performed -= instance.OnMouseRight;
+            @MouseRight.canceled -= instance.OnMouseRight;
         }
 
         public void RemoveCallbacks(IWorldActions instance)
@@ -397,6 +486,52 @@ public partial class @InputController: IInputActionCollection2, IDisposable
         }
     }
     public Newactionmap1Actions @Newactionmap1 => new Newactionmap1Actions(this);
+
+    // New action map
+    private readonly InputActionMap m_Newactionmap;
+    private List<INewactionmapActions> m_NewactionmapActionsCallbackInterfaces = new List<INewactionmapActions>();
+    private readonly InputAction m_Newactionmap_Newaction;
+    public struct NewactionmapActions
+    {
+        private @InputController m_Wrapper;
+        public NewactionmapActions(@InputController wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Newaction => m_Wrapper.m_Newactionmap_Newaction;
+        public InputActionMap Get() { return m_Wrapper.m_Newactionmap; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(NewactionmapActions set) { return set.Get(); }
+        public void AddCallbacks(INewactionmapActions instance)
+        {
+            if (instance == null || m_Wrapper.m_NewactionmapActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_NewactionmapActionsCallbackInterfaces.Add(instance);
+            @Newaction.started += instance.OnNewaction;
+            @Newaction.performed += instance.OnNewaction;
+            @Newaction.canceled += instance.OnNewaction;
+        }
+
+        private void UnregisterCallbacks(INewactionmapActions instance)
+        {
+            @Newaction.started -= instance.OnNewaction;
+            @Newaction.performed -= instance.OnNewaction;
+            @Newaction.canceled -= instance.OnNewaction;
+        }
+
+        public void RemoveCallbacks(INewactionmapActions instance)
+        {
+            if (m_Wrapper.m_NewactionmapActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(INewactionmapActions instance)
+        {
+            foreach (var item in m_Wrapper.m_NewactionmapActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_NewactionmapActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public NewactionmapActions @Newactionmap => new NewactionmapActions(this);
     public interface IWorldActions
     {
         void OnKB_MoveUp(InputAction.CallbackContext context);
@@ -404,8 +539,14 @@ public partial class @InputController: IInputActionCollection2, IDisposable
         void OnKB_MoveLeft(InputAction.CallbackContext context);
         void OnKB_MoveRight(InputAction.CallbackContext context);
         void OnMouse_Pos(InputAction.CallbackContext context);
+        void OnMouseLeft(InputAction.CallbackContext context);
+        void OnMouseRight(InputAction.CallbackContext context);
     }
     public interface INewactionmap1Actions
+    {
+        void OnNewaction(InputAction.CallbackContext context);
+    }
+    public interface INewactionmapActions
     {
         void OnNewaction(InputAction.CallbackContext context);
     }

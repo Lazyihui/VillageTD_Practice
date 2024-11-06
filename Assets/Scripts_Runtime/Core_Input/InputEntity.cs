@@ -18,6 +18,10 @@ namespace TD {
 
         public Vector2Int mousePositionGrid;
 
+        public bool mouseLeftClick;
+
+        public bool mouseRightClick;
+
         public InputEntity() {
             Player1 = new InputController();
             Player1.Enable();
@@ -47,7 +51,22 @@ namespace TD {
                 // 世界坐标转换为格子坐标
                 mousePositionGrid = new Vector2Int((int)mousePositionWorld.x, (int)mousePositionWorld.y);
             }
+            // mouse click
+            {
+                float left = world.MouseLeft.ReadValue<float>();
+                if (left > 0) {
+                    mouseLeftClick = true;
+                } else {
+                    mouseLeftClick = false;
+                }
+                float right = world.MouseRight.ReadValue<float>();
+                if (right > 0) {
+                    mouseRightClick = true;
+                } else {
+                    mouseRightClick = false;
+                }
 
+            }
         }
     }
 }
