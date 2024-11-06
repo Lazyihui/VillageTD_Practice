@@ -55,6 +55,11 @@ namespace TD {
                 Debug.Log("OnHatChetClickHandle");
             };
 
+            eventCenter.OnTowerClickHandle += () => {
+                Debug.Log("打开塔面板");
+                Debug.Log("OnTowerClickHandle");
+            };
+
 
 
         }
