@@ -10,23 +10,32 @@ namespace TD {
 
         [SerializeField] Transform group;
 
-        [SerializeField] Panel_ManifastElment prefabEle;
+        [SerializeField] Panel_ManifastElment treeTower;
 
+        [SerializeField] Panel_ManifastElment arrowTower;
 
+        [SerializeField] Button btnHatChet;
+
+        public Action OnHatChetClickHandle;
+
+        [SerializeField] Button btnTower;
+
+        public Action OnTowerClickHandle;
 
         public void Ctor() {
 
-        }
+            btnHatChet.onClick.AddListener(() => {
+                if (OnHatChetClickHandle != null) {
+                    OnHatChetClickHandle.Invoke();
+                }
+            });
 
+            btnTower.onClick.AddListener(() => {
+                if (OnTowerClickHandle != null) {
+                    OnTowerClickHandle.Invoke();
+                }
+            });
 
-        public void AddElment(int typeID, Image image) {
-            Panel_ManifastElment ele = GameObject.Instantiate(prefabEle, group);
-            ele.Ctor();
-            ele.typeID = typeID;
-            ele.SetImage(image);
-            ele.OnHatChetClickHandle += () => {
-                Debug.Log("HatChet Click");
-            };
         }
 
         public void Show() {

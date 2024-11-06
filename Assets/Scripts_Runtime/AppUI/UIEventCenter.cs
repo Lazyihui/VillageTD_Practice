@@ -21,4 +21,12 @@ public class UIEventCenter {
             OnHatChetClickHandle.Invoke();
         }
     }
+
+    public Action OnTowerClickHandle;
+
+    public void OnTowerClick() {
+        if (OnTowerClickHandle != null) {
+            OnTowerClickHandle.Invoke();
+        }
+    }
 }

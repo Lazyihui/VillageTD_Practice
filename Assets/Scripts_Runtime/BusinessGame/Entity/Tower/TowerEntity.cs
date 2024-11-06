@@ -20,14 +20,22 @@ namespace TD {
 
         public Vector2Int gridPos;
 
+        // Tower是否启动
+        public bool isLive;
+
 
         public void Ctor() {
+            if (this.typeID == TowerConst.BaseTower) {
+                isLive = true;
+            }
+
+            isLive = false;
 
         }
 
         public void SetCollider() {
-            if(typeID==TowerConst.BaseTower){
-               colli.isTrigger = true;
+            if (typeID == TowerConst.BaseTower) {
+                colli.isTrigger = true;
             }
         }
 

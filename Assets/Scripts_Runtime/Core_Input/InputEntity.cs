@@ -12,6 +12,12 @@ namespace TD {
 
         public Vector2 moveAxis;
 
+        public Vector2 mousePositionScreen;
+
+        public Vector2 mousePositionWorld;
+
+        public Vector2Int mousePositionGrid;
+
         public InputEntity() {
             Player1 = new InputController();
             Player1.Enable();
@@ -33,35 +39,15 @@ namespace TD {
                 moveAxis = pos;
 
             }
+            // mouse
+            {
+                mousePositionScreen = world.Mouse_Pos.ReadValue<Vector2>();
+                // 屏幕坐标转换为世界坐标
+                mousePositionWorld = Camera.main.ScreenToWorldPoint(new Vector3(mousePositionScreen.x, mousePositionScreen.y, 0));
+                // 世界坐标转换为格子坐标
+                mousePositionGrid = new Vector2Int((int)mousePositionWorld.x, (int)mousePositionWorld.y);
+            }
 
-            // - Move
-            // {
-            //     float kbX = world.KB_MoveRight.ReadValue<float>() + world.KB_MoveLeft.ReadValue<float>();
-            //     float kbY = world.KB_MoveUp.ReadValue<float>() + world.KB_MoveDown.ReadValue<float>();
-            //     moveAxis.x = kbX;
-            //     moveAxis.y = kbY;
-            //     if (kbX != 0 || kbY != 0) {
-            //         currentDevice = DEVICE_KB;
-            //     }
-
-            //     float jsX = world.JS_MoveRight.ReadValue<float>().ToOne() + world.JS_MoveLeft.ReadValue<float>().ToOne();
-            //     float jsY = world.JS_MoveUp.ReadValue<float>().ToOne() + world.JS_MoveDown.ReadValue<float>().ToOne();
-            //     moveAxis.x += jsX;
-            //     moveAxis.y += jsY;
-            //     if (jsX != 0 || jsX != 0) {
-            //         currentDevice = DEVICE_JS;
-            //     }
-
-            //     if (world.KB_MoveLeft.WasPerformedThisFrame() || world.JS_MoveLeft.WasPerformedThisFrame()) {
-            //         directionKey = InputKeyFlag.MoveLeft;
-            //     } else if (world.KB_MoveRight.WasPerformedThisFrame() || world.JS_MoveRight.WasPerformedThisFrame()) {
-            //         directionKey = InputKeyFlag.MoveRight;
-            //     } else if (world.KB_MoveUp.WasPerformedThisFrame() || world.JS_MoveUp.WasPerformedThisFrame()) {
-            //         directionKey = InputKeyFlag.MoveUp;
-            //     } else if (world.KB_MoveDown.WasPerformedThisFrame() || world.JS_MoveDown.WasPerformedThisFrame()) {
-            //         directionKey = InputKeyFlag.MoveDown;
-            //     }
-            // }
         }
     }
 }
