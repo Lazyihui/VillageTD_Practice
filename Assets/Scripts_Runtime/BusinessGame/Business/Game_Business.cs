@@ -30,6 +30,8 @@ namespace TD {
             // panel
             ctx.appUI.Panel_Manifaset_Open(ctx);
 
+            ctx.appUI.Panel_ResourceInfo_Open(ctx);
+
         }
 
 

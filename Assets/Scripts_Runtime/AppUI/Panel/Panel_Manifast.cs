@@ -41,5 +41,10 @@ namespace TD {
         public void Show() {
             gameObject.SetActive(true);
         }
+
+        public void TearDown() {
+            
+            gameObject.SetActive(false);
+        }
     }
 }

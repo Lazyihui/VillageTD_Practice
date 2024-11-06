@@ -31,6 +31,9 @@ namespace TD {
 
         public float caveSpawnInterval;
 
+        // 资源
+        public int resCount;
+
         public GameEntity() {
             restFixTime = 0;
             ownerID = 0;

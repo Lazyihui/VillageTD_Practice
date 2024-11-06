@@ -11,6 +11,8 @@ namespace TD {
 
         public Panel_Manifast panel_Manifast;
 
+        public Panel_ResourceInfo panel_ResourceInfo;
+
 
         public UIContext() {
 

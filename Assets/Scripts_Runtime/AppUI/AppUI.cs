@@ -74,5 +74,44 @@ namespace TD {
             panel.Show();
         }
 
+        public void panel_Manifast_Close(GameContext ctx) {
+            Panel_Manifast panel = ctx.appUI.ctx.panel_Manifast;
+            if (panel == null) {
+                return;
+            }
+
+            panel.TearDown();
+        }
+
+        public void Panel_ResourceInfo_Open(GameContext ctx) {
+
+            Panel_ResourceInfo panel = ctx.appUI.ctx.panel_ResourceInfo;
+
+            if (panel == null) {
+                GameObject prefab = ctx.assetsCore.Panel_GetResourceInfo();
+
+                GameObject go = GameObject.Instantiate(prefab, ctx.screenCanvas.transform);
+                panel = go.GetComponent<Panel_ResourceInfo>();
+                panel.Ctor();
+            }
+
+            ctx.appUI.ctx.panel_ResourceInfo = panel;
+            panel.Show();
+        }
+
+        public void Panel_ResourceInfo_Close(GameContext ctx) {
+            Panel_ResourceInfo panel = ctx.appUI.ctx.panel_ResourceInfo;
+            if (panel == null) {
+                return;
+            }
+
+            panel.TearDown();
+        }
+
+
+
+
+
+
     }
 }

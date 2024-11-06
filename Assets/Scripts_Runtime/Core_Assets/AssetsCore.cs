@@ -92,6 +92,11 @@ namespace TD {
             return panel;
         }
 
+        public GameObject Panel_GetResourceInfo() {
+            panels.TryGetValue("Panel_ResourceInfo", out GameObject panel);
+            return panel;
+        }
+
         // map
 
         public GameObject Entity_GetMap() {
