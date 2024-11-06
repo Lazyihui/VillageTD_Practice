@@ -13,6 +13,7 @@ namespace TD {
         public int typeID;
 
         public float moveSpeed;
+        
 
         // public Sprite sp;
     }

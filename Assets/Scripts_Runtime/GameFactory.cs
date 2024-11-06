@@ -47,6 +47,13 @@ namespace TD {
 
             entity.hp = tm.hp;
             entity.maxHp = tm.maxHp;
+            entity.shootInterval = tm.shootInterval;
+            entity.shootTimer = tm.shootTimer;
+
+            entity.attackHurt = tm.attackHurt;
+            entity.attackRange = tm.attackRange;
+            entity.isLive = tm.isLive;
+
             entity.typeID = tm.typeID;
             entity.SetSprite(tm.sprite);
 
@@ -99,6 +106,8 @@ namespace TD {
             entity.Ctor();
             entity.id = ctx.gameEntity.bulletRecordID++;
             entity.typeID = tm.typeID;
+
+
 
             entity.SetPos(pos);
             entity.moveSpeed = tm.moveSpeed;

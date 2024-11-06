@@ -56,10 +56,7 @@ namespace TD {
 
             eventCenter.OnTowerClickHandle += (int typeID) => {
                 Debug.Log("打开塔面板");
-
                 ctx.gameEntity.handTower = TowerDoamin.Spawn(ctx, typeID);
-
-
                 Debug.Log(typeID);
             };
 

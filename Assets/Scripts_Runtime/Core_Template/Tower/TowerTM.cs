@@ -12,7 +12,16 @@ namespace TD {
 
         public int maxHp;
 
+        public float shootTimer;
+
+        public float shootInterval;
+        public float attackHurt;
+
+        public float attackRange;
+
         public Sprite sprite;
+
+        public bool isLive;
 
 
     }

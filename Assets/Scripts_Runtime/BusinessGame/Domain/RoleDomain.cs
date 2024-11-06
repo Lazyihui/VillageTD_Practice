@@ -34,7 +34,7 @@ namespace TD {
             entity.shootTimer += dt;
             if (entity.shootTimer >= entity.shootInterval) {
                 entity.shootTimer = 0;
-                BulletDomain.Spawm(ctx, 0, entity.transform.position);
+                BulletDomain.Spawm(ctx, BulletConst.RoleBlt, entity.transform.position);
             }
         }
         public static void SpawnBullet(GameContext ctx, RoleEntity role, float dt) {
@@ -53,7 +53,6 @@ namespace TD {
                     }
                 }
             }
-
           
         }
 

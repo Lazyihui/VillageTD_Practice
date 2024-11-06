@@ -23,14 +23,19 @@ namespace TD {
         // Tower是否启动
         public bool isLive;
 
+        // 启动了发射子弹
+        public float shootTimer;
+
+
+        public float shootInterval;
+
+        public float attackHurt;
+
+        public float attackRange;
+
 
         public void Ctor() {
-            if (this.typeID == TowerConst.BaseTower) {
-                isLive = true;
-            }
-
-            isLive = false;
-
+            
         }
 
         public void SetPos(Vector3 pos) {

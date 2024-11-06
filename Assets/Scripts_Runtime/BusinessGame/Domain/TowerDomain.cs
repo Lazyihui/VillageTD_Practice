@@ -21,9 +21,39 @@ namespace TD {
             entity.TearDown();
         }
 
-    
+
         public static void SetCollider(TowerEntity entity) {
             entity.SetCollider();
         }
+
+        static void ShootBullet(GameContext ctx, TowerEntity entity, float dt) {
+            entity.shootTimer += dt;
+            if (entity.shootTimer >= entity.shootInterval) {
+                entity.shootTimer = 0;
+                BulletDomain.Spawm(ctx, BulletConst.TowerBlt, entity.transform.position);
+            }
+        }
+
+        public static void SpawnBullet(GameContext ctx, TowerEntity tower, float dt) {
+            
+            int len = ctx.roleRepository.TakeAll(out RoleEntity[] msts);
+
+            for (int i = 0; i < len; i++) {
+                RoleEntity mst = msts[i];
+                if (mst.typeID == RoleConst.Role) {
+
+                } else {
+                    float distance = Vector2.Distance(mst.transform.position, tower.transform.position);
+                    Debug.Log("distance" + distance);
+                    Debug.Log("tower.attackRange" + tower.attackRange);
+                    if (distance < tower.attackRange) {
+                        Debug.Log("ArrowTower");
+                        ShootBullet(ctx, tower, dt);
+                    }
+                }
+            }
+        }
+
+
     }
 }

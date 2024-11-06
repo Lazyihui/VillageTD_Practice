@@ -103,7 +103,8 @@ namespace TD {
                 if (tower.typeID == TowerConst.BaseTower) {
 
                 } else if (tower.typeID == TowerConst.ArrowTower && tower.isLive) {
-
+                    Debug.Log("ArrowTower");
+                    TowerDoamin.SpawnBullet(ctx, tower, dt);
                 }
 
 
