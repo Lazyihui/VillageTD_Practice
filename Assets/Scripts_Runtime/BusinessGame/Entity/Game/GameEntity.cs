@@ -23,12 +23,14 @@ namespace TD {
 
         public GameState state;
 
+        public TowerEntity handTower;
 
 
         //  暂时这样写  后面用Cave代替
         public float caveSpawnTime;
 
         public float caveSpawnInterval;
+
         public GameEntity() {
             restFixTime = 0;
             ownerID = 0;
@@ -40,6 +42,7 @@ namespace TD {
 
             state = GameState.Login;
 
+            handTower = null;
 
 
             caveSpawnTime = 0;

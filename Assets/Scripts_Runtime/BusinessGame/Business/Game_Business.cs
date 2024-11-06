@@ -61,14 +61,19 @@ namespace TD {
 
         static void PreTick(GameContext ctx, float dt) {
 
+
             RoleEntity owner = ctx.Role_GetOwner();
 
             RoleDomain.Set_MoveAxis(owner, ctx.inputEntity.moveAxis);
 
 
+
         }
 
         static void LogicTick(GameContext ctx, float dt) {
+
+            GameDomain.SetTowerPos(ctx);
+
             RoleEntity owner = ctx.Role_GetOwner();
             RoleDomain.Move(owner, dt);
             RoleDomain.SpawnBullet(ctx, owner, dt);
@@ -84,11 +89,23 @@ namespace TD {
 
             }
 
+            TowerEntity baseTower = ctx.Tower_GetOwner();
+
+
+
 
             int lenTower = ctx.towerRepository.TakeAll(out TowerEntity[] towers);
             for (int i = 0; i < lenTower; i++) {
                 TowerEntity tower = towers[i];
                 TowerDoamin.SetCollider(tower);
+
+                if (tower.typeID == TowerConst.BaseTower) {
+
+                } else if (tower.typeID == TowerConst.ArrowTower && tower.isLive) {
+
+                }
+
+
             }
 
             int lenBullet = ctx.bulletRepository.TakeAll(out BulletEntity[] bullets);
@@ -97,7 +114,7 @@ namespace TD {
                 BulletEntity bullet = bullets[i];
                 BulletDomain.FindNearest(ctx, bullet, dt);
             }
-            
+
 
 
             SpawnMst(ctx, dt);

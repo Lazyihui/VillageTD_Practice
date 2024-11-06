@@ -270,7 +270,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   group: {fileID: 5488555669470668619}
   treeTower: {fileID: 7891758793329179347}
-  tower: {fileID: 3671349680620275522}
+  arrowTower: {fileID: 3671349680620275522}
   btnHatChet: {fileID: 8449499213638025423}
   btnTower: {fileID: 5233639307025298654}
 --- !u!1 &4300615358889755901
@@ -459,7 +459,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 78baf2b19cc2b4f4f9d876ef018748d0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: bd46dcbea60c81947bdd44a3011bd908, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

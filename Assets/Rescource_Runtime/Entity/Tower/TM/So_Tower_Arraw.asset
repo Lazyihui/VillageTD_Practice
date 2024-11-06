@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1568434de4a683b45bc4d0af9171b135, type: 3}
-  m_Name: So_Tower
+  m_Name: So_Tower_Arraw
   m_EditorClassIdentifier: 
   tm:
-    typeID: 0
+    typeID: 1
     hp: 5
     maxHp: 5
-    sprite: {fileID: 21300000, guid: 346e04856d7ea7e4788dcd360ee5eb33, type: 3}
+    sprite: {fileID: 21300000, guid: bd46dcbea60c81947bdd44a3011bd908, type: 3}

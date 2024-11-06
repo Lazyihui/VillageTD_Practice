@@ -74,6 +74,15 @@ namespace TD {
             return entity;
         }
 
+        public TowerEntity Tower_GetOwner() {
+            bool has = towerRepository.TryGet(0, out TowerEntity entity);
+            if (!has) {
+                Debug.LogError("GameContext.Tower_GetOwner: ownerID not found");
+                return null;
+            }
+            return entity;
+        }
+
         public MapEntity Map_GetStage() {
             bool has = mapRepository.TryGet(gameEntity.stageID, out MapEntity entity);
             if (!has) {

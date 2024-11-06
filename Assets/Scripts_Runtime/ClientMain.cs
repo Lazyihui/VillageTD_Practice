@@ -50,14 +50,17 @@ namespace TD {
                 ctx.gameEntity.state = GameState.Game;
             };
 
-            eventCenter.OnHatChetClickHandle += () => {
-                Debug.Log("打开斧头面板");
-                Debug.Log("OnHatChetClickHandle");
+            eventCenter.OnHatChetClickHandle += (int typeID) => {
+                Debug.Log(typeID);
             };
 
-            eventCenter.OnTowerClickHandle += () => {
+            eventCenter.OnTowerClickHandle += (int typeID) => {
                 Debug.Log("打开塔面板");
-                Debug.Log("OnTowerClickHandle");
+
+                ctx.gameEntity.handTower = TowerDoamin.Spawn(ctx, typeID);
+
+
+                Debug.Log(typeID);
             };
 
 

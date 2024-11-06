@@ -23,6 +23,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - So_Tower
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 330a03d60aa0915408d3b47c49353d71
+    m_Address: So_Tower_Arraw
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - So_Tower
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: ce53ef2a080bb9e41a644841fa038063, type: 2}
   m_SchemaSet:

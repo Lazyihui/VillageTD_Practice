@@ -61,12 +61,12 @@ namespace TD {
                 panel = go.GetComponent<Panel_Manifast>();
                 panel.Ctor();
 
-                panel.OnHatChetClickHandle += () => {
-                    ctx.appUI.eventCenter.OnHatChetClick();
+                panel.OnHatChetClickHandle += (int typeID) => {
+                    ctx.appUI.eventCenter.OnHatChetClick(typeID);
                 };
 
-                panel.OnTowerClickHandle += () => {
-                    ctx.appUI.eventCenter.OnTowerClick();
+                panel.OnTowerClickHandle += (int typeID) => {
+                    ctx.appUI.eventCenter.OnTowerClick(typeID);
                 };
 
             }

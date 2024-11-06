@@ -16,23 +16,23 @@ namespace TD {
 
         [SerializeField] Button btnHatChet;
 
-        public Action OnHatChetClickHandle;
+        public Action<int> OnHatChetClickHandle;
 
         [SerializeField] Button btnTower;
 
-        public Action OnTowerClickHandle;
+        public Action<int> OnTowerClickHandle;
 
         public void Ctor() {
 
             btnHatChet.onClick.AddListener(() => {
                 if (OnHatChetClickHandle != null) {
-                    OnHatChetClickHandle.Invoke();
+                    OnHatChetClickHandle.Invoke(treeTower.typeID);
                 }
             });
 
             btnTower.onClick.AddListener(() => {
                 if (OnTowerClickHandle != null) {
-                    OnTowerClickHandle.Invoke();
+                    OnTowerClickHandle.Invoke(arrowTower.typeID);
                 }
             });
 

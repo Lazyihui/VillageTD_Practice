@@ -14,19 +14,19 @@ public class UIEventCenter {
         }
     }
 
-    public Action OnHatChetClickHandle;
+    public Action<int> OnHatChetClickHandle;
 
-    public void OnHatChetClick() {
+    public void OnHatChetClick(int typeID) {
         if (OnHatChetClickHandle != null) {
-            OnHatChetClickHandle.Invoke();
+            OnHatChetClickHandle.Invoke(typeID);
         }
     }
 
-    public Action OnTowerClickHandle;
+    public Action<int> OnTowerClickHandle;
 
-    public void OnTowerClick() {
+    public void OnTowerClick(int typeID) {
         if (OnTowerClickHandle != null) {
-            OnTowerClickHandle.Invoke();
+            OnTowerClickHandle.Invoke(typeID);
         }
     }
 }
