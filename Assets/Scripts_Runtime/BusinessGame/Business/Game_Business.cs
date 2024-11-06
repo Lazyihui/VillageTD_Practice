@@ -130,13 +130,14 @@ namespace TD {
         // 要改
         static void SpawnMst(GameContext ctx, float dt) {
 
-            ctx.gameEntity.caveSpawnTime += dt;
-            if (ctx.gameEntity.caveSpawnTime >= ctx.gameEntity.caveSpawnInterval) {
+            ctx.caveEntity.caveSpawnTime += dt;
 
-                ctx.gameEntity.caveSpawnTime = 0;
+            if (ctx.caveEntity.caveSpawnTime >= ctx.caveEntity.caveSpawnInterval) {
+                ctx.caveEntity.caveSpawnTime = 0;
                 RoleDomain.Spawn(ctx, RoleConst.Monster, new Vector2(17, 0));
 
             }
+            
         }
 
         static void LastTick(GameContext ctx, float dt) {

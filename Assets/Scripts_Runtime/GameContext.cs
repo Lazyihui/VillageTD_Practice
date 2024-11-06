@@ -17,6 +17,8 @@ namespace TD {
 
         public GameEntity gameEntity;
 
+        public CaveEntity caveEntity;
+
         // Core
         public AssetsCore assetsCore;
 
@@ -42,6 +44,7 @@ namespace TD {
         public GameContext() {
 
             gameEntity = new GameEntity();
+            caveEntity = new CaveEntity();
 
             // Core
             assetsCore = new AssetsCore();
