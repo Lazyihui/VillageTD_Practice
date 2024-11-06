@@ -99,6 +99,17 @@ namespace TD {
             panel.Show();
         }
 
+        public void Panel_ResourceInfo_UpateResCount(GameContext ctx) {
+
+            Panel_ResourceInfo panel = ctx.appUI.ctx.panel_ResourceInfo;
+            if (panel == null) {
+                return;
+            }
+
+            panel.SetResCount(ctx.gameEntity.resCount);
+
+        }
+
         public void Panel_ResourceInfo_Close(GameContext ctx) {
             Panel_ResourceInfo panel = ctx.appUI.ctx.panel_ResourceInfo;
             if (panel == null) {

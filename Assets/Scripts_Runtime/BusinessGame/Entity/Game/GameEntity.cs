@@ -47,6 +47,8 @@ namespace TD {
 
             handTower = null;
 
+            resCount = 100;
+
 
             caveSpawnTime = 0;
             caveSpawnInterval = 4;

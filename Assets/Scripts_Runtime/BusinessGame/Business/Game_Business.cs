@@ -68,6 +68,8 @@ namespace TD {
 
             RoleDomain.Set_MoveAxis(owner, ctx.inputEntity.moveAxis);
 
+            // panel  Update
+            ctx.appUI.Panel_ResourceInfo_UpateResCount(ctx);
 
 
         }
