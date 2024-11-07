@@ -16,7 +16,7 @@ namespace TD {
             return entity;
         }
 
-        public static void TearDown(GameContext ctx, TowerEntity entity) {
+        public static void UnSpawn(GameContext ctx, TowerEntity entity) {
             ctx.towerRepository.Remove(entity);
             entity.TearDown();
         }

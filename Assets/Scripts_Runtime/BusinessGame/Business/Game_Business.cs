@@ -76,7 +76,9 @@ namespace TD {
         static void LogicTick(GameContext ctx, float dt) {
 
             GameDomain.SetTowerPos(ctx);
-            GameDomain.BulidTower(ctx);
+            GameDomain.BulidTowerArraw(ctx);
+            GameDomain.BulidTowerTree(ctx);
+            GameDomain.CancelBulidTower(ctx);
 
             RoleEntity owner = ctx.Role_GetOwner();
             RoleDomain.Move(owner, dt);
