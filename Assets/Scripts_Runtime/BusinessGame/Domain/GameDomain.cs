@@ -31,7 +31,12 @@ namespace TD {
 
         }
         public static void BulidTowerTree(GameContext ctx) {
+            if (Input.GetKeyDown(KeyCode.Space)) {
 
+                foreach (Vector2Int pos2 in ctx.treeRepository.posDict.Keys) {
+                    Debug.Log(pos2);
+                }
+            }
             if (ctx.gameEntity.handTower == null) {
                 return;
             }
@@ -41,26 +46,21 @@ namespace TD {
                 // 如果有这个位置的树
                 Vector2Int pos = ctx.inputEntity.mousePositionGrid;
                 if (ctx.treeRepository.IsPosHas(pos)) {
+
                     TreeEntity treeEntity = ctx.treeRepository.FindByPos(pos);
 
                     Vector3 towerPos = new Vector3(pos.x, pos.y, 0);
+                    foreach (Vector2Int pos2 in ctx.treeRepository.posDict.Keys) {
+                        Debug.Log(pos2);
+                    }
+
+                    Debug.Log("鼠标坐标" + pos);
+
                     ctx.gameEntity.handTower.SetPos(towerPos);
                     ctx.gameEntity.handTower.isLive = true;
                     ctx.gameEntity.handTower = null;
 
                 } else {
-
-                    Debug.Log("Can't build tower here" + pos);
-                    foreach (Vector2Int treePos in ctx.treeRepository.posDict.Keys) {
-                        Debug.Log("Tree pos: " + treePos);
-
-                    }
-                    // Debug.Log("Can't build tower here" + pos);
-
-                    // foreach (Vector2Int treePos in ctx.gameEntity.treePosHashSet) {
-                    //     Debug.Log("Tree pos: " + treePos);
-
-                    // }                    
                 }
             }
 

@@ -56,6 +56,12 @@ namespace TD {
         // BaseTower
         public static void BaseTowerHpReduce(GameContext ctx, TowerEntity baseTower) {
 
+            if (Input.GetKeyDown(KeyCode.Space)) {
+
+
+            }
+
+
             int lenMst = ctx.roleRepository.TakeAll(out RoleEntity[] msts);
 
             for (int i = 0; i < lenMst; i++) {
@@ -70,7 +76,6 @@ namespace TD {
 
                     RoleDomain.UnSpawn(ctx, mst);
                     baseTower.hp -= mst.attackHurt;
-                    Debug.Log("BaseTowerHpReduce" + baseTower.hp);
                     if (baseTower.hp <= 0) {
                         baseTower.hp = 0;
                         baseTower.isLive = false;
@@ -114,7 +119,6 @@ namespace TD {
 
                     ctx.gameEntity.resCount += tower.cutHurt;
 
-                    Debug.Log("nearestTree.resCount" + nearestTree.resCount);
                     if (nearestTree.resCount <= 0) {
 
                         TreeDomain.UnSpawn(ctx, nearestTree);
