@@ -51,7 +51,9 @@ namespace TD {
             };
 
             eventCenter.OnHatChetClickHandle += (int typeID) => {
+                Debug.Log("生成树塔 砍树");
                 Debug.Log(typeID);
+                ctx.gameEntity.handTower = TowerDoamin.Spawn(ctx, typeID);
             };
 
             eventCenter.OnTowerClickHandle += (int typeID) => {

@@ -91,6 +91,7 @@ namespace TD {
             entity.pos = pos;
             entity.id = ctx.gameEntity.treeRecordID++;
             entity.typeID = typeID;
+            entity.Ctor();
 
             return entity;
 

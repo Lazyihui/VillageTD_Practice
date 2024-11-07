@@ -44,10 +44,7 @@ namespace TD {
 
                 } else {
                     float distance = Vector2.Distance(mst.transform.position, tower.transform.position);
-                    Debug.Log("distance" + distance);
-                    Debug.Log("tower.attackRange" + tower.attackRange);
                     if (distance < tower.attackRange) {
-                        Debug.Log("ArrowTower");
                         ShootBullet(ctx, tower, dt);
                     }
                 }

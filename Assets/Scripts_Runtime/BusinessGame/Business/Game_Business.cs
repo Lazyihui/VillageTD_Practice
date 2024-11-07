@@ -18,10 +18,9 @@ namespace TD {
 
             TowerDoamin.Spawn(ctx, TowerConst.BaseTower);
 
-            // MapDomain.GetTileTreePos(map.treeTile, out Vector3Int pos);
-            HashSet<Vector2Int> tilePosHashSet = MapDomain.GetTilePos(map.treeTile.tile);
+            ctx.gameEntity.treePosHashSet = MapDomain.GetTilePos(map.treeTile.tile);
 
-            foreach (Vector2Int pos in tilePosHashSet) {
+            foreach (Vector2Int pos in ctx.gameEntity.treePosHashSet) {
                 TreeDomain.Spawn(ctx, pos, 1);
             }
 
@@ -107,7 +106,6 @@ namespace TD {
                 if (tower.typeID == TowerConst.BaseTower) {
 
                 } else if (tower.typeID == TowerConst.ArrowTower && tower.isLive) {
-                    Debug.Log("ArrowTower");
                     TowerDoamin.SpawnBullet(ctx, tower, dt);
                 }
 
@@ -137,7 +135,7 @@ namespace TD {
                 RoleDomain.Spawn(ctx, RoleConst.Monster, new Vector2(17, 0));
 
             }
-            
+
         }
 
         static void LastTick(GameContext ctx, float dt) {

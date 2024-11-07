@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 
@@ -25,11 +26,8 @@ namespace TD {
 
         public TowerEntity handTower;
 
+        public HashSet<Vector2Int> treePosHashSet;
 
-        //  暂时这样写  后面用Cave代替
-        public float caveSpawnTime;
-
-        public float caveSpawnInterval;
 
         // 资源
         public int resCount;
@@ -49,9 +47,9 @@ namespace TD {
 
             resCount = 100;
 
+            treePosHashSet = new HashSet<Vector2Int>();
 
-            caveSpawnTime = 0;
-            caveSpawnInterval = 4;
+
         }
     }
 }

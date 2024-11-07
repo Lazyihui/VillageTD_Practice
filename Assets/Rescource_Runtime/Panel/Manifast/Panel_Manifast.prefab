@@ -603,4 +603,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sp: {fileID: 2139129150749132183}
-  typeID: 0
+  typeID: 2

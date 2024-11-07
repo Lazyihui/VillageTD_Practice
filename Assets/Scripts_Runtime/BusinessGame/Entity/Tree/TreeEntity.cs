@@ -11,8 +11,10 @@ namespace TD {
         public int typeID;
         public Vector2Int pos;
 
-        public void Ctor() {
+        public bool isCollected;
 
+        public void Ctor() {
+            isCollected = false;
         }
 
         public void SetPosInt(Vector2Int pos) {
