@@ -11,6 +11,7 @@ namespace TD {
             TreeEntity entity = GameFactory.Tree_Create(ctx, pos, typeID);
 
             ctx.treeRepository.Add(entity);
+            ctx.treeRepository.AddPos(pos, entity);
             return null;
         }
     }

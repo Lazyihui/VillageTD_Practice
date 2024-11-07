@@ -26,7 +26,6 @@ namespace TD {
 
         public TowerEntity handTower;
 
-        public HashSet<Vector2Int> treePosHashSet;
 
 
         // 资源
@@ -47,7 +46,6 @@ namespace TD {
 
             resCount = 100;
 
-            treePosHashSet = new HashSet<Vector2Int>();
 
 
         }

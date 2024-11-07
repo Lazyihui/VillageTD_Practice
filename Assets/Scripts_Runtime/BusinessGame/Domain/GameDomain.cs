@@ -29,29 +29,6 @@ namespace TD {
                 ctx.gameEntity.handTower = null;
             }
 
-            if (ctx.gameEntity.handTower == null) {
-                return;
-            }
-
-            if (ctx.inputEntity.mouseLeftClick && ctx.gameEntity.handTower.typeID == TowerConst.TreeTower) {
-
-                Vector3 pos = new Vector3(ctx.inputEntity.mousePositionGrid.x, ctx.inputEntity.mousePositionGrid.y, 0);
-
-                if (ctx.gameEntity.treePosHashSet.Contains(new Vector2Int((int)pos.x, (int)pos.y))) {
-
-                    ctx.gameEntity.handTower.SetPos(pos);
-                    ctx.gameEntity.handTower.isLive = true;
-                    ctx.gameEntity.handTower = null;
-                } else {
-                    Debug.Log("Can't build tower here" + pos);
-
-                    foreach (Vector2Int treePos in ctx.gameEntity.treePosHashSet) {
-                        Debug.Log("Tree pos: " + treePos);
-
-                    }
-                }
-            }
-
         }
         public static void BulidTowerTree(GameContext ctx) {
 
@@ -61,20 +38,30 @@ namespace TD {
 
             if (ctx.inputEntity.mouseLeftClick && ctx.gameEntity.handTower.typeID == TowerConst.TreeTower) {
 
-                Vector3 pos = new Vector3(ctx.inputEntity.mousePositionGrid.x, ctx.inputEntity.mousePositionGrid.y, 0);
+                // 如果有这个位置的树
+                Vector2Int pos = ctx.inputEntity.mousePositionGrid;
+                if (ctx.treeRepository.IsPosHas(pos)) {
+                    TreeEntity treeEntity = ctx.treeRepository.FindByPos(pos);
+                    treeEntity.isCollected = true;
 
-                if (ctx.gameEntity.treePosHashSet.Contains(new Vector2Int((int)pos.x, (int)pos.y))) {
-
-                    ctx.gameEntity.handTower.SetPos(pos);
+                    Vector3 towerPos = new Vector3(pos.x, pos.y, 0);
+                    ctx.gameEntity.handTower.SetPos(towerPos);
                     ctx.gameEntity.handTower.isLive = true;
                     ctx.gameEntity.handTower = null;
-                } else {
-                    Debug.Log("Can't build tower here" + pos);
 
-                    foreach (Vector2Int treePos in ctx.gameEntity.treePosHashSet) {
+                } else {
+
+                    Debug.Log("Can't build tower here" + pos);
+                    foreach (Vector2Int treePos in ctx.treeRepository.posDict.Keys) {
                         Debug.Log("Tree pos: " + treePos);
 
                     }
+                    // Debug.Log("Can't build tower here" + pos);
+
+                    // foreach (Vector2Int treePos in ctx.gameEntity.treePosHashSet) {
+                    //     Debug.Log("Tree pos: " + treePos);
+
+                    // }                    
                 }
             }
 
@@ -89,7 +76,7 @@ namespace TD {
                 ctx.gameEntity.handTower = null;
             }
         }
-      
+
 
     }
 }

@@ -18,9 +18,9 @@ namespace TD {
 
             TowerDoamin.Spawn(ctx, TowerConst.BaseTower);
 
-            ctx.gameEntity.treePosHashSet = MapDomain.GetTilePos(map.treeTile.tile);
+            HashSet<Vector2Int> treePosHashSet = MapDomain.GetTilePos(map.treeTile.tile);
 
-            foreach (Vector2Int pos in ctx.gameEntity.treePosHashSet) {
+            foreach (Vector2Int pos in treePosHashSet) {
                 TreeDomain.Spawn(ctx, pos, 1);
             }
 
