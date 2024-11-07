@@ -15,12 +15,6 @@ namespace TD {
             return entity;
         }
 
-        public static void GetTileTreePos(MapGripElement treeTile, out Vector3Int pos) {
-            treeTile.GetPos(out pos);
-
-            Debug.Log("Tree pos: " + pos);
-        }
-
         public static HashSet<Vector2Int> GetTilePos(Tilemap tile) {
             BoundsInt bound = tile.cellBounds;
             HashSet<Vector2Int> tilePosHashSet = new HashSet<Vector2Int>();

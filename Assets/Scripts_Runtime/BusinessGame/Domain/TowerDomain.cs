@@ -25,7 +25,6 @@ namespace TD {
         public static void SetCollider(TowerEntity entity) {
             entity.SetCollider();
         }
-
         static void ShootBullet(GameContext ctx, TowerEntity entity, float dt) {
             entity.shootTimer += dt;
             if (entity.shootTimer >= entity.shootInterval) {
@@ -34,8 +33,10 @@ namespace TD {
             }
         }
 
+        // TowerArraw
+
         public static void SpawnBullet(GameContext ctx, TowerEntity tower, float dt) {
-            
+
             int len = ctx.roleRepository.TakeAll(out RoleEntity[] msts);
 
             for (int i = 0; i < len; i++) {
@@ -49,6 +50,38 @@ namespace TD {
                     }
                 }
             }
+        }
+
+
+        // BaseTower
+        public static void BaseTowerHpReduce(GameContext ctx, TowerEntity baseTower) {
+
+            int lenMst = ctx.roleRepository.TakeAll(out RoleEntity[] msts);
+
+            for (int i = 0; i < lenMst; i++) {
+                RoleEntity mst = msts[i];
+                if (mst.typeID == RoleConst.Role) {
+                    continue;
+                }
+
+                float distance = Vector2.Distance(mst.transform.position, baseTower.transform.position);
+
+                if (distance < 0.5) {
+                    baseTower.hp -= mst.attackHurt;
+                    Debug.Log("BaseTowerHpReduce" + baseTower.hp);
+                    if (baseTower.hp <= 0) {
+                        baseTower.hp = 0;
+                        baseTower.isLive = false;
+                    }
+                }
+            }
+        }
+
+        // TreeTower
+        public static void CutTree(GameContext ctx, TowerEntity toweTree) {
+
+            
+
         }
 
 

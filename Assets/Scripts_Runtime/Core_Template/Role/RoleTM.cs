@@ -16,9 +16,9 @@ namespace TD {
 
         public float rbMass;
 
-        public float hp;
+        public int hp;
 
-        public float maxHp;
+        public int maxHp;
     
         [Header("Role")]
         public float attackSpeed;

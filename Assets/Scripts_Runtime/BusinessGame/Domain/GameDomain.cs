@@ -89,7 +89,7 @@ namespace TD {
                 ctx.gameEntity.handTower = null;
             }
         }
-
+      
 
     }
 }

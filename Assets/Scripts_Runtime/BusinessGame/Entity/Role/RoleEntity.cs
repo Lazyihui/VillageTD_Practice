@@ -18,11 +18,11 @@ namespace TD {
         public int typeID;
         public float moveSpeed;
 
-        public float hp;
+        public int hp;
 
-        public float maxHp;
+        public int maxHp;
 
-        public float attackHurt;
+        public int attackHurt;
 
         public float attackRange;
 
