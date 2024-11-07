@@ -99,6 +99,7 @@ MonoBehaviour:
     - So_Role
     - So_Tower
     - So_Bullet
+    - So_Tree
   m_SchemaTemplates: []
   m_GroupTemplateObjects:
   - {fileID: 11400000, guid: e4a33e5171c66cf42b657039c7e85a3c, type: 2}

@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tm:
     typeID: 2
+    placeConditionType: 4
     hp: 5
     maxHp: 5
     shootTimer: 3

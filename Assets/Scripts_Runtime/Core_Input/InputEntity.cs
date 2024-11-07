@@ -45,11 +45,26 @@ namespace TD {
             }
             // mouse
             {
-                mousePositionScreen = world.Mouse_Pos.ReadValue<Vector2>();
+                mousePositionScreen = Input.mousePosition;
                 // 屏幕坐标转换为世界坐标
-                mousePositionWorld = Camera.main.ScreenToWorldPoint(new Vector3(mousePositionScreen.x, mousePositionScreen.y, 0));
+                mousePositionWorld = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+                Vector2 worldPos = mousePositionWorld;
+                // (-0.5, 0) -> (-1, 0)
+                // (-1.5, 0) -> (-1, 0)
+                if (worldPos.x < 0) {
+                    worldPos.x -= 0.5f;
+                } else {
+                    worldPos.x += 0.5f;
+                }
+                if (worldPos.y < 0) {
+                    worldPos.y -= 0.5f;
+                } else {
+                    worldPos.y += 0.5f;
+                }
                 // 世界坐标转换为格子坐标
-                mousePositionGrid = new Vector2Int((int)mousePositionWorld.x, (int)mousePositionWorld.y);
+                mousePositionGrid = new Vector2Int((int)worldPos.x, (int)worldPos.y);
+
             }
             // mouse click
             {

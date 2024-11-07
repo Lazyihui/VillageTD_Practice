@@ -10,7 +10,7 @@ namespace TD {
 
         MapGripElement groundTile;
 
-        public MapGripElement treeTile;
+        public MapGripElement treeGrid;
 
         public void Ctor() {
 
@@ -18,7 +18,7 @@ namespace TD {
 
         public void Inject(MapGripElement ground, MapGripElement tree) {
             this.groundTile = ground;
-            this.treeTile = tree;
+            this.treeGrid = tree;
         }
 
     }

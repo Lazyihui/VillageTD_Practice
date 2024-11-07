@@ -30,5 +30,26 @@ namespace TD {
 
             return tilePosHashSet;
         }
+
+        public static void SetTile(GameContext ctx, Tilemap tilemap, int typeID, Vector2Int pos) {
+
+
+            bool has = ctx.templateCore.ctx.Tree_TryGet(typeID, out TreeTM tm);
+            if (!has) {
+                Debug.LogError("SetTile Tree_TryGet Error");
+                return;
+            }
+
+            if (Input.GetMouseButtonDown(0)) {
+
+                Vector3Int posCell = new Vector3Int(ctx.inputEntity.mousePositionGrid.x, ctx.inputEntity.mousePositionGrid.y, 0);
+
+                tilemap.SetTile(posCell, tm.treeTile);
+
+            }
+
+
+        }
+
     }
 }

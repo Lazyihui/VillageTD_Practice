@@ -36,7 +36,7 @@ namespace TD {
             return entity;
         }
 
-        public static TowerEntity Tower_Create(GameContext ctx, int typeID) {
+        public static TowerEntity Tower_Create(GameContext ctx, int typeID, Vector2Int pos) {
             TowerTM tm;
             ctx.templateCore.ctx.Tower_TryGet(typeID, out tm);
             GameObject prefab = ctx.assetsCore.Entity_GetTower();
@@ -44,6 +44,9 @@ namespace TD {
             TowerEntity entity = go.GetComponent<TowerEntity>();
             entity.Ctor();
             entity.id = ctx.gameEntity.towerRecordID++;
+            entity.gridPos = pos;
+
+            entity.placeConditionType = tm.placeConditionType;
 
             entity.hp = tm.hp;
             entity.maxHp = tm.maxHp;
@@ -60,6 +63,8 @@ namespace TD {
 
             entity.typeID = tm.typeID;
             entity.SetSprite(tm.sprite);
+
+            entity.SetPos(pos);
 
             return entity;
         }

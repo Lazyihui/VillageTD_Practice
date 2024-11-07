@@ -21,10 +21,16 @@ namespace TD {
         public Dictionary<int, BulletTM> bullets;
 
         public AsyncOperationHandle bulletPtr;
+
+        public Dictionary<int, TreeTM> trees;
+
+        public AsyncOperationHandle treePtr;
+
         public TemplateContext() {
             roles = new Dictionary<int, RoleTM>();
             towers = new Dictionary<int, TowerTM>();
             bullets = new Dictionary<int, BulletTM>();
+            trees = new Dictionary<int, TreeTM>();
         }
 
         // 找种类的Role
@@ -40,6 +46,9 @@ namespace TD {
             return bullets.TryGetValue(typeID, out bullet);
         }
 
+        public bool Tree_TryGet(int typeID, out TreeTM tree) {
+            return trees.TryGetValue(typeID, out tree);
+        }
 
         public void Game_Set(GameTM game) {
             this.game = game;
@@ -57,5 +66,8 @@ namespace TD {
             bullets.Add(bullet.typeID, bullet);
         }
 
+        public void Tree_Add(TreeTM tree) {
+            trees.Add(tree.typeID, tree);
+        }
     }
 }

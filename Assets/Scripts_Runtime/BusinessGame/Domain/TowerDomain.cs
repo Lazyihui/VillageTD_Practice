@@ -8,9 +8,10 @@ namespace TD {
 
     public static class TowerDoamin {
 
-        public static TowerEntity Spawn(GameContext ctx, int typeID) {
+        #region Lifecycle
+        public static TowerEntity Spawn(GameContext ctx, int typeID, Vector2Int pos) {
 
-            TowerEntity entity = GameFactory.Tower_Create(ctx, typeID);
+            TowerEntity entity = GameFactory.Tower_Create(ctx, typeID, pos);
 
             ctx.towerRepository.Add(entity);
             return entity;
@@ -20,7 +21,7 @@ namespace TD {
             ctx.towerRepository.Remove(entity);
             entity.TearDown();
         }
-
+        #endregion
 
         public static void SetCollider(TowerEntity entity) {
             entity.SetCollider();
@@ -34,7 +35,6 @@ namespace TD {
         }
 
         // TowerArraw
-
         public static void SpawnBullet(GameContext ctx, TowerEntity tower, float dt) {
 
             int len = ctx.roleRepository.TakeAll(out RoleEntity[] msts);

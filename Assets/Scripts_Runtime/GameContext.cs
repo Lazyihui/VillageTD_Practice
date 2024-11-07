@@ -15,7 +15,7 @@ namespace TD {
 
         // 
 
-        public GameEntity gameEntity;
+        public GameEntity gameEntity; // 
 
         public CaveEntity caveEntity;
 

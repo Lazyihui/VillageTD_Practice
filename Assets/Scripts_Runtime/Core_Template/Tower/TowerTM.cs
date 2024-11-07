@@ -8,8 +8,9 @@ namespace TD {
 
         public int typeID;
 
-        public int hp;
+        public PlaceConditionType placeConditionType;
 
+        public int hp;
         public int maxHp;
 
         public float shootTimer;

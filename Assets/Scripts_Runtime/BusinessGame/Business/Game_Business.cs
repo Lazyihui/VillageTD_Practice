@@ -16,9 +16,9 @@ namespace TD {
             RoleEntity owner = RoleDomain.Spawn(ctx, RoleConst.Role, new Vector2(0, 0));
             ctx.gameEntity.ownerID = owner.id;
 
-            TowerDoamin.Spawn(ctx, TowerConst.BaseTower);
+            TowerDoamin.Spawn(ctx, TowerConst.BaseTower, new Vector2Int(0, 0));
 
-            HashSet<Vector2Int> treePosHashSet = MapDomain.GetTilePos(map.treeTile.tile);
+            HashSet<Vector2Int> treePosHashSet = MapDomain.GetTilePos(map.treeGrid.tile);
 
             foreach (Vector2Int pos in treePosHashSet) {
                 TreeDomain.Spawn(ctx, pos, 1);
@@ -62,6 +62,13 @@ namespace TD {
 
         static void PreTick(GameContext ctx, float dt) {
 
+            UserInteractDomain.Tick(ctx);
+
+            ctx.mapRepository.TryGet(1, out MapEntity mapEntity);
+
+
+            // MapDomain.SetTile(ctx, mapEntity.treeGrid.tile, 1, new Vector2Int(0, 0));
+
 
             RoleEntity owner = ctx.Role_GetOwner();
 
@@ -76,8 +83,6 @@ namespace TD {
         static void LogicTick(GameContext ctx, float dt) {
 
             GameDomain.SetTowerPos(ctx);
-            GameDomain.BulidTowerArraw(ctx);
-            GameDomain.BulidTowerTree(ctx);
             GameDomain.CancelBulidTower(ctx);
 
             RoleEntity owner = ctx.Role_GetOwner();

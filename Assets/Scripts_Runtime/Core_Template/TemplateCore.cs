@@ -61,6 +61,21 @@ namespace TD {
 
                 ctx.templateCore.ctx.bulletPtr = handle;
             }
+            {
+                AssetLabelReference labelReference = new AssetLabelReference();
+
+                labelReference.labelString = "So_Tree";
+                var handle = Addressables.LoadAssetsAsync<TreeSO>(labelReference, null);
+
+                var all = await handle.Task;
+
+                foreach (var so in all) {
+                    var tm = so.tm;
+                    ctx.templateCore.ctx.Tree_Add(tm);
+                }
+
+                ctx.templateCore.ctx.treePtr = handle;
+            }
         }
 
         public void UnLoadAll() {
@@ -74,6 +89,9 @@ namespace TD {
 
             if (ctx.bulletPtr.IsValid()) {
                 Addressables.Release(ctx.bulletPtr);
+            }
+            if (ctx.treePtr.IsValid()) {
+                Addressables.Release(ctx.treePtr);
             }
         }
 

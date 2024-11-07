@@ -10,12 +10,12 @@ namespace TD {
 
         [SerializeField] Collider2D colli;
 
+        public int id;
         public int typeID;
 
-        public int id;
+        public PlaceConditionType placeConditionType;
 
         public int hp;
-
         public int maxHp;
 
         public Vector2Int gridPos;
@@ -45,8 +45,8 @@ namespace TD {
 
         }
 
-        public void SetPos(Vector3 pos) {
-            transform.position = pos;
+        public void SetPos(Vector2Int pos) {
+            transform.position = new Vector3(pos.x, pos.y, 0);
         }
 
         public void SetCollider() {

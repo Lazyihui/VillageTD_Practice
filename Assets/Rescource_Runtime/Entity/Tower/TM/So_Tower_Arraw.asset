@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tm:
     typeID: 1
+    placeConditionType: 1
     hp: 5
     maxHp: 5
     shootTimer: 3
@@ -22,3 +23,6 @@ MonoBehaviour:
     attackRange: 5
     sprite: {fileID: 21300000, guid: bd46dcbea60c81947bdd44a3011bd908, type: 3}
     isLive: 0
+    cutTreeTime: 0
+    cutTreeInterval: 0
+    cutHurt: 0
