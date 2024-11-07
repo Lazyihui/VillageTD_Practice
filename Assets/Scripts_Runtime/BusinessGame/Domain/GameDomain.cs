@@ -37,6 +37,7 @@ namespace TD {
                     Debug.Log(pos2);
                 }
             }
+
             if (ctx.gameEntity.handTower == null) {
                 return;
             }
@@ -60,7 +61,6 @@ namespace TD {
                     ctx.gameEntity.handTower.isLive = true;
                     ctx.gameEntity.handTower = null;
 
-                } else {
                 }
             }
 

@@ -56,11 +56,6 @@ namespace TD {
         // BaseTower
         public static void BaseTowerHpReduce(GameContext ctx, TowerEntity baseTower) {
 
-            if (Input.GetKeyDown(KeyCode.Space)) {
-
-
-            }
-
 
             int lenMst = ctx.roleRepository.TakeAll(out RoleEntity[] msts);
 
@@ -87,7 +82,6 @@ namespace TD {
         // TreeTower
 
 
-
         // 找到最近的树然后砍树
         public static void FindNearestTree(GameContext ctx, TowerEntity tower, float dt) {
 
@@ -97,12 +91,18 @@ namespace TD {
             TreeEntity nearestTree = null;
 
             for (int i = 0; i < len; i++) {
+
+
                 TreeEntity tree = trees[i];
                 float distance = Vector2.Distance(tree.pos, tower.transform.position);
 
                 if (distance < minDistance && distance < tower.attackRange) {
                     minDistance = distance;
                     nearestTree = tree;
+                }
+                if (distance < tower.attackRange) {
+                    ctx.treeRepository.RemovePos(tree.pos);
+                    // 并且删掉
                 }
             }
 
