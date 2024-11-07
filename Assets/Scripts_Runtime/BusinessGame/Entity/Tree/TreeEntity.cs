@@ -13,13 +13,18 @@ namespace TD {
 
         public bool isCollected;
 
+        // 资源
+        public int resCount;
+
         public void Ctor() {
             isCollected = false;
+            resCount = 100;
         }
 
         public void SetPosInt(Vector2Int pos) {
             this.pos = pos;
         }
+
 
     }
 }

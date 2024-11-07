@@ -23,6 +23,13 @@ namespace TD {
 
         public bool isLive;
 
+        [Header("砍树时间")]
+        public float cutTreeTime;
+
+        public float cutTreeInterval;
+        public int cutHurt;
+
+
 
     }
 }

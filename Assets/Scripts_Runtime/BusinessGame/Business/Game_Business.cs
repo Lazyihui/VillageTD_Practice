@@ -106,9 +106,11 @@ namespace TD {
                 TowerDoamin.SetCollider(tower);
 
                 if (tower.typeID == TowerConst.BaseTower) {
-
+                    TowerDoamin.BaseTowerHpReduce(ctx, tower);
                 } else if (tower.typeID == TowerConst.ArrowTower && tower.isLive) {
                     TowerDoamin.SpawnBullet(ctx, tower, dt);
+                } else if (tower.typeID == TowerConst.TreeTower && tower.isLive) {
+                    TowerDoamin.FindNearestTree(ctx, tower, dt);
                 }
 
 

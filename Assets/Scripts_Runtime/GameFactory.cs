@@ -53,6 +53,10 @@ namespace TD {
             entity.attackHurt = tm.attackHurt;
             entity.attackRange = tm.attackRange;
             entity.isLive = tm.isLive;
+            // tree
+            entity.cutTreeTime = tm.cutTreeTime;
+            entity.cutTreeInterval = tm.cutTreeInterval;
+            entity.cutHurt = tm.cutHurt;
 
             entity.typeID = tm.typeID;
             entity.SetSprite(tm.sprite);

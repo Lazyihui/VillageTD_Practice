@@ -33,9 +33,16 @@ namespace TD {
 
         public float attackRange;
 
+        // 砍树时间
+        public float cutTreeTime;
+
+        public float cutTreeInterval;
+
+        public int cutHurt;
+
 
         public void Ctor() {
-            
+
         }
 
         public void SetPos(Vector3 pos) {

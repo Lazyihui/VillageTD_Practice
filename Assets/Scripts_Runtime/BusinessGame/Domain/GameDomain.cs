@@ -42,7 +42,6 @@ namespace TD {
                 Vector2Int pos = ctx.inputEntity.mousePositionGrid;
                 if (ctx.treeRepository.IsPosHas(pos)) {
                     TreeEntity treeEntity = ctx.treeRepository.FindByPos(pos);
-                    treeEntity.isCollected = true;
 
                     Vector3 towerPos = new Vector3(pos.x, pos.y, 0);
                     ctx.gameEntity.handTower.SetPos(towerPos);

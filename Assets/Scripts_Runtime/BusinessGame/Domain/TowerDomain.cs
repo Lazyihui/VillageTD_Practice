@@ -67,6 +67,8 @@ namespace TD {
                 float distance = Vector2.Distance(mst.transform.position, baseTower.transform.position);
 
                 if (distance < 0.5) {
+
+                    RoleDomain.UnSpawn(ctx, mst);
                     baseTower.hp -= mst.attackHurt;
                     Debug.Log("BaseTowerHpReduce" + baseTower.hp);
                     if (baseTower.hp <= 0) {
@@ -78,9 +80,50 @@ namespace TD {
         }
 
         // TreeTower
-        public static void CutTree(GameContext ctx, TowerEntity toweTree) {
 
-            
+
+
+        // 找到最近的树然后砍树
+        public static void FindNearestTree(GameContext ctx, TowerEntity tower, float dt) {
+
+            int len = ctx.treeRepository.TakeAll(out TreeEntity[] trees);
+
+            float minDistance = float.MaxValue;
+            TreeEntity nearestTree = null;
+
+            for (int i = 0; i < len; i++) {
+                TreeEntity tree = trees[i];
+                float distance = Vector2.Distance(tree.pos, tower.transform.position);
+
+                if (distance < minDistance && distance < tower.attackRange) {
+                    minDistance = distance;
+                    nearestTree = tree;
+                }
+            }
+
+            if (nearestTree != null) {
+                nearestTree.isCollected = true;
+
+                // 砍树
+                tower.cutTreeTime += dt;
+
+                if (tower.cutTreeTime >= tower.cutTreeInterval) {
+                    tower.cutTreeTime = 0;
+
+                    nearestTree.resCount -= tower.cutHurt;
+
+                    ctx.gameEntity.resCount += tower.cutHurt;
+
+                    Debug.Log("nearestTree.resCount" + nearestTree.resCount);
+                    if (nearestTree.resCount <= 0) {
+
+                        TreeDomain.UnSpawn(ctx, nearestTree);
+
+                    }
+
+                }
+
+            }
 
         }
 

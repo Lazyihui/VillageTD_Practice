@@ -14,5 +14,11 @@ namespace TD {
             ctx.treeRepository.AddPos(pos, entity);
             return null;
         }
+
+        public static void UnSpawn(GameContext ctx, TreeEntity entity) {
+            ctx.treeRepository.Remove(entity);
+            ctx.treeRepository.RemovePos(entity.pos);
+            
+        }
     }
 }
