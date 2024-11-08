@@ -10,8 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1cc7d901faa74e743b7ca28f6428316b, type: 3}
-  m_Name: PanelCardSO1
+  m_Name: PanelCardSO2TowerTree
   m_EditorClassIdentifier: 
   tm:
-    typeID: 1
-    sprite: {fileID: 21300000, guid: bd46dcbea60c81947bdd44a3011bd908, type: 3}
+    typeName: 
+    typeID: 2
+    sprite: {fileID: 21300000, guid: 8455a6d00896db647a39a1a33eb7032f, type: 3}

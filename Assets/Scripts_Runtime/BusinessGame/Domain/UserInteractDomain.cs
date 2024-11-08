@@ -20,11 +20,12 @@ namespace TD {
                 }
             }
 
-            bool hasCard = game.isHandHasCard;
+            bool hasCard = game.handHasCard;
             if (hasCard) {
-
-                
-
+                if (input.mouseLeftClick) {
+                    int typeID = ctx.gameEntity.handCardID;
+                    Tower_TryBuild(ctx, typeID, input.mousePositionGrid);
+                }
             }
         }
 
@@ -35,24 +36,29 @@ namespace TD {
                 // TODO: UI notice
                 return;
             }
+            Debug.Log("允许建塔");
+            Tower_Bulid2(ctx, typeID, pos);
+        }
 
-            Tower_Build(ctx, typeID, pos);
+        public static void Tower_Bulid2(GameContext ctx, int typeID, Vector2Int pos) {
+            TowerEntity tower = TowerDoamin.Spawn(ctx, typeID, pos);
 
+            ctx.appUI.Panel_SelectCard_Close(ctx);
+            ctx.gameEntity.handHasCard = false;
+            ctx.gameEntity.handCardID = -1;
         }
 
         public static void Tower_Build(GameContext ctx, int typeID, Vector2Int pos) {
             var tower = TowerDoamin.Spawn(ctx, typeID, pos);
-
             GameObject.Destroy(ctx.gameEntity.handTower.gameObject);
             ctx.gameEntity.handTower = null;
-
-            Debug.Log("建造成功");
         }
 
         static bool Tower_AllowBuild(GameContext ctx, int typeID, Vector2Int pos) {
             // 没有这个塔
             bool has = ctx.templateCore.ctx.Tower_TryGet(typeID, out TowerTM tm);
             if (!has) {
+                Debug.Log("没有这个typeID" + typeID);
                 return false;
             }
 
@@ -72,8 +78,10 @@ namespace TD {
             // 只能建在树上
             if (placeConditionType == PlaceConditionType.Tree) {
                 if (hasTree /*but has no others*/) {
+                    Debug.Log("这里有数可以种");
                     return true;
                 } else {
+                    Debug.Log("没有数不可以种");
                     return false;
                 }
             }

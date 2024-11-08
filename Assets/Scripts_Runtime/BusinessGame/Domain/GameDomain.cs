@@ -17,7 +17,7 @@ namespace TD {
 
 
         public static void SetPanelCardPos(GameContext ctx) {
-            if (!ctx.gameEntity.isHandHasCard) {
+            if (!ctx.gameEntity.handHasCard) {
                 return;
             }
             Vector2Int pos = ctx.inputEntity.mousePositionGrid;
@@ -25,13 +25,13 @@ namespace TD {
         }
 
         public static void CancelBuiidTowerCard(GameContext ctx) {
-            if (!ctx.gameEntity.isHandHasCard) {
+            if (!ctx.gameEntity.handHasCard) {
                 return;
             }
 
             if (ctx.inputEntity.mouseRightClick) {
                 ctx.appUI.Panel_SelectCard_Close(ctx);
-                ctx.gameEntity.isHandHasCard = false;
+                ctx.gameEntity.handHasCard = false;
             }
         }
 
