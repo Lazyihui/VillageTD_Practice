@@ -23,9 +23,6 @@ namespace TD {
         }
         #endregion
 
-        public static void SetCollider(TowerEntity entity) {
-            entity.SetCollider();
-        }
         static void ShootBullet(GameContext ctx, TowerEntity entity, float dt) {
             entity.shootTimer += dt;
             if (entity.shootTimer >= entity.shootInterval) {
@@ -73,7 +70,6 @@ namespace TD {
                     baseTower.hp -= mst.attackHurt;
                     if (baseTower.hp <= 0) {
                         baseTower.hp = 0;
-                        baseTower.isLive = false;
                     }
                 }
             }

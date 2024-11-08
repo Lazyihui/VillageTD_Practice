@@ -106,13 +106,14 @@ namespace TD {
             int lenTower = ctx.towerRepository.TakeAll(out TowerEntity[] towers);
             for (int i = 0; i < lenTower; i++) {
                 TowerEntity tower = towers[i];
-                TowerDoamin.SetCollider(tower);
 
-                if (tower.typeID == TowerConst.BaseTower) {
+                if (tower.fsmCom.isBaseTower) {
                     TowerDoamin.BaseTowerHpReduce(ctx, tower);
-                } else if (tower.typeID == TowerConst.ArrowTower && tower.isLive) {
+                } else if (tower.fsmCom.isArrowTower) {
+                    Debug.Log("ArrowTower");
                     TowerDoamin.SpawnBullet(ctx, tower, dt);
-                } else if (tower.typeID == TowerConst.TreeTower && tower.isLive) {
+                } else if (tower.fsmCom.isTreeTower) {
+                    Debug.Log("TreeTower");
                     TowerDoamin.FindNearestTree(ctx, tower, dt);
                 }
 

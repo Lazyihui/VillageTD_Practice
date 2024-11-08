@@ -13,6 +13,7 @@ namespace TD {
         public IDSignature idSig;
         public int typeID;
 
+
         public PlaceConditionType placeConditionType;
 
         public int hp;
@@ -20,8 +21,6 @@ namespace TD {
 
         public Vector2Int gridPos;
 
-        // Tower是否启动
-        public bool isLive;
 
         // 启动了发射子弹
         public float shootTimer;
@@ -40,20 +39,23 @@ namespace TD {
 
         public int cutHurt;
 
+        // bool 
+
+        public TowerFSMComponent fsmCom;
 
         public void Ctor() {
 
+            
+        }
+
+        public void SetCollider(bool isTriggers) {
+            colli.isTrigger = isTriggers;
         }
 
         public void SetPos(Vector2Int pos) {
             transform.position = new Vector3(pos.x, pos.y, 0);
         }
 
-        public void SetCollider() {
-            if (typeID == TowerConst.BaseTower) {
-                colli.isTrigger = true;
-            }
-        }
 
         public void SetSprite(Sprite sprite) {
             spriteRenderer.sprite = sprite;

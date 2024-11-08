@@ -43,7 +43,7 @@ namespace TD {
             GameObject prefab = ctx.assetsCore.Entity_GetTower();
             GameObject go = GameObject.Instantiate(prefab);
             TowerEntity entity = go.GetComponent<TowerEntity>();
-            entity.Ctor();
+
             entity.idSig.entityType = EntityType.Tower;
             entity.idSig.entityID = ctx.gameEntity.towerRecordID++;
             entity.gridPos = pos;
@@ -57,7 +57,6 @@ namespace TD {
 
             entity.attackHurt = tm.attackHurt;
             entity.attackRange = tm.attackRange;
-            entity.isLive = tm.isLive;
             // tree
             entity.cutTreeTime = tm.cutTreeTime;
             entity.cutTreeInterval = tm.cutTreeInterval;
@@ -67,6 +66,10 @@ namespace TD {
             entity.SetSprite(tm.sprite);
 
             entity.SetPos(pos);
+            entity.fsmCom = tm.fsmCom;
+            entity.SetCollider(tm.isTrigger);
+
+            entity.Ctor();
 
             return entity;
         }

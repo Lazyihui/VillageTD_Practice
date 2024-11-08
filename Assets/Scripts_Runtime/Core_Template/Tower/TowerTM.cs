@@ -30,6 +30,11 @@ namespace TD {
         public float cutTreeInterval;
         public int cutHurt;
 
+        [Header("bool")]
+        public TowerFSMComponent fsmCom;
+
+        public bool isTrigger;
+
 
 
     }

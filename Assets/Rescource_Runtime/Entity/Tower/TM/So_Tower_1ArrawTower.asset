@@ -26,3 +26,7 @@ MonoBehaviour:
     cutTreeTime: 0
     cutTreeInterval: 0
     cutHurt: 0
+    fsmCom:
+      idBaseTower: 0
+      isArrowTower: 1
+      isTreeTower: 0
