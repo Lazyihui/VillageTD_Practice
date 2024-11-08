@@ -6,7 +6,7 @@ namespace TD {
 
     public class TreeEntity {
 
-        public int id;
+        public IDSignature idSig;
 
         public int typeID;
         public Vector2Int pos;

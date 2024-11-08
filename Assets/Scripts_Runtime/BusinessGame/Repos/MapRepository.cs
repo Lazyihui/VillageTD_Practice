@@ -9,23 +9,23 @@ namespace TD {
 
     public class MapRepository {
 
-        Dictionary<int, MapEntity> all;
+        Dictionary<IDSignature, MapEntity> all;
 
         MapEntity[] temArray;
 
 
         public MapRepository() {
-            all = new Dictionary<int, MapEntity>();
+            all = new Dictionary<IDSignature, MapEntity>();
             temArray = new MapEntity[100];
         }
 
         public void Add(MapEntity entity) {
-            all.Add(entity.stageID, entity);
+            all.Add(entity.idSig, entity);
         }
 
 
         public void Remove(MapEntity entity) {
-            all.Remove(entity.stageID);
+            all.Remove(entity.idSig);
         }
 
         public int TakeAll(out MapEntity[] array) {
@@ -37,8 +37,8 @@ namespace TD {
 
             return all.Count;
         }
-        public bool TryGet(int id, out MapEntity entity) {
-            return all.TryGetValue(id, out entity);
+        public bool TryGet(IDSignature idSig, out MapEntity entity) {
+            return all.TryGetValue(idSig, out entity);
         }
     }
 }

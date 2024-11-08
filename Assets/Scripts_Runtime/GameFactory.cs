@@ -44,7 +44,8 @@ namespace TD {
             GameObject go = GameObject.Instantiate(prefab);
             TowerEntity entity = go.GetComponent<TowerEntity>();
             entity.Ctor();
-            entity.id = ctx.gameEntity.towerRecordID++;
+            entity.idSig.entityType = EntityType.Tower;
+            entity.idSig.entityID = ctx.gameEntity.towerRecordID++;
             entity.gridPos = pos;
 
             entity.placeConditionType = tm.placeConditionType;
@@ -76,11 +77,12 @@ namespace TD {
             GameObject go = GameObject.Instantiate(prefab);
 
             MapEntity map = go.GetComponent<MapEntity>();
-            map.stageID = ctx.gameEntity.stageID++;
+
+            map.idSig.entityType = EntityType.Map;
+            map.idSig.entityID = ctx.gameEntity.stageID++;
 
 
             map.Ctor();
-            map.stageID = typeID;
 
             // 2.Get MapGripElement prefavb
             GameObject groundPrefab = ctx.assetsCore.Entity_GetTileGround();
@@ -99,7 +101,9 @@ namespace TD {
             TreeEntity entity = new TreeEntity();
 
             entity.pos = pos;
-            entity.id = ctx.gameEntity.treeRecordID++;
+            entity.idSig.entityType = EntityType.Tree;
+
+            entity.idSig.entityID = ctx.gameEntity.treeRecordID++;
             entity.typeID = typeID;
             entity.Ctor();
 
@@ -134,13 +138,14 @@ namespace TD {
             GameObject go = GameObject.Instantiate(prefab);
             CaveEntity entity = go.GetComponent<CaveEntity>();
 
+            entity.idSig.entityType = EntityType.Cave;
             entity.Ctor();
             entity.typeID = tm.typeID;
 
             entity.caveSpawnTime = tm.caveSpawnTime;
             entity.caveSpawnInterval = tm.caveSpawnInterval;
 
-            entity.id = ctx.gameEntity.caveRecordID++;
+            entity.idSig.entityID = ctx.gameEntity.caveRecordID++;
 
             entity.SetPos(pos);
 

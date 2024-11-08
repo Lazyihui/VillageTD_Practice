@@ -62,8 +62,11 @@ namespace TD {
         }
 
         public static void Tree_Plant(GameContext ctx, int typeID, Vector2Int pos) {
+            IDSignature idSig = new IDSignature(EntityType.Map, 0);
             // TODO: TypeID问题
-            ctx.mapRepository.TryGet(1, out MapEntity mapEntity);
+            ctx.mapRepository.TryGet(idSig, out MapEntity mapEntity);
+      
+
             MapDomain.SetTile(ctx, mapEntity.treeGrid.tile, 1, pos);
             TreeDomain.Spawn(ctx, pos, 1);
 

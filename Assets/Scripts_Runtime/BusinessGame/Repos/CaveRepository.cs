@@ -9,24 +9,23 @@ namespace TD {
 
     public class CaveRepository {
 
-        Dictionary<int, CaveEntity> all;
+        Dictionary<IDSignature, CaveEntity> all;
 
         CaveEntity[] temArray;
 
 
         public CaveRepository() {
-            all = new Dictionary<int, CaveEntity>();
+            all = new Dictionary<IDSignature, CaveEntity>();
             temArray = new CaveEntity[100];
         }
 
         public void Add(CaveEntity entity) {
-            Debug.Log(entity.id);
-            all.Add(entity.id, entity);
+            all.Add(entity.idSig, entity);
         }
 
 
         public void Remove(CaveEntity entity) {
-            all.Remove(entity.id);
+            all.Remove(entity.idSig);
         }
 
         public int TakeAll(out CaveEntity[] array) {
@@ -38,8 +37,8 @@ namespace TD {
 
             return all.Count;
         }
-        public bool TryGet(int id, out CaveEntity entity) {
-            return all.TryGetValue(id, out entity);
+        public bool TryGet(IDSignature idSig, out CaveEntity entity) {
+            return all.TryGetValue(idSig, out entity);
         }
     }
 }

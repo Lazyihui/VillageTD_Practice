@@ -9,6 +9,7 @@ namespace TD {
         Tree,
         Cave,
         Bullet,
+        Map,
     }
 
 }

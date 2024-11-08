@@ -10,7 +10,7 @@ namespace TD {
 
         [SerializeField] Collider2D colli;
 
-        public int id;
+        public IDSignature idSig;
         public int typeID;
 
         public PlaceConditionType placeConditionType;

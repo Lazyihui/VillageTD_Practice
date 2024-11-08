@@ -14,7 +14,6 @@ namespace TD {
         [SerializeField] GameObject go;
 
         public IDSignature idSig;
-        public int id;
 
         public int typeID;
         public float moveSpeed;

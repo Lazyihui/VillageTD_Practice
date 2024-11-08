@@ -87,7 +87,9 @@ namespace TD {
         }
 
         public TowerEntity Tower_GetOwner() {
-            bool has = towerRepository.TryGet(0, out TowerEntity entity);
+            IDSignature idSig = new IDSignature(EntityType.Tower, 0);
+
+            bool has = towerRepository.TryGet(idSig, out TowerEntity entity);
             if (!has) {
                 Debug.LogError("GameContext.Tower_GetOwner: ownerID not found");
                 return null;
@@ -105,7 +107,8 @@ namespace TD {
         // }
 
         public CaveEntity Cave_GetOwner(int typeID) {
-            bool has = caveRepository.TryGet(typeID, out CaveEntity entity);
+            IDSignature idSig = new IDSignature(EntityType.Cave, typeID);
+            bool has = caveRepository.TryGet(idSig, out CaveEntity entity);
             if (!has) {
                 Debug.LogError("GameContext.Cave_GetOwner: caveRecordID not found");
                 return null;

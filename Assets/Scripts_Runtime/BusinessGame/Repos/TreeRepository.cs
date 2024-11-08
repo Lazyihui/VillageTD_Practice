@@ -9,7 +9,7 @@ namespace TD {
 
     public class TreeRepository {
 
-        Dictionary<int, TreeEntity> all;
+        Dictionary<IDSignature, TreeEntity> all;
 
         TreeEntity[] temArray;
 
@@ -17,13 +17,13 @@ namespace TD {
 
 
         public TreeRepository() {
-            all = new Dictionary<int, TreeEntity>();
+            all = new Dictionary<IDSignature, TreeEntity>();
             temArray = new TreeEntity[100];
             posDict = new Dictionary<Vector2Int, TreeEntity>();
         }
 
         public void Add(TreeEntity entity) {
-            all.Add(entity.id, entity);
+            all.Add(entity.idSig, entity);
         }
 
         public void AddPos(Vector2Int pos, TreeEntity entity) {
@@ -32,7 +32,7 @@ namespace TD {
 
 
         public void Remove(TreeEntity entity) {
-            all.Remove(entity.id);
+            all.Remove(entity.idSig);
         }
 
         public void RemovePos(Vector2Int pos) {
@@ -48,7 +48,7 @@ namespace TD {
 
             return all.Count;
         }
-        public bool TryGet(int id, out TreeEntity entity) {
+        public bool TryGet(IDSignature id, out TreeEntity entity) {
             return all.TryGetValue(id, out entity);
         }
 

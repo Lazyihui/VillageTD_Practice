@@ -5,8 +5,9 @@ using UnityEngine;
 namespace TD {
 
     public class MapEntity : MonoBehaviour {
+        
 
-        public int stageID;
+        public IDSignature idSig;
 
         MapGripElement groundTile;
 

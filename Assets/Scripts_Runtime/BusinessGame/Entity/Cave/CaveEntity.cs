@@ -6,9 +6,8 @@ namespace TD {
 
     public class CaveEntity : MonoBehaviour {
 
+        public IDSignature idSig;
         public int typeID;
-        public int id;
-
         public float caveSpawnTime;
         public float caveSpawnInterval;
 
