@@ -13,6 +13,8 @@ namespace TD {
 
         public Panel_ResourceInfo panel_ResourceInfo;
 
+        public Panel_SelectCard panel_SelectCard;
+
 
         public UIContext() {
 

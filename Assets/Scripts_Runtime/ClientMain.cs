@@ -24,7 +24,10 @@ namespace TD {
             ctx = new GameContext();
             Canvas screenCanvas = GameObject.Find("ScreenCanvas").GetComponent<Canvas>();
 
-            ctx.InJect(screenCanvas, mainCamera);
+            Canvas worldCanvas = GameObject.Find("WorldCanvas").GetComponent<Canvas>();
+
+
+            ctx.InJect(screenCanvas, mainCamera, worldCanvas);
             Action action = async () => {
 
                 await ctx.assetsCore.LoadAll();

@@ -119,9 +119,35 @@ namespace TD {
             panel.TearDown();
         }
 
+        // Panel_SelectCard
+
+
+        public void Panel_SelectCard_Open(GameContext ctx, int typeID) {
+            Panel_SelectCard panel = ctx.appUI.ctx.panel_SelectCard;
+            if (panel == null) {
+                GameObject prefab = ctx.assetsCore.Panel_GetSelectCard();
+                
+                GameObject go = GameObject.Instantiate(prefab, ctx.worldCanvas.transform);
+                panel = go.GetComponent<Panel_SelectCard>();
+                panel.Ctor();
 
 
 
+            }
+
+            panel.Show();
+            panel = ctx.appUI.ctx.panel_SelectCard;
+        }
+
+
+        public void Panel_SelectCard_Close(GameContext ctx) {
+            Panel_SelectCard panel = ctx.appUI.ctx.panel_SelectCard;
+            if (panel == null) {
+                return;
+            }
+
+            panel.TearDown();
+        }
 
 
     }

@@ -13,6 +13,8 @@ namespace TD {
 
         public Canvas screenCanvas;
 
+        public Canvas worldCanvas;
+
         // 
 
         public GameEntity gameEntity; // 
@@ -62,8 +64,10 @@ namespace TD {
 
         }
 
-        public void InJect(Canvas screenCanvas, Camera camera) {
+        public void InJect(Canvas screenCanvas, Camera camera, Canvas worldCanvas) {
             this.screenCanvas = screenCanvas;
+            this.worldCanvas = worldCanvas;
+
             cameraCore.Inject(camera);
         }
 

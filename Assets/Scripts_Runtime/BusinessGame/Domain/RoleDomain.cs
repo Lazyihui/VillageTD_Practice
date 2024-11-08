@@ -37,6 +37,9 @@ namespace TD {
                 BulletDomain.Spawm(ctx, BulletConst.RoleBlt, entity.transform.position);
             }
         }
+
+
+
         public static void SpawnBullet(GameContext ctx, RoleEntity role, float dt) {
 
             int len = ctx.roleRepository.TakeAll(out RoleEntity[] msts);
@@ -53,7 +56,7 @@ namespace TD {
                     }
                 }
             }
-          
+
         }
 
 
