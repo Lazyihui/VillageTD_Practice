@@ -3,29 +3,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
-
 namespace TD {
 
     public class BulletRepository {
 
-        Dictionary<int, BulletEntity> all;
+        Dictionary<IDSignature, BulletEntity> all;
 
         BulletEntity[] temArray;
 
 
         public BulletRepository() {
-            all = new Dictionary<int, BulletEntity>();
+            all = new Dictionary<IDSignature, BulletEntity>();
             temArray = new BulletEntity[100];
         }
 
         public void Add(BulletEntity entity) {
-            all.Add(entity.id, entity);
+            all.Add(entity.idSig, entity);
         }
 
 
         public void Remove(BulletEntity entity) {
-            all.Remove(entity.id);
+            all.Remove(entity.idSig);
         }
 
         public int TakeAll(out BulletEntity[] array) {
@@ -37,8 +35,9 @@ namespace TD {
 
             return all.Count;
         }
-        public bool TryGet(int id, out BulletEntity entity) {
-            return all.TryGetValue(id, out entity);
+
+        public bool TryGet(IDSignature idSig, out BulletEntity entity) {
+            return all.TryGetValue(idSig, out entity);
         }
     }
 }

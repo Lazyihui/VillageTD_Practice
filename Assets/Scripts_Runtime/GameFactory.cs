@@ -14,7 +14,8 @@ namespace TD {
             GameObject prefab = ctx.assetsCore.Entity_GetRole();
             GameObject go = GameObject.Instantiate(prefab);
             RoleEntity entity = go.GetComponent<RoleEntity>();
-            entity.id = ctx.gameEntity.mstroleRecordID++;
+            entity.idSig.entityType = EntityType.Role;
+            entity.idSig.entityID = ctx.gameEntity.mstroleRecordID++;
             entity.typeID = tm.typeID;
 
             entity.Ctor();
@@ -114,7 +115,8 @@ namespace TD {
             GameObject go = GameObject.Instantiate(prefab);
             BulletEntity entity = go.GetComponent<BulletEntity>();
             entity.Ctor();
-            entity.id = ctx.gameEntity.bulletRecordID++;
+            entity.idSig.entityType = EntityType.Bullet;
+            entity.idSig.entityID = ctx.gameEntity.bulletRecordID++;
             entity.typeID = tm.typeID;
 
 

@@ -5,7 +5,8 @@ using UnityEngine;
 namespace TD {
 
     public class BulletEntity : MonoBehaviour {
-        public int id;
+
+        public IDSignature idSig;
 
         public int typeID;
 
@@ -16,6 +17,8 @@ namespace TD {
         public Vector3 targetPos;
 
         public Action<Collider2D> onTriggerEnter;
+
+        public IDSignature targetIDSig;
 
         public void Ctor() {
             attackRange = 3;

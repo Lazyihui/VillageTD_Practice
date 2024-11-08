@@ -14,7 +14,7 @@ namespace TD {
 
 
             RoleEntity owner = RoleDomain.Spawn(ctx, RoleConst.Role, new Vector2(0, 0));
-            ctx.gameEntity.ownerID = owner.id;
+            ctx.gameEntity.ownerIDSig = owner.idSig;
 
             TowerDoamin.Spawn(ctx, TowerConst.BaseTower, new Vector2Int(0, 0));
 
@@ -29,9 +29,9 @@ namespace TD {
 
 
             // panel
-            ctx.appUI.Panel_Manifaset_Open(ctx);
+            ctx.appUI.Panel_Manifaset_Open();
 
-            ctx.appUI.Panel_ResourceInfo_Open(ctx);
+            ctx.appUI.Panel_ResourceInfo_Open();
 
         }
 
@@ -40,8 +40,6 @@ namespace TD {
             PreTick(ctx, dt);
 
             ref float restFixTime = ref ctx.gameEntity.restFixTime;
-
-            restFixTime += dt;
 
             restFixTime += dt;
             const float FIX_INTERVAL = 0.020f;
@@ -74,7 +72,7 @@ namespace TD {
             RoleDomain.Set_MoveAxis(owner, ctx.inputEntity.moveAxis);
 
             // panel  Update
-            ctx.appUI.Panel_ResourceInfo_UpateResCount(ctx);
+            ctx.appUI.Panel_ResourceInfo_UpateResCount(ctx.gameEntity.resCount);
 
 
         }
@@ -130,26 +128,26 @@ namespace TD {
 
 
 
-            SpawnMst(ctx, dt);
 
 
         }
         // 要改
         static void SpawnMst(GameContext ctx, float dt) {
-                
 
-            // 
-            ctx.caveEntity.caveSpawnTime += dt;
+            CaveEntity cave = ctx.Cave_GetOwner(0);
 
-            if (ctx.caveEntity.caveSpawnTime >= ctx.caveEntity.caveSpawnInterval) {
-                ctx.caveEntity.caveSpawnTime = 0;
-                RoleDomain.Spawn(ctx, RoleConst.Monster, new Vector2(17, 0));
+            cave.caveSpawnTime += dt;
 
+            if (cave.caveSpawnTime >= cave.caveSpawnInterval) {
+                cave.caveSpawnTime = 0;
+                Vector3 pos = cave.transform.position;
+                RoleDomain.Spawn(ctx, RoleConst.Monster, pos);
             }
 
         }
 
         static void LastTick(GameContext ctx, float dt) {
+            SpawnMst(ctx, dt);
 
             // //相机跟随   
             // RoleEntity owner = ctx.Role_GetOwner();

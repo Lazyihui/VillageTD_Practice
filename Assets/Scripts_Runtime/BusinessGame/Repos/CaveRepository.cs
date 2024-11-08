@@ -20,6 +20,7 @@ namespace TD {
         }
 
         public void Add(CaveEntity entity) {
+            Debug.Log(entity.id);
             all.Add(entity.id, entity);
         }
 

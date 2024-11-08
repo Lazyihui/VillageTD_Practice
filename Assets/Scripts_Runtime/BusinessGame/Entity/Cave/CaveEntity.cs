@@ -4,21 +4,18 @@ using UnityEngine;
 
 namespace TD {
 
-
     public class CaveEntity : MonoBehaviour {
-        public int typeID;
 
+        public int typeID;
         public int id;
 
-
         public float caveSpawnTime;
-
         public float caveSpawnInterval;
 
-
+        public bool isLive;
 
         public void Ctor() {
-            
+            isLive = false;
         }
 
 

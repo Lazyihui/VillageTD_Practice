@@ -9,7 +9,7 @@ namespace TD {
     public static class Logic_Business {
 
         public static void Enter(GameContext ctx) {
-            ctx.appUI.Panel_Login_Open(ctx);
+            ctx.appUI.Panel_Login_Open();
             
         }
 

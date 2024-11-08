@@ -16,8 +16,13 @@ namespace TD {
             eventCenter = new UIEventCenter();
         }
 
-        public void Panel_Login_Open(GameContext ctx) {
-            Panel_Login panel = ctx.appUI.ctx.panel_Login;
+        public void Inject(AssetsCore assetsCore, TemplateCore templateCore, Canvas screenCanvas, Canvas worldCanvas) {
+            ctx.Inject(assetsCore, templateCore, screenCanvas, worldCanvas);
+        }
+
+
+        public void Panel_Login_Open() {
+            Panel_Login panel = ctx.panel_Login;
 
             if (panel == null) {
 
@@ -30,18 +35,18 @@ namespace TD {
 
                 panel.OnLoginClickHandle += () => {
 
-                    ctx.appUI.eventCenter.OnLoginClick();
+                    eventCenter.OnLoginClick();
 
                 };
 
             }
-            ctx.appUI.ctx.panel_Login = panel;
+            ctx.panel_Login = panel;
             panel.Show();
 
         }
 
-        public void Panel_Login_Close(GameContext ctx) {
-            Panel_Login panel = ctx.appUI.ctx.panel_Login;
+        public void Panel_Login_Close() {
+            Panel_Login panel = ctx.panel_Login;
             if (panel == null) {
                 return;
             }
@@ -50,8 +55,8 @@ namespace TD {
 
         }
 
-        public void Panel_Manifaset_Open(GameContext ctx) {
-            Panel_Manifast panel = ctx.appUI.ctx.panel_Manifast;
+        public void Panel_Manifaset_Open() {
+            Panel_Manifast panel = ctx.panel_Manifast;
 
             if (panel == null) {
 
@@ -62,24 +67,24 @@ namespace TD {
                 panel.Ctor();
 
                 panel.OnHatChetClickHandle += (int typeID) => {
-                    ctx.appUI.eventCenter.OnHatChetClick(typeID);
+                    eventCenter.OnHatChetClick(typeID);
                 };
 
                 panel.OnTowerClickHandle += (int typeID) => {
-                    ctx.appUI.eventCenter.OnTowerClick(typeID);
+                    eventCenter.OnTowerClick(typeID);
                 };
 
                 panel.OnPlantTreeClickHandle += (int typeID) => {
-                    ctx.appUI.eventCenter.OnPlantTreeClick(typeID);
+                    eventCenter.OnPlantTreeClick(typeID);
                 };
 
             }
-            ctx.appUI.ctx.panel_Manifast = panel;
+            ctx.panel_Manifast = panel;
             panel.Show();
         }
 
-        public void panel_Manifast_Close(GameContext ctx) {
-            Panel_Manifast panel = ctx.appUI.ctx.panel_Manifast;
+        public void panel_Manifast_Close() {
+            Panel_Manifast panel = ctx.panel_Manifast;
             if (panel == null) {
                 return;
             }
@@ -87,9 +92,9 @@ namespace TD {
             panel.TearDown();
         }
 
-        public void Panel_ResourceInfo_Open(GameContext ctx) {
+        public void Panel_ResourceInfo_Open() {
 
-            Panel_ResourceInfo panel = ctx.appUI.ctx.panel_ResourceInfo;
+            Panel_ResourceInfo panel = ctx.panel_ResourceInfo;
 
             if (panel == null) {
                 GameObject prefab = ctx.assetsCore.Panel_GetResourceInfo();
@@ -99,23 +104,23 @@ namespace TD {
                 panel.Ctor();
             }
 
-            ctx.appUI.ctx.panel_ResourceInfo = panel;
+            ctx.panel_ResourceInfo = panel;
             panel.Show();
         }
 
-        public void Panel_ResourceInfo_UpateResCount(GameContext ctx) {
+        public void Panel_ResourceInfo_UpateResCount(int resCount) {
 
-            Panel_ResourceInfo panel = ctx.appUI.ctx.panel_ResourceInfo;
+            Panel_ResourceInfo panel = ctx.panel_ResourceInfo;
             if (panel == null) {
                 return;
             }
 
-            panel.SetResCount(ctx.gameEntity.resCount);
+            panel.SetResCount(resCount);
 
         }
 
-        public void Panel_ResourceInfo_Close(GameContext ctx) {
-            Panel_ResourceInfo panel = ctx.appUI.ctx.panel_ResourceInfo;
+        public void Panel_ResourceInfo_Close() {
+            Panel_ResourceInfo panel = ctx.panel_ResourceInfo;
             if (panel == null) {
                 return;
             }
@@ -126,8 +131,8 @@ namespace TD {
         // Panel_SelectCard
 
 
-        public void Panel_SelectCard_Open(GameContext ctx, int typeID) {
-            Panel_SelectCard panel = ctx.appUI.ctx.panel_SelectCard;
+        public void Panel_SelectCard_Open(int typeID) {
+            Panel_SelectCard panel = ctx.panel_SelectCard;
             if (panel == null) {
                 GameObject prefab = ctx.assetsCore.Panel_GetSelectCard();
 
@@ -141,11 +146,11 @@ namespace TD {
             }
 
             panel.Show();
-            ctx.appUI.ctx.panel_SelectCard = panel;
+            ctx.panel_SelectCard = panel;
         }
 
-        public void Panel_SelectCard_SetPos(GameContext ctx, Vector2Int pos) {
-            Panel_SelectCard panel = ctx.appUI.ctx.panel_SelectCard;
+        public void Panel_SelectCard_SetPos(Vector2Int pos) {
+            Panel_SelectCard panel = ctx.panel_SelectCard;
 
             if (panel == null) {
                 return;
@@ -155,8 +160,8 @@ namespace TD {
 
         }
 
-        public void Panel_SelectCard_Close(GameContext ctx) {
-            Panel_SelectCard panel = ctx.appUI.ctx.panel_SelectCard;
+        public void Panel_SelectCard_Close() {
+            Panel_SelectCard panel = ctx.panel_SelectCard;
             if (panel == null) {
                 return;
             }

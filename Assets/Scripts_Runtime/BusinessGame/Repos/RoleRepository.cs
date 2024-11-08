@@ -9,23 +9,21 @@ namespace TD {
 
     public class RoleRepository {
 
-        Dictionary<int, RoleEntity> all;
+        Dictionary<IDSignature, RoleEntity> all;
 
         RoleEntity[] temArray;
 
-
         public RoleRepository() {
-            all = new Dictionary<int, RoleEntity>();
+            all = new Dictionary<IDSignature, RoleEntity>();
             temArray = new RoleEntity[100];
         }
 
         public void Add(RoleEntity entity) {
-            all.Add(entity.id, entity);
+            all.Add(entity.idSig, entity);
         }
 
-
         public void Remove(RoleEntity entity) {
-            all.Remove(entity.id);
+            all.Remove(entity.idSig);
         }
 
         public int TakeAll(out RoleEntity[] array) {
@@ -34,11 +32,12 @@ namespace TD {
             }
             all.Values.CopyTo(temArray, 0);
             array = temArray;
-
             return all.Count;
         }
-        public bool TryGet(int id, out RoleEntity entity) {
-            return all.TryGetValue(id, out entity);
+
+        public bool TryGet(IDSignature idSig, out RoleEntity entity) {
+            return all.TryGetValue(idSig, out entity);
         }
+
     }
 }

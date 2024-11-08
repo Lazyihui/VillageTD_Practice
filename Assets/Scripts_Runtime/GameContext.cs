@@ -8,42 +8,25 @@ namespace TD {
 
 
     public class GameContext {
-
+        public AppUI appUI;
         // inJect
 
-        public Canvas screenCanvas;
-
-        public Canvas worldCanvas;
-
         // 
-
         public GameEntity gameEntity; // 
-
-        public CaveEntity caveEntity;
 
         // Core
         public AssetsCore assetsCore;
-
         public InputEntity inputEntity;
-
         public CameraCore cameraCore;
-
         public TemplateCore templateCore;
-        public AppUI appUI;
 
         // repos
         public RoleRepository roleRepository;
-
         public TowerRepository towerRepository;
-
         public MapRepository mapRepository;
-
         public TreeRepository treeRepository;
-
         public BulletRepository bulletRepository;
-
         public CaveRepository caveRepository;
-
 
         public GameContext() {
 
@@ -66,15 +49,36 @@ namespace TD {
         }
 
         public void InJect(Canvas screenCanvas, Camera camera, Canvas worldCanvas) {
-            this.screenCanvas = screenCanvas;
-            this.worldCanvas = worldCanvas;
-
             cameraCore.Inject(camera);
+            appUI.Inject(assetsCore, templateCore, screenCanvas, worldCanvas);
+        }
+
+        public bool TryGetEntityPos(IDSignature idSig, out Vector2 pos) {
+            bool has;
+
+            // Role
+            has = roleRepository.TryGet(idSig, out RoleEntity entity);
+            if (has) {
+                pos = entity.transform.position;
+                return true;
+            }
+
+            // Bullet
+            has = bulletRepository.TryGet(idSig, out BulletEntity bulletEntity);
+            if (has) {
+                pos = bulletEntity.transform.position;
+                return true;
+            }
+
+            // Tower
+
+            pos = Vector2.zero;
+            return false;
         }
 
         public RoleEntity Role_GetOwner() {
 
-            bool has = roleRepository.TryGet(gameEntity.ownerID, out RoleEntity entity);
+            bool has = roleRepository.TryGet(gameEntity.ownerIDSig, out RoleEntity entity);
             if (!has) {
                 Debug.LogError("GameContext.Role_GetOwner: ownerID not found");
                 return null;
@@ -91,15 +95,22 @@ namespace TD {
             return entity;
         }
 
-        public MapEntity Map_GetStage() {
-            bool has = mapRepository.TryGet(gameEntity.stageID, out MapEntity entity);
+        // public MapEntity Map_GetStage() {
+        //     bool has = mapRepository.TryGet(gameEntity.stageID, out MapEntity entity);
+        //     if (!has) {
+        //         Debug.LogError("GameContext.Map_GetStage: stageID not found");
+        //         return null;
+        //     }
+        //     return entity;
+        // }
+
+        public CaveEntity Cave_GetOwner(int typeID) {
+            bool has = caveRepository.TryGet(typeID, out CaveEntity entity);
             if (!has) {
-                Debug.LogError("GameContext.Map_GetStage: stageID not found");
+                Debug.LogError("GameContext.Cave_GetOwner: caveRecordID not found");
                 return null;
             }
             return entity;
         }
-
-
     }
 }

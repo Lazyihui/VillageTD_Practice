@@ -56,7 +56,7 @@ namespace TD {
         public static void Tower_Bulid(GameContext ctx, int typeID, Vector2Int pos) {
             TowerEntity tower = TowerDoamin.Spawn(ctx, typeID, pos);
 
-            ctx.appUI.Panel_SelectCard_Close(ctx);
+            ctx.appUI.Panel_SelectCard_Close();
             ctx.gameEntity.handHasCard = false;
             ctx.gameEntity.handCardID = -1;
         }
@@ -67,7 +67,7 @@ namespace TD {
             MapDomain.SetTile(ctx, mapEntity.treeGrid.tile, 1, pos);
             TreeDomain.Spawn(ctx, pos, 1);
 
-            ctx.appUI.Panel_SelectCard_Close(ctx);
+            ctx.appUI.Panel_SelectCard_Close();
             ctx.gameEntity.handHasCardTree = false;
             ctx.gameEntity.handCardID = -1;
 

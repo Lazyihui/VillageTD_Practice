@@ -20,7 +20,7 @@ namespace TD {
             if (ctx.gameEntity.handHasCard || ctx.gameEntity.handHasCardTree) {
 
                 Vector2Int pos = ctx.inputEntity.mousePositionGrid;
-                ctx.appUI.Panel_SelectCard_SetPos(ctx, pos);
+                ctx.appUI.Panel_SelectCard_SetPos(pos);
             }
         }
 
@@ -28,7 +28,7 @@ namespace TD {
             if (ctx.gameEntity.handHasCard || ctx.gameEntity.handHasCardTree) {
 
                 if (ctx.inputEntity.mouseRightClick) {
-                    ctx.appUI.Panel_SelectCard_Close(ctx);
+                    ctx.appUI.Panel_SelectCard_Close();
                     ctx.gameEntity.handHasCard = false;
                 }
             }

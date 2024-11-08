@@ -23,10 +23,10 @@ namespace TD {
 
             ctx = new GameContext();
             Canvas screenCanvas = GameObject.Find("ScreenCanvas").GetComponent<Canvas>();
-
             Canvas worldCanvas = GameObject.Find("WorldCanvas").GetComponent<Canvas>();
 
-
+            Binding();
+            
             ctx.InJect(screenCanvas, mainCamera, worldCanvas);
             Action action = async () => {
 
@@ -41,14 +41,13 @@ namespace TD {
 
             action.Invoke();
 
-            Binding();
         }
 
         void Binding() {
             var eventCenter = ctx.appUI.eventCenter;
 
             eventCenter.OnLoginClickHandle += () => {
-                ctx.appUI.Panel_Login_Close(ctx);
+                ctx.appUI.Panel_Login_Close();
                 Game_Business.Enter(ctx);
                 ctx.gameEntity.state = GameState.Game;
             };
@@ -57,7 +56,7 @@ namespace TD {
                 // 可以直接写成函数
                 ctx.gameEntity.handHasCard = true;
                 ctx.gameEntity.handCardID = typeID;
-                ctx.appUI.Panel_SelectCard_Open(ctx, typeID);
+                ctx.appUI.Panel_SelectCard_Open(typeID);
 
             };
 
@@ -65,14 +64,14 @@ namespace TD {
 
                 ctx.gameEntity.handHasCard = true;
                 ctx.gameEntity.handCardID = typeID;
-                ctx.appUI.Panel_SelectCard_Open(ctx, typeID);
+                ctx.appUI.Panel_SelectCard_Open(typeID);
             };
 
             eventCenter.OnPlantTreeClickHandle += (int typeID) => {
 
                 ctx.gameEntity.handHasCardTree = true;
                 ctx.gameEntity.handCardID = typeID;
-                ctx.appUI.Panel_SelectCard_Open(ctx, typeID);
+                ctx.appUI.Panel_SelectCard_Open(typeID);
 
             };
 

@@ -10,7 +10,7 @@ namespace TD {
 
         public float restFixTime;
 
-        public int ownerID;
+        public IDSignature ownerIDSig; // ulong
 
         public int towerRecordID;
 
@@ -40,7 +40,6 @@ namespace TD {
 
         public GameEntity() {
             restFixTime = 0;
-            ownerID = 0;
             towerRecordID = 0;
             stageID = 0;
             treeRecordID = 0;
