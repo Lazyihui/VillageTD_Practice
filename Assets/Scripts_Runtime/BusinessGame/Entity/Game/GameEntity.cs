@@ -26,6 +26,8 @@ namespace TD {
 
         public TowerEntity handTower;
 
+        public bool isHandHasCard;
+
 
 
         // 资源
@@ -43,6 +45,7 @@ namespace TD {
             state = GameState.Login;
 
             handTower = null;
+            isHandHasCard = false;
 
             resCount = 100;
 

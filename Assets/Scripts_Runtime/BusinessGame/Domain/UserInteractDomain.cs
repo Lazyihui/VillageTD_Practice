@@ -19,6 +19,13 @@ namespace TD {
                     Tower_TryBuild(ctx, handleTower.typeID, input.mousePositionGrid);
                 }
             }
+
+            bool hasCard = game.isHandHasCard;
+            if (hasCard) {
+
+                
+
+            }
         }
 
         static void Tower_TryBuild(GameContext ctx, int typeID, Vector2Int pos) {

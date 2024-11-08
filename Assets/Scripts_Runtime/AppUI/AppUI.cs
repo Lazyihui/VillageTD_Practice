@@ -137,9 +137,19 @@ namespace TD {
             }
 
             panel.Show();
-            panel = ctx.appUI.ctx.panel_SelectCard;
+            ctx.appUI.ctx.panel_SelectCard = panel;
         }
 
+        public void Panel_SelectCard_SetPos(GameContext ctx, Vector2Int pos) {
+            Panel_SelectCard panel = ctx.appUI.ctx.panel_SelectCard;
+
+            if (panel == null) {
+                return;
+            }
+
+            panel.SetPos(pos);
+
+        }
 
         public void Panel_SelectCard_Close(GameContext ctx) {
             Panel_SelectCard panel = ctx.appUI.ctx.panel_SelectCard;

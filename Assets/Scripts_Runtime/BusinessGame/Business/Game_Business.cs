@@ -82,8 +82,9 @@ namespace TD {
 
         static void LogicTick(GameContext ctx, float dt) {
 
-            GameDomain.SetTowerPos(ctx);
-            GameDomain.CancelBulidTower(ctx);
+            GameDomain.Tick(ctx, dt);
+
+          
 
             RoleEntity owner = ctx.Role_GetOwner();
             RoleDomain.Move(owner, dt);

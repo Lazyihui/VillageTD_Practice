@@ -56,7 +56,9 @@ namespace TD {
             eventCenter.OnHatChetClickHandle += (int typeID) => {
                 Debug.Log("生成树塔 砍树");
                 Debug.Log(typeID);
-                ctx.gameEntity.handTower = GameFactory.Tower_Create(ctx, typeID, Vector2Int.zero);
+                // ctx.gameEntity.handTower = GameFactory.Tower_Create(ctx, typeID, Vector2Int.zero);
+
+                ctx.gameEntity.isHandHasCard = true;
 
                 ctx.appUI.Panel_SelectCard_Open(ctx, typeID);
 
@@ -64,10 +66,13 @@ namespace TD {
 
             eventCenter.OnTowerClickHandle += (int typeID) => {
 
+                ctx.gameEntity.isHandHasCard = true;
+                ctx.appUI.Panel_SelectCard_Open(ctx, typeID);
 
-                Debug.Log("打开塔面板");
-                ctx.gameEntity.handTower = GameFactory.Tower_Create(ctx, typeID, Vector2Int.zero);
-                Debug.Log(typeID);
+
+                // Debug.Log("打开塔面板");
+                // ctx.gameEntity.handTower = GameFactory.Tower_Create(ctx, typeID, Vector2Int.zero);
+                // Debug.Log(typeID);
             };
 
         }
