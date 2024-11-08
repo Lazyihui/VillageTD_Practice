@@ -42,11 +42,12 @@ namespace TD {
 
         public BulletRepository bulletRepository;
 
+        public CaveRepository caveRepository;
+
 
         public GameContext() {
 
             gameEntity = new GameEntity();
-            caveEntity = new CaveEntity();
 
             // Core
             assetsCore = new AssetsCore();
@@ -61,7 +62,7 @@ namespace TD {
             mapRepository = new MapRepository();
             treeRepository = new TreeRepository();
             bulletRepository = new BulletRepository();
-
+            caveRepository = new CaveRepository();
         }
 
         public void InJect(Canvas screenCanvas, Camera camera, Canvas worldCanvas) {
@@ -98,6 +99,7 @@ namespace TD {
             }
             return entity;
         }
+
 
     }
 }

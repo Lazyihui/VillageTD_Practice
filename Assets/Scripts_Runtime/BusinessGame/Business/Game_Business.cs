@@ -24,7 +24,9 @@ namespace TD {
                 TreeDomain.Spawn(ctx, pos, 1);
             }
 
-            int len = ctx.treeRepository.TakeAll(out TreeEntity[] trees);
+
+            CaveDomain.Spawn(ctx, 1, new Vector3(17, 0, 0));
+
 
             // panel
             ctx.appUI.Panel_Manifaset_Open(ctx);
@@ -64,7 +66,7 @@ namespace TD {
 
             UserInteractDomain.Tick(ctx);
 
-            
+
 
 
             RoleEntity owner = ctx.Role_GetOwner();
@@ -81,7 +83,7 @@ namespace TD {
 
             GameDomain.Tick(ctx, dt);
 
-          
+
 
             RoleEntity owner = ctx.Role_GetOwner();
             RoleDomain.Move(owner, dt);
@@ -134,7 +136,9 @@ namespace TD {
         }
         // 要改
         static void SpawnMst(GameContext ctx, float dt) {
+                
 
+            // 
             ctx.caveEntity.caveSpawnTime += dt;
 
             if (ctx.caveEntity.caveSpawnTime >= ctx.caveEntity.caveSpawnInterval) {

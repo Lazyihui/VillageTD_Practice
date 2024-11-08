@@ -124,6 +124,26 @@ namespace TD {
 
             return entity;
         }
+
+        public static CaveEntity Cave_Create(GameContext ctx, int typeID, Vector3 pos) {
+            CaveTM tm;
+            ctx.templateCore.ctx.Cave_TryGet(typeID, out tm);
+            GameObject prefab = ctx.assetsCore.Entity_GetCave();
+            GameObject go = GameObject.Instantiate(prefab);
+            CaveEntity entity = go.GetComponent<CaveEntity>();
+
+            entity.Ctor();
+            entity.typeID = tm.typeID;
+
+            entity.caveSpawnTime = tm.caveSpawnTime;
+            entity.caveSpawnInterval = tm.caveSpawnInterval;
+
+            entity.id = ctx.gameEntity.caveRecordID++;
+
+            entity.SetPos(pos);
+
+            return entity;
+        }
     }
 
 }

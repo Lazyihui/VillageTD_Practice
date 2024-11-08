@@ -22,6 +22,8 @@ namespace TD {
 
         public int bulletRecordID;
 
+        public int caveRecordID;
+
         public GameState state;
 
 
@@ -44,6 +46,7 @@ namespace TD {
             treeRecordID = 0;
             mstroleRecordID = 0;
             bulletRecordID = 0;
+            caveRecordID = 0;
 
             state = GameState.Login;
 

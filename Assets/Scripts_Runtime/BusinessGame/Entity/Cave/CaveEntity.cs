@@ -5,7 +5,7 @@ using UnityEngine;
 namespace TD {
 
 
-    public class CaveEntity {
+    public class CaveEntity : MonoBehaviour {
         public int typeID;
 
         public int id;
@@ -15,11 +15,15 @@ namespace TD {
 
         public float caveSpawnInterval;
 
-        
 
-        public CaveEntity() {
-            caveSpawnTime = 0;
-            caveSpawnInterval = 4;
+
+        public void Ctor() {
+            
+        }
+
+
+        public void SetPos(Vector3 pos) {
+            transform.position = pos;
         }
 
     }

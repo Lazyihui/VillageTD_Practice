@@ -80,6 +80,11 @@ namespace TD {
             return bullet;
         }
 
+        public GameObject Entity_GetCave() {
+            entities.TryGetValue("Entity_Cave", out GameObject cave);
+            return cave;
+        }
+
         //  panel 
 
         public GameObject Panel_GetLogin() {
