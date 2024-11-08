@@ -24,9 +24,10 @@ namespace TD {
 
         public GameState state;
 
-        public TowerEntity handTower;
 
         public bool handHasCard;
+
+        public bool handHasCardTree;
 
         public int handCardID;
 
@@ -46,8 +47,8 @@ namespace TD {
 
             state = GameState.Login;
 
-            handTower = null;
             handHasCard = false;
+            handHasCardTree = false;
 
             resCount = 100;
 

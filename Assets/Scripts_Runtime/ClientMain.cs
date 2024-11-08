@@ -66,11 +66,14 @@ namespace TD {
                 ctx.gameEntity.handHasCard = true;
                 ctx.gameEntity.handCardID = typeID;
                 ctx.appUI.Panel_SelectCard_Open(ctx, typeID);
+            };
 
+            eventCenter.OnPlantTreeClickHandle += (int typeID) => {
 
-                // Debug.Log("打开塔面板");
-                // ctx.gameEntity.handTower = GameFactory.Tower_Create(ctx, typeID, Vector2Int.zero);
-                // Debug.Log(typeID);
+                ctx.gameEntity.handHasCardTree = true;
+                ctx.gameEntity.handCardID = typeID;
+                ctx.appUI.Panel_SelectCard_Open(ctx, typeID);
+
             };
 
         }

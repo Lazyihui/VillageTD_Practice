@@ -35,6 +35,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - So_PanelCard
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b61844017b0993f4b8c5aa12ae7aa6fc
+    m_Address: PanelCardSO2PlantTree
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - So_PanelCard
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: ce53ef2a080bb9e41a644841fa038063, type: 2}
   m_SchemaSet:

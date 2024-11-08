@@ -69,6 +69,10 @@ namespace TD {
                     ctx.appUI.eventCenter.OnTowerClick(typeID);
                 };
 
+                panel.OnPlantTreeClickHandle += (int typeID) => {
+                    ctx.appUI.eventCenter.OnPlantTreeClick(typeID);
+                };
+
             }
             ctx.appUI.ctx.panel_Manifast = panel;
             panel.Show();

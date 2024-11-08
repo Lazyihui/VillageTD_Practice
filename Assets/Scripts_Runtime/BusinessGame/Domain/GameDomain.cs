@@ -17,21 +17,20 @@ namespace TD {
 
 
         public static void SetPanelCardPos(GameContext ctx) {
-            if (!ctx.gameEntity.handHasCard) {
-                return;
+            if (ctx.gameEntity.handHasCard || ctx.gameEntity.handHasCardTree) {
+
+                Vector2Int pos = ctx.inputEntity.mousePositionGrid;
+                ctx.appUI.Panel_SelectCard_SetPos(ctx, pos);
             }
-            Vector2Int pos = ctx.inputEntity.mousePositionGrid;
-            ctx.appUI.Panel_SelectCard_SetPos(ctx, pos);
         }
 
         public static void CancelBuiidTowerCard(GameContext ctx) {
-            if (!ctx.gameEntity.handHasCard) {
-                return;
-            }
+            if (ctx.gameEntity.handHasCard || ctx.gameEntity.handHasCardTree) {
 
-            if (ctx.inputEntity.mouseRightClick) {
-                ctx.appUI.Panel_SelectCard_Close(ctx);
-                ctx.gameEntity.handHasCard = false;
+                if (ctx.inputEntity.mouseRightClick) {
+                    ctx.appUI.Panel_SelectCard_Close(ctx);
+                    ctx.gameEntity.handHasCard = false;
+                }
             }
         }
 

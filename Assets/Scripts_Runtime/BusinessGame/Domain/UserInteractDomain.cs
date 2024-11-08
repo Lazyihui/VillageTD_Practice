@@ -9,17 +9,9 @@ namespace TD {
             var input = ctx.inputEntity;
 
             var game = ctx.gameEntity;
-            var handleTower = game.handTower;
-
             // === Select ====
 
             // ==== Build ====
-            if (handleTower != null) {
-                if (input.mouseLeftClick) {
-                    Tower_TryBuild(ctx, handleTower.typeID, input.mousePositionGrid);
-                }
-            }
-
             bool hasCard = game.handHasCard;
             if (hasCard) {
                 if (input.mouseLeftClick) {
@@ -27,7 +19,28 @@ namespace TD {
                     Tower_TryBuild(ctx, typeID, input.mousePositionGrid);
                 }
             }
+
+            // ==== 种树 ====
+            bool hasTreeCard = game.handHasCardTree;
+            if (hasCard) {
+                if (input.mouseLeftClick) {
+
+                    int typeID = ctx.gameEntity.handCardID;
+                    Tree_TryBuild(ctx, typeID, input.mousePositionGrid);
+                }
+            }
         }
+
+        static void Tree_TryBuild(GameContext ctx, int typeID, Vector2Int pos) {
+            bool allow = Tower_AllowBuild(ctx, typeID, pos);
+            if (!allow) {
+                // TODO: UI notice
+                return;
+            }
+
+            Tree_Plant(ctx, typeID, pos);
+        }
+
 
         static void Tower_TryBuild(GameContext ctx, int typeID, Vector2Int pos) {
 
@@ -37,10 +50,10 @@ namespace TD {
                 return;
             }
             Debug.Log("允许建塔");
-            Tower_Bulid2(ctx, typeID, pos);
+            Tower_Bulid(ctx, typeID, pos);
         }
 
-        public static void Tower_Bulid2(GameContext ctx, int typeID, Vector2Int pos) {
+        public static void Tower_Bulid(GameContext ctx, int typeID, Vector2Int pos) {
             TowerEntity tower = TowerDoamin.Spawn(ctx, typeID, pos);
 
             ctx.appUI.Panel_SelectCard_Close(ctx);
@@ -48,11 +61,17 @@ namespace TD {
             ctx.gameEntity.handCardID = -1;
         }
 
-        public static void Tower_Build(GameContext ctx, int typeID, Vector2Int pos) {
-            var tower = TowerDoamin.Spawn(ctx, typeID, pos);
-            GameObject.Destroy(ctx.gameEntity.handTower.gameObject);
-            ctx.gameEntity.handTower = null;
+        public static void Tree_Plant(GameContext ctx, int typeID, Vector2Int pos) {
+
+            // TODO: TypeID问题
+            ctx.mapRepository.TryGet(1, out MapEntity mapEntity);
+            MapDomain.SetTile(ctx, mapEntity.treeGrid.tile, 1, pos);
+
+            ctx.gameEntity.handHasCardTree = false;
+            ctx.gameEntity.handCardID = -1;
+
         }
+
 
         static bool Tower_AllowBuild(GameContext ctx, int typeID, Vector2Int pos) {
             // 没有这个塔
@@ -115,46 +134,6 @@ namespace TD {
 
             return false;
 
-        }
-
-        public static void Tower_Build(GameContext ctx) {
-
-            var game = ctx.gameEntity;
-            var handleTower = game.handTower;
-            if (handleTower == null) {
-                return;
-            }
-
-            if (ctx.inputEntity.mouseLeftClick && handleTower.typeID == TowerConst.ArrowTower) {
-                handleTower.SetPos(ctx.inputEntity.mousePositionGrid);
-                handleTower.isLive = true;
-                game.handTower = null;
-            }
-
-            if (handleTower == null) {
-                return;
-            }
-
-            if (ctx.inputEntity.mouseLeftClick && handleTower.typeID == TowerConst.TreeTower) {
-
-                // 如果有这个位置的树
-                Vector2Int pos = ctx.inputEntity.mousePositionGrid;
-                if (ctx.treeRepository.IsPosHas(pos)) {
-
-                    TreeEntity treeEntity = ctx.treeRepository.FindByPos(pos);
-
-                    Vector3 towerPos = new Vector3(pos.x, pos.y, 0);
-                    foreach (Vector2Int pos2 in ctx.treeRepository.posDict.Keys) {
-                        Debug.Log(pos2);
-                    }
-
-                    Debug.Log("鼠标坐标" + pos);
-                    handleTower.SetPos(pos);
-                    handleTower.isLive = true;
-                    game.handTower = null;
-
-                }
-            }
         }
 
     }

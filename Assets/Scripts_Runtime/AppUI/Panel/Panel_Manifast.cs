@@ -14,6 +14,7 @@ namespace TD {
 
         [SerializeField] Panel_ManifastElment arrowTower;
 
+        [SerializeField] Panel_ManifastElment PlantTree;
         [SerializeField] Button btnHatChet;
 
         public Action<int> OnHatChetClickHandle;
@@ -21,6 +22,10 @@ namespace TD {
         [SerializeField] Button btnTower;
 
         public Action<int> OnTowerClickHandle;
+
+        [SerializeField] Button btnPlantTree;
+
+        public Action<int> OnPlantTreeClickHandle;
 
         public void Ctor() {
 
@@ -33,6 +38,12 @@ namespace TD {
             btnTower.onClick.AddListener(() => {
                 if (OnTowerClickHandle != null) {
                     OnTowerClickHandle.Invoke(arrowTower.typeID);
+                }
+            });
+
+            btnPlantTree.onClick.AddListener(() => {
+                if (OnPlantTreeClickHandle != null) {
+                    OnPlantTreeClickHandle.Invoke(PlantTree.typeID);
                 }
             });
 

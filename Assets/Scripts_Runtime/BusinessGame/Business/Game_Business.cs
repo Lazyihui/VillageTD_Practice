@@ -64,10 +64,7 @@ namespace TD {
 
             UserInteractDomain.Tick(ctx);
 
-            ctx.mapRepository.TryGet(1, out MapEntity mapEntity);
-
-
-            // MapDomain.SetTile(ctx, mapEntity.treeGrid.tile, 1, new Vector2Int(0, 0));
+            
 
 
             RoleEntity owner = ctx.Role_GetOwner();

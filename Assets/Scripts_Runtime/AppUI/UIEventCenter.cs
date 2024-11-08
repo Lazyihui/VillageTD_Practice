@@ -29,4 +29,12 @@ public class UIEventCenter {
             OnTowerClickHandle.Invoke(typeID);
         }
     }
+
+    public Action<int> OnPlantTreeClickHandle;
+
+    public void OnPlantTreeClick(int typeID) {
+        if (OnPlantTreeClickHandle != null) {
+            OnPlantTreeClickHandle.Invoke(typeID);
+        }
+    }
 }
