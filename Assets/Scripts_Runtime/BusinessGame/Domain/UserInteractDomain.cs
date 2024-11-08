@@ -22,7 +22,7 @@ namespace TD {
 
             // ==== 种树 ====
             bool hasTreeCard = game.handHasCardTree;
-            if (hasCard) {
+            if (hasTreeCard) {
                 if (input.mouseLeftClick) {
 
                     int typeID = ctx.gameEntity.handCardID;
@@ -62,11 +62,12 @@ namespace TD {
         }
 
         public static void Tree_Plant(GameContext ctx, int typeID, Vector2Int pos) {
-
             // TODO: TypeID问题
             ctx.mapRepository.TryGet(1, out MapEntity mapEntity);
             MapDomain.SetTile(ctx, mapEntity.treeGrid.tile, 1, pos);
+            TreeDomain.Spawn(ctx, pos, 1);
 
+            ctx.appUI.Panel_SelectCard_Close(ctx);
             ctx.gameEntity.handHasCardTree = false;
             ctx.gameEntity.handCardID = -1;
 
