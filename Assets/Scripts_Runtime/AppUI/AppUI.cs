@@ -126,12 +126,13 @@ namespace TD {
             Panel_SelectCard panel = ctx.appUI.ctx.panel_SelectCard;
             if (panel == null) {
                 GameObject prefab = ctx.assetsCore.Panel_GetSelectCard();
-                
+
                 GameObject go = GameObject.Instantiate(prefab, ctx.worldCanvas.transform);
                 panel = go.GetComponent<Panel_SelectCard>();
                 panel.Ctor();
 
-
+                ctx.templateCore.ctx.PanelCard_TryGet(typeID, out PanelCardTM tm);
+                panel.SetSprite(tm.sprite);
 
             }
 

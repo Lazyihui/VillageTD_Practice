@@ -31,8 +31,6 @@ namespace TD {
 
             ctx.appUI.Panel_ResourceInfo_Open(ctx);
 
-            ctx.appUI.Panel_SelectCard_Open(ctx,1);
-
         }
 
 

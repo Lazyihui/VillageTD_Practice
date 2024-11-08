@@ -57,9 +57,14 @@ namespace TD {
                 Debug.Log("生成树塔 砍树");
                 Debug.Log(typeID);
                 ctx.gameEntity.handTower = GameFactory.Tower_Create(ctx, typeID, Vector2Int.zero);
+
+                ctx.appUI.Panel_SelectCard_Open(ctx, typeID);
+
             };
 
             eventCenter.OnTowerClickHandle += (int typeID) => {
+
+
                 Debug.Log("打开塔面板");
                 ctx.gameEntity.handTower = GameFactory.Tower_Create(ctx, typeID, Vector2Int.zero);
                 Debug.Log(typeID);

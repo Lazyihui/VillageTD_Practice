@@ -10,19 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1568434de4a683b45bc4d0af9171b135, type: 3}
-  m_Name: So_Tower_Arraw
+  m_Name: So_Tower_2Tree
   m_EditorClassIdentifier: 
   tm:
-    typeID: 1
-    placeConditionType: 1
+    typeID: 2
+    placeConditionType: 4
     hp: 5
     maxHp: 5
     shootTimer: 3
     shootInterval: 3
-    attackHurt: 1
+    attackHurt: 0
     attackRange: 5
-    sprite: {fileID: 21300000, guid: bd46dcbea60c81947bdd44a3011bd908, type: 3}
+    sprite: {fileID: 21300000, guid: b3cbf2178ff8289429a23b5746f0d323, type: 3}
     isLive: 0
-    cutTreeTime: 0
-    cutTreeInterval: 0
-    cutHurt: 0
+    cutTreeTime: 3
+    cutTreeInterval: 3
+    cutHurt: 50
