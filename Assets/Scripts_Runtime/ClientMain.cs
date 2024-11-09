@@ -17,10 +17,6 @@ namespace TD {
         bool isInit = false;
         void Awake() {
 
-            // Tilemap tilemap = GameObject.Find("Tilemap").GetComponent<Tilemap>();
-            // TileBase tile = Resources.Load<TileBase>("Tilemap/Tilemap_1");
-            // tilemap.SetTile(new Vector3Int(0, 0, 0), tile);
-
             ctx = new GameContext();
             Canvas screenCanvas = GameObject.Find("ScreenCanvas").GetComponent<Canvas>();
             Canvas worldCanvas = GameObject.Find("WorldCanvas").GetComponent<Canvas>();

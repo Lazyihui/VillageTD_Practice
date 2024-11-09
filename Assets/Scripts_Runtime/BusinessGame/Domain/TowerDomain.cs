@@ -76,56 +76,42 @@ namespace TD {
 
         // TreeTower
 
-
+        #region TowerTree
         // 找到最近的树然后砍树
         public static void FindNearestTree(GameContext ctx, TowerEntity tower, float dt) {
 
             int len = ctx.treeRepository.TakeAll(out TreeEntity[] trees);
-
             float minDistance = float.MaxValue;
             TreeEntity nearestTree = null;
-
             for (int i = 0; i < len; i++) {
-
-
                 TreeEntity tree = trees[i];
                 float distance = Vector2.Distance(tree.pos, tower.transform.position);
-
                 if (distance < minDistance && distance < tower.attackRange) {
                     minDistance = distance;
                     nearestTree = tree;
                 }
                 if (distance < tower.attackRange) {
                     ctx.treeRepository.RemovePos(tree.pos);
-                    // 并且删掉
                 }
             }
-
             if (nearestTree != null) {
-                nearestTree.isCollected = true;
-
                 // 砍树
-                tower.cutTreeTime += dt;
-
-                if (tower.cutTreeTime >= tower.cutTreeInterval) {
-                    tower.cutTreeTime = 0;
-
-                    nearestTree.resCount -= tower.cutHurt;
-
-                    ctx.gameEntity.resCount += tower.cutHurt;
-
-                    if (nearestTree.resCount <= 0) {
-
-                        TreeDomain.UnSpawn(ctx, nearestTree);
-
-                    }
-
+                CutTree(ctx, tower, nearestTree, dt);
+            }
+        }
+        public static void CutTree(GameContext ctx, TowerEntity tower, TreeEntity tree, float dt) {
+            tower.cutTreeTime += dt;
+            if (tower.cutTreeTime >= tower.cutTreeInterval) {
+                tower.cutTreeTime = 0;
+                tree.resCount -= tower.cutHurt;
+                ctx.gameEntity.resCount += tower.cutHurt;
+                if (tree.resCount <= 0) {
+                    TreeDomain.UnSpawn(ctx, tree);
                 }
-
             }
 
         }
-
+        #endregion
 
     }
 }

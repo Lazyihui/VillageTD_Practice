@@ -17,7 +17,6 @@ namespace TD {
         public int resCount;
 
         public void Ctor() {
-            isCollected = false;
             resCount = 100;
         }
 

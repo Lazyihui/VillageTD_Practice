@@ -78,6 +78,7 @@ namespace TD {
 
 
             MapDomain.SetTile(ctx, mapEntity.treeGrid.tile, 1, pos);
+            
             TreeDomain.Spawn(ctx, pos, 1);
 
             ctx.appUI.Panel_SelectCard_Close();
@@ -155,7 +156,6 @@ namespace TD {
         // 鼠标和塔交互 鼠标是否在塔上
         public static bool MousePosInteractTower(GameContext ctx) {
             InputEntity input = ctx.inputEntity;
-
             int len = ctx.towerRepository.TakeAll(out TowerEntity[] towers);
             for (int i = 0; i < len; i++) {
                 TowerEntity tower = towers[i];
@@ -165,7 +165,6 @@ namespace TD {
                     return true;
                 }
             }
-
             return false;
 
         }
@@ -173,18 +172,13 @@ namespace TD {
 
         public static void OpenPanel_TowerInfo(GameContext ctx) {
             bool has = MousePosInteractTower(ctx);
-
-
             if (has) {
                 ctx.appUI.Panel_TowerInfo_Open(ctx.inputEntity.mousePositionWorld);
                 ctx.towerRepository.TryGet(ctx.gameEntity.mouseTowerIDSig, out TowerEntity tower);
-
                 ctx.appUI.Panel_TowerInfo_SetTxt(tower.name, tower.hp, tower.attackHurt, tower.buildCost);
             } else {
                 ctx.appUI.Panel_TowerInfo_Close();
             }
-
-
         }
 
     }

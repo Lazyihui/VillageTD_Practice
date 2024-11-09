@@ -20,5 +20,7 @@ namespace TD {
             ctx.treeRepository.RemovePos(entity.pos);
             
         }
+
+        
     }
 }
