@@ -64,19 +64,30 @@ namespace TD {
                 }
             }
 
-            if (nearestMst != null) {
-                // 子弹向最近的目标移动
-                BulletDomain.MoveToTarget(entity, nearestMst, dt);
+            if (nearestMst != null && entity.targetIDSig.entityID == -1) {
+                entity.targetIDSig = nearestMst.idSig;
             }
 
         }
 
 
 
-        public static void MoveToTarget(BulletEntity blt, RoleEntity target, float dt) {
+        public static void MoveToTarget(GameContext ctx, BulletEntity blt, float dt) {
+
+            bool has = ctx.roleRepository.TryGet(blt.targetIDSig, out RoleEntity target);
+
+            if (!has) {
+                if (blt.targetIDSig.entityID != -1) {
+                    UnSpawn(ctx, blt);
+
+                }
+                return;
+
+            }
             Vector2 dir = target.transform.position - blt.transform.position;
             dir.Normalize();
             blt.transform.position += new Vector3(dir.x * dt, dir.y * dt, 0);
+
         }
 
 

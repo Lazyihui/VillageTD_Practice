@@ -106,14 +106,11 @@ namespace TD {
             int lenTower = ctx.towerRepository.TakeAll(out TowerEntity[] towers);
             for (int i = 0; i < lenTower; i++) {
                 TowerEntity tower = towers[i];
-
                 if (tower.fsmCom.isBaseTower) {
                     TowerDoamin.BaseTowerHpReduce(ctx, tower);
                 } else if (tower.fsmCom.isArrowTower) {
-                    Debug.Log("ArrowTower");
                     TowerDoamin.SpawnBullet(ctx, tower, dt);
                 } else if (tower.fsmCom.isTreeTower) {
-                    Debug.Log("TreeTower");
                     TowerDoamin.FindNearestTree(ctx, tower, dt);
                 }
 
@@ -124,7 +121,10 @@ namespace TD {
 
             for (int i = 0; i < lenBullet; i++) {
                 BulletEntity bullet = bullets[i];
+                // 找到最近的mst
                 BulletDomain.FindNearest(ctx, bullet, dt);
+                // 向最近的mst移动
+                BulletDomain.MoveToTarget(ctx, bullet, dt);
             }
 
 

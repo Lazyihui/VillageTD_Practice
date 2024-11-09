@@ -53,7 +53,6 @@ namespace TD {
         // BaseTower
         public static void BaseTowerHpReduce(GameContext ctx, TowerEntity baseTower) {
 
-
             int lenMst = ctx.roleRepository.TakeAll(out RoleEntity[] msts);
 
             for (int i = 0; i < lenMst; i++) {

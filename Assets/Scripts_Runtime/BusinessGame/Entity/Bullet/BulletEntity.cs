@@ -22,6 +22,7 @@ namespace TD {
 
         public void Ctor() {
             attackRange = 3;
+            targetIDSig.entityID = -1;
         }
 
         public void SetPos(Vector2 pos) {
@@ -35,7 +36,7 @@ namespace TD {
 
         void OnTriggerEnter2D(Collider2D other) {
             onTriggerEnter?.Invoke(other);
-            
+
         }
 
 
