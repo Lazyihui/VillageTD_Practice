@@ -11,9 +11,11 @@ namespace TD {
         public Panel_Manifast panel_Manifast;
         public Panel_ResourceInfo panel_ResourceInfo;
         public Panel_SelectCard panel_SelectCard;
+        public Panel_TowerInfo panel_TowerInfo;
 
         public AssetsCore assetsCore;
         public TemplateCore templateCore;
+
 
         public Canvas screenCanvas;
         public Canvas worldCanvas;

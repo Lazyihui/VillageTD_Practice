@@ -10,8 +10,12 @@ namespace TD {
         public int typeID;
 
         public float caveSpawnTime;
-
         public float caveSpawnInterval;
 
+        public bool isLive;
+        public float activeTimer;
+        public float activeInterval;
+
+        public int spawnMaxCount;
     }
 }

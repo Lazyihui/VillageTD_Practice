@@ -168,7 +168,31 @@ namespace TD {
 
             panel.TearDown();
         }
+        // panel_TowerInfo
 
+        public void Panel_TowerInfo_Open() {
+            Panel_TowerInfo panel = ctx.panel_TowerInfo;
+            if (panel == null) {
+                GameObject prefab = ctx.assetsCore.Panel_GetTowerInfo();
+
+                GameObject go = GameObject.Instantiate(prefab, ctx.worldCanvas.transform);
+                panel = go.GetComponent<Panel_TowerInfo>();
+                panel.Ctor();
+            }
+
+            panel.Show();
+            ctx.panel_TowerInfo = panel;
+
+        }
+
+        public void Panel_TowerInfo_Close() {
+            Panel_TowerInfo panel = ctx.panel_TowerInfo;
+            if (panel == null) {
+                return;
+            }
+
+            panel.TearDown();
+        }
 
     }
 }

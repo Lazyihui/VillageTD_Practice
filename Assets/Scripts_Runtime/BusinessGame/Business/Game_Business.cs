@@ -33,6 +33,8 @@ namespace TD {
 
             ctx.appUI.Panel_ResourceInfo_Open();
 
+            ctx.appUI.Panel_TowerInfo_Open();
+
         }
 
 
@@ -127,28 +129,23 @@ namespace TD {
                 BulletDomain.MoveToTarget(ctx, bullet, dt);
             }
 
+            int lenCave = ctx.caveRepository.TakeAll(out CaveEntity[] caves);
 
+            for (int i = 0; i < lenCave; i++) {
+                CaveEntity cave = caves[i];
+                // 激活cave 按时间来
+                CaveDomain.ActiveCave(ctx, cave, dt);
+                // 生成mst
+                CaveDomain.CaveSpawnMst(ctx, dt);
+            }
 
 
 
         }
         // 要改
-        static void SpawnMst(GameContext ctx, float dt) {
 
-            CaveEntity cave = ctx.Cave_GetOwner(0);
-
-            cave.caveSpawnTime += dt;
-
-            if (cave.caveSpawnTime >= cave.caveSpawnInterval) {
-                cave.caveSpawnTime = 0;
-                Vector3 pos = cave.transform.position;
-                RoleDomain.Spawn(ctx, RoleConst.Monster, pos);
-            }
-
-        }
 
         static void LastTick(GameContext ctx, float dt) {
-            SpawnMst(ctx, dt);
 
             // //相机跟随   
             // RoleEntity owner = ctx.Role_GetOwner();

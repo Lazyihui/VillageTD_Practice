@@ -107,6 +107,11 @@ namespace TD {
             return panel;
         }
 
+        public GameObject Panel_GetTowerInfo() {
+            panels.TryGetValue("Panel_TowerInfo", out GameObject panel);
+            return panel;
+        }
+
         // map
 
         public GameObject Entity_GetMap() {

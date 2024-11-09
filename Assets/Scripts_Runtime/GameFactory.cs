@@ -148,6 +148,11 @@ namespace TD {
             entity.caveSpawnTime = tm.caveSpawnTime;
             entity.caveSpawnInterval = tm.caveSpawnInterval;
 
+            entity.isLive = tm.isLive;
+            entity.activeTimer = tm.activeTimer;
+            entity.activeInterval = tm.activeInterval;
+            entity.spawnMaxCount = tm.spawnMaxCount;
+
             entity.idSig.entityID = ctx.gameEntity.caveRecordID++;
 
             entity.SetPos(pos);

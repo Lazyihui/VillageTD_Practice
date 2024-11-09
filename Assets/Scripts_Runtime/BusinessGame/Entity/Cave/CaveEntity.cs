@@ -8,18 +8,34 @@ namespace TD {
 
         public IDSignature idSig;
         public int typeID;
+
+        // hp之后加
+
+
         public float caveSpawnTime;
         public float caveSpawnInterval;
 
+
+        // 激活条件
         public bool isLive;
+        public float activeTimer;
+        public float activeInterval;
+
+        // 生成数量
+        public int spawnCount;
+        public int spawnMaxCount;
 
         public void Ctor() {
-            isLive = false;
+            spawnCount = 0;
         }
 
 
         public void SetPos(Vector3 pos) {
             transform.position = pos;
+        }
+
+        public void TearDown() {
+            Destroy(gameObject);
         }
 
     }
