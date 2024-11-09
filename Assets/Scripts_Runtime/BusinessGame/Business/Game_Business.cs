@@ -33,8 +33,6 @@ namespace TD {
 
             ctx.appUI.Panel_ResourceInfo_Open();
 
-            ctx.appUI.Panel_TowerInfo_Open();
-
         }
 
 

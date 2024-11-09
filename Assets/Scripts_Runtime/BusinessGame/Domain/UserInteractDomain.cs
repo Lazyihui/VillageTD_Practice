@@ -29,8 +29,18 @@ namespace TD {
                     Tree_TryBuild(ctx, typeID, input.mousePositionGrid);
                 }
             }
+
+            // ==== 拆塔 ====
+
+            // ==== 升级 ====
+
+            // ==== 卖塔 ====
+
+            // ==== 选中 ====
+            OpenTowerPanel(ctx);
         }
 
+        #region BuildTower
         static void Tree_TryBuild(GameContext ctx, int typeID, Vector2Int pos) {
             bool allow = Tower_AllowBuild(ctx, typeID, pos);
             if (!allow) {
@@ -65,7 +75,7 @@ namespace TD {
             IDSignature idSig = new IDSignature(EntityType.Map, 0);
             // TODO: TypeID问题
             ctx.mapRepository.TryGet(idSig, out MapEntity mapEntity);
-      
+
 
             MapDomain.SetTile(ctx, mapEntity.treeGrid.tile, 1, pos);
             TreeDomain.Spawn(ctx, pos, 1);
@@ -140,5 +150,33 @@ namespace TD {
 
         }
 
+        #endregion
+
+        // 鼠标和塔交互 鼠标是否在塔上
+        public static bool MousePosInteractTower(GameContext ctx) {
+            InputEntity input = ctx.inputEntity;
+
+            int len = ctx.towerRepository.TakeAll(out TowerEntity[] towers);
+            for (int i = 0; i < len; i++) {
+                TowerEntity tower = towers[i];
+                float distance = Vector2.Distance(tower.transform.position, ctx.inputEntity.mousePositionWorld);
+                if (distance < 0.5f) {
+                    return true;
+                }
+
+            }
+            return false;
+        }
+
+        public static void OpenTowerPanel(GameContext ctx) {
+            bool has = MousePosInteractTower(ctx);
+
+            if (has) {
+                ctx.appUI.Panel_TowerInfo_Open();
+            } else {
+                ctx.appUI.Panel_TowerInfo_Close();
+            }
+
+        }
     }
 }
