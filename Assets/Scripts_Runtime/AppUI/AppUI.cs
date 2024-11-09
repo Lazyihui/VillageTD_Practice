@@ -205,5 +205,32 @@ namespace TD {
             panel.TearDown();
         }
         #endregion
+
+        # region Panel_Over
+
+        public void Panel_Over_Open() {
+            Panel_Over panel = ctx.panel_Over;
+            if (panel == null) {
+                GameObject prefab = ctx.assetsCore.Panel_GetOver();
+
+                GameObject go = GameObject.Instantiate(prefab, ctx.screenCanvas.transform);
+                panel = go.GetComponent<Panel_Over>();
+                panel.Ctor();
+            }
+
+            panel.Show();
+            ctx.panel_Over = panel;
+        }
+
+        public void Panel_Over_Close() {
+            Panel_Over panel = ctx.panel_Over;
+            if (panel == null) {
+                return;
+            }
+
+            panel.TearDown();
+        }
+
+        # endregion
     }
 }

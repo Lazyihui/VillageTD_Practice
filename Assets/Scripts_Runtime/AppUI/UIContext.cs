@@ -12,6 +12,7 @@ namespace TD {
         public Panel_ResourceInfo panel_ResourceInfo;
         public Panel_SelectCard panel_SelectCard;
         public Panel_TowerInfo panel_TowerInfo;
+        public Panel_Over panel_Over;
 
         public AssetsCore assetsCore;
         public TemplateCore templateCore;
@@ -24,7 +25,7 @@ namespace TD {
 
         }
 
-        public void Inject(AssetsCore assetsCore, TemplateCore templateCore,Canvas screenCanvas, Canvas worldCanvas) {
+        public void Inject(AssetsCore assetsCore, TemplateCore templateCore, Canvas screenCanvas, Canvas worldCanvas) {
             this.assetsCore = assetsCore;
             this.templateCore = templateCore;
             this.screenCanvas = screenCanvas;

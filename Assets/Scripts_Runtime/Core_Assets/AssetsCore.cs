@@ -112,6 +112,11 @@ namespace TD {
             return panel;
         }
 
+        public GameObject Panel_GetOver() {
+            panels.TryGetValue("Panel_Over", out GameObject panel);
+            return panel;
+        }
+
         // map
 
         public GameObject Entity_GetMap() {
