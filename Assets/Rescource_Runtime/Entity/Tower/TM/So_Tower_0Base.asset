@@ -13,10 +13,12 @@ MonoBehaviour:
   m_Name: So_Tower_0Base
   m_EditorClassIdentifier: 
   tm:
-    typeID: 0
+    typeName: BaseTower
     placeConditionType: 0
+    typeID: 0
     hp: 5
     maxHp: 5
+    buildCost: 0
     shootTimer: 0
     shootInterval: 0
     attackHurt: 0

@@ -169,8 +169,8 @@ namespace TD {
             panel.TearDown();
         }
         // panel_TowerInfo
-
-        public void Panel_TowerInfo_Open() {
+        #region Panel_TowerInfo
+        public void Panel_TowerInfo_Open(Vector3 pos) {
             Panel_TowerInfo panel = ctx.panel_TowerInfo;
             if (panel == null) {
                 GameObject prefab = ctx.assetsCore.Panel_GetTowerInfo();
@@ -178,10 +178,21 @@ namespace TD {
                 GameObject go = GameObject.Instantiate(prefab, ctx.worldCanvas.transform);
                 panel = go.GetComponent<Panel_TowerInfo>();
                 panel.Ctor();
+                panel.SetPos(pos);
             }
 
             panel.Show();
             ctx.panel_TowerInfo = panel;
+
+        }
+
+        public void Panel_TowerInfo_SetTxt(string name, int hp, float attack, int cost) {
+            Panel_TowerInfo panel = ctx.panel_TowerInfo;
+            if (panel == null) {
+                return;
+            }
+
+            panel.SetData(name, hp, attack, cost);
 
         }
 
@@ -193,6 +204,6 @@ namespace TD {
 
             panel.TearDown();
         }
-
+        #endregion
     }
 }

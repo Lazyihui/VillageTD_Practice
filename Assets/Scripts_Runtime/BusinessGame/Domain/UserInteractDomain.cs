@@ -37,7 +37,7 @@ namespace TD {
             // ==== 卖塔 ====
 
             // ==== 选中 ====
-            OpenTowerPanel(ctx);
+            OpenPanel_TowerInfo(ctx);
         }
 
         #region BuildTower
@@ -161,22 +161,31 @@ namespace TD {
                 TowerEntity tower = towers[i];
                 float distance = Vector2.Distance(tower.transform.position, ctx.inputEntity.mousePositionWorld);
                 if (distance < 0.5f) {
+                    ctx.gameEntity.mouseTowerIDSig = tower.idSig;
                     return true;
                 }
-
             }
+
             return false;
+
         }
 
-        public static void OpenTowerPanel(GameContext ctx) {
+
+        public static void OpenPanel_TowerInfo(GameContext ctx) {
             bool has = MousePosInteractTower(ctx);
 
+
             if (has) {
-                ctx.appUI.Panel_TowerInfo_Open();
+                ctx.appUI.Panel_TowerInfo_Open(ctx.inputEntity.mousePositionWorld);
+                ctx.towerRepository.TryGet(ctx.gameEntity.mouseTowerIDSig, out TowerEntity tower);
+
+                ctx.appUI.Panel_TowerInfo_SetTxt(tower.name, tower.hp, tower.attackHurt, tower.buildCost);
             } else {
                 ctx.appUI.Panel_TowerInfo_Close();
             }
 
+
         }
+
     }
 }

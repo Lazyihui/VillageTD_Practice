@@ -6,15 +6,15 @@ namespace TD {
     [Serializable]
     public class TowerTM {
 
-        public int typeID;
-
+        public string typeName;
         public PlaceConditionType placeConditionType;
-
+        public int typeID;
         public int hp;
         public int maxHp;
+        public int buildCost;
+
 
         public float shootTimer;
-
         public float shootInterval;
         public float attackHurt;
 

@@ -46,12 +46,14 @@ namespace TD {
 
             entity.idSig.entityType = EntityType.Tower;
             entity.idSig.entityID = ctx.gameEntity.towerRecordID++;
-            entity.gridPos = pos;
+            entity.typeName = tm.typeName;
 
+            entity.gridPos = pos;
             entity.placeConditionType = tm.placeConditionType;
 
             entity.hp = tm.hp;
             entity.maxHp = tm.maxHp;
+            entity.buildCost = tm.buildCost;
             entity.shootInterval = tm.shootInterval;
             entity.shootTimer = tm.shootTimer;
 

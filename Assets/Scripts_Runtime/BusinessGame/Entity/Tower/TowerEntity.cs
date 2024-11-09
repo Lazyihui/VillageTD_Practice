@@ -9,22 +9,23 @@ namespace TD {
         [SerializeField] SpriteRenderer spriteRenderer;
 
         [SerializeField] Collider2D colli;
-
+        public string typeName;
         public IDSignature idSig;
-        public int typeID;
-
-
         public PlaceConditionType placeConditionType;
 
+
+        public int typeID;
+        public int buildCost;
         public int hp;
         public int maxHp;
+
+
 
         public Vector2Int gridPos;
 
 
         // 启动了发射子弹
         public float shootTimer;
-
 
         public float shootInterval;
 
@@ -45,7 +46,7 @@ namespace TD {
 
         public void Ctor() {
 
-            
+
         }
 
         public void SetCollider(bool isTriggers) {

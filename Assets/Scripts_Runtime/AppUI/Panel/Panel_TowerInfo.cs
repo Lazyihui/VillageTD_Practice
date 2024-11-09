@@ -23,6 +23,13 @@ namespace TD {
         //     txtCost.text = entity.cost.ToString();
         // }
 
+        public void SetData(string name, int hp, float attack, int cost) {
+            txtName.text = name;
+            txtHp.text = "Hp:" + hp.ToString();
+            txtAttack.text = "Att:" + attack.ToString();
+            txtCost.text = "cost:" + cost.ToString();
+        }
+
         public void Ctor() {
             txtName.text = "";
             txtHp.text = "";
@@ -38,6 +45,9 @@ namespace TD {
             Destroy(gameObject);
         }
 
+        public void SetPos(Vector3 pos) {
+            transform.position = pos;
+        }
 
     }
 }

@@ -13,10 +13,12 @@ MonoBehaviour:
   m_Name: So_Tower_1ArrawTower
   m_EditorClassIdentifier: 
   tm:
-    typeID: 1
+    typeName: ArrowTower
     placeConditionType: 1
+    typeID: 1
     hp: 5
     maxHp: 5
+    buildCost: 0
     shootTimer: 3
     shootInterval: 3
     attackHurt: 1
@@ -27,6 +29,8 @@ MonoBehaviour:
     cutTreeInterval: 0
     cutHurt: 0
     fsmCom:
-      idBaseTower: 0
+      isBaseTower: 0
       isArrowTower: 1
       isTreeTower: 0
+      isPlantTree: 0
+    isTrigger: 0

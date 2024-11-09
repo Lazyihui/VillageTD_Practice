@@ -134,10 +134,11 @@ namespace TD {
                 // 激活cave 按时间来
                 CaveDomain.ActiveCave(ctx, cave, dt);
                 // 生成mst
-                CaveDomain.CaveSpawnMst(ctx, dt);
+                if (cave.isLive) {
+                    CaveDomain.CaveSpawnMst(ctx, cave, dt);
+
+                }
             }
-
-
 
         }
         // 要改

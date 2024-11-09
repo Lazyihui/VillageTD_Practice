@@ -38,6 +38,9 @@ namespace TD {
         // 资源
         public int resCount;
 
+        //  记录鼠标碰到的塔
+        public IDSignature mouseTowerIDSig;
+
         public GameEntity() {
             restFixTime = 0;
             towerRecordID = 0;

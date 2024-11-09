@@ -32,13 +32,15 @@ namespace TD {
 
         }
 
-        public static void CaveSpawnMst(GameContext ctx, float dt) {
-
-            CaveEntity cave = ctx.Cave_GetOwner(0);
+        public static void CaveSpawnMst(GameContext ctx, CaveEntity cave,float dt) {
+            if(cave.spawnCount >= cave.spawnMaxCount) {
+                return;
+            }
 
             cave.caveSpawnTime += dt;
             if (cave.caveSpawnTime >= cave.caveSpawnInterval) {
                 cave.caveSpawnTime = 0;
+                cave.spawnCount++;
                 Vector3 pos = cave.transform.position;
                 RoleDomain.Spawn(ctx, RoleConst.Monster, pos);
             }
