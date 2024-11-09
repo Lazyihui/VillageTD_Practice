@@ -10,7 +10,7 @@ namespace TD {
 
         [SerializeField] Image sp;
 
-
+        public int resCount;
 
         public int typeID;
 

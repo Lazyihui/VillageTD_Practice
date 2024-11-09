@@ -41,6 +41,10 @@ namespace TD {
         //  记录鼠标碰到的塔
         public IDSignature mouseTowerIDSig;
 
+        
+        
+        public bool isMstOver;
+        
         public GameEntity() {
             restFixTime = 0;
             towerRecordID = 0;
@@ -54,8 +58,9 @@ namespace TD {
 
             handHasCard = false;
             handHasCardTree = false;
+            isMstOver = false;
 
-            resCount = 100;
+            resCount = 500;
 
             handCardID = -1;
 

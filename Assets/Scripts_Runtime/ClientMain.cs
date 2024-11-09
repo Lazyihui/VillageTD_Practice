@@ -22,7 +22,7 @@ namespace TD {
             Canvas worldCanvas = GameObject.Find("WorldCanvas").GetComponent<Canvas>();
 
             Binding();
-            
+
             ctx.InJect(screenCanvas, mainCamera, worldCanvas);
             Action action = async () => {
 
@@ -49,25 +49,30 @@ namespace TD {
             };
 
             eventCenter.OnHatChetClickHandle += (int typeID) => {
-                // 可以直接写成函数
-                ctx.gameEntity.handHasCard = true;
-                ctx.gameEntity.handCardID = typeID;
-                ctx.appUI.Panel_SelectCard_Open(typeID);
 
+                if (ctx.gameEntity.resCount > 200) {
+                    // 可以直接写成函数
+                    ctx.gameEntity.handHasCard = true;
+                    ctx.gameEntity.handCardID = typeID;
+                    ctx.appUI.Panel_SelectCard_Open(typeID);
+                }
             };
 
             eventCenter.OnTowerClickHandle += (int typeID) => {
-
-                ctx.gameEntity.handHasCard = true;
-                ctx.gameEntity.handCardID = typeID;
-                ctx.appUI.Panel_SelectCard_Open(typeID);
+                if (ctx.gameEntity.resCount > 300) {
+                    ctx.gameEntity.handHasCard = true;
+                    ctx.gameEntity.handCardID = typeID;
+                    ctx.appUI.Panel_SelectCard_Open(typeID);
+                }
             };
 
             eventCenter.OnPlantTreeClickHandle += (int typeID) => {
 
-                ctx.gameEntity.handHasCardTree = true;
-                ctx.gameEntity.handCardID = typeID;
-                ctx.appUI.Panel_SelectCard_Open(typeID);
+                if (ctx.gameEntity.resCount > 50) {
+                    ctx.gameEntity.handHasCardTree = true;
+                    ctx.gameEntity.handCardID = typeID;
+                    ctx.appUI.Panel_SelectCard_Open(typeID);
+                }
 
             };
 
