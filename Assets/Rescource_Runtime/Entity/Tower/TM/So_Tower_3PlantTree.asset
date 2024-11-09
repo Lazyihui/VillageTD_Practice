@@ -13,10 +13,12 @@ MonoBehaviour:
   m_Name: So_Tower_3PlantTree
   m_EditorClassIdentifier: 
   tm:
-    typeID: 3
+    typeName: 
     placeConditionType: 1
+    typeID: 3
     hp: 5
     maxHp: 5
+    buildCost: 50
     shootTimer: 3
     shootInterval: 3
     attackHurt: 0
@@ -27,7 +29,8 @@ MonoBehaviour:
     cutTreeInterval: 3
     cutHurt: 50
     fsmCom:
-      idBaseTower: 0
+      isBaseTower: 0
       isArrowTower: 0
       isTreeTower: 0
       isPlantTree: 1
+    isTrigger: 0

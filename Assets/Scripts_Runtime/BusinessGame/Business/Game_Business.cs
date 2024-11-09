@@ -80,10 +80,9 @@ namespace TD {
 
         static void LogicTick(GameContext ctx, float dt) {
 
+            GameEntity game = ctx.gameEntity;
+
             GameDomain.Tick(ctx, dt);
-
-
-
             RoleEntity owner = ctx.Role_GetOwner();
             RoleDomain.Move(owner, dt);
             RoleDomain.SpawnBullet(ctx, owner, dt);
@@ -136,12 +135,42 @@ namespace TD {
                 CaveDomain.ActiveCave(ctx, cave, dt);
                 // 生成mst
                 if (cave.isLive) {
-                    CaveDomain.CaveSpawnMst(ctx, cave, dt);
-
+                    game.isMstOver = CaveDomain.CaveSpawnMst(ctx, cave, dt);
                 }
             }
 
+            if (game.isMstOver) {
+                int mstCount = 0;
+                int len = ctx.roleRepository.TakeAll(out RoleEntity[] roles);
+                for (int i = 0; i < len; i++) {
+                    RoleEntity role = roles[i];
+
+                    // 要改
+                    if (role.typeID == RoleConst.Role) {
+                        continue;
+                    }
+                    if (role.typeID == RoleConst.Monster) {
+                        mstCount++;
+                    }
+                }
+
+                if (mstCount == 0) {
+                    IDSignature idSig = new IDSignature(EntityType.Tower, 0);
+
+                    bool has = ctx.towerRepository.TryGet(idSig, out TowerEntity entity);
+
+                    if (entity.hp > 0) {
+                        ctx.appUI.Panel_Over_Open();
+                    }
+
+                }
+
+            }
+
         }
+
+
+
         // 要改
 
 

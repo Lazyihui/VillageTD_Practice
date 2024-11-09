@@ -18,7 +18,7 @@ MonoBehaviour:
     typeID: 2
     hp: 5
     maxHp: 5
-    buildCost: 0
+    buildCost: 200
     shootTimer: 3
     shootInterval: 3
     attackHurt: 0
