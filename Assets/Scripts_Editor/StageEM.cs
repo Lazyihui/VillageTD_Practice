@@ -24,6 +24,7 @@ namespace TD {
 
             Debug.Log("Save");
             SaveRole();
+            SaveCave();
         }
 
 
@@ -41,7 +42,20 @@ namespace TD {
 
             so.tm.roleSpawnTMs = rolesTM;
             EditorUtility.SetDirty(so);
+        }
 
+        public void SaveCave() {
+            CaveSpawnEM[] cavesEM = GetComponentsInChildren<CaveSpawnEM>();
+            Debug.Log(cavesEM.Length);
+            CaveSpawnTM[] cavesTM = new CaveSpawnTM[cavesEM.Length];
+
+            for (int i = 0; i < cavesTM.Length; i++) {
+                CaveSpawnEM em = cavesEM[i];
+                em.Save();
+                cavesTM[i] = em.caveSpawnTM;
+            }
+            so.tm.caveSpawnTMs = cavesTM;
+            EditorUtility.SetDirty(so);
         }
     }
 }

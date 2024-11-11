@@ -31,7 +31,7 @@ namespace TD {
             //     Debug.Log(mod.name);
             // }
 
-            string n = "player_" + tm.typeName;
+            string n = "Role_Entity" + tm.typeName;
             if (gameObject.name != n) {
                 gameObject.name = n;
             }

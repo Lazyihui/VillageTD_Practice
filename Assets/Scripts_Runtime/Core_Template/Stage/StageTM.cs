@@ -11,5 +11,7 @@ namespace TD {
         public int typeID;
 
         public RoleSpawnTM[] roleSpawnTMs;
+
+        public CaveSpawnTM[] caveSpawnTMs;
     }
 }

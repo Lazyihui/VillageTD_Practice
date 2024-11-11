@@ -18,3 +18,7 @@ MonoBehaviour:
     - so: {fileID: 11400000, guid: 06b6212800b32cb429965f0b39ea1d20, type: 2}
       position: {x: -6.84, y: 0, z: 0}
       rotation: {x: -0, y: 0, z: 0}
+    caveSpawnTMs:
+    - so: {fileID: 11400000, guid: b6c052250beb2864b8370632b011adf0, type: 2}
+      position: {x: 10, y: 0, z: 0}
+      rotation: {x: -0, y: 0, z: 0}
