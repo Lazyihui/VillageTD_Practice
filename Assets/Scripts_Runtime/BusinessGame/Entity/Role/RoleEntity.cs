@@ -52,7 +52,11 @@ namespace TD {
         }
 
         public void SetPos(Vector3 pos) {
-            transform.position = pos;
+            if (typeID == RoleConst.Role) {
+
+            } else {
+                transform.position = pos;
+            }
         }
 
         public void Move(float dt) {

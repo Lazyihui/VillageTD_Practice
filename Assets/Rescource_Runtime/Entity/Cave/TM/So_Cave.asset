@@ -16,7 +16,7 @@ MonoBehaviour:
     typeID: 1
     caveSpawnTime: 4
     caveSpawnInterval: 4
-    isLive: 0
+    isLive: 1
     activeTimer: 0
     activeInterval: 50
     spawnMaxCount: 5

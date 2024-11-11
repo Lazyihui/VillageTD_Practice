@@ -15,6 +15,14 @@ namespace TD {
             return entity;
         }
 
+        public static RoleEntity SpawnMst(GameContext ctx, int typeID, Vector3 pos) {
+            RoleEntity entity = GameFactory.Mst_Create(ctx, typeID, pos);
+
+            ctx.roleRepository.Add(entity);
+
+            return entity;
+        }
+
 
         public static void UnSpawn(GameContext ctx, RoleEntity entity) {
             ctx.roleRepository.Remove(entity);

@@ -32,13 +32,45 @@ namespace TD {
             entity.TF_SetRotation(spawnTM.rotation);
 
 
+            entity.SetPos(pos);
+
+
 
             entity.SetSprite(tm.sp);
             // 
             entity.typeID = tm.typeID;
             return entity;
         }
+        // mst
+        public static RoleEntity Mst_Create(GameContext ctx, int typeID, Vector3 pos) {
+            RoleTM tm;
+            bool has = ctx.templateCore.ctx.Role_TryGet(typeID, out tm);
+            GameObject prefab = ctx.assetsCore.Entity_GetRole();
+            GameObject go = GameObject.Instantiate(prefab);
+            RoleEntity entity = go.GetComponent<RoleEntity>();
+            entity.idSig.entityType = EntityType.Role;
+            entity.idSig.entityID = ctx.gameEntity.mstroleRecordID++;
+            entity.typeID = tm.typeID;
 
+            entity.Ctor();
+            entity.SetCircleActive();
+
+            entity.moveSpeed = tm.moveSpeed;
+            entity.hp = tm.hp;
+            entity.maxHp = tm.maxHp;
+
+            entity.SetRbMass(tm.rbMass);
+            entity.SetTag(tm.tag);
+
+            entity.SetPos(pos);
+
+
+
+            entity.SetSprite(tm.sp);
+            // 
+            entity.typeID = tm.typeID;
+            return entity;
+        }
         public static TowerEntity Tower_Create(GameContext ctx, int typeID, Vector2Int pos) {
             TowerTM tm;
             ctx.templateCore.ctx.Tower_TryGet(typeID, out tm);
