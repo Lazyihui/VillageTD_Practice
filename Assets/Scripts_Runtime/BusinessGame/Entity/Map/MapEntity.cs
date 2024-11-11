@@ -9,7 +9,7 @@ namespace TD {
 
         public IDSignature idSig;
 
-        MapGripElement groundTile;
+          MapGripElement groundTile;
 
         public MapGripElement treeGrid;
 
