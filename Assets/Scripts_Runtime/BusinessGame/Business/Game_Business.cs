@@ -30,7 +30,15 @@ namespace TD {
 
             }
 
-            
+            CaveSpawnTM[] caveSpawnerTMs = tm.caveSpawnTMs;
+
+            for (int i = 0; i < caveSpawnerTMs.Length; i++) {
+                CaveSpawnTM cave = caveSpawnerTMs[i];
+                CaveDomain.Spawn(ctx, cave.so.tm.typeID, cave);
+                
+            }
+
+
 
 
 
@@ -54,7 +62,6 @@ namespace TD {
             }
 
 
-            CaveDomain.Spawn(ctx, 1, new Vector3(17, 0, 0));
 
 
             // panel

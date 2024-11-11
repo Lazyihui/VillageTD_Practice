@@ -7,9 +7,9 @@ using UnityEngine;
 namespace TD {
 
     public static class CaveDomain {
-        public static CaveEntity Spawn(GameContext ctx, int typeID, Vector3 pos) {
+        public static CaveEntity Spawn(GameContext ctx, int typeID, CaveSpawnTM spawnTM) {
 
-            CaveEntity cave = GameFactory.Cave_Create(ctx, typeID, pos);
+            CaveEntity cave = GameFactory.Cave_Create(ctx, typeID, spawnTM);
             ctx.caveRepository.Add(cave);
             return cave;
 

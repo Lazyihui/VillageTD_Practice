@@ -170,7 +170,7 @@ namespace TD {
             return entity;
         }
 
-        public static CaveEntity Cave_Create(GameContext ctx, int typeID, Vector3 pos) {
+        public static CaveEntity Cave_Create(GameContext ctx, int typeID, CaveSpawnTM spawnTM) {
             CaveTM tm;
             ctx.templateCore.ctx.Cave_TryGet(typeID, out tm);
             GameObject prefab = ctx.assetsCore.Entity_GetCave();
@@ -191,7 +191,8 @@ namespace TD {
 
             entity.idSig.entityID = ctx.gameEntity.caveRecordID++;
 
-            entity.SetPos(pos);
+            entity.TF_SetPostion(spawnTM.position);
+            entity.TF_SetRotation(spawnTM.rotation);
 
             return entity;
         }

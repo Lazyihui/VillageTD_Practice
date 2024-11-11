@@ -38,5 +38,14 @@ namespace TD {
             Destroy(gameObject);
         }
 
+
+        public void TF_SetPostion(Vector3 pos) {
+            transform.position = pos;
+        }
+
+        public void TF_SetRotation(Vector3 rot) {
+            transform.rotation = Quaternion.Euler(rot);
+        }
+
     }
 }
