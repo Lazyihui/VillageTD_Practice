@@ -42,7 +42,7 @@ namespace TD {
             return entity;
         }
         // mst
-        public static RoleEntity Mst_Create(GameContext ctx, int typeID, Vector3 pos) {
+        public static RoleEntity Role_Create(GameContext ctx, int typeID, Vector3 pos) {
             RoleTM tm;
             bool has = ctx.templateCore.ctx.Role_TryGet(typeID, out tm);
             GameObject prefab = ctx.assetsCore.Entity_GetRole();

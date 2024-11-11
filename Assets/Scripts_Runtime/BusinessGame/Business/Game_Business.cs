@@ -25,7 +25,7 @@ namespace TD {
             for (int i = 0; i < roleSpawnerTMs.Length; i++) {
                 RoleSpawnTM role = roleSpawnerTMs[i];
 
-                RoleEntity entity = RoleDomain.Spawn(ctx, role.so.tm.typeID, new Vector3(0, 0, 0), role);
+                RoleEntity entity = RoleDomain.SpawnBySpawner(ctx, role.so.tm.typeID, new Vector3(0, 0, 0), role);
                 ctx.gameEntity.ownerIDSig = entity.idSig;
 
             }

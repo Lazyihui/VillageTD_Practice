@@ -6,20 +6,15 @@ namespace TD {
 
     public static class RoleDomain {
 
-        public static RoleEntity Spawn(GameContext ctx, int typeID, Vector3 pos, RoleSpawnTM spawnTM) {
-
+        public static RoleEntity SpawnBySpawner(GameContext ctx, int typeID, Vector3 pos, RoleSpawnTM spawnTM) {
             RoleEntity entity = GameFactory.Role_Create(ctx, typeID, pos, spawnTM);
-
             ctx.roleRepository.Add(entity);
-
             return entity;
         }
 
-        public static RoleEntity SpawnMst(GameContext ctx, int typeID, Vector3 pos) {
-            RoleEntity entity = GameFactory.Mst_Create(ctx, typeID, pos);
-
+        public static RoleEntity Spawn(GameContext ctx, int typeID, Vector3 pos) {
+            RoleEntity entity = GameFactory.Role_Create(ctx, typeID, pos);
             ctx.roleRepository.Add(entity);
-
             return entity;
         }
 
