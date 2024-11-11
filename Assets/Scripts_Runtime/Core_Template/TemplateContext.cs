@@ -34,6 +34,10 @@ namespace TD {
 
         public AsyncOperationHandle cavePtr;
 
+        public Dictionary<int, StageTM> stages;
+
+        public AsyncOperationHandle stagePtr;
+
         public TemplateContext() {
             roles = new Dictionary<int, RoleTM>();
             towers = new Dictionary<int, TowerTM>();
@@ -41,6 +45,7 @@ namespace TD {
             trees = new Dictionary<int, TreeTM>();
             panelCards = new Dictionary<int, PanelCardTM>();
             caves = new Dictionary<int, CaveTM>();
+            stages = new Dictionary<int, StageTM>();
         }
 
         // 找种类的Role
@@ -68,6 +73,8 @@ namespace TD {
             return caves.TryGetValue(typeID, out cave);
         }
 
+      
+
         public void Game_Set(GameTM game) {
             this.game = game;
         }
@@ -93,6 +100,9 @@ namespace TD {
 
         public void Cave_Add(CaveTM cave) {
             caves.Add(cave.typeID, cave);
+        }
+        public void Stage_Add(StageTM stage) {
+            stages.Add(stage.typeID, stage);
         }
     }
 }

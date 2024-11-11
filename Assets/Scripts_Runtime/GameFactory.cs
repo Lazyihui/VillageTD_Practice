@@ -8,7 +8,7 @@ namespace TD {
 
         // Entity
 
-        public static RoleEntity Role_Create(GameContext ctx, int typeID, Vector3 pos) {
+        public static RoleEntity Role_Create(GameContext ctx, int typeID, Vector3 pos, RoleSpawnTM spawnTM) {
             RoleTM tm;
             bool has = ctx.templateCore.ctx.Role_TryGet(typeID, out tm);
             GameObject prefab = ctx.assetsCore.Entity_GetRole();
@@ -28,8 +28,10 @@ namespace TD {
             entity.SetRbMass(tm.rbMass);
             entity.SetTag(tm.tag);
 
-            // 要改
-            entity.SetPos(pos);
+            entity.TF_SetPostion(spawnTM.position);
+            entity.TF_SetRotation(spawnTM.rotation);
+
+
 
             entity.SetSprite(tm.sp);
             // 

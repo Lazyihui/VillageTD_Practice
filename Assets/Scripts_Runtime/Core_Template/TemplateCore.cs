@@ -14,7 +14,10 @@ namespace TD {
             ctx = new TemplateContext();
         }
 
-
+        public bool Stage_TryGet(int typeID, out StageTM stage) {
+            return ctx.stages.TryGetValue(typeID, out stage);
+        }
+        
         public async Task LoadAll(GameContext ctx) {
             {
                 AssetLabelReference labelReference = new AssetLabelReference();
@@ -104,6 +107,20 @@ namespace TD {
 
                 ctx.templateCore.ctx.cavePtr = handle;
             }
+            {
+                AssetLabelReference labelReference = new AssetLabelReference();
+                labelReference.labelString = "So_Stage";
+
+                var handle = Addressables.LoadAssetsAsync<StageSO>(labelReference, null);
+                var all = await handle.Task;
+
+                foreach (var so in all) {
+                    var tm = so.tm;
+                    ctx.templateCore.ctx.Stage_Add(tm);
+                }
+
+                ctx.templateCore.ctx.stagePtr = handle;
+            }
         }
 
         public void UnLoadAll() {
@@ -123,6 +140,9 @@ namespace TD {
             }
             if (ctx.panelCardPtr.IsValid()) {
                 Addressables.Release(ctx.panelCardPtr);
+            }
+            if (ctx.cavePtr.IsValid()) {
+                Addressables.Release(ctx.cavePtr);
             }
         }
 

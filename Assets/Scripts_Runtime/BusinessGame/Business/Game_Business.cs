@@ -10,11 +10,41 @@ namespace TD {
 
         public static void Enter(GameContext ctx) {
 
+
+
+            bool has = ctx.templateCore.Stage_TryGet(1, out StageTM tm);
+            if (!has) {
+
+                Debug.LogError("Stage 1 not found");
+            }
+
+            Debug.Log("创建关卡");
+
+            RoleSpawnTM[] roleSpawnerTMs = tm.roleSpawnTMs;
+
+            for (int i = 0; i < roleSpawnerTMs.Length; i++) {
+                RoleSpawnTM role = roleSpawnerTMs[i];
+
+                RoleEntity entity = RoleDomain.Spawn(ctx, role.so.tm.typeID, new Vector3(0, 0, 0), role);
+                ctx.gameEntity.ownerIDSig = entity.idSig;
+
+
+
+            }
+
+
+
+
+
+
+
+
+
             MapEntity map = MapDomain.Spawn(ctx, 1);
 
 
-            RoleEntity owner = RoleDomain.Spawn(ctx, RoleConst.Role, new Vector2(0, 0));
-            ctx.gameEntity.ownerIDSig = owner.idSig;
+            // RoleEntity owner = RoleDomain.Spawn(ctx, RoleConst.Role, new Vector2(0, 0));
+            // ctx.gameEntity.ownerIDSig = owner.idSig;
 
             TowerDoamin.Spawn(ctx, TowerConst.BaseTower, new Vector2Int(0, 0));
 
