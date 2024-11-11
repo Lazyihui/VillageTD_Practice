@@ -42,7 +42,6 @@ namespace TD {
 
         public void Save() {
             Debug.Log("Save");
-
             spawnTM.position = transform.position;
             spawnTM.rotation = transform.rotation.eulerAngles;
         }

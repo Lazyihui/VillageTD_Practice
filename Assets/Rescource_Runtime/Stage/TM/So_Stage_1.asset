@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce6397f863a5aaa4498c378fdf5f26c5, type: 3}
+  m_Name: So_Stage_1
+  m_EditorClassIdentifier: 
+  tm:
+    typeID: 1
+    roleSpawnTMs:
+    - so: {fileID: 11400000, guid: 06b6212800b32cb429965f0b39ea1d20, type: 2}
+      position: {x: -6.84, y: 0, z: 0}
+      rotation: {x: -0, y: 0, z: 0}
