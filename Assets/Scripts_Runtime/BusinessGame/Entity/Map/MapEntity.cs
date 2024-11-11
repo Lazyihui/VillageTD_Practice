@@ -5,11 +5,11 @@ using UnityEngine;
 namespace TD {
 
     public class MapEntity : MonoBehaviour {
-        
+
 
         public IDSignature idSig;
 
-          MapGripElement groundTile;
+        public MapGripElement groundTile;
 
         public MapGripElement treeGrid;
 
@@ -17,10 +17,6 @@ namespace TD {
 
         }
 
-        public void Inject(MapGripElement ground, MapGripElement tree) {
-            this.groundTile = ground;
-            this.treeGrid = tree;
-        }
 
     }
 }

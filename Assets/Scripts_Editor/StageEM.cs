@@ -11,6 +11,7 @@ namespace TD {
 
         public StageSO so;
 
+        [SerializeField] GameObject modelMap;
 
         // 第一件事将数据保存到TM里
         [ContextMenu("Save")]
@@ -25,7 +26,9 @@ namespace TD {
             Debug.Log("Save");
             SaveRole();
             SaveCave();
+            SaveMap();
         }
+
 
 
         public void SaveRole() {
@@ -55,6 +58,11 @@ namespace TD {
                 cavesTM[i] = em.caveSpawnTM;
             }
             so.tm.caveSpawnTMs = cavesTM;
+            EditorUtility.SetDirty(so);
+        }
+
+        public void SaveMap() {
+            so.tm.mapEntity = modelMap;
             EditorUtility.SetDirty(so);
         }
     }

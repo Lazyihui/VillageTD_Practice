@@ -9,8 +9,8 @@ namespace TD {
 
     public static class MapDomain {
 
-        public static MapEntity Spawn(GameContext ctx, int typeID) {
-            MapEntity entity = GameFactory.Map_Create(ctx, typeID);
+        public static MapEntity Spawn(GameContext ctx, GameObject model) {
+            MapEntity entity = GameFactory.Map_Create(ctx, model);
             ctx.mapRepository.Add(entity);
             return entity;
         }

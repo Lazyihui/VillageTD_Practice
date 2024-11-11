@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tm:
     typeID: 1
+    mapEntity: {fileID: 1538756989326854258, guid: 47f572fd01a730444b06328fc4368f5b, type: 3}
     roleSpawnTMs:
     - so: {fileID: 11400000, guid: 06b6212800b32cb429965f0b39ea1d20, type: 2}
       position: {x: -6.84, y: 0, z: 0}

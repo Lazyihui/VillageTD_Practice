@@ -110,28 +110,21 @@ namespace TD {
             return entity;
         }
 
-        public static MapEntity Map_Create(GameContext ctx, int typeID) {
+        public static MapEntity Map_Create(GameContext ctx, GameObject model) {
             // 1. Get prefab
-            GameObject prefab = ctx.assetsCore.Entity_GetMap();
-            GameObject go = GameObject.Instantiate(prefab);
-
+            GameObject go = GameObject.Instantiate(model);
             MapEntity map = go.GetComponent<MapEntity>();
-
+            // GameObject prefab = ctx.assetsCore.Entity_GetMap();
+            // GameObject go = GameObject.Instantiate(prefab);
             map.idSig.entityType = EntityType.Map;
             map.idSig.entityID = ctx.gameEntity.stageID++;
-
-
             map.Ctor();
+            // // 2.Get MapGripElement prefavb
+            // GameObject groundPrefab = ctx.assetsCore.Entity_GetTileGround();
+            // MapGripElement ground = GameObject.Instantiate(groundPrefab, map.transform).GetComponent<MapGripElement>();
 
-            // 2.Get MapGripElement prefavb
-            GameObject groundPrefab = ctx.assetsCore.Entity_GetTileGround();
-            MapGripElement ground = GameObject.Instantiate(groundPrefab, map.transform).GetComponent<MapGripElement>();
-
-            GameObject treePrefab = ctx.assetsCore.Entity_GetTileTree();
-            MapGripElement tree = GameObject.Instantiate(treePrefab, map.transform).GetComponent<MapGripElement>();
-
-
-            map.Inject(ground, tree);
+            // GameObject treePrefab = ctx.assetsCore.Entity_GetTileTree();
+            // MapGripElement tree = GameObject.Instantiate(treePrefab, map.transform).GetComponent<MapGripElement>();
 
             return map;
         }

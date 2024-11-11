@@ -4,13 +4,6 @@ using UnityEngine;
 
 namespace TD {
 
-    [CreateAssetMenu(fileName = "GameSO", menuName = "TD/GameSO")]
-    public class GameSO : ScriptableObject {
-        public GameTM tm;
-    }
-
-    
-
     // 啥意思
     [Serializable]
     public class GameTM {
@@ -22,6 +15,8 @@ namespace TD {
 
         // 角色的生成位置
         public Vector2 roleSpawnPos;
+
+        public MapEntity mapModel;
 
 
         public GameTM() { }

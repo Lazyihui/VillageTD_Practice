@@ -10,8 +10,12 @@ namespace TD {
 
         public int typeID;
 
+        public GameObject mapEntity;
+
         public RoleSpawnTM[] roleSpawnTMs;
 
         public CaveSpawnTM[] caveSpawnTMs;
+
+
     }
 }
