@@ -42,7 +42,6 @@ namespace TD {
                 cave.caveSpawnTime = 0;
                 cave.spawnCount++;
                 Vector3 pos = cave.transform.position;
-                Debug.Log("生成怪物");
                 RoleDomain.SpawnMst(ctx, RoleConst.Monster, pos);
             }
             return false;

@@ -125,12 +125,12 @@ namespace TD {
         }
 
         public GameObject Entity_GetTileGround() {
-            entities.TryGetValue("Grid_Stage1", out GameObject mapTile);
+            entities.TryGetValue("Grid_Stage1_Ground", out GameObject mapTile);
             return mapTile;
         }
 
         public GameObject Entity_GetTileTree() {
-            entities.TryGetValue("Grid_Tree", out GameObject mapTile);
+            entities.TryGetValue("Grid_Stage1_Tree", out GameObject mapTile);
             return mapTile;
         }
 

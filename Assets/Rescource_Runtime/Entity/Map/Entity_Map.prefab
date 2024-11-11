@@ -57,5 +57,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27950cf17579bc54193336e670785f9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stageID: 0
-  treeTile: {fileID: 0}
+  idSig:
+    value: 0
+    entityType: 0
+    entityID: 0
+  treeGrid: {fileID: 4388085380158732674, guid: 86054ca1a02b6c1468deb01884e0f4bd, type: 3}

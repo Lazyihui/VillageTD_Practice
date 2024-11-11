@@ -28,10 +28,9 @@ namespace TD {
                 RoleEntity entity = RoleDomain.Spawn(ctx, role.so.tm.typeID, new Vector3(0, 0, 0), role);
                 ctx.gameEntity.ownerIDSig = entity.idSig;
 
-
-
             }
 
+            
 
 
 
