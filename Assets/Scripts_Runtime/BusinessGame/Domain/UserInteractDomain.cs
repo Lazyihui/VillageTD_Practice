@@ -5,7 +5,7 @@ namespace TD {
 
     public static class UserInteractDomain {
 
-        public static void Tick(GameContext ctx) {
+        public static void Tick(GameContext ctx,float dt) {
             var input = ctx.inputEntity;
 
             var game = ctx.gameEntity;
@@ -40,7 +40,7 @@ namespace TD {
             OpenPanel_TowerInfo(ctx);
 
             // ==== 关闭引导 ====
-            ClosePanel_Guide(ctx);
+            ClosePanel_Guide(ctx,dt);
         }
 
         #region BuildTower
@@ -185,11 +185,15 @@ namespace TD {
             }
         }
 
-        public static void ClosePanel_Guide(GameContext ctx) {
+        public static void ClosePanel_Guide(GameContext ctx, float dt) {
             InputEntity input = ctx.inputEntity;
+            var game = ctx.gameEntity;
 
             if (input.moveAxis != Vector2.zero) {
-                ctx.appUI.Panel_Guide_Close();
+                game.panelCloseTimer -= dt;
+                if (game.panelCloseTimer <= 0) {
+                    ctx.appUI.Panel_Guide_Close();
+                }
             }
         }
 

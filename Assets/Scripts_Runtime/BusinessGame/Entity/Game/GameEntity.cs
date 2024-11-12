@@ -40,11 +40,11 @@ namespace TD {
 
         //  记录鼠标碰到的塔
         public IDSignature mouseTowerIDSig;
-
-        
-        
         public bool isMstOver;
-        
+
+        // panel_Guide的关闭时间
+        public float panelCloseTimer;
+
         public GameEntity() {
             restFixTime = 0;
             towerRecordID = 0;
@@ -63,6 +63,8 @@ namespace TD {
             resCount = 500;
 
             handCardID = -1;
+
+            panelCloseTimer = 5;
 
 
         }

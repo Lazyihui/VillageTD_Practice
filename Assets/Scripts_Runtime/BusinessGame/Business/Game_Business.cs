@@ -85,7 +85,7 @@ namespace TD {
         static void PreTick(GameContext ctx, float dt) {
 
 
-            UserInteractDomain.Tick(ctx);
+            UserInteractDomain.Tick(ctx, dt);
 
             RoleEntity owner = ctx.Role_GetOwner();
 
