@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: So_Cave
   m_EditorClassIdentifier: 
   tm:
+    typeName: 
     typeID: 1
     caveSpawnTime: 4
     caveSpawnInterval: 4
-    isLive: 1
+    isLive: 0
     activeTimer: 0
     activeInterval: 50
     spawnMaxCount: 5

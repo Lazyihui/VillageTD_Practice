@@ -35,11 +35,9 @@ namespace TD {
 
 
             MapEntity map = MapDomain.Spawn(ctx, tm.mapEntity);
-
-            // RoleEntity owner = RoleDomain.Spawn(ctx, RoleConst.Role, new Vector2(0, 0));
-            // ctx.gameEntity.ownerIDSig = owner.idSig;
-
             TowerDoamin.Spawn(ctx, TowerConst.BaseTower, new Vector2Int(0, 0));
+
+
 
             HashSet<Vector2Int> treePosHashSet = MapDomain.GetTilePos(map.treeGrid.tile);
 
@@ -55,6 +53,7 @@ namespace TD {
 
             ctx.appUI.Panel_ResourceInfo_Open();
 
+            ctx.appUI.Panel_Guide_Open();
 
         }
 
@@ -86,9 +85,6 @@ namespace TD {
         static void PreTick(GameContext ctx, float dt) {
 
             UserInteractDomain.Tick(ctx);
-
-
-
 
             RoleEntity owner = ctx.Role_GetOwner();
 

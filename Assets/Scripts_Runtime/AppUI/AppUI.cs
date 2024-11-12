@@ -19,7 +19,7 @@ namespace TD {
         public void Inject(AssetsCore assetsCore, TemplateCore templateCore, Canvas screenCanvas, Canvas worldCanvas) {
             ctx.Inject(assetsCore, templateCore, screenCanvas, worldCanvas);
         }
-
+        #region Panel_Login
 
         public void Panel_Login_Open() {
             Panel_Login panel = ctx.panel_Login;
@@ -54,7 +54,9 @@ namespace TD {
             panel.TearDown();
 
         }
+        #endregion
 
+        #region Panel_Manifast
         public void Panel_Manifaset_Open() {
             Panel_Manifast panel = ctx.panel_Manifast;
 
@@ -91,7 +93,9 @@ namespace TD {
 
             panel.TearDown();
         }
+        #endregion
 
+        #region Panel_ResourceInfo
         public void Panel_ResourceInfo_Open() {
 
             Panel_ResourceInfo panel = ctx.panel_ResourceInfo;
@@ -128,8 +132,9 @@ namespace TD {
             panel.TearDown();
         }
 
-        // Panel_SelectCard
+        #endregion
 
+        #region Panel_Select
 
         public void Panel_SelectCard_Open(int typeID) {
             Panel_SelectCard panel = ctx.panel_SelectCard;
@@ -168,7 +173,9 @@ namespace TD {
 
             panel.TearDown();
         }
-        // panel_TowerInfo
+
+        #endregion
+
         #region Panel_TowerInfo
         public void Panel_TowerInfo_Open(Vector3 pos) {
             Panel_TowerInfo panel = ctx.panel_TowerInfo;
@@ -232,5 +239,35 @@ namespace TD {
         }
 
         # endregion
+
+        #region Panel_Guide
+
+        public void Panel_Guide_Open() {
+            Panel_Guide panel = ctx.panel_Guide;
+            if (panel == null) {
+                GameObject prefab = ctx.assetsCore.Panel_GetGuide();
+
+                GameObject go = GameObject.Instantiate(prefab, ctx.screenCanvas.transform);
+                panel = go.GetComponent<Panel_Guide>();
+                panel.Ctor();
+            }
+
+            panel.Show();
+            ctx.panel_Guide = panel;
+        }
+
+
+        public void Panel_Guide_Close() {
+            Panel_Guide panel = ctx.panel_Guide;
+            if (panel == null) {
+                return;
+            }
+
+            panel.TearDown();
+        }
+
+        #endregion
+
+
     }
 }

@@ -38,6 +38,9 @@ namespace TD {
 
             // ==== 选中 ====
             OpenPanel_TowerInfo(ctx);
+
+            // ==== 关闭引导 ====
+            ClosePanel_Guide(ctx);
         }
 
         #region BuildTower
@@ -179,6 +182,14 @@ namespace TD {
                 ctx.appUI.Panel_TowerInfo_SetTxt(tower.name, tower.hp, tower.attackHurt, tower.buildCost);
             } else {
                 ctx.appUI.Panel_TowerInfo_Close();
+            }
+        }
+
+        public static void ClosePanel_Guide(GameContext ctx) {
+            InputEntity input = ctx.inputEntity;
+
+            if (input.moveAxis != Vector2.zero) {
+                ctx.appUI.Panel_Guide_Close();
             }
         }
 

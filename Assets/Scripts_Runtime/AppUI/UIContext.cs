@@ -13,6 +13,7 @@ namespace TD {
         public Panel_SelectCard panel_SelectCard;
         public Panel_TowerInfo panel_TowerInfo;
         public Panel_Over panel_Over;
+        public Panel_Guide panel_Guide;
 
         public AssetsCore assetsCore;
         public TemplateCore templateCore;
