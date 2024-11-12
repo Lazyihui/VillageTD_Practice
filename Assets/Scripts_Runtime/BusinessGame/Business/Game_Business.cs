@@ -84,6 +84,7 @@ namespace TD {
 
         static void PreTick(GameContext ctx, float dt) {
 
+
             UserInteractDomain.Tick(ctx);
 
             RoleEntity owner = ctx.Role_GetOwner();
@@ -92,7 +93,6 @@ namespace TD {
 
             // panel  Update
             ctx.appUI.Panel_ResourceInfo_UpateResCount(ctx.gameEntity.resCount);
-
 
         }
 

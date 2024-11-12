@@ -94,7 +94,7 @@ namespace TD {
 
         static bool Tower_AllowBuild(GameContext ctx, int typeID, Vector2Int pos) {
             // 没有这个塔
-            bool has = ctx.templateCore.ctx.Tower_TryGet(typeID, out TowerTM tm);
+            bool has = ctx.templateCore.Tower_TryGet(typeID, out TowerTM tm);
             if (!has) {
                 Debug.Log("没有这个typeID" + typeID);
                 return false;

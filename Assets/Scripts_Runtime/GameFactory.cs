@@ -10,7 +10,7 @@ namespace TD {
 
         public static RoleEntity Role_Create(GameContext ctx, int typeID, Vector3 pos, RoleSpawnTM spawnTM) {
             RoleTM tm;
-            bool has = ctx.templateCore.ctx.Role_TryGet(typeID, out tm);
+            bool has = ctx.templateCore.Role_TryGet(typeID, out tm);
             GameObject prefab = ctx.assetsCore.Entity_GetRole();
             GameObject go = GameObject.Instantiate(prefab);
             RoleEntity entity = go.GetComponent<RoleEntity>();
@@ -44,7 +44,7 @@ namespace TD {
         // mst
         public static RoleEntity Role_Create(GameContext ctx, int typeID, Vector3 pos) {
             RoleTM tm;
-            bool has = ctx.templateCore.ctx.Role_TryGet(typeID, out tm);
+            bool has = ctx.templateCore.Role_TryGet(typeID, out tm);
             GameObject prefab = ctx.assetsCore.Entity_GetRole();
             GameObject go = GameObject.Instantiate(prefab);
             RoleEntity entity = go.GetComponent<RoleEntity>();
@@ -73,7 +73,7 @@ namespace TD {
         }
         public static TowerEntity Tower_Create(GameContext ctx, int typeID, Vector2Int pos) {
             TowerTM tm;
-            ctx.templateCore.ctx.Tower_TryGet(typeID, out tm);
+            ctx.templateCore.Tower_TryGet(typeID, out tm);
             GameObject prefab = ctx.assetsCore.Entity_GetTower();
             GameObject go = GameObject.Instantiate(prefab);
             TowerEntity entity = go.GetComponent<TowerEntity>();
@@ -146,7 +146,7 @@ namespace TD {
 
         public static BulletEntity Bullet_Create(GameContext ctx, int typeID, Vector3 pos) {
             BulletTM tm;
-            ctx.templateCore.ctx.Bullet_TryGet(typeID, out tm);
+            ctx.templateCore.Bullet_TryGet(typeID, out tm);
             GameObject prefab = ctx.assetsCore.Entity_GetBullet();
             GameObject go = GameObject.Instantiate(prefab);
             BulletEntity entity = go.GetComponent<BulletEntity>();
@@ -165,7 +165,7 @@ namespace TD {
 
         public static CaveEntity Cave_Create(GameContext ctx, int typeID, CaveSpawnTM spawnTM) {
             CaveTM tm;
-            ctx.templateCore.ctx.Cave_TryGet(typeID, out tm);
+            ctx.templateCore.Cave_TryGet(typeID, out tm);
             GameObject prefab = ctx.assetsCore.Entity_GetCave();
             GameObject go = GameObject.Instantiate(prefab);
             CaveEntity entity = go.GetComponent<CaveEntity>();

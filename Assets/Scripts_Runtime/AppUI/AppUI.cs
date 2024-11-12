@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using TD.UIInternal;
 
 
 namespace TD {
@@ -145,7 +146,7 @@ namespace TD {
                 panel = go.GetComponent<Panel_SelectCard>();
                 panel.Ctor();
 
-                ctx.templateCore.ctx.PanelCard_TryGet(typeID, out PanelCardTM tm);
+                ctx.templateCore.PanelCard_TryGet(typeID, out PanelCardTM tm);
                 panel.SetSprite(tm.sprite);
 
             }

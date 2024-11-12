@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
 
-namespace TD {
+namespace TD.TemplateInternal {
 
     public class TemplateContext {
 
@@ -48,30 +48,7 @@ namespace TD {
             stages = new Dictionary<int, StageTM>();
         }
 
-        // 找种类的Role
-        public bool Role_TryGet(int typeID, out RoleTM role) {
-            return roles.TryGetValue(typeID, out role);
-        }
-
-        public bool Tower_TryGet(int typeID, out TowerTM tower) {
-            return towers.TryGetValue(typeID, out tower);
-        }
-
-        public bool Bullet_TryGet(int typeID, out BulletTM bullet) {
-            return bullets.TryGetValue(typeID, out bullet);
-        }
-
-        public bool Tree_TryGet(int typeID, out TreeTM tree) {
-            return trees.TryGetValue(typeID, out tree);
-        }
-
-        public bool PanelCard_TryGet(int typeID, out PanelCardTM panelCard) {
-            return panelCards.TryGetValue(typeID, out panelCard);
-        }
-
-        public bool Cave_TryGet(int typeID, out CaveTM cave) {
-            return caves.TryGetValue(typeID, out cave);
-        }
+       
 
       
 

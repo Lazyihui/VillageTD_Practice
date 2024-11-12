@@ -34,7 +34,7 @@ namespace TD {
         public static void SetTile(GameContext ctx, Tilemap tilemap, int typeID, Vector2Int pos) {
 
 
-            bool has = ctx.templateCore.ctx.Tree_TryGet(typeID, out TreeTM tm);
+            bool has = ctx.templateCore.Tree_TryGet(typeID, out TreeTM tm);
             if (!has) {
                 Debug.LogError("SetTile Tree_TryGet Error");
                 return;

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using System.Threading.Tasks;
+using TD.TemplateInternal;
 
 
 namespace TD {
@@ -17,7 +18,7 @@ namespace TD {
         public bool Stage_TryGet(int typeID, out StageTM stage) {
             return ctx.stages.TryGetValue(typeID, out stage);
         }
-        
+
         public async Task LoadAll(GameContext ctx) {
             {
                 AssetLabelReference labelReference = new AssetLabelReference();
@@ -122,7 +123,30 @@ namespace TD {
                 ctx.templateCore.ctx.stagePtr = handle;
             }
         }
+        // 找种类的Role
+        public bool Role_TryGet(int typeID, out RoleTM role) {
+            return ctx.roles.TryGetValue(typeID, out role);
+        }
 
+        public bool Tower_TryGet(int typeID, out TowerTM tower) {
+            return ctx.towers.TryGetValue(typeID, out tower);
+        }
+
+        public bool Bullet_TryGet(int typeID, out BulletTM bullet) {
+            return ctx.bullets.TryGetValue(typeID, out bullet);
+        }
+
+        public bool Tree_TryGet(int typeID, out TreeTM tree) {
+            return ctx.trees.TryGetValue(typeID, out tree);
+        }
+
+        public bool PanelCard_TryGet(int typeID, out PanelCardTM panelCard) {
+            return ctx.panelCards.TryGetValue(typeID, out panelCard);
+        }
+
+        public bool Cave_TryGet(int typeID, out CaveTM cave) {
+            return ctx.caves.TryGetValue(typeID, out cave);
+        }
         public void UnLoadAll() {
             if (ctx.rolePtr.IsValid()) {
                 Addressables.Release(ctx.rolePtr);
