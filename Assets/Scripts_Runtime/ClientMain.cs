@@ -59,12 +59,10 @@ namespace TD {
             };
 
         }
-
         void OnGUI() {
             GUILayout.Label("Mouse World Pos: " + ctx.inputEntity.mousePositionWorld);
             GUILayout.Label("Mouse Grid Pos: " + ctx.inputEntity.mousePositionGrid);
         }
-
 
         void Update() {
             if (!isInit) {

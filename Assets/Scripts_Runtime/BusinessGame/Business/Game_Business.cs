@@ -38,12 +38,10 @@ namespace TD {
             TowerDoamin.Spawn(ctx, TowerConst.BaseTower, new Vector2Int(0, 0));
 
 
-
             HashSet<Vector2Int> treePosHashSet = MapDomain.GetTilePos(map.treeGrid.tile);
 
             foreach (Vector2Int pos in treePosHashSet) {
 
-                Debug.Log(pos);
                 TreeDomain.Spawn(ctx, pos, 1);
             }
 
@@ -60,7 +58,9 @@ namespace TD {
 
             // panel
             ctx.appUI.Panel_Manifaset_Open();
+            ctx.appUI.Panel_Manifast_AddElement(1);
             ctx.appUI.Panel_Manifast_AddElement(2);
+            ctx.appUI.Panel_Manifast_AddElement(3);
 
             ctx.appUI.Panel_ResourceInfo_Open();
 

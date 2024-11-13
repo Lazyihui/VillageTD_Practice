@@ -22,8 +22,8 @@ namespace TD {
                 }
             });
         }
-        public void SetImage(Image image) {
-            sp = image;
+        public void SetImage(Sprite image) {
+            sp.sprite = image;
         }
         public Vector3 GetPos() {
             Debug.Log(transform.position);

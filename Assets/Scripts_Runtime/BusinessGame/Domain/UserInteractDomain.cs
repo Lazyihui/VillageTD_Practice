@@ -109,7 +109,6 @@ namespace TD {
             }
 
             bool hasTree = ctx.treeRepository.IsPosHas(pos);
-            Debug.Log(pos);
             bool isLand = true;
 
             PlaceConditionType placeConditionType = tm.placeConditionType;

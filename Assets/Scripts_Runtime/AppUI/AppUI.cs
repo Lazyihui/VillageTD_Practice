@@ -102,12 +102,14 @@ namespace TD {
 
             ele.resCount = tm.cost;
             ele.typeID = tm.typeID;
+            ele.SetImage(tm.sprite);
 
             ele.OnClickHandle += (int typeID) => {
                 eventCenter.OnMainfastClickElement(typeID);
             };
 
             ele.Ctor();
+
             uiRepos.Add_ManifastElement(ele);
 
         }

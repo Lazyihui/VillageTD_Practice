@@ -23,7 +23,7 @@ MonoBehaviour:
     shootInterval: 3
     attackHurt: 0
     attackRange: 5
-    sprite: {fileID: 21300000, guid: 8455a6d00896db647a39a1a33eb7032f, type: 3}
+    sprite: {fileID: 21300000, guid: 77e49c0276153194e90f49b99c2ef86b, type: 3}
     isLive: 0
     cutTreeTime: 3
     cutTreeInterval: 3
