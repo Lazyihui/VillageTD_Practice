@@ -52,7 +52,7 @@ namespace TD {
             eventCenter.OnMainfastClickHandle += (int typeID) => {
 
                 ctx.appUI.Panel_SelectCard_Open(typeID);
-                ctx.gameEntity.handHasCardTree = true;
+                ctx.gameEntity.handHasCard = true;
                 ctx.gameEntity.handCardID = typeID;
                 Debug.Log("OnMainfastClickHandle: " + typeID);
 

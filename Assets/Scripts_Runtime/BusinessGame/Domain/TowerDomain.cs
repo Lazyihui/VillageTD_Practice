@@ -91,6 +91,7 @@ namespace TD {
                     nearestTree = tree;
                 }
                 if (distance < tower.attackRange) {
+                    // 砍树
                     ctx.treeRepository.RemovePos(tree.pos);
                 }
             }

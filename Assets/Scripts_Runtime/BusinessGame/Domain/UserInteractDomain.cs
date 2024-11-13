@@ -109,6 +109,7 @@ namespace TD {
             }
 
             bool hasTree = ctx.treeRepository.IsPosHas(pos);
+            Debug.Log(pos);
             bool isLand = true;
 
             PlaceConditionType placeConditionType = tm.placeConditionType;
@@ -117,10 +118,10 @@ namespace TD {
             // 只能建在树上
             if (placeConditionType == PlaceConditionType.Tree) {
                 if (hasTree /*but has no others*/) {
-                    Debug.Log("这里有数可以种");
+                    Debug.Log("这里有树可以建造");
                     return true;
                 } else {
-                    Debug.Log("没有数不可以种");
+                    Debug.Log("没有树不可以建造");
                     return false;
                 }
             }

@@ -42,7 +42,17 @@ namespace TD {
             HashSet<Vector2Int> treePosHashSet = MapDomain.GetTilePos(map.treeGrid.tile);
 
             foreach (Vector2Int pos in treePosHashSet) {
+
+                Debug.Log(pos);
                 TreeDomain.Spawn(ctx, pos, 1);
+            }
+
+            int len = ctx.treeRepository.TakeAll(out TreeEntity[] trees);
+
+            for (int i = 0; i < len; i++) {
+                TreeEntity tree = trees[i];
+
+                
             }
 
 
