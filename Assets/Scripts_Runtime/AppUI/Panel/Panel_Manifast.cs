@@ -54,8 +54,20 @@ namespace TD {
         }
 
         public void TearDown() {
-            
+
             gameObject.SetActive(false);
+        }
+
+        public Vector3 GetPosTower() {
+            return arrowTower.transform.position;
+        }
+
+        public Vector3 GetPosTree() {
+            return treeTower.transform.position;
+        }
+
+        public Vector3 GetPosPlantTree() {
+            return PlantTree.transform.position;
         }
     }
 }

@@ -35,6 +35,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - So_Stage
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ffea61b9212b65943bfbf5207c402c98
+    m_Address: Assets/Rescource_Runtime/Panel/ManifastInfo/Panel_ManifastInfo.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Panel
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: ce53ef2a080bb9e41a644841fa038063, type: 2}
   m_SchemaSet:

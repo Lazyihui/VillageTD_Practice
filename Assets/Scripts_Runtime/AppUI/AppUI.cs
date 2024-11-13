@@ -86,6 +86,33 @@ namespace TD {
             panel.Show();
         }
 
+        public Vector3 Panel_Manifast_GetPosTower() {
+            Panel_Manifast panel = ctx.panel_Manifast;
+            if (panel == null) {
+                return Vector3.zero;
+            }
+
+            return panel.GetPosTower();
+        }
+
+        public Vector3 Panel_Manifast_GetPosTree() {
+            Panel_Manifast panel = ctx.panel_Manifast;
+            if (panel == null) {
+                return Vector3.zero;
+            }
+
+            return panel.GetPosTree();
+        }
+
+        public Vector3 Panel_Manifast_GetPosPlantTree() {
+            Panel_Manifast panel = ctx.panel_Manifast;
+            if (panel == null) {
+                return Vector3.zero;
+            }
+
+            return panel.GetPosPlantTree();
+        }
+
         public void panel_Manifast_Close() {
             Panel_Manifast panel = ctx.panel_Manifast;
             if (panel == null) {
@@ -266,6 +293,34 @@ namespace TD {
 
             panel.TearDown();
         }
+
+        #endregion
+
+
+        #region Panel_ManifastInfo
+        public void Panel_MainfastInfo_Open() {
+            Panel_ManifastInfo panel = ctx.panel_GuidePanel;
+            if (panel == null) {
+                GameObject prefab = ctx.assetsCore.Panel_GetGuidePanel();
+
+                GameObject go = GameObject.Instantiate(prefab, ctx.worldCanvas  .transform);
+                panel = go.GetComponent<Panel_ManifastInfo>();
+                panel.Ctor();
+            }
+
+            panel.Show();
+            ctx.panel_GuidePanel = panel;
+        }
+
+        public void Panel_ManifastInfo_Close() {
+            Panel_ManifastInfo panel = ctx.panel_GuidePanel;
+            if (panel == null) {
+                return;
+            }
+
+            panel.TearDown();
+        }
+
 
         #endregion
 

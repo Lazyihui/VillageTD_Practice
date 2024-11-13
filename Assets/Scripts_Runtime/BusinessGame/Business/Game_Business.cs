@@ -55,6 +55,8 @@ namespace TD {
 
             ctx.appUI.Panel_Guide_Open();
 
+            ctx.appUI.Panel_MainfastInfo_Open();
+
         }
 
 

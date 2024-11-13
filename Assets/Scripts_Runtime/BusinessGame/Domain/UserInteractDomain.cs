@@ -5,7 +5,7 @@ namespace TD {
 
     public static class UserInteractDomain {
 
-        public static void Tick(GameContext ctx,float dt) {
+        public static void Tick(GameContext ctx, float dt) {
             var input = ctx.inputEntity;
 
             var game = ctx.gameEntity;
@@ -40,7 +40,7 @@ namespace TD {
             OpenPanel_TowerInfo(ctx);
 
             // ==== 关闭引导 ====
-            ClosePanel_Guide(ctx,dt);
+            ClosePanel_Guide(ctx, dt);
         }
 
         #region BuildTower
@@ -156,7 +156,7 @@ namespace TD {
         }
 
         #endregion
-
+        #region  panel_Info
         // 鼠标和塔交互 鼠标是否在塔上
         public static bool MousePosInteractTower(GameContext ctx) {
             InputEntity input = ctx.inputEntity;
@@ -173,6 +173,12 @@ namespace TD {
 
         }
 
+        public static bool MousePosInteractPanel(GameContext ctx) {
+            InputEntity input = ctx.inputEntity;
+
+            return false;
+
+        }
 
         public static void OpenPanel_TowerInfo(GameContext ctx) {
             bool has = MousePosInteractTower(ctx);
@@ -185,6 +191,8 @@ namespace TD {
             }
         }
 
+
+        #endregion
         public static void ClosePanel_Guide(GameContext ctx, float dt) {
             InputEntity input = ctx.inputEntity;
             var game = ctx.gameEntity;

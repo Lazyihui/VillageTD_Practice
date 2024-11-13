@@ -1,11 +1,10 @@
 using System;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-namespace TD {
 
-    public class Panel_TowerInfo : MonoBehaviour {
+namespace TD {
+    public class Panel_ManifastInfo : MonoBehaviour {
 
         [SerializeField] TextMeshProUGUI txtName;
 
@@ -43,3 +42,5 @@ namespace TD {
 
     }
 }
+
+
