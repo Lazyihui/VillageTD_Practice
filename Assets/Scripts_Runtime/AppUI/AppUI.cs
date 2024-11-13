@@ -12,9 +12,12 @@ namespace TD {
 
         public UIEventCenter eventCenter;
 
+        UIReposRepository repos;
+
         public AppUI() {
             ctx = new UIContext();
             eventCenter = new UIEventCenter();
+            repos = new UIReposRepository();
         }
 
         public void Inject(AssetsCore assetsCore, TemplateCore templateCore, Canvas screenCanvas, Canvas worldCanvas) {

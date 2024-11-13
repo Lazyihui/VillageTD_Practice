@@ -10,6 +10,8 @@ namespace TD {
 
         [SerializeField] Image sp;
 
+        public IDSignature idSig;
+
         public int resCount;
 
         public int typeID;
@@ -17,12 +19,9 @@ namespace TD {
         public void Ctor() {
 
         }
-
-
         public void SetImage(Image image) {
             sp = image;
         }
-
 
     }
 }
