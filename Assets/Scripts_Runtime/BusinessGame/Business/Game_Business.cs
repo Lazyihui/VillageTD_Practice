@@ -50,8 +50,7 @@ namespace TD {
 
             // panel
             ctx.appUI.Panel_Manifaset_Open();
-            IDSignature idSig = new IDSignature(EntityType.ManifastElement, 0);
-            ctx.appUI.Panel_Manifast_AddElement(idSig);
+            ctx.appUI.Panel_Manifast_AddElement(2);
 
             ctx.appUI.Panel_ResourceInfo_Open();
 

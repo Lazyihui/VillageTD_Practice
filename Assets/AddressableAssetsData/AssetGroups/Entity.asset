@@ -29,24 +29,6 @@ MonoBehaviour:
     m_SerializedLabels:
     - Entity
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 94f2e25aede9107439ad8e1d48d55093
-    m_Address: Grid_Stage1
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Entity
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 02294014e891f5d49a0020e713c25a35
-    m_Address: MapEntity
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Entity
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 86054ca1a02b6c1468deb01884e0f4bd
-    m_Address: Grid_Tree
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Entity
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 92a6085e09818ba42984f6e08370d4d5
     m_Address: Entity_Bullet
     m_ReadOnly: 0

@@ -10,7 +10,7 @@ namespace TD {
 
         [SerializeField] Image sp;
         [SerializeField] Button btn;
-        public Action<IDSignature> OnClickHandle;
+        public Action<int> OnClickHandle;
         public IDSignature idSig;
         public int resCount;
         public int typeID;
@@ -18,7 +18,7 @@ namespace TD {
         public void Ctor() {
             btn.onClick.AddListener(() => {
                 if (OnClickHandle != null) {
-                    OnClickHandle.Invoke(idSig);
+                    OnClickHandle.Invoke(typeID);
                 }
             });
         }

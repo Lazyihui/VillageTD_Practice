@@ -499,7 +499,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   typeID: 1
   so: {fileID: 11400000, guid: 1773d76787ca7a44daa8a3c347f15186, type: 2}
-  modelMap: {fileID: 1538756989326854258, guid: 47f572fd01a730444b06328fc4368f5b, type: 3}
+  modelMap: {fileID: 872421748221732492}
 --- !u!4 &1178000068 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6604872100488122107, guid: 47f572fd01a730444b06328fc4368f5b, type: 3}
@@ -900,6 +900,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 47f572fd01a730444b06328fc4368f5b, type: 3}
+--- !u!1 &872421748221732492 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1538756989326854258, guid: 47f572fd01a730444b06328fc4368f5b, type: 3}
+  m_PrefabInstance: {fileID: 872421748221732491}
+  m_PrefabAsset: {fileID: 0}
 --- !u!50 &956352902655300530
 Rigidbody2D:
   serializedVersion: 4

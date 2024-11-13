@@ -10,6 +10,11 @@ namespace TD {
         public string typeName;
         public int typeID;
 
+        public int cost;
+
+        public int hp;
+
+        public int attack;
 
         public Sprite sprite;
     }

@@ -12,7 +12,7 @@ namespace TD {
 
         public UIEventCenter eventCenter;
 
-        UIReposRepository uiRepos;
+        public UIReposRepository uiRepos;
 
         public int manifastEleRecordID;
 
@@ -82,17 +82,30 @@ namespace TD {
         }
 
 
-        public void Panel_Manifast_AddElement(IDSignature idSig) {
+        public void Panel_Manifast_AddElement(int typeID) {
             Panel_Manifast panel = ctx.panel_Manifast;
             if (panel == null) {
                 return;
             }
 
+            ctx.templateCore.PanelCard_TryGet(typeID, out PanelCardTM tm);
+            if (tm == null) {
+                Debug.LogError("PanelCardTM not found" + typeID);
+                return;
+            }
+
             GameObject prefab = ctx.assetsCore.Panel_GetManifastElement();
-            GameObject go = GameObject.Instantiate(prefab,panel.group);
-            Panel_ManifastElement ele = go.GetComponent<Panel_ManifastElement>();
+            Panel_ManifastElement ele = GameObject.Instantiate(prefab, panel.group).GetComponent<Panel_ManifastElement>();
+
             ele.idSig.entityID = manifastEleRecordID++;
             ele.idSig.entityType = EntityType.ManifastElement;
+
+            ele.resCount = tm.cost;
+            ele.typeID = tm.typeID;
+
+            ele.OnClickHandle += (int typeID) => {
+                eventCenter.OnMainfastClickElement(typeID);
+            };
 
             ele.Ctor();
             uiRepos.Add_ManifastElement(ele);

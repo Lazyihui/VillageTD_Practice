@@ -147,6 +147,8 @@ namespace TD {
         public bool Cave_TryGet(int typeID, out CaveTM cave) {
             return ctx.caves.TryGetValue(typeID, out cave);
         }
+
+        
         public void UnLoadAll() {
             if (ctx.rolePtr.IsValid()) {
                 Addressables.Release(ctx.rolePtr);

@@ -26,6 +26,7 @@ namespace TD {
                 if (input.mouseLeftClick) {
 
                     int typeID = ctx.gameEntity.handCardID;
+
                     Tree_TryBuild(ctx, typeID, input.mousePositionGrid);
                 }
             }

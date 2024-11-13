@@ -3,38 +3,24 @@ using System.Collections.Generic;
 
 using UnityEngine;
 
+namespace TD {
 
-public class UIEventCenter {
+    public class UIEventCenter {
 
-    public Action OnLoginClickHandle;
+        public Action OnLoginClickHandle;
 
-    public void OnLoginClick() {
-        if (OnLoginClickHandle != null) {
-            OnLoginClickHandle.Invoke();
+        public void OnLoginClick() {
+            if (OnLoginClickHandle != null) {
+                OnLoginClickHandle.Invoke();
+            }
         }
-    }
 
-    public Action<int> OnHatChetClickHandle;
-
-    public void OnHatChetClick(int typeID) {
-        if (OnHatChetClickHandle != null) {
-            OnHatChetClickHandle.Invoke(typeID);
+        public Action<int> OnMainfastClickHandle;
+        public void OnMainfastClickElement(int typeID) {
+            if (OnMainfastClickHandle != null) {
+                OnMainfastClickHandle.Invoke(typeID);
+            }
         }
-    }
 
-    public Action<int> OnTowerClickHandle;
-
-    public void OnTowerClick(int typeID) {
-        if (OnTowerClickHandle != null) {
-            OnTowerClickHandle.Invoke(typeID);
-        }
-    }
-
-    public Action<int> OnPlantTreeClickHandle;
-
-    public void OnPlantTreeClick(int typeID) {
-        if (OnPlantTreeClickHandle != null) {
-            OnPlantTreeClickHandle.Invoke(typeID);
-        }
     }
 }
