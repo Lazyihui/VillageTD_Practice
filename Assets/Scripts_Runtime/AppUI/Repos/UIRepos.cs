@@ -7,31 +7,31 @@ namespace TD {
 
     public class UIReposRepository {
 
-        Dictionary<IDSignature, Panel_ManifastElment> all;
-        Panel_ManifastElment[] temArray;
+        Dictionary<IDSignature, Panel_ManifastElement> all;
+        Panel_ManifastElement[] temArray;
 
         public UIReposRepository() {
-            all = new Dictionary<IDSignature, Panel_ManifastElment>();
-            temArray = new Panel_ManifastElment[100];
+            all = new Dictionary<IDSignature, Panel_ManifastElement>();
+            temArray = new Panel_ManifastElement[100];
         }
 
 
         #region  Panel_ManifastElment
-        public void Add(Panel_ManifastElment entity) {
+        public void Add_ManifastElement(Panel_ManifastElement entity) {
             all.Add(entity.idSig, entity);
         }
-        public void Remove(Panel_ManifastElment entity) {
+        public void Remove_ManifastElement(Panel_ManifastElement entity) {
             all.Remove(entity.idSig);
         }
-        public int TakeAll(out Panel_ManifastElment[] array) {
+        public int TakeAll_ManifastElement(out Panel_ManifastElement[] array) {
             if (all.Count > temArray.Length) {
-                temArray = new Panel_ManifastElment[all.Count * 2];
+                temArray = new Panel_ManifastElement[all.Count * 2];
             }
             all.Values.CopyTo(temArray, 0);
             array = temArray;
             return all.Count;
         }
-        public bool TryGet(IDSignature idSig, out Panel_ManifastElment entity) {
+        public bool TryGet_ManifastElement(IDSignature idSig, out Panel_ManifastElement entity) {
             return all.TryGetValue(idSig, out entity);
         }
     }

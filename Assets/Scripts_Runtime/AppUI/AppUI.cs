@@ -12,12 +12,16 @@ namespace TD {
 
         public UIEventCenter eventCenter;
 
-        UIReposRepository repos;
+        UIReposRepository uiRepos;
+
+        public int manifastEleRecordID;
 
         public AppUI() {
             ctx = new UIContext();
             eventCenter = new UIEventCenter();
-            repos = new UIReposRepository();
+            uiRepos = new UIReposRepository();
+
+            manifastEleRecordID = 0;
         }
 
         public void Inject(AssetsCore assetsCore, TemplateCore templateCore, Canvas screenCanvas, Canvas worldCanvas) {
@@ -72,48 +76,27 @@ namespace TD {
                 panel = go.GetComponent<Panel_Manifast>();
                 panel.Ctor();
 
-                panel.OnHatChetClickHandle += (int typeID) => {
-                    eventCenter.OnHatChetClick(typeID);
-                };
-
-                panel.OnTowerClickHandle += (int typeID) => {
-                    eventCenter.OnTowerClick(typeID);
-                };
-
-                panel.OnPlantTreeClickHandle += (int typeID) => {
-                    eventCenter.OnPlantTreeClick(typeID);
-                };
-
             }
             ctx.panel_Manifast = panel;
             panel.Show();
         }
 
-        public Vector3 Panel_Manifast_GetPosTower() {
+
+        public void Panel_Manifast_AddElement(IDSignature idSig) {
             Panel_Manifast panel = ctx.panel_Manifast;
             if (panel == null) {
-                return Vector3.zero;
+                return;
             }
 
-            return panel.GetPosTower();
-        }
+            GameObject prefab = ctx.assetsCore.Panel_GetManifastElement();
+            GameObject go = GameObject.Instantiate(prefab,panel.group);
+            Panel_ManifastElement ele = go.GetComponent<Panel_ManifastElement>();
+            ele.idSig.entityID = manifastEleRecordID++;
+            ele.idSig.entityType = EntityType.ManifastElement;
 
-        public Vector3 Panel_Manifast_GetPosTree() {
-            Panel_Manifast panel = ctx.panel_Manifast;
-            if (panel == null) {
-                return Vector3.zero;
-            }
+            ele.Ctor();
+            uiRepos.Add_ManifastElement(ele);
 
-            return panel.GetPosTree();
-        }
-
-        public Vector3 Panel_Manifast_GetPosPlantTree() {
-            Panel_Manifast panel = ctx.panel_Manifast;
-            if (panel == null) {
-                return Vector3.zero;
-            }
-
-            return panel.GetPosPlantTree();
         }
 
         public void panel_Manifast_Close() {
@@ -306,7 +289,7 @@ namespace TD {
             if (panel == null) {
                 GameObject prefab = ctx.assetsCore.Panel_GetGuidePanel();
 
-                GameObject go = GameObject.Instantiate(prefab, ctx.worldCanvas  .transform);
+                GameObject go = GameObject.Instantiate(prefab, ctx.worldCanvas.transform);
                 panel = go.GetComponent<Panel_ManifastInfo>();
                 panel.Ctor();
             }

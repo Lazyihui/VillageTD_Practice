@@ -97,6 +97,11 @@ namespace TD {
             return panel;
         }
 
+        public GameObject Panel_GetManifastElement() {
+            panels.TryGetValue("Panel_ManifastElement", out GameObject panel);
+            return panel;
+        }
+
         public GameObject Panel_GetResourceInfo() {
             panels.TryGetValue("Panel_ResourceInfo", out GameObject panel);
             return panel;
@@ -120,7 +125,7 @@ namespace TD {
         public GameObject Panel_GetGuide() {
             panels.TryGetValue("Panel_Guide", out GameObject panel);
             return panel;
-        } 
+        }
 
         public GameObject Panel_GetGuidePanel() {
             panels.TryGetValue("Panel_ManifastInfo", out GameObject panel);

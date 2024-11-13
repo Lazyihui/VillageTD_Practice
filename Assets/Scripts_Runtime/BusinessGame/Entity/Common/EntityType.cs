@@ -10,6 +10,9 @@ namespace TD {
         Cave,
         Bullet,
         Map,
+
+        // UI
+        ManifastElement,
     }
 
 }
