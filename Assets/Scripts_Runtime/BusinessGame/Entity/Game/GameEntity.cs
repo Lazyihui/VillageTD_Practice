@@ -40,6 +40,8 @@ namespace TD {
 
         //  记录鼠标碰到的塔
         public IDSignature mouseTowerIDSig;
+        // 标记鼠标碰到panel
+        public IDSignature mousePanelIDSig;
         public bool isMstOver;
 
         // panel_Guide的关闭时间

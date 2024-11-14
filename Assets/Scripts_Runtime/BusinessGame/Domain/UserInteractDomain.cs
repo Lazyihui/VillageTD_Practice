@@ -39,6 +39,7 @@ namespace TD {
 
             // ==== 选中 ====
             OpenPanel_TowerInfo(ctx);
+            OpenPanel_PanelInfo(ctx);
 
             // ==== 关闭引导 ====
             ClosePanel_Guide(ctx, dt);
@@ -176,6 +177,16 @@ namespace TD {
 
         public static bool MousePosInteractPanel(GameContext ctx) {
             InputEntity input = ctx.inputEntity;
+            int len = ctx.appUI.uiRepos.TakeAll_ManifastElement(out Panel_ManifastElement[] panels);
+            for (int i = 0; i < len; i++) {
+                Panel_ManifastElement panel = panels[i];
+                float distance = Vector2.Distance(panel.transform.position, ctx.inputEntity.mousePositionScreen);
+                Debug.Log(distance);
+                if (distance < 20f) {
+                    ctx.gameEntity.mousePanelIDSig = panel.idSig;
+                    return true;
+                }
+            }
 
             return false;
 
@@ -189,6 +200,15 @@ namespace TD {
                 ctx.appUI.Panel_TowerInfo_SetTxt(tower.name, tower.hp, tower.attackHurt, tower.buildCost);
             } else {
                 ctx.appUI.Panel_TowerInfo_Close();
+            }
+        }
+
+        public static void OpenPanel_PanelInfo(GameContext ctx) {
+            bool has = MousePosInteractPanel(ctx);
+            if (has) {
+                ctx.appUI.Panel_MainfastInfo_Open();
+            } else {
+                ctx.appUI.Panel_ManifastInfo_Close();
             }
         }
 
