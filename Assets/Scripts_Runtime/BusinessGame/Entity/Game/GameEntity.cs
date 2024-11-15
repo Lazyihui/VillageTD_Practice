@@ -47,7 +47,9 @@ namespace TD {
         public bool isMstOver;
 
         // panel_Guide的关闭时间
-        public float panelCloseTimer;
+        public float panel_GuideCloseTimer;
+
+        public float panel_NoticeCloseTimer;
 
         public GameEntity() {
             restFixTime = 0;
@@ -69,7 +71,9 @@ namespace TD {
             handCardID = -1;
             MousePaneltypeID = -1;
 
-            panelCloseTimer = 5;
+            panel_GuideCloseTimer = 5;
+
+            panel_NoticeCloseTimer = 2;
 
 
         }

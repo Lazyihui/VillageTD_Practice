@@ -52,6 +52,7 @@ namespace TD {
             eventCenter.OnMainfastClickHandle += (int typeID) => {
 
                 ctx.templateCore.PanelCard_TryGet(typeID, out PanelCardTM tm);
+
                 int cost = tm.buildCost;
                 if (ctx.gameEntity.resCount < cost) {
                     ctx.appUI.Panel_Notice_Open();

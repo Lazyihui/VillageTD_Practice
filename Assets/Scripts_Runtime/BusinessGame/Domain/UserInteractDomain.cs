@@ -222,11 +222,16 @@ namespace TD {
             var game = ctx.gameEntity;
 
             if (input.moveAxis != Vector2.zero) {
-                game.panelCloseTimer -= dt;
-                if (game.panelCloseTimer <= 0) {
+                game.panel_GuideCloseTimer -= dt;
+                if (game.panel_GuideCloseTimer <= 0) {
                     ctx.appUI.Panel_Guide_Close();
                 }
             }
+        }
+
+        public static void ClosePanel_Notice(GameContext ctx) {
+            
+            
         }
 
     }
