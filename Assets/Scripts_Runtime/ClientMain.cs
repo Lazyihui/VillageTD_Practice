@@ -54,7 +54,7 @@ namespace TD {
                 ctx.templateCore.PanelCard_TryGet(typeID, out PanelCardTM tm);
                 int cost = tm.buildCost;
                 if (ctx.gameEntity.resCount < cost) {
-                    //  UI notice 资源不够
+                    ctx.appUI.Panel_Notice_Open();
                     return;
                 }
 

@@ -15,6 +15,7 @@ namespace TD.UIInternal {
         public Panel_Over panel_Over;
         public Panel_Guide panel_Guide;
         public Panel_ManifastInfo panel_ManifastInfo;
+        public Panel_Notice panel_Notice;
         public AssetsCore assetsCore;
         public TemplateCore templateCore;
 
