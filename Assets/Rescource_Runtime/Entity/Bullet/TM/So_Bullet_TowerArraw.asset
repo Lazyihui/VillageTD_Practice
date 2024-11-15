@@ -15,4 +15,4 @@ MonoBehaviour:
   tm:
     typeName: 
     typeID: 1
-    moveSpeed: 1.5
+    moveSpeed: 5

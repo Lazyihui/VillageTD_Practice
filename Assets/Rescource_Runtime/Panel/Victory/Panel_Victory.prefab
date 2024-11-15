@@ -411,6 +411,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94eb36d449790244aa744e5d8bfe18d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  btnRestart: {fileID: 7462879245944722442}
+  btnNext: {fileID: 7892283961299193169}
 --- !u!114 &8903827074544531598
 MonoBehaviour:
   m_ObjectHideFlags: 0

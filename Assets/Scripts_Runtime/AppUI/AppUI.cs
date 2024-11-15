@@ -251,7 +251,7 @@ namespace TD {
 
         #region Panel_Victory
 
-        public void Panel_Over_Open() {
+        public void Panel_Victory_Open() {
             Panel_Victory panel = ctx.panel_Victory;
             if (panel == null) {
                 GameObject prefab = ctx.assetsCore.Panel_Victory();
@@ -259,6 +259,15 @@ namespace TD {
                 GameObject go = GameObject.Instantiate(prefab, ctx.screenCanvas.transform);
                 panel = go.GetComponent<Panel_Victory>();
                 panel.Ctor();
+
+                panel.OnRestartClickHandle += () => {
+                    eventCenter.OnRestartClick();
+                };
+
+                panel.OnNextClickHandle += () => {
+                    eventCenter.OnNextClick();
+                };
+
             }
 
             panel.Show();

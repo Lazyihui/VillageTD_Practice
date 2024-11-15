@@ -174,7 +174,7 @@ namespace TD {
                     bool has = ctx.towerRepository.TryGet(idSig, out TowerEntity entity);
 
                     if (entity.hp > 0) {
-                        ctx.appUI.Panel_Over_Open();
+                        ctx.appUI.Panel_Victory_Open();
                     }
 
                 }

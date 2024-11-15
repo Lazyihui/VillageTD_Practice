@@ -70,6 +70,12 @@ namespace TD {
                 Game_Business.Enter(ctx);
             };
 
+            eventCenter.OnNextClickHandle += () => {
+                ctx.gameEntity.stageID++;
+
+                Game_Business.Enter(ctx);
+            };
+
         }
         void OnGUI() {
             GUILayout.Label("Mouse World Pos: " + ctx.inputEntity.mousePositionWorld);

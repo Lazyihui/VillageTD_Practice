@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: So_Stage_2
   m_EditorClassIdentifier: 
   tm:
-    typeID: 5
+    typeID: 2
     mapEntity: {fileID: 0}
     roleSpawnTMs:
     - so: {fileID: 11400000, guid: 06b6212800b32cb429965f0b39ea1d20, type: 2}
-      position: {x: -6.8399963, y: 0, z: 0}
+      position: {x: -8.338501, y: 2.0339355, z: 0}
       rotation: {x: -0, y: 0, z: 0}
     caveSpawnTMs:
     - so: {fileID: 11400000, guid: b6c052250beb2864b8370632b011adf0, type: 2}
-      position: {x: 17.649994, y: 0, z: 0}
+      position: {x: 16.561523, y: -0.19607544, z: 0}
       rotation: {x: -0, y: 0, z: 0}

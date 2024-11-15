@@ -29,5 +29,12 @@ namespace TD {
             }
         }
 
+        public Action OnNextClickHandle;
+        public void OnNextClick() {
+            if (OnNextClickHandle != null) {
+                OnNextClickHandle.Invoke();
+            }
+        }
+
     }
 }
