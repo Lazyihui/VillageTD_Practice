@@ -51,6 +51,13 @@ namespace TD {
 
             eventCenter.OnMainfastClickHandle += (int typeID) => {
 
+                ctx.templateCore.PanelCard_TryGet(typeID, out PanelCardTM tm);
+                int cost = tm.buildCost;
+                if (ctx.gameEntity.resCount < cost) {
+                    //  UI notice 资源不够
+                    return;
+                }
+
                 ctx.appUI.Panel_SelectCard_Open(typeID);
                 ctx.gameEntity.handHasCard = true;
                 ctx.gameEntity.handCardID = typeID;

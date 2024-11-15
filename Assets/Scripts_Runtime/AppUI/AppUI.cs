@@ -103,6 +103,7 @@ namespace TD {
             ele.resCount = tm.buildCost;
             ele.typeID = tm.typeID;
             ele.SetImage(tm.sprite);
+            ele.SetT_xtCost(tm.buildCost);
 
             ele.OnClickHandle += (int typeID) => {
                 eventCenter.OnMainfastClickElement(typeID);

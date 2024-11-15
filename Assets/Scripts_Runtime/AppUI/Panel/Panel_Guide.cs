@@ -9,7 +9,6 @@ namespace TD {
         [SerializeField] TextMeshProUGUI txt_Content;
 
         public void Ctor() {
-
         }
 
         public void Show() {

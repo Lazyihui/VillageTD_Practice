@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 
 namespace TD {
@@ -10,6 +11,7 @@ namespace TD {
 
         [SerializeField] Image sp;
         [SerializeField] Button btn;
+        [SerializeField] TextMeshProUGUI txt_Cost;
         public Action<int> OnClickHandle;
         public IDSignature idSig;
         public int resCount;
@@ -25,6 +27,11 @@ namespace TD {
         public void SetImage(Sprite image) {
             sp.sprite = image;
         }
+
+        public void SetT_xtCost(int cost) {
+            txt_Cost.text = cost.ToString();
+        }
+ 
         public Vector3 GetPos() {
             Debug.Log(transform.position);
             return transform.position;

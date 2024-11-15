@@ -346,6 +346,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sp: {fileID: 4558905152531815323}
   btn: {fileID: 8617169170583126997}
+  txt_Cost: {fileID: 2057304308558696341}
   idSig:
     value: 0
     entityType: 0
