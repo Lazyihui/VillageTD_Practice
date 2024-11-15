@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: PanelCardSO1TowerArrow
   m_EditorClassIdentifier: 
   tm:
-    typeName: 
+    typeName: ArrowTower
     typeID: 1
-    cost: 300
+    buildCost: 300
     hp: 5
     attack: 1
     sprite: {fileID: 21300000, guid: bd46dcbea60c81947bdd44a3011bd908, type: 3}

@@ -100,7 +100,7 @@ namespace TD {
             ele.idSig.entityID = manifastEleRecordID++;
             ele.idSig.entityType = EntityType.ManifastElement;
 
-            ele.resCount = tm.cost;
+            ele.resCount = tm.buildCost;
             ele.typeID = tm.typeID;
             ele.SetImage(tm.sprite);
 
@@ -299,8 +299,8 @@ namespace TD {
 
 
         #region Panel_ManifastInfo
-        public void Panel_MainfastInfo_Open() {
-            Panel_ManifastInfo panel = ctx.panel_GuidePanel;
+        public void Panel_ManifastInfo_Open() {
+            Panel_ManifastInfo panel = ctx.panel_ManifastInfo;
             if (panel == null) {
                 GameObject prefab = ctx.assetsCore.Panel_GetGuidePanel();
 
@@ -310,11 +310,21 @@ namespace TD {
             }
 
             panel.Show();
-            ctx.panel_GuidePanel = panel;
+            ctx.panel_ManifastInfo = panel;
         }
 
+
+        public void Panel_ManifastInfo_SetTxt(string name, int hp, float attack, int cost) {
+
+            Panel_ManifastInfo panel = ctx.panel_ManifastInfo;
+            if (panel == null) {
+                return;
+            }
+            panel.SetData(name, hp, attack, cost);
+
+        }
         public void Panel_ManifastInfo_Close() {
-            Panel_ManifastInfo panel = ctx.panel_GuidePanel;
+            Panel_ManifastInfo panel = ctx.panel_ManifastInfo;
             if (panel == null) {
                 return;
             }

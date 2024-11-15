@@ -181,9 +181,9 @@ namespace TD {
             for (int i = 0; i < len; i++) {
                 Panel_ManifastElement panel = panels[i];
                 float distance = Vector2.Distance(panel.transform.position, ctx.inputEntity.mousePositionScreen);
-                Debug.Log(distance);
-                if (distance < 20f) {
+                if (distance < 19f) {
                     ctx.gameEntity.mousePanelIDSig = panel.idSig;
+                    ctx.gameEntity.MousePaneltypeID = panel.typeID;
                     return true;
                 }
             }
@@ -206,7 +206,10 @@ namespace TD {
         public static void OpenPanel_PanelInfo(GameContext ctx) {
             bool has = MousePosInteractPanel(ctx);
             if (has) {
-                ctx.appUI.Panel_MainfastInfo_Open();
+                ctx.appUI.Panel_ManifastInfo_Open();
+                ctx.templateCore.PanelCard_TryGet(ctx.gameEntity.MousePaneltypeID, out PanelCardTM tm);
+                ctx.appUI.Panel_ManifastInfo_SetTxt(tm.typeName, tm.hp, tm.attack, tm.buildCost);
+
             } else {
                 ctx.appUI.Panel_ManifastInfo_Close();
             }

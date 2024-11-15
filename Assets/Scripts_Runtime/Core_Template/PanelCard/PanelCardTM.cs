@@ -10,7 +10,7 @@ namespace TD {
         public string typeName;
         public int typeID;
 
-        public int cost;
+        public int buildCost;
 
         public int hp;
 

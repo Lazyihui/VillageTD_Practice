@@ -42,6 +42,8 @@ namespace TD {
         public IDSignature mouseTowerIDSig;
         // 标记鼠标碰到panel
         public IDSignature mousePanelIDSig;
+
+        public int MousePaneltypeID;
         public bool isMstOver;
 
         // panel_Guide的关闭时间
@@ -65,6 +67,7 @@ namespace TD {
             resCount = 500;
 
             handCardID = -1;
+            MousePaneltypeID = -1;
 
             panelCloseTimer = 5;
 
