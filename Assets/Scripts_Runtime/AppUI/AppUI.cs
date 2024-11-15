@@ -124,7 +124,7 @@ namespace TD {
             int len = uiRepos.TakeAll_ManifastElement(out Panel_ManifastElement[] eles);
             for (int i = 0; i < len; i++) {
                 Panel_ManifastElement ele = eles[i];
-                panel.TearDown();
+                ele.TearDown();
             }
 
             panel.TearDown();
@@ -265,7 +265,7 @@ namespace TD {
             ctx.panel_Victory = panel;
         }
 
-        public void Panel_Over_Close() {
+        public void Panel_Victory_Close() {
             Panel_Victory panel = ctx.panel_Victory;
             if (panel == null) {
                 return;
@@ -397,6 +397,19 @@ namespace TD {
         }
         #endregion
 
+        public void Clear() {
+            panel_Manifast_Close();
+            Panel_ResourceInfo_Close();
+            Panel_Guide_Close();
+            Panel_Login_Close();
+            Panel_SelectCard_Close();
+            Panel_Notice_Close();
+            Panel_TowerInfo_Close();
+            Panel_ManifastInfo_Close();
+
+            uiRepos.Clear_ManifastElement();
+
+        }
 
     }
 }

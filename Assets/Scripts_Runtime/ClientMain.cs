@@ -66,7 +66,7 @@ namespace TD {
             };
 
             eventCenter.OnRestartClickHandle += () => {
-                
+                ctx.appUI.Panel_Fail_Close();
                 Game_Business.Enter(ctx);
             };
 

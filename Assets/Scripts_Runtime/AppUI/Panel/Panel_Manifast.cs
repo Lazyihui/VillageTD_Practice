@@ -8,7 +8,7 @@ namespace TD {
     public class Panel_Manifast : MonoBehaviour {
 
 
-          [SerializeField] public Transform group;
+        [SerializeField] public Transform group;
 
         public void Ctor() {
         }
@@ -19,14 +19,12 @@ namespace TD {
 
         }
 
-
-
         public void Show() {
             gameObject.SetActive(true);
         }
 
         public void TearDown() {
-            gameObject.SetActive(false);
+            Destroy(gameObject);
         }
 
 

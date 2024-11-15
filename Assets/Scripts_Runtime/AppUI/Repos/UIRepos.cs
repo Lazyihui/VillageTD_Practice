@@ -34,6 +34,10 @@ namespace TD {
         public bool TryGet_ManifastElement(IDSignature idSig, out Panel_ManifastElement entity) {
             return all.TryGetValue(idSig, out entity);
         }
+
+        public void Clear_ManifastElement() {
+            all.Clear();
+        }
     }
     #endregion
 }

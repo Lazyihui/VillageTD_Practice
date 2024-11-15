@@ -63,11 +63,7 @@ namespace TD {
             TreeDomain.Clear(ctx);
 
             // 关闭UI
-            ctx.appUI.panel_Manifast_Close();
-            ctx.appUI.Panel_ResourceInfo_Close();
-            ctx.appUI.Panel_Guide_Close();
-            ctx.appUI.Panel_Notice_Close();
-            ctx.appUI.Panel_SelectCard_Close();
+            ctx.appUI.Clear();
             // 重置游戏
             ctx.gameEntity.Ctor();
         }
