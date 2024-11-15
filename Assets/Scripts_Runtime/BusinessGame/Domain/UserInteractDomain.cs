@@ -69,7 +69,7 @@ namespace TD {
         }
 
         public static void Tower_Bulid(GameContext ctx, int typeID, Vector2Int pos) {
-            TowerEntity tower = TowerDoamin.Spawn(ctx, typeID, pos);
+            TowerEntity tower = TowerDomain.Spawn(ctx, typeID, pos);
             ctx.gameEntity.resCount -= tower.buildCost;
 
             ctx.appUI.Panel_SelectCard_Close();

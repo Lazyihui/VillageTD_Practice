@@ -70,5 +70,13 @@ namespace TD {
         }
 
 
+        public static void Clear(GameContext ctx) {
+            int len = ctx.roleRepository.TakeAll(out RoleEntity[] roles);
+            for (int i = 0; i < len; i++) {
+                RoleEntity role = roles[i];
+                UnSpawn(ctx, role);
+            }
+        }
+
     }
 }

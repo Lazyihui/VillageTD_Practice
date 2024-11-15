@@ -39,5 +39,8 @@ namespace TD {
             return all.TryGetValue(idSig, out entity);
         }
 
+        public void Clear() {
+            all.Clear();
+        }
     }
 }

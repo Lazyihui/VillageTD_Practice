@@ -12,10 +12,11 @@ namespace TD.UIInternal {
         public Panel_ResourceInfo panel_ResourceInfo;
         public Panel_SelectCard panel_SelectCard;
         public Panel_TowerInfo panel_TowerInfo;
-        public Panel_Over panel_Over;
+        public Panel_Victory panel_Victory;
         public Panel_Guide panel_Guide;
         public Panel_ManifastInfo panel_ManifastInfo;
         public Panel_Notice panel_Notice;
+        public Panel_Fail panel_Fail;
         public AssetsCore assetsCore;
         public TemplateCore templateCore;
 

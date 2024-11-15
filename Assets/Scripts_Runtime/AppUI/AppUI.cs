@@ -121,6 +121,12 @@ namespace TD {
                 return;
             }
 
+            int len = uiRepos.TakeAll_ManifastElement(out Panel_ManifastElement[] eles);
+            for (int i = 0; i < len; i++) {
+                Panel_ManifastElement ele = eles[i];
+                panel.TearDown();
+            }
+
             panel.TearDown();
         }
         #endregion
@@ -243,24 +249,24 @@ namespace TD {
         }
         #endregion
 
-        # region Panel_Over
+        #region Panel_Victory
 
         public void Panel_Over_Open() {
-            Panel_Over panel = ctx.panel_Over;
+            Panel_Victory panel = ctx.panel_Victory;
             if (panel == null) {
-                GameObject prefab = ctx.assetsCore.Panel_GetOver();
+                GameObject prefab = ctx.assetsCore.Panel_Victory();
 
                 GameObject go = GameObject.Instantiate(prefab, ctx.screenCanvas.transform);
-                panel = go.GetComponent<Panel_Over>();
+                panel = go.GetComponent<Panel_Victory>();
                 panel.Ctor();
             }
 
             panel.Show();
-            ctx.panel_Over = panel;
+            ctx.panel_Victory = panel;
         }
 
         public void Panel_Over_Close() {
-            Panel_Over panel = ctx.panel_Over;
+            Panel_Victory panel = ctx.panel_Victory;
             if (panel == null) {
                 return;
             }
@@ -269,6 +275,37 @@ namespace TD {
         }
 
         # endregion
+
+        #region Panel_Fail
+        public void Panel_Fail_Open() {
+            Panel_Fail panel = ctx.panel_Fail;
+            if (panel == null) {
+                GameObject prefab = ctx.assetsCore.Panel_GetFail();
+
+                GameObject go = GameObject.Instantiate(prefab, ctx.screenCanvas.transform);
+                panel = go.GetComponent<Panel_Fail>();
+                panel.Ctor();
+
+                panel.OnRestartClickHandle += () => {
+                    eventCenter.OnRestartClick();
+                };
+
+            }
+
+            panel.Show();
+            ctx.panel_Fail = panel;
+        }
+
+        public void Panel_Fail_Close() {
+            Panel_Fail panel = ctx.panel_Fail;
+            if (panel == null) {
+                return;
+            }
+            panel.TearDown();
+        }
+
+
+        #endregion
 
         #region Panel_Guide
 

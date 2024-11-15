@@ -13,6 +13,9 @@ namespace TD {
             SetPanelCardPos(ctx);
             // 右键取消card
             CancelBuiidTowerCard(ctx);
+
+            // 游戏结束
+            FlagHp_GameFail(ctx);
         }
 
 
@@ -33,6 +36,43 @@ namespace TD {
                 }
             }
         }
+
+        public static void FlagHp_GameFail(GameContext ctx) {
+            TowerEntity owner = ctx.Tower_GetOwner();
+            if (owner == null) {
+                return;
+            }
+
+            if (owner.hp <= 0) {
+                ctx.gameEntity.state = GameState.GameOver;
+                ctx.appUI.Panel_Fail_Open();
+
+                ClearAll(ctx);
+            }
+        }
+
+        #region  clear
+
+        public static void ClearAll(GameContext ctx) {
+            // 关闭Entity
+            BulletDomain.Clear(ctx);
+            CaveDomain.Clear(ctx);
+            MapDomain.Clear(ctx);
+            RoleDomain.Clear(ctx);
+            TowerDomain.Clear(ctx);
+            TreeDomain.Clear(ctx);
+
+            // 关闭UI
+            ctx.appUI.panel_Manifast_Close();
+            ctx.appUI.Panel_ResourceInfo_Close();
+            ctx.appUI.Panel_Guide_Close();
+            ctx.appUI.Panel_Notice_Close();
+            ctx.appUI.Panel_SelectCard_Close();
+            // 重置游戏
+            ctx.gameEntity.Ctor();
+        }
+
+        #endregion
 
     }
 }

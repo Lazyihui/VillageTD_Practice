@@ -22,5 +22,12 @@ namespace TD {
             }
         }
 
+        public Action OnRestartClickHandle;
+        public void OnRestartClick() {
+            if (OnRestartClickHandle != null) {
+                OnRestartClickHandle.Invoke();
+            }
+        }
+
     }
 }

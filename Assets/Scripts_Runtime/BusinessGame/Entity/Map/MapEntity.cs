@@ -17,6 +17,10 @@ namespace TD {
 
         }
 
+        public void TearDown() {
+            Destroy(gameObject);
+        }
+
 
     }
 }

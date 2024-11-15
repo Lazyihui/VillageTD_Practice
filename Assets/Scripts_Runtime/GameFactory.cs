@@ -100,10 +100,10 @@ namespace TD {
 
             entity.typeID = tm.typeID;
             entity.SetSprite(tm.sprite);
-
             entity.SetPos(pos);
             entity.fsmCom = tm.fsmCom;
             entity.SetCollider(tm.isTrigger);
+            entity.SetCircleObjActive(false);
 
             entity.Ctor();
 
@@ -117,7 +117,7 @@ namespace TD {
             // GameObject prefab = ctx.assetsCore.Entity_GetMap();
             // GameObject go = GameObject.Instantiate(prefab);
             map.idSig.entityType = EntityType.Map;
-            map.idSig.entityID = ctx.gameEntity.stageID++;
+            map.idSig.entityID = ctx.gameEntity.stageRecordID++;
             map.Ctor();
             // // 2.Get MapGripElement prefavb
             // GameObject groundPrefab = ctx.assetsCore.Entity_GetTileGround();

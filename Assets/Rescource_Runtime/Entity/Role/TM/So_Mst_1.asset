@@ -16,7 +16,7 @@ MonoBehaviour:
     typeName: Mst1
     tag: Mst
     typeID: 1
-    moveSpeed: 1.5
+    moveSpeed: 3
     rbMass: 30
     hp: 5
     maxHp: 5

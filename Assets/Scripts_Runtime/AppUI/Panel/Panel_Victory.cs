@@ -6,7 +6,7 @@ using UnityEngine;
 namespace TD {
 
 
-    public class Panel_Over : MonoBehaviour {
+    public class Panel_Victory : MonoBehaviour {
 
 
 

@@ -9,15 +9,13 @@ namespace TD {
     public static class Game_Business {
 
         public static void Enter(GameContext ctx) {
+            ctx.gameEntity.state = GameState.Game;
 
-
-
-            bool has = ctx.templateCore.Stage_TryGet(1, out StageTM tm);
+            int stageID = ctx.gameEntity.stageID;
+            bool has = ctx.templateCore.Stage_TryGet(stageID, out StageTM tm);
             if (!has) {
-
                 Debug.LogError("Stage 1 not found");
             }
-
 
             RoleSpawnTM[] roleSpawnerTMs = tm.roleSpawnTMs;
 
@@ -35,7 +33,7 @@ namespace TD {
 
 
             MapEntity map = MapDomain.Spawn(ctx, tm.mapEntity);
-            TowerDoamin.Spawn(ctx, TowerConst.BaseTower, new Vector2Int(0, 0));
+            TowerDomain.Spawn(ctx, TowerConst.BaseTower, new Vector2Int(0, 0));
 
 
             HashSet<Vector2Int> treePosHashSet = MapDomain.GetTilePos(map.treeGrid.tile);
@@ -45,25 +43,17 @@ namespace TD {
                 TreeDomain.Spawn(ctx, pos, 1);
             }
 
-            int len = ctx.treeRepository.TakeAll(out TreeEntity[] trees);
-
-            for (int i = 0; i < len; i++) {
-                TreeEntity tree = trees[i];
-
-                
-            }
-
-
-
 
             // panel
             ctx.appUI.Panel_Manifaset_Open();
+
+            #region  Panel_Manifaset_Open
             ctx.appUI.Panel_Manifast_AddElement(1);
             ctx.appUI.Panel_Manifast_AddElement(2);
             ctx.appUI.Panel_Manifast_AddElement(3);
+            #endregion
 
             ctx.appUI.Panel_ResourceInfo_Open();
-
             ctx.appUI.Panel_Guide_Open();
 
         }
@@ -111,7 +101,6 @@ namespace TD {
 
             GameEntity game = ctx.gameEntity;
 
-            GameDomain.Tick(ctx, dt);
             RoleEntity owner = ctx.Role_GetOwner();
             RoleDomain.Move(owner, dt);
             RoleDomain.SpawnBullet(ctx, owner, dt);
@@ -129,20 +118,16 @@ namespace TD {
 
             TowerEntity baseTower = ctx.Tower_GetOwner();
 
-
-
-
             int lenTower = ctx.towerRepository.TakeAll(out TowerEntity[] towers);
             for (int i = 0; i < lenTower; i++) {
                 TowerEntity tower = towers[i];
                 if (tower.fsmCom.isBaseTower) {
-                    TowerDoamin.BaseTowerHpReduce(ctx, tower);
+                    TowerDomain.BaseTowerHpReduce(ctx, tower);
                 } else if (tower.fsmCom.isArrowTower) {
-                    TowerDoamin.SpawnBullet(ctx, tower, dt);
+                    TowerDomain.SpawnBullet(ctx, tower, dt);
                 } else if (tower.fsmCom.isTreeTower) {
-                    TowerDoamin.FindNearestTree(ctx, tower, dt);
+                    TowerDomain.FindNearestTree(ctx, tower, dt);
                 }
-
 
             }
 
@@ -208,6 +193,9 @@ namespace TD {
             // //相机跟随   
             // RoleEntity owner = ctx.Role_GetOwner();
             // ctx.cameraCore.Follow(owner.transform.position);
+
+            // 清除所有数据
+            GameDomain.Tick(ctx, dt);
         }
     }
 }

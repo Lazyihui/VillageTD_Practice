@@ -47,5 +47,13 @@ namespace TD {
             return false;
         }
 
+        public static void Clear(GameContext ctx) {
+            int len = ctx.caveRepository.TakeAll(out CaveEntity[] caves);
+            for (int i = 0; i < len; i++) {
+                CaveEntity cave = caves[i];
+                UnSpawn(ctx, cave);
+            }
+        }
+
     }
 }

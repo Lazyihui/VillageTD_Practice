@@ -9,15 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 824081d551e75bf41822984b4f46fd9b, type: 3}
-  m_Name: So_Cave
+  m_Script: {fileID: 11500000, guid: 5834b5087d578d24c926ce20cd31e6d6, type: 3}
+  m_Name: Stage_ContentUpdateGroupSchema
   m_EditorClassIdentifier: 
-  tm:
-    typeName: 
-    typeID: 1
-    caveSpawnTime: 4
-    caveSpawnInterval: 4
-    isLive: 0
-    activeTimer: 0
-    activeInterval: 50
-    spawnMaxCount: 5
+  m_Group: {fileID: 11400000, guid: 6734f8a14281a0a479f9b0730a35e5b5, type: 2}
+  m_StaticContent: 0

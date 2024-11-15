@@ -9,8 +9,8 @@ namespace TD {
     public static class Logic_Business {
 
         public static void Enter(GameContext ctx) {
+            ctx.gameEntity.state = GameState.Login;
             ctx.appUI.Panel_Login_Open();
-            
         }
 
 

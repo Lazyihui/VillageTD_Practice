@@ -117,8 +117,13 @@ namespace TD {
             return panel;
         }
 
-        public GameObject Panel_GetOver() {
-            panels.TryGetValue("Panel_Over", out GameObject panel);
+        public GameObject Panel_Victory() {
+            panels.TryGetValue("Panel_Victory", out GameObject panel);
+            return panel;
+        }
+
+        public GameObject Panel_GetFail() {
+            panels.TryGetValue("Panel_Fail", out GameObject panel);
             return panel;
         }
 

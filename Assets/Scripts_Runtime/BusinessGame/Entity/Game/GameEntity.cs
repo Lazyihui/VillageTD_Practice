@@ -7,6 +7,8 @@ namespace TD {
 
 
     public class GameEntity {
+        // 关卡ID
+        public int stageID;
 
         public float restFixTime;
 
@@ -14,7 +16,7 @@ namespace TD {
 
         public int towerRecordID;
 
-        public int stageID;
+        public int stageRecordID;
 
         public int treeRecordID;
 
@@ -52,15 +54,19 @@ namespace TD {
         public float panel_NoticeCloseTimer;
 
         public GameEntity() {
+
+            stageID = 1;
+
+
             restFixTime = 0;
             towerRecordID = 0;
-            stageID = 0;
+            stageRecordID = 0;
             treeRecordID = 0;
             mstroleRecordID = 0;
             bulletRecordID = 0;
             caveRecordID = 0;
 
-            state = GameState.Login;
+            state = GameState.None;
 
             handHasCard = false;
             handHasCardTree = false;
@@ -75,7 +81,33 @@ namespace TD {
 
             panel_NoticeCloseTimer = 2;
 
+        }
 
+        public void Ctor() {
+
+            restFixTime = 0;
+            
+            towerRecordID = 0;
+            stageRecordID = 0;
+            treeRecordID = 0;
+            mstroleRecordID = 0;
+            bulletRecordID = 0;
+            caveRecordID = 0;
+
+            state = GameState.None;
+
+            handHasCard = false;
+            handHasCardTree = false;
+            isMstOver = false;
+
+            resCount = 500;
+
+            handCardID = -1;
+            MousePaneltypeID = -1;
+
+            panel_GuideCloseTimer = 5;
+
+            panel_NoticeCloseTimer = 2;
         }
     }
 }

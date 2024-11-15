@@ -47,5 +47,9 @@ namespace TD {
         public bool TryGetByPos(Vector2Int pos, out TowerEntity entity) {
             return posDict.TryGetValue(pos, out entity);
         }
+        
+        public void Clear() {
+            all.Clear();
+        }
     }
 }

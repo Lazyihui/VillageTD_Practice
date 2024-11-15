@@ -14,6 +14,10 @@ namespace TD {
             ctx.mapRepository.Add(entity);
             return entity;
         }
+        public static void UnSpawn(GameContext ctx, MapEntity entity) {
+            ctx.mapRepository.Remove(entity);
+            entity.TearDown();
+        }
 
         public static HashSet<Vector2Int> GetTilePos(Tilemap tile) {
             BoundsInt bound = tile.cellBounds;
@@ -32,23 +36,23 @@ namespace TD {
         }
 
         public static void SetTile(GameContext ctx, Tilemap tilemap, int typeID, Vector2Int pos) {
-
-
             bool has = ctx.templateCore.Tree_TryGet(typeID, out TreeTM tm);
             if (!has) {
                 Debug.LogError("SetTile Tree_TryGet Error");
                 return;
             }
-
             if (Input.GetMouseButtonDown(0)) {
-
                 Vector3Int posCell = new Vector3Int(ctx.inputEntity.mousePositionGrid.x, ctx.inputEntity.mousePositionGrid.y, 0);
-
                 tilemap.SetTile(posCell, tm.treeTile);
-
             }
+        }
 
-
+        public static void Clear(GameContext ctx) {
+            int len = ctx.mapRepository.TakeAll(out MapEntity[] maps);
+            for (int i = 0; i < len; i++) {
+                MapEntity map = maps[i];
+                UnSpawn(ctx, map);
+            }
         }
 
     }

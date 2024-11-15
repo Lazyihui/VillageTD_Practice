@@ -62,5 +62,9 @@ namespace TD {
             }
             return null;
         }
+
+        public void Clear() {
+            all.Clear();
+        }
     }
 }

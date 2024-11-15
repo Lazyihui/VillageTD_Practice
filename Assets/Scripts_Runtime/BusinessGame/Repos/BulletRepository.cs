@@ -39,5 +39,10 @@ namespace TD {
         public bool TryGet(IDSignature idSig, out BulletEntity entity) {
             return all.TryGetValue(idSig, out entity);
         }
+
+        public void Clear() {
+            all.Clear();
+        }
+        
     }
 }

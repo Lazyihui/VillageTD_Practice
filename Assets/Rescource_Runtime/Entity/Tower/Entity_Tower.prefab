@@ -262,12 +262,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 3040186701181376569}
   colli: {fileID: 4575403063802946168}
+  circleObj: {fileID: 2060194583490377237}
+  typeName: 
+  idSig:
+    value: 0
+    entityType: 0
+    entityID: 0
+  placeConditionType: 0
   typeID: 0
-  id: 0
+  buildCost: 0
   hp: 0
   maxHp: 0
   gridPos: {x: 0, y: 0}
-  isLive: 0
   shootTimer: 0
   shootInterval: 0
   attackHurt: 0
@@ -275,3 +281,8 @@ MonoBehaviour:
   cutTreeTime: 0
   cutTreeInterval: 0
   cutHurt: 0
+  fsmCom:
+    isBaseTower: 0
+    isArrowTower: 0
+    isTreeTower: 0
+    isPlantTree: 0

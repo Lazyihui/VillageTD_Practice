@@ -50,7 +50,7 @@ MonoBehaviour:
     entityType: 0
     entityID: 0
   groundTile: {fileID: 914767662086140938}
-  treeGrid: {fileID: 1533897732388061115}
+  treeGrid: {fileID: 7740971332767856527}
 --- !u!1 &1831240469188977120
 GameObject:
   m_ObjectHideFlags: 0
@@ -9025,7 +9025,8 @@ GameObject:
   - component: {fileID: 6562230117237542294}
   - component: {fileID: 6355658992336297616}
   - component: {fileID: 5851172523714887973}
-  - component: {fileID: 1533897732388061115}
+  - component: {fileID: 4411191698052636252}
+  - component: {fileID: 7740971332767856527}
   m_Layer: 0
   m_Name: Tree
   m_TagString: Untagged
@@ -9649,7 +9650,43 @@ TilemapRenderer:
   m_Mode: 0
   m_DetectChunkCullingBounds: 0
   m_MaskInteraction: 0
---- !u!114 &1533897732388061115
+--- !u!19719996 &4411191698052636252
+TilemapCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2684058046240112639}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_MaximumTileChangeCount: 1000
+  m_ExtrusionFactor: 0
+  m_UseDelaunayMesh: 0
+--- !u!114 &7740971332767856527
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

@@ -45,7 +45,6 @@ namespace TD {
             eventCenter.OnLoginClickHandle += () => {
                 ctx.appUI.Panel_Login_Close();
                 Game_Business.Enter(ctx);
-                ctx.gameEntity.state = GameState.Game;
             };
 
 
@@ -64,6 +63,11 @@ namespace TD {
                 ctx.gameEntity.handCardID = typeID;
                 Debug.Log("OnMainfastClickHandle: " + typeID);
 
+            };
+
+            eventCenter.OnRestartClickHandle += () => {
+                
+                Game_Business.Enter(ctx);
             };
 
         }

@@ -36,5 +36,9 @@ namespace TD {
             Debug.Log(transform.position);
             return transform.position;
         }
+
+        public void TearDown() {
+            Destroy(gameObject);
+        }
     }
 }

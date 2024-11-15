@@ -73,10 +73,16 @@ namespace TD {
             }
             Vector2 dir = target.transform.position - blt.transform.position;
             dir.Normalize();
-            blt.transform.position += new Vector3(dir.x * dt*blt.moveSpeed, dir.y * dt*blt.moveSpeed, 0);
+            blt.transform.position += new Vector3(dir.x * dt * blt.moveSpeed, dir.y * dt * blt.moveSpeed, 0);
         }
 
-
+        public static void Clear(GameContext ctx) {
+            int len = ctx.bulletRepository.TakeAll(out BulletEntity[] bullets);
+            for (int i = 0; i < len; i++) {
+                BulletEntity bullet = bullets[i];
+                UnSpawn(ctx, bullet);
+            }
+        }
 
     }
 }

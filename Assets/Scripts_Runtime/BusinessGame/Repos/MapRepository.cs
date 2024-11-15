@@ -40,5 +40,9 @@ namespace TD {
         public bool TryGet(IDSignature idSig, out MapEntity entity) {
             return all.TryGetValue(idSig, out entity);
         }
+
+        public void Clear() {
+            all.Clear();
+        }
     }
 }

@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace TD {
 
-    public static class TowerDoamin {
+    public static class TowerDomain {
 
         #region Lifecycle
         public static TowerEntity Spawn(GameContext ctx, int typeID, Vector2Int pos) {
@@ -113,6 +113,14 @@ namespace TD {
 
         }
         #endregion
+
+        public static void Clear(GameContext ctx) {
+            int len = ctx.towerRepository.TakeAll(out TowerEntity[] towers);
+            for (int i = 0; i < len; i++) {
+                TowerEntity tower = towers[i];
+                UnSpawn(ctx, tower);
+            }
+        }
 
     }
 }

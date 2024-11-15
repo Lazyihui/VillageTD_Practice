@@ -7,8 +7,8 @@ namespace TD {
     public class TowerEntity : MonoBehaviour {
 
         [SerializeField] SpriteRenderer spriteRenderer;
-
         [SerializeField] Collider2D colli;
+        [SerializeField] GameObject circleObj;
         public string typeName;
         public IDSignature idSig;
         public PlaceConditionType placeConditionType;
@@ -52,14 +52,15 @@ namespace TD {
         public void SetCollider(bool isTriggers) {
             colli.isTrigger = isTriggers;
         }
-
         public void SetPos(Vector2Int pos) {
             transform.position = new Vector3(pos.x, pos.y, 0);
         }
 
-
         public void SetSprite(Sprite sprite) {
             spriteRenderer.sprite = sprite;
+        }
+        public void SetCircleObjActive(bool isActive) {
+            circleObj.SetActive(isActive);
         }
 
         public void TearDown() {

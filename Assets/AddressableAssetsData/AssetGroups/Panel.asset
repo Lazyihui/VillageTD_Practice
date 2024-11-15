@@ -53,6 +53,36 @@ MonoBehaviour:
     m_SerializedLabels:
     - Panel
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ffea61b9212b65943bfbf5207c402c98
+    m_Address: Panel_ManifastInfo
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Panel
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7ccad0391bafd4a438391941d52b2cc4
+    m_Address: Panel_ManifastElement
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Panel
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4dd90f7bd3a96b14897f21e66db94fa6
+    m_Address: Panel_Notice
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Panel
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a692206b3e54efa4e84b05ef742832b9
+    m_Address: Panel_Fail
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Panel
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4f261697a0adc2b4dbca62681552982c
+    m_Address: Panel_Over
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Panel
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: ce53ef2a080bb9e41a644841fa038063, type: 2}
   m_SchemaSet:
