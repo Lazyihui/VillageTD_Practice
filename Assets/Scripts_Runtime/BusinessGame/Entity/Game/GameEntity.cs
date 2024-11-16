@@ -53,6 +53,8 @@ namespace TD {
 
         public float panel_NoticeCloseTimer;
 
+        public bool isPanel_NoticeOpen;
+
         public GameEntity() {
 
             stageID = 1;
@@ -71,6 +73,7 @@ namespace TD {
             handHasCard = false;
             handHasCardTree = false;
             isCavrSpawnMstOver = false;
+            isPanel_NoticeOpen = false;
 
             resCount = 500;
 
@@ -86,7 +89,7 @@ namespace TD {
         public void Ctor() {
 
             restFixTime = 0;
-            
+
             towerRecordID = 0;
             stageRecordID = 0;
             treeRecordID = 0;

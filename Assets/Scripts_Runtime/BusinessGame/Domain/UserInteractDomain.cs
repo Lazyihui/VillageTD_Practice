@@ -43,6 +43,9 @@ namespace TD {
 
             // ==== 关闭引导 ====
             ClosePanel_Guide(ctx, dt);
+
+            // ==== 关闭提示 ====
+            ClosePanel_Notice(ctx, dt);
         }
 
         #region BuildTower
@@ -229,10 +232,19 @@ namespace TD {
             }
         }
 
-        public static void ClosePanel_Notice(GameContext ctx) {
-            
-            
-        }
+        public static void ClosePanel_Notice(GameContext ctx, float dt) {
+            var game = ctx.gameEntity;
+            if (game.isPanel_NoticeOpen) {
+                game.panel_NoticeCloseTimer -= dt;
+                if (game.panel_NoticeCloseTimer <= 0) {
 
+                    ctx.appUI.Panel_Notice_Close();
+                    ctx.gameEntity.isPanel_NoticeOpen = false;
+                    game.panel_NoticeCloseTimer = 2;
+
+                }
+
+            }
+        }
     }
 }

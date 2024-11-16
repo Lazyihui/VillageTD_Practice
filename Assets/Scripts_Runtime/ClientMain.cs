@@ -49,12 +49,15 @@ namespace TD {
 
 
             eventCenter.OnMainfastClickHandle += (int typeID) => {
+                var game = ctx.gameEntity;
 
                 ctx.templateCore.PanelCard_TryGet(typeID, out PanelCardTM tm);
 
                 int cost = tm.buildCost;
+                Debug.Log("OnMainfastClickHandle: " + typeID + " 金币不足" + cost);
                 if (ctx.gameEntity.resCount < cost) {
-                    ctx.appUI.Panel_Notice_Open();
+                    game.isPanel_NoticeOpen = ctx.appUI.Panel_Notice_Open();
+                    Debug.Log("OnMainfastClickHandle: " + typeID + " 金币不足");
                     return;
                 }
 

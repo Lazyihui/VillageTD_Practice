@@ -382,19 +382,24 @@ namespace TD {
 
         #endregion
 
-        # region Panel_Notice
-        public void Panel_Notice_Open() {
+        #region Panel_Notice
+        public bool Panel_Notice_Open() {
             Panel_Notice panel = ctx.panel_Notice;
+
             if (panel == null) {
                 GameObject prefab = ctx.assetsCore.Panel_GetNotice();
-
                 GameObject go = GameObject.Instantiate(prefab, ctx.screenCanvas.transform);
                 panel = go.GetComponent<Panel_Notice>();
                 panel.Ctor();
+                Debug.Log("Panel_Notice_Open");
             }
+
+            Debug.Log("Panel_Notice_Open");
             panel.Show();
 
             ctx.panel_Notice = panel;
+
+            return true;
         }
 
         public void Panel_Notice_Close() {
