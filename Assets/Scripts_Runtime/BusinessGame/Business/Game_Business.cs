@@ -137,8 +137,12 @@ namespace TD {
                 BulletEntity bullet = bullets[i];
                 // 找到最近的mst
                 BulletDomain.FindNearest(ctx, bullet, dt);
-                // 向最近的mst移动
+                // 找到目标
+                BulletDomain.Get_TargetMst(ctx, bullet, dt);
+                // 向目标移动
                 BulletDomain.MoveToTarget(ctx, bullet, dt);
+                // 超出边界销毁
+                BulletDomain.OverBorderUnSpawn(ctx, bullet);
             }
 
             int lenCave = ctx.caveRepository.TakeAll(out CaveEntity[] caves);

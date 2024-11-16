@@ -20,8 +20,9 @@ namespace TD {
         }
 
         static void BulletTrigger2D(Collider2D other, GameContext ctx, BulletEntity entity) {
-            if (other.gameObject.tag == "Mst") {
 
+            //  TODO: 改用距离判断
+            if (other.gameObject.tag == "Mst") {
                 RoleEntity mst = other.gameObject.GetComponentInParent<RoleEntity>();
                 mst.hp -= 1;
                 if (mst.hp <= 0) {
@@ -39,8 +40,8 @@ namespace TD {
         }
 
         public static void FindNearest(GameContext ctx, BulletEntity entity, float dt) {
-            int len = ctx.roleRepository.TakeAll(out RoleEntity[] roles);
 
+            int len = ctx.roleRepository.TakeAll(out RoleEntity[] roles);
             float minDistance = float.MaxValue;
             RoleEntity nearestMst = null;
 
@@ -62,18 +63,26 @@ namespace TD {
 
         }
 
-        public static void MoveToTarget(GameContext ctx, BulletEntity blt, float dt) {
+        public static void Get_TargetMst(GameContext ctx, BulletEntity blt, float dt) {
 
             bool has = ctx.roleRepository.TryGet(blt.targetIDSig, out RoleEntity target);
             if (!has) {
-                if (blt.targetIDSig.entityID != -1) {
-                    UnSpawn(ctx, blt);
-                }
                 return;
             }
             Vector2 dir = target.transform.position - blt.transform.position;
-            dir.Normalize();
-            blt.transform.position += new Vector3(dir.x * dt * blt.moveSpeed, dir.y * dt * blt.moveSpeed, 0);
+            blt.targetDir = dir;
+        }
+
+        public static void MoveToTarget(GameContext ctx, BulletEntity blt, float dt) {
+            Vector2 dir = blt.targetDir.normalized;
+            blt.Move(dir, dt);
+        }
+
+        public static void OverBorderUnSpawn(GameContext ctx, BulletEntity blt) {
+            Vector2 pos = blt.transform.position;
+            if (pos.x > 22 || pos.x < -22 || pos.y > 11 || pos.y < -12) {
+                UnSpawn(ctx, blt);
+            }
         }
 
         public static void Clear(GameContext ctx) {

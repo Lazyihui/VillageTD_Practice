@@ -18,7 +18,10 @@ namespace TD {
 
         public Action<Collider2D> onTriggerEnter;
 
+        // 记录目标mst
         public IDSignature targetIDSig;
+        // 记录目标方向
+        public Vector3 targetDir;
 
         public void Ctor() {
             attackRange = 3;
@@ -29,6 +32,12 @@ namespace TD {
             transform.position = pos;
         }
 
+        public void Move(Vector2 dir, float dt) {
+            Vector3 pos = transform.position;
+            Vector3 newDir = new Vector3(dir.x, dir.y, 0);
+            pos += newDir * moveSpeed * dt;
+            transform.position = pos;
+        }
 
         public void TearDown() {
             Destroy(gameObject);
