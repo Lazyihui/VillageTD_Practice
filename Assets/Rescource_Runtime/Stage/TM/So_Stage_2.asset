@@ -14,12 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tm:
     typeID: 2
-    mapEntity: {fileID: 0}
+    mapEntity: {fileID: 8485275724527794530, guid: 2129efa2cc7a4f84484235bb5d2ddbb7, type: 3}
     roleSpawnTMs:
     - so: {fileID: 11400000, guid: 06b6212800b32cb429965f0b39ea1d20, type: 2}
-      position: {x: -8.338501, y: 2.0339355, z: 0}
+      position: {x: -8.85849, y: -8.606079, z: 0}
       rotation: {x: -0, y: 0, z: 0}
     caveSpawnTMs:
     - so: {fileID: 11400000, guid: b6c052250beb2864b8370632b011adf0, type: 2}
-      position: {x: 16.561523, y: -0.19607544, z: 0}
+      position: {x: 10.961517, y: -5.506073, z: 0}
       rotation: {x: -0, y: 0, z: 0}

@@ -119,12 +119,6 @@ namespace TD {
             map.idSig.entityType = EntityType.Map;
             map.idSig.entityID = ctx.gameEntity.stageRecordID++;
             map.Ctor();
-            // // 2.Get MapGripElement prefavb
-            // GameObject groundPrefab = ctx.assetsCore.Entity_GetTileGround();
-            // MapGripElement ground = GameObject.Instantiate(groundPrefab, map.transform).GetComponent<MapGripElement>();
-
-            // GameObject treePrefab = ctx.assetsCore.Entity_GetTileTree();
-            // MapGripElement tree = GameObject.Instantiate(treePrefab, map.transform).GetComponent<MapGripElement>();
 
             return map;
         }

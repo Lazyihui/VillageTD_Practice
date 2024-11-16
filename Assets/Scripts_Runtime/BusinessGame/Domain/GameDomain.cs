@@ -16,6 +16,9 @@ namespace TD {
 
             // 游戏结束
             FlagHp_GameFail(ctx);
+
+            // 游戏胜利
+            FlagHp_GameWin(ctx);
         }
 
 
@@ -49,6 +52,39 @@ namespace TD {
 
                 ClearAll(ctx);
             }
+        }
+
+        public static void FlagHp_GameWin(GameContext ctx) {
+            GameEntity game = ctx.gameEntity;
+
+            if (game.isCavrSpawnMstOver) {
+                int mstCount = 0;
+                int len = ctx.roleRepository.TakeAll(out RoleEntity[] roles);
+                for (int i = 0; i < len; i++) {
+                    RoleEntity role = roles[i];
+
+                    // 要改改成bool
+                    if (role.typeID == RoleConst.Role) {
+                        continue;
+                    }
+                    if (role.typeID == RoleConst.Monster) {
+                        mstCount++;
+                    }
+                }
+
+                // 胜利
+                if (mstCount == 0) {
+                    IDSignature idSig = new IDSignature(EntityType.Tower, 0);
+                    bool has = ctx.towerRepository.TryGet(idSig, out TowerEntity entity);
+                    if (entity.hp > 0) {
+                        ClearAll(ctx);
+                        ctx.appUI.Panel_Victory_Open();
+                    }
+
+                }
+
+            }
+
         }
 
         #region  clear

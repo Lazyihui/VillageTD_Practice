@@ -65,15 +65,20 @@ namespace TD {
 
             };
 
-            eventCenter.OnRestartClickHandle += () => {
+            eventCenter.OnRestartFailClickHandle += () => {
                 ctx.appUI.Panel_Fail_Close();
+                Game_Business.Enter(ctx);
+            };
+
+            eventCenter.OnRestartVictoryClickHandle += () => {
+                ctx.appUI.Panel_Victory_Close();
                 Game_Business.Enter(ctx);
             };
 
             eventCenter.OnNextClickHandle += () => {
                 ctx.gameEntity.stageID++;
-
                 Game_Business.Enter(ctx);
+                ctx.appUI.Panel_Victory_Close();
             };
 
         }
@@ -83,6 +88,7 @@ namespace TD {
         }
 
         void Update() {
+
             if (!isInit) {
                 return;
             }

@@ -261,7 +261,7 @@ namespace TD {
                 panel.Ctor();
 
                 panel.OnRestartClickHandle += () => {
-                    eventCenter.OnRestartClick();
+                    eventCenter.OnRestartVictoryClick();
                 };
 
                 panel.OnNextClickHandle += () => {

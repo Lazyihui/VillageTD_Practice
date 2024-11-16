@@ -22,10 +22,10 @@ namespace TD {
             }
         }
 
-        public Action OnRestartClickHandle;
+        public Action OnRestartFailClickHandle;
         public void OnRestartClick() {
-            if (OnRestartClickHandle != null) {
-                OnRestartClickHandle.Invoke();
+            if (OnRestartFailClickHandle != null) {
+                OnRestartFailClickHandle.Invoke();
             }
         }
 
@@ -36,5 +36,12 @@ namespace TD {
             }
         }
 
+        public Action OnRestartVictoryClickHandle;
+
+        public void OnRestartVictoryClick() {
+            if (OnRestartVictoryClickHandle != null) {
+                OnRestartVictoryClickHandle.Invoke();
+            }
+        }
     }
 }

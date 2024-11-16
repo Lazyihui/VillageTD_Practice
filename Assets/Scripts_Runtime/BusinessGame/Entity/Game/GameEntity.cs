@@ -46,7 +46,7 @@ namespace TD {
         public IDSignature mousePanelIDSig;
 
         public int MousePaneltypeID;
-        public bool isMstOver;
+        public bool isCavrSpawnMstOver;
 
         // panel_Guide的关闭时间
         public float panel_GuideCloseTimer;
@@ -70,7 +70,7 @@ namespace TD {
 
             handHasCard = false;
             handHasCardTree = false;
-            isMstOver = false;
+            isCavrSpawnMstOver = false;
 
             resCount = 500;
 
@@ -98,7 +98,7 @@ namespace TD {
 
             handHasCard = false;
             handHasCardTree = false;
-            isMstOver = false;
+            isCavrSpawnMstOver = false;
 
             resCount = 500;
 
