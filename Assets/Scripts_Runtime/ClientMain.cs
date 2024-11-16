@@ -50,21 +50,25 @@ namespace TD {
 
             eventCenter.OnMainfastClickHandle += (int typeID) => {
                 var game = ctx.gameEntity;
-
                 ctx.templateCore.PanelCard_TryGet(typeID, out PanelCardTM tm);
-
                 int cost = tm.buildCost;
-                Debug.Log("OnMainfastClickHandle: " + typeID + " 金币不足" + cost);
                 if (ctx.gameEntity.resCount < cost) {
                     game.isPanel_NoticeOpen = ctx.appUI.Panel_Notice_Open();
-                    Debug.Log("OnMainfastClickHandle: " + typeID + " 金币不足");
                     return;
                 }
 
-                ctx.appUI.Panel_SelectCard_Open(typeID);
-                ctx.gameEntity.handHasCard = true;
-                ctx.gameEntity.handCardID = typeID;
-                Debug.Log("OnMainfastClickHandle: " + typeID);
+                if (tm.isPlantTree) {
+                    ctx.appUI.Panel_SelectCard_Open(typeID);
+                    game.handHasCardTree = true;
+                    game.handCardID = typeID;
+                    Debug.Log("OnMainfastClickHandle:种树 " + typeID);
+
+                } else {
+                    ctx.appUI.Panel_SelectCard_Open(typeID);
+                    ctx.gameEntity.handHasCard = true;
+                    ctx.gameEntity.handCardID = typeID;
+                    Debug.Log("OnMainfastClickHandle:造塔" + typeID);
+                }
 
             };
 

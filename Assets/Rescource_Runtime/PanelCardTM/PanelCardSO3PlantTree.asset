@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: PanelCardSO3PlantTree
   m_EditorClassIdentifier: 
   tm:
+    isPlantTree: 1
     typeName: PlantTree
     typeID: 3
     buildCost: 50

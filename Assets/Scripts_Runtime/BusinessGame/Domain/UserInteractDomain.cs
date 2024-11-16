@@ -12,8 +12,8 @@ namespace TD {
             // === Select ====
 
             // ==== Build ====
-            bool hasCard = game.handHasCard;
-            if (hasCard) {
+            bool handhasCard = game.handHasCard;
+            if (handhasCard) {
                 if (input.mouseLeftClick) {
                     int typeID = ctx.gameEntity.handCardID;
                     Tower_TryBuild(ctx, typeID, input.mousePositionGrid);
@@ -26,7 +26,6 @@ namespace TD {
                 if (input.mouseLeftClick) {
 
                     int typeID = ctx.gameEntity.handCardID;
-
                     Tree_TryBuild(ctx, typeID, input.mousePositionGrid);
                 }
             }

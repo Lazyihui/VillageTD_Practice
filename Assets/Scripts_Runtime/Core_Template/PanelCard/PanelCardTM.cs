@@ -7,6 +7,8 @@ namespace TD {
     [Serializable]
     public class PanelCardTM {
 
+        public bool isPlantTree;
+
         public string typeName;
         public int typeID;
 
