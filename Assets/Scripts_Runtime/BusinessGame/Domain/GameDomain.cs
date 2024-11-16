@@ -64,10 +64,10 @@ namespace TD {
                     RoleEntity role = roles[i];
 
                     // 要改改成bool
-                    if (role.typeID == RoleConst.Role) {
+                    if (role.fsmCom.isRole) {
                         continue;
                     }
-                    if (role.typeID == RoleConst.Monster) {
+                    if (role.fsmCom.isOrdinaryMst) {
                         mstCount++;
                     }
                 }

@@ -47,7 +47,8 @@ namespace TD {
 
             for (int i = 0; i < len; i++) {
                 RoleEntity role = roles[i];
-                if (role.typeID == RoleConst.Role) {
+                bool isRole = role.fsmCom.isRole;
+                if (isRole) {
                 } else {
                     float distance = Vector2.Distance(role.transform.position, entity.transform.position);
                     if (distance < minDistance) {

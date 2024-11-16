@@ -42,18 +42,18 @@ namespace TD {
         }
 
 
-
+        // 主角发射子弹
         public static void SpawnBullet(GameContext ctx, RoleEntity role, float dt) {
 
             int len = ctx.roleRepository.TakeAll(out RoleEntity[] msts);
 
             for (int i = 0; i < len; i++) {
                 RoleEntity mst = msts[i];
-                if (mst.typeID == RoleConst.Role) {
+                bool isRole = mst.fsmCom.isRole;
+                if (isRole) {
+
                 } else {
-
                     float distance = Vector2.Distance(mst.transform.position, role.transform.position);
-
                     if (distance < role.attackRange) {
                         ShootBullet(ctx, role, dt);
                     }

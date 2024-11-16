@@ -109,7 +109,8 @@ namespace TD {
             int lenMst = ctx.roleRepository.TakeAll(out RoleEntity[] msts);
             for (int i = 0; i < lenMst; i++) {
                 RoleEntity mst = msts[i];
-                if (mst.typeID == RoleConst.Role) {
+                bool isRole = mst.fsmCom.isRole;
+                if (isRole) {
                     continue;
                 }
                 RoleDomain.MstMove(mst, dt);

@@ -10,27 +10,22 @@ namespace TD {
         [SerializeField] Rigidbody2D rb;
         [SerializeField] SpriteRenderer sp;
         [SerializeField] GameObject circle;
-
         [SerializeField] GameObject go;
 
+
         public IDSignature idSig;
-
         public int typeID;
+        public RoleFSMComponent fsmCom;
+
         public float moveSpeed;
-
         public int hp;
-
         public int maxHp;
-
         public int attackHurt;
-
         public float attackRange;
 
         // 发射子弹的时间间隔
         public float shootInterval;
-
         public float shootTimer;
-
 
         public RoleInputComponent inputCom;
 
@@ -52,15 +47,10 @@ namespace TD {
         }
 
         public void SetPos(Vector3 pos) {
-            if (typeID == RoleConst.Role) {
-
-            } else {
-                transform.position = pos;
-            }
+            transform.position = pos;
         }
 
         public void Move(float dt) {
-
             inputCom.moveAxis = inputCom.moveAxis.normalized * this.moveSpeed;
             rb.velocity = inputCom.moveAxis;
         }
@@ -74,7 +64,8 @@ namespace TD {
         }
 
         public void SetCircleActive() {
-            if (typeID == RoleConst.Role) {
+
+            if (this.fsmCom.isRole) {
                 circle.SetActive(true);
             } else {
                 circle.SetActive(false);

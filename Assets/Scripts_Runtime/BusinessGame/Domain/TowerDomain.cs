@@ -38,7 +38,8 @@ namespace TD {
 
             for (int i = 0; i < len; i++) {
                 RoleEntity mst = msts[i];
-                if (mst.typeID == RoleConst.Role) {
+                bool isRole = mst.fsmCom.isRole;
+                if (isRole) {
 
                 } else {
                     float distance = Vector2.Distance(mst.transform.position, tower.transform.position);
@@ -50,21 +51,18 @@ namespace TD {
         }
 
 
-        // BaseTower
+        // BaseTower 怪物碰到基地 基地扣血 mst消失
         public static void BaseTowerHpReduce(GameContext ctx, TowerEntity baseTower) {
 
             int lenMst = ctx.roleRepository.TakeAll(out RoleEntity[] msts);
-
             for (int i = 0; i < lenMst; i++) {
                 RoleEntity mst = msts[i];
-                if (mst.typeID == RoleConst.Role) {
+                bool isRole = mst.fsmCom.isRole;
+                if (isRole) {
                     continue;
                 }
-
                 float distance = Vector2.Distance(mst.transform.position, baseTower.transform.position);
-
                 if (distance < 0.5) {
-
                     RoleDomain.UnSpawn(ctx, mst);
                     baseTower.hp -= mst.attackHurt;
                     if (baseTower.hp <= 0) {

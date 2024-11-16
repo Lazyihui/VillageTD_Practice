@@ -17,6 +17,8 @@ namespace TD {
             entity.idSig.entityType = EntityType.Role;
             entity.idSig.entityID = ctx.gameEntity.mstroleRecordID++;
             entity.typeID = tm.typeID;
+            
+            entity.fsmCom = tm.fsmCom;
 
             entity.Ctor();
             entity.SetCircleActive();
@@ -31,14 +33,7 @@ namespace TD {
             entity.TF_SetPostion(spawnTM.position);
             entity.TF_SetRotation(spawnTM.rotation);
 
-
-            entity.SetPos(pos);
-
-
-
             entity.SetSprite(tm.sp);
-            // 
-            entity.typeID = tm.typeID;
             return entity;
         }
         // mst
@@ -67,8 +62,6 @@ namespace TD {
 
 
             entity.SetSprite(tm.sp);
-            // 
-            entity.typeID = tm.typeID;
             return entity;
         }
         public static TowerEntity Tower_Create(GameContext ctx, int typeID, Vector2Int pos) {
@@ -106,7 +99,6 @@ namespace TD {
             entity.SetCircleObjActive(false);
 
             entity.Ctor();
-
             return entity;
         }
 

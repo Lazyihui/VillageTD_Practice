@@ -13,6 +13,9 @@ MonoBehaviour:
   m_Name: So_Mst_1
   m_EditorClassIdentifier: 
   tm:
+    fsmCom:
+      isRole: 0
+      isOrdinaryMst: 1
     typeName: Mst1
     tag: Mst
     typeID: 1
