@@ -15,9 +15,9 @@ namespace TD {
             GameObject go = GameObject.Instantiate(prefab);
             RoleEntity entity = go.GetComponent<RoleEntity>();
             entity.idSig.entityType = EntityType.Role;
-            entity.idSig.entityID = ctx.gameEntity.mstroleRecordID++;
+            entity.idSig.entityID = ctx.idService.mstroleRecordID++;
             entity.typeID = tm.typeID;
-            
+
             entity.fsmCom = tm.fsmCom;
 
             entity.Ctor();
@@ -44,7 +44,7 @@ namespace TD {
             GameObject go = GameObject.Instantiate(prefab);
             RoleEntity entity = go.GetComponent<RoleEntity>();
             entity.idSig.entityType = EntityType.Role;
-            entity.idSig.entityID = ctx.gameEntity.mstroleRecordID++;
+            entity.idSig.entityID = ctx.idService.mstroleRecordID++;
             entity.typeID = tm.typeID;
 
             entity.Ctor();
@@ -72,7 +72,7 @@ namespace TD {
             TowerEntity entity = go.GetComponent<TowerEntity>();
 
             entity.idSig.entityType = EntityType.Tower;
-            entity.idSig.entityID = ctx.gameEntity.towerRecordID++;
+            entity.idSig.entityID = ctx.idService.towerRecordID++;
             entity.typeName = tm.typeName;
 
             entity.gridPos = pos;
@@ -109,7 +109,7 @@ namespace TD {
             // GameObject prefab = ctx.assetsCore.Entity_GetMap();
             // GameObject go = GameObject.Instantiate(prefab);
             map.idSig.entityType = EntityType.Map;
-            map.idSig.entityID = ctx.gameEntity.stageRecordID++;
+            map.idSig.entityID = ctx.idService.stageRecordID++;
             map.Ctor();
 
             return map;
@@ -121,7 +121,7 @@ namespace TD {
             entity.pos = pos;
             entity.idSig.entityType = EntityType.Tree;
 
-            entity.idSig.entityID = ctx.gameEntity.treeRecordID++;
+            entity.idSig.entityID = ctx.idService.treeRecordID++;
             entity.typeID = typeID;
             entity.Ctor();
 
@@ -138,7 +138,7 @@ namespace TD {
             BulletEntity entity = go.GetComponent<BulletEntity>();
             entity.Ctor();
             entity.idSig.entityType = EntityType.Bullet;
-            entity.idSig.entityID = ctx.gameEntity.bulletRecordID++;
+            entity.idSig.entityID = ctx.idService.bulletRecordID++;
             entity.typeID = tm.typeID;
 
 
@@ -168,7 +168,7 @@ namespace TD {
             entity.activeInterval = tm.activeInterval;
             entity.spawnMaxCount = tm.spawnMaxCount;
 
-            entity.idSig.entityID = ctx.gameEntity.caveRecordID++;
+            entity.idSig.entityID = ctx.idService.caveRecordID++;
 
             entity.TF_SetPostion(spawnTM.position);
             entity.TF_SetRotation(spawnTM.rotation);

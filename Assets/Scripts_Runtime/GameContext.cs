@@ -13,6 +13,7 @@ namespace TD {
 
         // 
         public GameEntity gameEntity; // 
+        public IDService idService;
 
         // Core
         public AssetsCore assetsCore;
@@ -31,6 +32,7 @@ namespace TD {
         public GameContext() {
 
             gameEntity = new GameEntity();
+            idService = new IDService();
 
             // Core
             assetsCore = new AssetsCore();
@@ -78,7 +80,7 @@ namespace TD {
 
         public RoleEntity Role_GetOwner() {
 
-            bool has = roleRepository.TryGet(gameEntity.ownerIDSig, out RoleEntity entity);
+            bool has = roleRepository.TryGet(idService.ownerIDSig, out RoleEntity entity);
             if (!has) {
                 Debug.LogError("GameContext.Role_GetOwner: ownerID not found");
                 return null;

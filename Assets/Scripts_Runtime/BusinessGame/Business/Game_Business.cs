@@ -22,7 +22,7 @@ namespace TD {
             for (int i = 0; i < roleSpawnerTMs.Length; i++) {
                 RoleSpawnTM role = roleSpawnerTMs[i];
                 RoleEntity entity = RoleDomain.SpawnBySpawner(ctx, role.so.tm.typeID, new Vector3(0, 0, 0), role);
-                ctx.gameEntity.ownerIDSig = entity.idSig;
+                ctx.idService.ownerIDSig = entity.idSig;
             }
 
             CaveSpawnTM[] caveSpawnerTMs = tm.caveSpawnTMs;

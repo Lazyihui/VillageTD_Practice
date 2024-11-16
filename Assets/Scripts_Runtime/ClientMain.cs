@@ -52,7 +52,7 @@ namespace TD {
                 var game = ctx.gameEntity;
                 ctx.templateCore.PanelCard_TryGet(typeID, out PanelCardTM tm);
                 int cost = tm.buildCost;
-                if (ctx.gameEntity.resCount < cost) {
+                if (game.resCount < cost) {
                     game.isPanel_NoticeOpen = ctx.appUI.Panel_Notice_Open();
                     return;
                 }
@@ -65,8 +65,8 @@ namespace TD {
 
                 } else {
                     ctx.appUI.Panel_SelectCard_Open(typeID);
-                    ctx.gameEntity.handHasCard = true;
-                    ctx.gameEntity.handCardID = typeID;
+                    game.handHasCard = true;
+                    game.handCardID = typeID;
                     Debug.Log("OnMainfastClickHandle:造塔" + typeID);
                 }
 
@@ -100,14 +100,16 @@ namespace TD {
                 return;
             }
             float dt = Time.deltaTime;
-
+            var game = ctx.gameEntity;
             ctx.inputEntity.Process(dt);
 
-            if (ctx.gameEntity.state == GameState.Login) {
 
-            } else if (ctx.gameEntity.state == GameState.Game) {
+            if (game.state == GameState.Login) {
+
+            } else if (game.state == GameState.Game) {
                 Game_Business.Tick(ctx, dt);
             }
+
         }
 
         void OnDestroy() {
