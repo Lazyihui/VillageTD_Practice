@@ -50,7 +50,7 @@ namespace TD {
         public static void DeleteCells(GameContext ctx, MapEntity map, Vector3Int pos) {
             // 格子位置和格子的大小
             Tilemap tilemap = map.treeGrid.tile;
-            tilemap.DeleteCells(new Vector3Int(pos.x, pos.y, 0), new Vector3Int(1, 1, 1));
+            tilemap.SetTile(pos, null);
 
         }
 
