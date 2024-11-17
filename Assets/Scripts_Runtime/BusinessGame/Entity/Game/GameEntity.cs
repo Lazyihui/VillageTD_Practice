@@ -7,6 +7,8 @@ namespace TD {
 
 
     public class GameEntity {
+        public IDSignature idsigMap;
+
         public float restFixTime;
 
         // 关卡ID

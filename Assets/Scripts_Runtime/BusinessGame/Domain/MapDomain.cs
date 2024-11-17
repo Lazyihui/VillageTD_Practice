@@ -25,13 +25,11 @@ namespace TD {
 
             foreach (Vector3Int pos in bound.allPositionsWithin) {
                 Sprite sprite = tile.GetSprite(pos);
-
                 if (sprite != null) {
                     Vector2Int tilepos = new Vector2Int(pos.x, pos.y);
                     tilePosHashSet.Add(tilepos);
                 }
             }
-
             return tilePosHashSet;
         }
 
@@ -41,11 +39,21 @@ namespace TD {
                 Debug.LogError("SetTile Tree_TryGet Error");
                 return;
             }
+            // TODO: 要用新的InputEntity
             if (Input.GetMouseButtonDown(0)) {
                 Vector3Int posCell = new Vector3Int(ctx.inputEntity.mousePositionGrid.x, ctx.inputEntity.mousePositionGrid.y, 0);
                 tilemap.SetTile(posCell, tm.treeTile);
             }
         }
+
+
+        public static void DeleteCells(GameContext ctx, MapEntity map, Vector3Int pos) {
+            // 格子位置和格子的大小
+            Tilemap tilemap = map.treeGrid.tile;
+            tilemap.DeleteCells(new Vector3Int(pos.x, pos.y, 0), new Vector3Int(1, 1, 1));
+
+        }
+
 
         public static void Clear(GameContext ctx) {
             int len = ctx.mapRepository.TakeAll(out MapEntity[] maps);

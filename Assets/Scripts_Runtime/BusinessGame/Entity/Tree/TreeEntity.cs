@@ -7,12 +7,13 @@ namespace TD {
     public class TreeEntity {
 
         public IDSignature idSig;
+        public IDSignature idsigMap;
+
 
         public int typeID;
         public Vector2Int pos;
 
         public bool isCollected;
-
         // 资源
         public int resCount;
 

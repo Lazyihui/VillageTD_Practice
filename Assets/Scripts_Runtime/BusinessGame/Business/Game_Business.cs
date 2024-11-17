@@ -37,14 +37,13 @@ namespace TD {
 
 
             MapEntity map = MapDomain.Spawn(ctx, tm.mapEntity);
-            TowerDomain.Spawn(ctx, TowerConst.BaseTower, new Vector2Int(0, 0));
 
-
+            TowerDomain.Spawn(ctx, TowerConst.BaseTower, new Vector2Int(0, 0), map.idSig);
+            // REFACTOR 重构 在运行时存
             HashSet<Vector2Int> treePosHashSet = MapDomain.GetTilePos(map.treeGrid.tile);
 
             foreach (Vector2Int pos in treePosHashSet) {
-
-                TreeDomain.Spawn(ctx, pos, 1);
+                TreeDomain.Spawn(ctx, pos, 1, map.idSig);
             }
 
 

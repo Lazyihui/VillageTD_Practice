@@ -55,7 +55,7 @@ namespace TD {
                 return;
             }
 
-            Tree_Plant(ctx, typeID, pos);
+            Tree_Plant(ctx, pos);
         }
 
 
@@ -71,7 +71,8 @@ namespace TD {
         }
 
         public static void Tower_Bulid(GameContext ctx, int typeID, Vector2Int pos) {
-            TowerEntity tower = TowerDomain.Spawn(ctx, typeID, pos);
+            MapEntity mapEntity = ctx.mapRepository.GetMapByMousePos(pos);
+            TowerEntity tower = TowerDomain.Spawn(ctx, typeID, pos, mapEntity.idSig);
             ctx.gameEntity.resCount -= tower.buildCost;
 
             ctx.appUI.Panel_SelectCard_Close();
@@ -79,15 +80,13 @@ namespace TD {
             ctx.gameEntity.handCardID = -1;
         }
 
-        public static void Tree_Plant(GameContext ctx, int typeID, Vector2Int pos) {
-            IDSignature idSig = new IDSignature(EntityType.Map, 0);
-            // TODO: TypeID问题
-            ctx.mapRepository.TryGet(idSig, out MapEntity mapEntity);
+        public static void Tree_Plant(GameContext ctx, Vector2Int pos) {
 
-
+            MapEntity mapEntity = ctx.mapRepository.GetMapByMousePos(pos);
+            // TODO: TypeID的问题
             MapDomain.SetTile(ctx, mapEntity.treeGrid.tile, 1, pos);
 
-            TreeDomain.Spawn(ctx, pos, 1);
+            TreeDomain.Spawn(ctx, pos, 1, mapEntity.idSig);
 
             ctx.appUI.Panel_SelectCard_Close();
             ctx.gameEntity.handHasCardTree = false;

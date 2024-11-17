@@ -64,7 +64,7 @@ namespace TD {
             entity.SetSprite(tm.sp);
             return entity;
         }
-        public static TowerEntity Tower_Create(GameContext ctx, int typeID, Vector2Int pos) {
+        public static TowerEntity Tower_Create(GameContext ctx, int typeID, Vector2Int pos, IDSignature idsigMap) {
             TowerTM tm;
             ctx.templateCore.Tower_TryGet(typeID, out tm);
             GameObject prefab = ctx.assetsCore.Entity_GetTower();
@@ -98,6 +98,8 @@ namespace TD {
             entity.SetCollider(tm.isTrigger);
             entity.SetCircleObjActive(false);
 
+            entity.idsigMap = idsigMap;
+
             entity.Ctor();
             return entity;
         }
@@ -115,11 +117,12 @@ namespace TD {
             return map;
         }
 
-        public static TreeEntity Tree_Create(GameContext ctx, Vector2Int pos, int typeID) {
+        public static TreeEntity Tree_Create(GameContext ctx, Vector2Int pos, int typeID,IDSignature idsigMap) {
             TreeEntity entity = new TreeEntity();
 
             entity.pos = pos;
             entity.idSig.entityType = EntityType.Tree;
+            entity.idsigMap = idsigMap;
 
             entity.idSig.entityID = ctx.idService.treeRecordID++;
             entity.typeID = typeID;

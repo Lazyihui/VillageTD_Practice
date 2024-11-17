@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -44,5 +45,11 @@ namespace TD {
         public void Clear() {
             all.Clear();
         }
+        // 更具鼠标位置获取地图块 
+        public MapEntity GetMapByMousePos(Vector2 mousePos) {
+            
+            return all.First().Value;
+        }
+
     }
 }

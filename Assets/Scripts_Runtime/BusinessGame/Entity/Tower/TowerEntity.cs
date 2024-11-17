@@ -13,6 +13,7 @@ namespace TD {
         public IDSignature idSig;
         public PlaceConditionType placeConditionType;
 
+        public IDSignature idsigMap;
 
         public int typeID;
         public int buildCost;
@@ -25,18 +26,12 @@ namespace TD {
 
         // 启动了发射子弹
         public float shootTimer;
-
         public float shootInterval;
-
         public float attackHurt;
-
         public float attackRange;
-
         // 砍树时间
         public float cutTreeTime;
-
         public float cutTreeInterval;
-
         public int cutHurt;
 
         // bool 

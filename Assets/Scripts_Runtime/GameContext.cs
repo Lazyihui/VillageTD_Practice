@@ -8,6 +8,7 @@ namespace TD {
 
 
     public class GameContext {
+
         public AppUI appUI;
         // inJect
 
@@ -94,6 +95,17 @@ namespace TD {
             bool has = towerRepository.TryGet(idSig, out TowerEntity entity);
             if (!has) {
                 Debug.LogError("GameContext.Tower_GetOwner: ownerID not found");
+                return null;
+            }
+            return entity;
+        }
+
+        public MapEntity Map_GetCurrent() {
+            IDSignature idSig = new IDSignature(EntityType.Map, 0);
+
+            bool has = mapRepository.TryGet(idSig, out MapEntity entity);
+            if (!has) {
+                Debug.LogError("GameContext.Map_GetOwner: ownerID not found");
                 return null;
             }
             return entity;

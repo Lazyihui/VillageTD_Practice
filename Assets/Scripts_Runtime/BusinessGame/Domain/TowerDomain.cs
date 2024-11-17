@@ -9,9 +9,9 @@ namespace TD {
     public static class TowerDomain {
 
         #region Lifecycle
-        public static TowerEntity Spawn(GameContext ctx, int typeID, Vector2Int pos) {
+        public static TowerEntity Spawn(GameContext ctx, int typeID, Vector2Int pos, IDSignature idsigMap) {
 
-            TowerEntity entity = GameFactory.Tower_Create(ctx, typeID, pos);
+            TowerEntity entity = GameFactory.Tower_Create(ctx, typeID, pos, idsigMap);
 
             ctx.towerRepository.Add(entity);
             return entity;
@@ -78,21 +78,7 @@ namespace TD {
         // 找到最近的树然后砍树
         public static void FindNearestTree(GameContext ctx, TowerEntity tower, float dt) {
 
-            int len = ctx.treeRepository.TakeAll(out TreeEntity[] trees);
-            float minDistance = float.MaxValue;
-            TreeEntity nearestTree = null;
-            for (int i = 0; i < len; i++) {
-                TreeEntity tree = trees[i];
-                float distance = Vector2.Distance(tree.pos, tower.transform.position);
-                if (distance < minDistance && distance < tower.attackRange) {
-                    minDistance = distance;
-                    nearestTree = tree;
-                }
-                if (distance < tower.attackRange) {
-                    // 砍树
-                    ctx.treeRepository.RemovePos(tree.pos);
-                }
-            }
+            TreeEntity nearestTree = Physics.FindNearestTree(ctx, tower);
             if (nearestTree != null) {
                 // 砍树
                 CutTree(ctx, tower, nearestTree, dt);
@@ -105,7 +91,11 @@ namespace TD {
                 tree.resCount -= tower.cutHurt;
                 ctx.gameEntity.resCount += tower.cutHurt;
                 if (tree.resCount <= 0) {
+                    Debug.Log("砍树");
                     TreeDomain.UnSpawn(ctx, tree);
+                    // 树消失
+                    MapEntity map = ctx.mapRepository.GetMapByMousePos(Vector2Int.zero);
+                    MapDomain.DeleteCells(ctx, map, (Vector3Int)tree.pos);
                 }
             }
 
