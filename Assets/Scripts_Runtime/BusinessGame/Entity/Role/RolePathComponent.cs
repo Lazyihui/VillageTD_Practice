@@ -3,12 +3,13 @@ using UnityEngine;
 
 
 namespace TD {
-    public class RolePathComponent {
+    public struct RolePathComponent {
         public Vector2[] path;//路径点
 
         public int pathIndex;//当前路径点索引
 
-        public RolePathComponent(){
+        public void SetPath(Vector2[] path) {
+            this.path = path;
             pathIndex = 0;
         }
     }

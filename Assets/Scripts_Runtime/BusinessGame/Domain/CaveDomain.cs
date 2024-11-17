@@ -42,7 +42,7 @@ namespace TD {
                 cave.caveSpawnTime = 0;
                 cave.spawnCount++;
                 Vector3 pos = cave.transform.position;
-                RoleDomain.Spawn(ctx, RoleConst.Monster, pos);
+                RoleDomain.SpawnMst(ctx, RoleConst.Monster, pos, cave.mstMovePath);
             }
             return false;
         }

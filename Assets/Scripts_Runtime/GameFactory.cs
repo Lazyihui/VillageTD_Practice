@@ -37,7 +37,7 @@ namespace TD {
             return entity;
         }
         // mst
-        public static RoleEntity Role_Create(GameContext ctx, int typeID, Vector3 pos) {
+        public static RoleEntity Mst_Create(GameContext ctx, int typeID, Vector3 pos, Vector2[] path) {
             RoleTM tm;
             bool has = ctx.templateCore.Role_TryGet(typeID, out tm);
             GameObject prefab = ctx.assetsCore.Entity_GetRole();
@@ -59,7 +59,7 @@ namespace TD {
 
             entity.SetPos(pos);
 
-
+            entity.pathCom.SetPath(path);
 
             entity.SetSprite(tm.sp);
             return entity;
@@ -169,6 +169,8 @@ namespace TD {
             entity.spawnMaxCount = tm.spawnMaxCount;
 
             entity.idSig.entityID = ctx.idService.caveRecordID++;
+
+            entity.mstMovePath = tm.mstMovePath;
 
             entity.TF_SetPostion(spawnTM.position);
             entity.TF_SetRotation(spawnTM.rotation);

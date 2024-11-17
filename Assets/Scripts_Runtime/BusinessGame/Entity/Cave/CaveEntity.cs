@@ -25,6 +25,9 @@ namespace TD {
         public int spawnCount;
         public int spawnMaxCount;
 
+        // 生成路径
+        public Vector2[] mstMovePath;
+
         public void Ctor() {
             spawnCount = 0;
         }

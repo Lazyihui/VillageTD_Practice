@@ -6,18 +6,17 @@ namespace TD {
 
     public static class RoleDomain {
 
-        public static RoleEntity SpawnBySpawner(GameContext ctx, int typeID, Vector3 pos, RoleSpawnTM spawnTM) {
+        public static RoleEntity SpawnBySpawnerRole(GameContext ctx, int typeID, Vector3 pos, RoleSpawnTM spawnTM) {
             RoleEntity entity = GameFactory.Role_Create(ctx, typeID, pos, spawnTM);
             ctx.roleRepository.Add(entity);
             return entity;
         }
 
-        public static RoleEntity Spawn(GameContext ctx, int typeID, Vector3 pos) {
-            RoleEntity entity = GameFactory.Role_Create(ctx, typeID, pos);
+        public static RoleEntity SpawnMst(GameContext ctx, int typeID, Vector3 pos, Vector2[] path) {
+            RoleEntity entity = GameFactory.Mst_Create(ctx, typeID, pos, path);
             ctx.roleRepository.Add(entity);
             return entity;
         }
-
 
         public static void UnSpawn(GameContext ctx, RoleEntity entity) {
             ctx.roleRepository.Remove(entity);
@@ -66,11 +65,37 @@ namespace TD {
 
         #region Master
 
-        public static void MstMove(RoleEntity mst, float dt) {
-            
+        public static void MstMove(RoleEntity mst) {
+
             Vector2 dir = Vector2.left;
             Debug.Log(dir);
-            mst.MoveByPath(dir, dt);
+            mst.MoveByPath(dir);
+        }
+
+        public static void MoveByPath(RoleEntity mst) {
+
+            //  无路径
+            if (mst.pathCom.path == null) {
+                return;
+            }
+            int index = mst.pathCom.pathIndex;
+
+            // 有路径但是走完了
+            if (index >= mst.pathCom.path.Length) {
+                return;
+            }
+            // 要走的目标点
+            Vector2 targetPos = mst.pathCom.path[index];
+
+            Vector2 dir = targetPos - (Vector2)mst.transform.position;
+            if (dir.magnitude < 0.1f) {
+                mst.pathCom.pathIndex++;
+                return;
+            } else {
+                dir.Normalize();
+                mst.MoveByPath(dir);
+            }
+
         }
 
 

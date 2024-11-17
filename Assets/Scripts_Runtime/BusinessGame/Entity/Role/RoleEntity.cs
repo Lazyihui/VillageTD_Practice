@@ -28,6 +28,7 @@ namespace TD {
         public float shootTimer;
 
         public RoleInputComponent inputCom;
+        public RolePathComponent pathCom;
 
         public void Ctor() {
             attackRange = 4;
@@ -35,7 +36,6 @@ namespace TD {
 
             shootInterval = 2;
             shootTimer = 2;
-
         }
 
         public void SetTag(string tag) {
@@ -55,7 +55,7 @@ namespace TD {
             rb.velocity = inputCom.moveAxis;
         }
 
-        public void MoveByPath(Vector2 dir, float dt) {
+        public void MoveByPath(Vector2 dir) {
             Vector2 pos = rb.velocity;
             dir = dir.normalized;
             pos = dir * moveSpeed;

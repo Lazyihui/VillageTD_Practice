@@ -11,7 +11,6 @@ namespace TD {
 
         Dictionary<IDSignature, TowerEntity> all;
         Dictionary<Vector2Int, TowerEntity> posDict;
-
         TowerEntity[] temArray;
 
 

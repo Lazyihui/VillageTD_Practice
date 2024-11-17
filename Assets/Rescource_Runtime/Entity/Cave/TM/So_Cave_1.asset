@@ -19,5 +19,7 @@ MonoBehaviour:
     caveSpawnInterval: 4
     isLive: 0
     activeTimer: 0
-    activeInterval: 50
+    activeInterval: 0
     spawnMaxCount: 5
+    mstMovePath:
+    - {x: 0, y: 0}

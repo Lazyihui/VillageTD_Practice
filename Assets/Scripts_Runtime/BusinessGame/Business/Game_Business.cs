@@ -10,7 +10,7 @@ namespace TD {
 
         public static void Enter(GameContext ctx) {
 
-            
+
 
 
             ctx.gameEntity.state = GameState.Game;
@@ -25,7 +25,7 @@ namespace TD {
 
             for (int i = 0; i < roleSpawnerTMs.Length; i++) {
                 RoleSpawnTM role = roleSpawnerTMs[i];
-                RoleEntity entity = RoleDomain.SpawnBySpawner(ctx, role.so.tm.typeID, new Vector3(0, 0, 0), role);
+                RoleEntity entity = RoleDomain.SpawnBySpawnerRole(ctx, role.so.tm.typeID, new Vector3(0, 0, 0), role);
                 ctx.idService.ownerIDSig = entity.idSig;
             }
 
@@ -117,7 +117,7 @@ namespace TD {
                 if (isRole) {
                     continue;
                 }
-                RoleDomain.MstMove(mst, dt);
+                RoleDomain.MoveByPath(mst);
 
             }
 

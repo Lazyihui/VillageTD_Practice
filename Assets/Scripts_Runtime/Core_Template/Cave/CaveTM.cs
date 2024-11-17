@@ -16,7 +16,8 @@ namespace TD {
         public bool isLive;
         public float activeTimer;
         public float activeInterval;
-
         public int spawnMaxCount;
+
+        public Vector2[] mstMovePath;
     }
 }
