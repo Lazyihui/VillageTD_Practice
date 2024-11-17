@@ -24,13 +24,15 @@ namespace TD {
             entity.TearDown();
         }
 
+
+        #region Role
         // Role
         public static void Set_MoveAxis(RoleEntity entity, Vector2 moveAxis) {
             entity.Set_MoveAxis(moveAxis);
         }
 
         public static void Move(RoleEntity entity, float dt) {
-            entity.Move(dt);
+            entity.MoveByInput();
         }
 
         public static void ShootBullet(GameContext ctx, RoleEntity entity, float dt) {
@@ -40,7 +42,7 @@ namespace TD {
                 BulletDomain.Spawm(ctx, BulletConst.RoleBlt, entity.transform.position);
             }
         }
-
+        #endregion
 
         // 主角发射子弹
         public static void SpawnBullet(GameContext ctx, RoleEntity role, float dt) {
@@ -62,12 +64,15 @@ namespace TD {
 
         }
 
+        #region Master
 
-        // mst
-
-        public static void MstMove(RoleEntity entity, float dt) {
-            entity.transform.position -= new Vector3(entity.moveSpeed * dt, 0, 0);
+        public static void MstMove(RoleEntity mst, float dt) {
+            
+            Vector2 dir = Vector2.left;
+            Debug.Log(dir);
+            mst.MoveByPath(dir, dt);
         }
+
 
 
         public static void Clear(GameContext ctx) {
@@ -77,6 +82,7 @@ namespace TD {
                 UnSpawn(ctx, role);
             }
         }
+        #endregion
 
     }
 }

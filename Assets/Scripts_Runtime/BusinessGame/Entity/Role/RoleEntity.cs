@@ -50,9 +50,19 @@ namespace TD {
             transform.position = pos;
         }
 
-        public void Move(float dt) {
+        public void MoveByInput() {
             inputCom.moveAxis = inputCom.moveAxis.normalized * this.moveSpeed;
             rb.velocity = inputCom.moveAxis;
+        }
+
+        public void MoveByPath(Vector2 dir, float dt) {
+            Vector2 pos = rb.velocity;
+            dir = dir.normalized;
+            pos = dir * moveSpeed;
+            rb.velocity = pos;
+
+            // rb.velocity = dir.normalized * this.moveSpeed;
+
         }
 
         public void Set_MoveAxis(Vector2 moveAxis) {
