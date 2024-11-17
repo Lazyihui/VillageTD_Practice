@@ -411,6 +411,60 @@ namespace TD {
         }
         #endregion
 
+        #region Panel_StageSelection
+
+        public void Panel_StageSelection_Open() {
+            Panel_StageSelection panel = ctx.panel_StageSelection;
+            if (panel == null) {
+                GameObject prefab = ctx.assetsCore.Panel_GetStageSelection();
+
+                GameObject go = GameObject.Instantiate(prefab, ctx.screenCanvas.transform);
+                panel = go.GetComponent<Panel_StageSelection>();
+                panel.Ctor();
+
+                // panel.OnBtnClickHandle += (int stageID) => {
+                //     eventCenter.OnStageSelectionClick(stageID);
+                // };
+
+            }
+
+            panel.Show();
+            ctx.panel_StageSelection = panel;
+        }
+
+        public void Panel_StageSelection_AddElement(int stageID) {
+            Panel_StageSelection panel = ctx.panel_StageSelection;
+            if (panel == null) {
+                return;
+            }
+
+            GameObject prefab = ctx.assetsCore.Panel_GetStageSelectionElement();
+            Panel_StageSelectionElement ele = GameObject.Instantiate(prefab, panel.group).GetComponent<Panel_StageSelectionElement>();
+
+            ele.stageID = stageID;
+            // ele.idSig.entityID = stageID;
+            // ele.idSig.entityType = EntityType.StageElement;
+            ele.OnBtnClickHandle += (int stageID) => {
+                eventCenter.OnStageElementBtnClick(stageID);
+            };
+            ele.Ctor();
+        }
+
+
+        public void Panel_StageSelection_Close() {
+            Panel_StageSelection panel = ctx.panel_StageSelection;
+            if (panel == null) {
+                return;
+            }
+
+
+
+            panel.TearDown();
+        }
+
+
+        #endregion
+
         public void Clear() {
             panel_Manifast_Close();
             Panel_ResourceInfo_Close();

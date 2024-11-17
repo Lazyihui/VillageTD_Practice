@@ -9,6 +9,10 @@ namespace TD {
     public static class Game_Business {
 
         public static void Enter(GameContext ctx) {
+
+            
+
+
             ctx.gameEntity.state = GameState.Game;
 
             int stageID = ctx.gameEntity.stageID;

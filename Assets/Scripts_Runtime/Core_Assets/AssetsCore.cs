@@ -102,6 +102,7 @@ namespace TD {
             return panel;
         }
 
+
         public GameObject Panel_GetResourceInfo() {
             panels.TryGetValue("Panel_ResourceInfo", out GameObject panel);
             return panel;
@@ -139,6 +140,16 @@ namespace TD {
 
         public GameObject Panel_GetNotice() {
             panels.TryGetValue("Panel_Notice", out GameObject panel);
+            return panel;
+        }
+
+        public GameObject Panel_GetStageSelection() {
+            panels.TryGetValue("Panel_StageSelection", out GameObject panel);
+            return panel;
+        }
+
+        public GameObject Panel_GetStageSelectionElement() {
+            panels.TryGetValue("Panel_StageSelectionElement", out GameObject panel);
             return panel;
         }
 

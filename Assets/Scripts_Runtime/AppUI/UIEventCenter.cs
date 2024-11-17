@@ -43,5 +43,12 @@ namespace TD {
                 OnRestartVictoryClickHandle.Invoke();
             }
         }
+
+        public Action<int> OnStageElementBtnClickHandle;
+        public void OnStageElementBtnClick(int stageID) {
+            if (OnStageElementBtnClickHandle != null) {
+                OnStageElementBtnClickHandle.Invoke(stageID);
+            }
+        }
     }
 }

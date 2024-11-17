@@ -11,6 +11,7 @@ namespace TD {
         public static void Enter(GameContext ctx) {
             ctx.gameEntity.state = GameState.Login;
             ctx.appUI.Panel_Login_Open();
+
         }
 
 
