@@ -7,7 +7,6 @@ namespace TD {
 
 
     public class GameEntity {
-        public IDSignature idsigMap;
 
         public float restFixTime;
 

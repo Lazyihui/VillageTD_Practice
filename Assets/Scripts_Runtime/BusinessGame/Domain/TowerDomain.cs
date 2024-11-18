@@ -85,15 +85,19 @@ namespace TD {
             }
         }
         public static void CutTree(GameContext ctx, TowerEntity tower, TreeEntity tree, float dt) {
+            var game = ctx.gameEntity;
+
             tower.cutTreeTime += dt;
             if (tower.cutTreeTime >= tower.cutTreeInterval) {
                 tower.cutTreeTime = 0;
                 tree.resCount -= tower.cutHurt;
-                ctx.gameEntity.resCount += tower.cutHurt;
+                game.resCount += tower.cutHurt;
                 if (tree.resCount <= 0) {
+                    // 播放金币动画
+                    
+
                     Debug.Log("砍树");
                     TreeDomain.UnSpawn(ctx, tree);
-                    // 树消失
                     MapEntity map = ctx.mapRepository.GetMapByMousePos(Vector2Int.zero);
                     MapDomain.DeleteCells(ctx, map, (Vector3Int)tree.pos);
                 }
