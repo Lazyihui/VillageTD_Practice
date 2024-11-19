@@ -5,7 +5,9 @@ using UnityEngine.Tilemaps;
 namespace TD {
 
     public class MapGripElement : MonoBehaviour {
-        public int stageID;
+        public int typeID;
+
+        public IDSignature idSignature;
 
         [SerializeField] public Tilemap tile;
 

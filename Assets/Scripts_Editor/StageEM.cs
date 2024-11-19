@@ -23,6 +23,8 @@ namespace TD {
             }
             so.tm.typeID = typeID;
 
+            so.tm.mapEntity = modelMap;
+
             Debug.Log("Save");
             SaveRole();
             SaveCave();
