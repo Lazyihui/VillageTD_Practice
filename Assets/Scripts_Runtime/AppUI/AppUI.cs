@@ -482,14 +482,22 @@ namespace TD {
         }
 
         public void HUD_GatherHint_SetHint(float time, float allTime) {
-            
+
             HUD_GatherHint hud = ctx.hud_GatherHint;
             if (hud == null) {
                 return;
             }
-            Debug.Log(time+" "+allTime);
-            Debug.Log(time/allTime);
+
             hud.SetHint(time, allTime);
+        }
+
+        public void HUD_GatherHint_SetPos(Vector3 pos) {
+            HUD_GatherHint hud = ctx.hud_GatherHint;
+            if (hud == null) {
+                return;
+            }
+
+            hud.SetPos(pos);
         }
 
         public void HUD_GatherHint_Close() {

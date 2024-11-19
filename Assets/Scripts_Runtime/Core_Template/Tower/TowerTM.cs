@@ -18,6 +18,7 @@ namespace TD {
         public float shootInterval;
         public float attackHurt;
 
+        // TODO: attackRange =5 但是size是9*9
         public float attackRange;
 
         public Sprite sprite;
