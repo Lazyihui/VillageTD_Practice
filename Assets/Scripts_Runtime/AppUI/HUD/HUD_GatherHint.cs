@@ -14,13 +14,18 @@ namespace TD {
 
         public void Ctor() {
         }
-    
+
         // TODO: 可能要把塔的血量 和 树的采集速度分开
-        public void SetHint(float hp, float maxHp) {
-            if()
+        public void SetHint(float time, float allTime) {
+            if (allTime == 0) {
+                imgHint.fillAmount = 0;
+                imgBG.fillAmount = 0;
+                return;
+            }
+            // time =0;一开始 time++;
+            imgHint.fillAmount = time / allTime;
 
         }
-
 
 
         public void Show() {

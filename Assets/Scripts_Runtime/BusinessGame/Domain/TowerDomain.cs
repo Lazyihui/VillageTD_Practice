@@ -86,15 +86,16 @@ namespace TD {
         }
         public static void CutTree(GameContext ctx, TowerEntity tower, TreeEntity tree, float dt) {
             var game = ctx.gameEntity;
-
+            ctx.appUI.HUD_GatherHint_Open();
             tower.cutTreeTime += dt;
+            ctx.appUI.HUD_GatherHint_SetHint(tower.cutTreeTime, tower.cutTreeInterval);
             if (tower.cutTreeTime >= tower.cutTreeInterval) {
                 tower.cutTreeTime = 0;
                 tree.resCount -= tower.cutHurt;
                 game.resCount += tower.cutHurt;
                 if (tree.resCount <= 0) {
                     // 播放金币动画
-                    
+
 
                     Debug.Log("砍树");
                     TreeDomain.UnSpawn(ctx, tree);

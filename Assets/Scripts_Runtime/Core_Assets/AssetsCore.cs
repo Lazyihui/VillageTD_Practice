@@ -152,7 +152,11 @@ namespace TD {
             panels.TryGetValue("Panel_StageSelectionElement", out GameObject panel);
             return panel;
         }
-
+        // HUD
+        public GameObject HUD_GetGatherHint() {
+            panels.TryGetValue("HUD_GatherHint", out GameObject hud);
+            return hud;
+        }
         // map
 
         public GameObject Entity_GetMap() {

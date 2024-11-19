@@ -465,6 +465,45 @@ namespace TD {
 
         #endregion
 
+        #region HUD_GatherHint
+
+        public void HUD_GatherHint_Open() {
+            HUD_GatherHint hud = ctx.hud_GatherHint;
+            if (hud == null) {
+                GameObject prefab = ctx.assetsCore.HUD_GetGatherHint();
+
+                GameObject go = GameObject.Instantiate(prefab, ctx.worldCanvas.transform);
+                hud = go.GetComponent<HUD_GatherHint>();
+                hud.Ctor();
+            }
+
+            hud.Show();
+            ctx.hud_GatherHint = hud;
+        }
+
+        public void HUD_GatherHint_SetHint(float time, float allTime) {
+            
+            HUD_GatherHint hud = ctx.hud_GatherHint;
+            if (hud == null) {
+                return;
+            }
+            Debug.Log(time+" "+allTime);
+            Debug.Log(time/allTime);
+            hud.SetHint(time, allTime);
+        }
+
+        public void HUD_GatherHint_Close() {
+            HUD_GatherHint hud = ctx.hud_GatherHint;
+            if (hud == null) {
+                return;
+            }
+
+            hud.TearDown();
+        }
+
+
+        #endregion
+
         public void Clear() {
             panel_Manifast_Close();
             Panel_ResourceInfo_Close();

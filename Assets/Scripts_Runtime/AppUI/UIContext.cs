@@ -18,6 +18,10 @@ namespace TD.UIInternal {
         public Panel_Notice panel_Notice;
         public Panel_StageSelection panel_StageSelection;
         public Panel_Fail panel_Fail;
+
+        // HUD
+        public HUD_GatherHint hud_GatherHint;
+
         public AssetsCore assetsCore;
         public TemplateCore templateCore;
 
