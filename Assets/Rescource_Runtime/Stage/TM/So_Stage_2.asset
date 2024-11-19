@@ -23,3 +23,17 @@ MonoBehaviour:
     - so: {fileID: 11400000, guid: b6c052250beb2864b8370632b011adf0, type: 2}
       position: {x: 14.5, y: 7, z: 0}
       rotation: {x: -0, y: 0, z: 0}
+      path:
+      - {x: 7.5, y: 7}
+      - {x: 7.5, y: -2}
+      - {x: -2.5, y: -2}
+      - {x: -2.5, y: -5}
+      - {x: -7.5, y: -5}
+      - {x: -7.5, y: -3}
+      - {x: -8.5, y: -3}
+      - {x: -8.5, y: 2}
+      - {x: -11.5, y: 2}
+    towerSpawnTMs:
+    - so: {fileID: 11400000, guid: 23c69fe328c1c304fbc0f602acc53f23, type: 2}
+      position: {x: -11.5, y: 2, z: 0}
+      rotation: {x: -0, y: 0, z: 0}

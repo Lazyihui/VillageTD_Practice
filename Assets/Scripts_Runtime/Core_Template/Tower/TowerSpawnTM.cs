@@ -1,15 +1,17 @@
 using System;
-using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 
 namespace TD {
     [Serializable]
-    public class CaveSpawnTM {
 
-        public CaveSO so;
+    public class TowerSpawnTM {
+
+        public TowerSO so;
         public Vector3 position;
         public Vector3 rotation;
-        public Vector2[] path;
+
     }
+
 }

@@ -10,9 +10,6 @@ namespace TD {
 
         public static void Enter(GameContext ctx) {
 
-
-
-
             ctx.gameEntity.state = GameState.Game;
 
             int stageID = ctx.gameEntity.stageID;
@@ -20,9 +17,10 @@ namespace TD {
             if (!has) {
                 Debug.LogError("Stage 1 not found");
             }
+            MapEntity map = MapDomain.Spawn(ctx, tm.mapEntity);
+
 
             RoleSpawnTM[] roleSpawnerTMs = tm.roleSpawnTMs;
-
             for (int i = 0; i < roleSpawnerTMs.Length; i++) {
                 RoleSpawnTM role = roleSpawnerTMs[i];
                 RoleEntity entity = RoleDomain.SpawnBySpawnerRole(ctx, role.so.tm.typeID, new Vector3(0, 0, 0), role);
@@ -35,17 +33,20 @@ namespace TD {
                 CaveDomain.Spawn(ctx, cave.so.tm.typeID, cave);
             }
 
+            TowerSpawnTM[] towerSpawnTMs = tm.towerSpawnTMs;
+            for (int i = 0; i < towerSpawnTMs.Length; i++) {
+                TowerSpawnTM spawnTM = towerSpawnTMs[i];
+                TowerDomain.Spawn_HasPos(ctx, TowerConst.BaseTower, new Vector2Int(0, 0), map.idSig, spawnTM);
+            }
 
-            MapEntity map = MapDomain.Spawn(ctx, tm.mapEntity);
 
-            TowerDomain.Spawn(ctx, TowerConst.BaseTower, new Vector2Int(0, 0), map.idSig);
-            // REFACTOR 重构 在运行时存
+
+            // TODO:REFACTOR 重构 在运行时存
             HashSet<Vector2Int> treePosHashSet = MapDomain.GetTilePos(map.treeGrid.tile);
 
             foreach (Vector2Int pos in treePosHashSet) {
                 TreeDomain.Spawn(ctx, pos, 1, map.idSig);
             }
-
 
             // panel
             ctx.appUI.Panel_Manifaset_Open();

@@ -57,6 +57,15 @@ namespace TD {
             circleObj.SetActive(isActive);
         }
 
+
+        public void TF_SetPostion(Vector3 pos) {
+            transform.position = pos;
+        }
+
+        public void TF_SetRotation(Vector3 rot) {
+            transform.rotation = Quaternion.Euler(rot);
+        }
+
         public void TearDown() {
             Destroy(gameObject);
         }

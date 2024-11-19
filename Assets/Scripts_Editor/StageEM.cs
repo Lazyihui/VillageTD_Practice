@@ -29,6 +29,7 @@ namespace TD {
             SaveRole();
             SaveCave();
             SaveMap();
+            SaveTower();
         }
 
 
@@ -63,9 +64,26 @@ namespace TD {
             EditorUtility.SetDirty(so);
         }
 
+        public void SaveTower() {
+            TowerSpawnEM[] towersEM = GetComponentsInChildren<TowerSpawnEM>();
+            Debug.Log(towersEM.Length);
+            TowerSpawnTM[] towerTM = new TowerSpawnTM[towersEM.Length];
+
+            for (int i = 0; i < towerTM.Length; i++) {
+                TowerSpawnEM em = towersEM[i];
+                em.Save();
+                towerTM[i] = em.towerSpawnTM;
+            }
+            so.tm.towerSpawnTMs = towerTM;
+            EditorUtility.SetDirty(so);
+
+        }
+
         public void SaveMap() {
             so.tm.mapEntity = modelMap;
             EditorUtility.SetDirty(so);
         }
+
+
     }
 }

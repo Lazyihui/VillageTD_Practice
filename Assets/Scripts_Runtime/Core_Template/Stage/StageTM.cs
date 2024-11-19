@@ -16,6 +16,8 @@ namespace TD {
 
         public CaveSpawnTM[] caveSpawnTMs;
 
+        public TowerSpawnTM[] towerSpawnTMs;
+
 
     }
 }

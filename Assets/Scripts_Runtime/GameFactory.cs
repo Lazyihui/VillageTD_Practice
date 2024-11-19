@@ -64,6 +64,49 @@ namespace TD {
             entity.SetSprite(tm.sp);
             return entity;
         }
+        public static TowerEntity Tower_Create_hasPos(GameContext ctx, int typeID, Vector2Int pos, IDSignature idsigMap, TowerSpawnTM spawnTM) {
+            TowerTM tm;
+            ctx.templateCore.Tower_TryGet(typeID, out tm);
+            GameObject prefab = ctx.assetsCore.Entity_GetTower();
+            GameObject go = GameObject.Instantiate(prefab);
+            TowerEntity entity = go.GetComponent<TowerEntity>();
+
+            entity.idSig.entityType = EntityType.Tower;
+            entity.idSig.entityID = ctx.idService.towerRecordID++;
+            entity.typeName = tm.typeName;
+
+            entity.gridPos = pos;
+            entity.placeConditionType = tm.placeConditionType;
+
+            entity.hp = tm.hp;
+            entity.maxHp = tm.maxHp;
+            entity.buildCost = tm.buildCost;
+            entity.shootInterval = tm.shootInterval;
+            entity.shootTimer = tm.shootTimer;
+
+            entity.attackHurt = tm.attackHurt;
+            entity.attackRange = tm.attackRange;
+            // tree
+            entity.cutTreeTime = tm.cutTreeTime;
+            entity.cutTreeInterval = tm.cutTreeInterval;
+            entity.cutHurt = tm.cutHurt;
+
+            entity.typeID = tm.typeID;
+            entity.SetSprite(tm.sprite);
+            entity.SetPos(pos);
+            entity.fsmCom = tm.fsmCom;
+            entity.SetCollider(tm.isTrigger);
+            entity.SetCircleObjActive(false);
+
+            entity.TF_SetPostion(spawnTM.position);
+            entity.TF_SetRotation(spawnTM.rotation);
+
+
+            entity.idsigMap = idsigMap;
+
+            entity.Ctor();
+            return entity;
+        }
         public static TowerEntity Tower_Create(GameContext ctx, int typeID, Vector2Int pos, IDSignature idsigMap) {
             TowerTM tm;
             ctx.templateCore.Tower_TryGet(typeID, out tm);
@@ -104,6 +147,8 @@ namespace TD {
             return entity;
         }
 
+
+
         public static MapEntity Map_Create(GameContext ctx, GameObject model) {
             // 1. Get prefab
             GameObject go = GameObject.Instantiate(model);
@@ -117,7 +162,7 @@ namespace TD {
             return map;
         }
 
-        public static TreeEntity Tree_Create(GameContext ctx, Vector2Int pos, int typeID,IDSignature idsigMap) {
+        public static TreeEntity Tree_Create(GameContext ctx, Vector2Int pos, int typeID, IDSignature idsigMap) {
             TreeEntity entity = new TreeEntity();
 
             entity.pos = pos;
@@ -177,6 +222,8 @@ namespace TD {
 
             entity.TF_SetPostion(spawnTM.position);
             entity.TF_SetRotation(spawnTM.rotation);
+            
+            entity.mstMovePath = spawnTM.path;
 
             return entity;
         }
