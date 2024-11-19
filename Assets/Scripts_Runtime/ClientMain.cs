@@ -44,7 +44,19 @@ namespace TD {
 
             eventCenter.OnLoginClickHandle += () => {
                 ctx.appUI.Panel_Login_Close();
+
+                ctx.appUI.Panel_StageSelection_Open();
+                ctx.appUI.Panel_StageSelection_AddElement(1, "第一关");
+                ctx.appUI.Panel_StageSelection_AddElement(2, "第二关");
+
+            };
+
+            eventCenter.OnStageElementBtnClickHandle += (int stageID) => {
+
+                ctx.gameEntity.stageID = stageID;
+                ctx.appUI.Panel_StageSelection_Close();
                 Game_Business.Enter(ctx);
+
             };
 
 
@@ -97,7 +109,7 @@ namespace TD {
         void Update() {
 
 
-            
+
 
             if (!isInit) {
                 return;

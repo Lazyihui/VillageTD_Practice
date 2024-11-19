@@ -421,18 +421,14 @@ namespace TD {
                 GameObject go = GameObject.Instantiate(prefab, ctx.screenCanvas.transform);
                 panel = go.GetComponent<Panel_StageSelection>();
                 panel.Ctor();
-
-                // panel.OnBtnClickHandle += (int stageID) => {
-                //     eventCenter.OnStageSelectionClick(stageID);
-                // };
-
             }
 
             panel.Show();
             ctx.panel_StageSelection = panel;
         }
 
-        public void Panel_StageSelection_AddElement(int stageID) {
+
+        public void Panel_StageSelection_AddElement(int stageID, string stageIDName) {
             Panel_StageSelection panel = ctx.panel_StageSelection;
             if (panel == null) {
                 return;
@@ -442,6 +438,7 @@ namespace TD {
             Panel_StageSelectionElement ele = GameObject.Instantiate(prefab, panel.group).GetComponent<Panel_StageSelectionElement>();
 
             ele.stageID = stageID;
+            ele.SetTxt(stageIDName);
             // ele.idSig.entityID = stageID;
             // ele.idSig.entityType = EntityType.StageElement;
             ele.OnBtnClickHandle += (int stageID) => {

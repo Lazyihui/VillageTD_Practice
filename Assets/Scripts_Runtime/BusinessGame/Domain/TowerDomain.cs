@@ -82,13 +82,19 @@ namespace TD {
             if (nearestTree != null) {
                 // 砍树
                 CutTree(ctx, tower, nearestTree, dt);
+            } else {
+                // 关闭提示框
+                ctx.appUI.HUD_GatherHint_Close();
             }
         }
         public static void CutTree(GameContext ctx, TowerEntity tower, TreeEntity tree, float dt) {
             var game = ctx.gameEntity;
+
+            // 打开提示跳
             ctx.appUI.HUD_GatherHint_Open();
             Vector3 pos = new Vector3(tree.pos.x, tree.pos.y + 0.5f, 0);
             ctx.appUI.HUD_GatherHint_SetPos(pos);
+
             tower.cutTreeTime += dt;
             ctx.appUI.HUD_GatherHint_SetHint(tower.cutTreeTime, tower.cutTreeInterval);
 
@@ -97,7 +103,7 @@ namespace TD {
                 tree.resCount -= tower.cutHurt;
                 game.resCount += tower.cutHurt;
                 if (tree.resCount <= 0) {
-                    // 播放金币动画
+                    // TODO: 播放金币动画
 
                     Debug.Log("砍树");
                     TreeDomain.UnSpawn(ctx, tree);
