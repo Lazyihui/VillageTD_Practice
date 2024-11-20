@@ -6,12 +6,16 @@ namespace TD {
 
     public static class TreeDomain {
 
-        public static TreeEntity Spawn(GameContext ctx, Vector2Int pos, int typeID,IDSignature idsigMap) {
+        public static TreeEntity Spawn(GameContext ctx, Vector2Int pos, int typeID, IDSignature idsigMap) {
 
-            TreeEntity entity = GameFactory.Tree_Create(ctx, pos, typeID,idsigMap);
+            TreeEntity entity = GameFactory.Tree_Create(ctx, pos, typeID, idsigMap);
 
             ctx.treeRepository.Add(entity);
             ctx.treeRepository.AddPos(pos, entity);
+
+            // 画树 
+            MapEntity mapEntity = ctx.mapRepository.GetMapByMousePos(pos);
+            MapDomain.SetTile(ctx, mapEntity.treeGrid.tilemap, 1, pos);
             return null;
         }
 

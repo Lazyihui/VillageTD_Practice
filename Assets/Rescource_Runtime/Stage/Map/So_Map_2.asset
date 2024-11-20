@@ -15,3 +15,4 @@ MonoBehaviour:
   tm:
     typeID: 2
     prefab: {fileID: 5469277307554302844, guid: e97578b111cf2444b9371c49769f54fc, type: 3}
+    treeTile: {fileID: 11400000, guid: 0af6fd9572da9714e9fb843e8b25192b, type: 2}

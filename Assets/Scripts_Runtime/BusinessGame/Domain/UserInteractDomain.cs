@@ -84,7 +84,7 @@ namespace TD {
 
             MapEntity mapEntity = ctx.mapRepository.GetMapByMousePos(pos);
             // TODO: TypeID的问题
-            MapDomain.SetTile(ctx, mapEntity.treeGrid.tile, 1, pos);
+            MapDomain.SetTile(ctx, mapEntity.treeGrid.tilemap, 1, pos);
 
             TreeDomain.Spawn(ctx, pos, 1, mapEntity.idSig);
 
@@ -178,7 +178,7 @@ namespace TD {
 
         public static bool MousePosInteractPanel(GameContext ctx) {
             InputEntity input = ctx.inputEntity;
-            
+
             int len = ctx.appUI.TakeAll_ManifastElement(out Panel_ManifastElement[] panels);
             for (int i = 0; i < len; i++) {
                 Panel_ManifastElement panel = panels[i];

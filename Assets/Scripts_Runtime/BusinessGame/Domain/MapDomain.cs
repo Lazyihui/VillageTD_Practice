@@ -19,19 +19,19 @@ namespace TD {
             entity.TearDown();
         }
 
-        public static HashSet<Vector2Int> GetTilePos(Tilemap tile) {
-            BoundsInt bound = tile.cellBounds;
-            HashSet<Vector2Int> tilePosHashSet = new HashSet<Vector2Int>();
+        // public static HashSet<Vector2Int> GetTilePos(Tilemap tile) {
+        //     BoundsInt bound = tile.cellBounds;
+        //     HashSet<Vector2Int> tilePosHashSet = new HashSet<Vector2Int>();
 
-            foreach (Vector3Int pos in bound.allPositionsWithin) {
-                Sprite sprite = tile.GetSprite(pos);
-                if (sprite != null) {
-                    Vector2Int tilepos = new Vector2Int(pos.x, pos.y);
-                    tilePosHashSet.Add(tilepos);
-                }
-            }
-            return tilePosHashSet;
-        }
+        //     foreach (Vector3Int pos in bound.allPositionsWithin) {
+        //         Sprite sprite = tile.GetSprite(pos);
+        //         if (sprite != null) {
+        //             Vector2Int tilepos = new Vector2Int(pos.x, pos.y);
+        //             tilePosHashSet.Add(tilepos);
+        //         }
+        //     }
+        //     return tilePosHashSet;
+        // }
 
         public static void SetTile(GameContext ctx, Tilemap tilemap, int typeID, Vector2Int pos) {
             bool has = ctx.templateCore.Tree_TryGet(typeID, out TreeTM tm);
@@ -49,7 +49,7 @@ namespace TD {
 
         public static void DeleteCells(GameContext ctx, MapEntity map, Vector3Int pos) {
             // 格子位置和格子的大小
-            Tilemap tilemap = map.treeGrid.tile;
+            Tilemap tilemap = map.treeGrid.tilemap;
             tilemap.SetTile(pos, null);
 
         }

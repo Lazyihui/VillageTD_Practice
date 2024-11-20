@@ -20,8 +20,13 @@ namespace TD {
 
             // map
             MapEntity map = MapDomain.Spawn(ctx, tm.mapEntity);
+            map.treePos = tm.mapTM.treePos;
 
-
+            foreach (Vector2Int pos in map.treePos) {
+                TreeDomain.Spawn(ctx, pos, 1, map.idSig);
+                
+                Debug.Log("TreeDomain.Spawn"+pos);
+            }
             RoleSpawnTM[] roleSpawnerTMs = tm.roleSpawnTMs;
             for (int i = 0; i < roleSpawnerTMs.Length; i++) {
                 RoleSpawnTM role = roleSpawnerTMs[i];
@@ -45,12 +50,8 @@ namespace TD {
 
 
 
-            // // TODO:REFACTOR 重构 在运行时存
-            HashSet<Vector2Int> treePosHashSet = MapDomain.GetTilePos(map.treeGrid.tile);
 
-            foreach (Vector2Int pos in treePosHashSet) {
-                TreeDomain.Spawn(ctx, pos, 1, map.idSig);
-            }
+
 
             // panel
             ctx.appUI.Panel_Manifaset_Open();

@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 namespace TD {
 
@@ -11,6 +12,7 @@ namespace TD {
         public int typeID;
         public GameObject prefab;
         public HashSet<Vector2Int> treePos;
+        public Tile treeTile;       
     }
 
 }

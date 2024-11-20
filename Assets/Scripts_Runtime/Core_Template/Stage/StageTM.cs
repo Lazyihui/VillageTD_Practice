@@ -12,7 +12,7 @@ namespace TD {
 
         public GameObject mapEntity;
 
-        public MapTM[] mapTMs;
+        public MapTM mapTM;
 
         public RoleSpawnTM[] roleSpawnTMs;
 

@@ -22,6 +22,9 @@ namespace TD {
             }
             var tm = so.tm;
 
+            SetTilePos();
+
+
         }
 
         [ContextMenu("Save")]
@@ -33,6 +36,9 @@ namespace TD {
             foreach (Vector2Int pos in mapSo.tm.treePos) {
                 Debug.Log(pos);
             }
+
+            ClearTilePos();
+
         }
 
         public HashSet<Vector2Int> GetTilePos(Tilemap tile) {
@@ -51,6 +57,25 @@ namespace TD {
 
             return tilePosHashSet;
         }
+        public void SetTilePos() {
+
+
+            Tilemap tilemap = treeTilemap;
+            HashSet<Vector2Int> treePos = mapSo.tm.treePos;
+
+            foreach (Vector2Int pos in treePos) {
+                Debug.Log(pos);
+                tilemap.SetTile(new Vector3Int(pos.x, pos.y, 0), mapSo.tm.treeTile);
+            }
+
+        }
+
+        public void ClearTilePos() {
+            Tilemap tilemap = treeTilemap;
+            tilemap.ClearAllTiles();
+        }
+
+
 
     }
 }

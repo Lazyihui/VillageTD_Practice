@@ -9,10 +9,10 @@ namespace TD {
 
         public IDSignature idSignature;
 
-        [SerializeField] public Tilemap tile;
+        [SerializeField] public Tilemap tilemap;
 
         public void GetPos(out Vector3Int pos) {
-            pos = tile.WorldToCell(transform.position);
+            pos = tilemap.WorldToCell(transform.position);
 
             // pos = tile.WorldToLocal(transform.position);\
 

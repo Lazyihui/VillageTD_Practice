@@ -80,16 +80,13 @@ namespace TD {
 
 
         public void SaveMap() {
-            // TODO: 感觉
-            MapEM[] mapsEM = GetComponentsInChildren<MapEM>();
-
-            MapTM[] mapsTM = new MapTM[mapsEM.Length];
-            for (int i = 0; i < mapsTM.Length; i++) {
-                MapEM em = mapsEM[i];
-                em.Save();
-                mapsTM[i] = em.mapSo.tm;
-            }
-
+            // TODO: 只能使用一个地图 不能使用多个地图
+            MapEM mapsEM = GetComponentInChildren<MapEM>();
+            MapTM mapsTM = new MapTM();
+            MapEM em = mapsEM;
+            em.Save();
+            mapsTM = em.mapSo.tm;
+            so.tm.mapTM = mapsTM;
             so.tm.mapEntity = modelMap;
             EditorUtility.SetDirty(so);
         }
