@@ -29,8 +29,10 @@ namespace TD.UIInternal {
         public Canvas screenCanvas;
         public Canvas worldCanvas;
 
-        public UIContext() {
+        public Panel_ManifasetElementRepos panel_ManifasetElementRepos;
 
+        public UIContext() {
+            panel_ManifasetElementRepos = new Panel_ManifasetElementRepos();
         }
 
         public void Inject(AssetsCore assetsCore, TemplateCore templateCore, Canvas screenCanvas, Canvas worldCanvas) {

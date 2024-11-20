@@ -178,7 +178,8 @@ namespace TD {
 
         public static bool MousePosInteractPanel(GameContext ctx) {
             InputEntity input = ctx.inputEntity;
-            int len = ctx.appUI.uiRepos.TakeAll_ManifastElement(out Panel_ManifastElement[] panels);
+            
+            int len = ctx.appUI.TakeAll_ManifastElement(out Panel_ManifastElement[] panels);
             for (int i = 0; i < len; i++) {
                 Panel_ManifastElement panel = panels[i];
                 float distance = Vector2.Distance(panel.transform.position, ctx.inputEntity.mousePositionScreen);

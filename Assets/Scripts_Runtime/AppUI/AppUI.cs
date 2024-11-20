@@ -8,18 +8,16 @@ namespace TD {
 
     public class AppUI {
 
-        UIContext ctx;
+        public UIContext ctx;
 
         public UIEventCenter eventCenter;
 
-        public UIReposRepository uiRepos;
 
         public int manifastEleRecordID;
 
         public AppUI() {
             ctx = new UIContext();
             eventCenter = new UIEventCenter();
-            uiRepos = new UIReposRepository();
 
             manifastEleRecordID = 0;
         }
@@ -27,8 +25,22 @@ namespace TD {
         public void Inject(AssetsCore assetsCore, TemplateCore templateCore, Canvas screenCanvas, Canvas worldCanvas) {
             ctx.Inject(assetsCore, templateCore, screenCanvas, worldCanvas);
         }
-        #region Panel_Login
 
+        public int TakeAll_ManifastElement(out Panel_ManifastElement[] array) {
+            return ctx.panel_ManifasetElementRepos.TakeAll(out array);
+        }
+
+        //  public int TakeAll(out Panel_ManifastElement[] array) {
+        //     if (all.Count > temArray.Length) {
+        //         temArray = new Panel_ManifastElement[all.Count * 2];
+        //     }
+        //     all.Values.CopyTo(temArray, 0);
+        //     array = temArray;
+        //     return all.Count;
+        // }
+
+
+        #region Panel_Login
         public void Panel_Login_Open() {
             Panel_Login panel = ctx.panel_Login;
 
@@ -111,7 +123,7 @@ namespace TD {
 
             ele.Ctor();
 
-            uiRepos.Add_ManifastElement(ele);
+            ctx.panel_ManifasetElementRepos.Add(ele);
 
         }
 
@@ -121,7 +133,7 @@ namespace TD {
                 return;
             }
 
-            int len = uiRepos.TakeAll_ManifastElement(out Panel_ManifastElement[] eles);
+            int len = ctx.panel_ManifasetElementRepos.TakeAll(out Panel_ManifastElement[] eles);
             for (int i = 0; i < len; i++) {
                 Panel_ManifastElement ele = eles[i];
                 ele.TearDown();
@@ -519,7 +531,7 @@ namespace TD {
             Panel_TowerInfo_Close();
             Panel_ManifastInfo_Close();
 
-            uiRepos.Clear_ManifastElement();
+            ctx.panel_ManifasetElementRepos.Clear();
 
         }
 

@@ -640,11 +640,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6964353004997862318, guid: e97578b111cf2444b9371c49769f54fc, type: 3}
   m_PrefabInstance: {fileID: 1171243877}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1171243879 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5469277307554302844, guid: e97578b111cf2444b9371c49769f54fc, type: 3}
-  m_PrefabInstance: {fileID: 1171243877}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1354689492
 GameObject:
   m_ObjectHideFlags: 0
@@ -661,7 +656,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1354689493
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -676,7 +671,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   typeID: 2
   so: {fileID: 11400000, guid: 22891f67d8463104daecd9c9ff5e4e6d, type: 2}
-  modelMap: {fileID: 1171243879}
+  modelMap: {fileID: 5469277307554302844, guid: e97578b111cf2444b9371c49769f54fc, type: 3}
 --- !u!4 &1354689494
 Transform:
   m_ObjectHideFlags: 0
@@ -1477,8 +1472,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   towerSpawnTM:
     so: {fileID: 11400000, guid: 23c69fe328c1c304fbc0f602acc53f23, type: 2}
-    position: {x: 0, y: 0, z: 0}
-    rotation: {x: 0, y: 0, z: 0}
+    position: {x: -11.5, y: 2, z: 0}
+    rotation: {x: -0, y: 0, z: 0}
 --- !u!4 &6284279404770411059
 Transform:
   m_ObjectHideFlags: 0
