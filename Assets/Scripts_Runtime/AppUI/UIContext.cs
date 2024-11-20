@@ -19,9 +19,6 @@ namespace TD.UIInternal {
         public Panel_StageSelection panel_StageSelection;
         public Panel_Fail panel_Fail;
 
-        // HUD
-        public HUD_GatherHint hud_GatherHint;
-
         public AssetsCore assetsCore;
         public TemplateCore templateCore;
 
@@ -30,9 +27,11 @@ namespace TD.UIInternal {
         public Canvas worldCanvas;
 
         public Panel_ManifasetElementRepos panel_ManifasetElementRepos;
+        public HUD_GatherHintRepos hud_GatherHintRepos;
 
         public UIContext() {
             panel_ManifasetElementRepos = new Panel_ManifasetElementRepos();
+            hud_GatherHintRepos = new HUD_GatherHintRepos();
         }
 
         public void Inject(AssetsCore assetsCore, TemplateCore templateCore, Canvas screenCanvas, Canvas worldCanvas) {

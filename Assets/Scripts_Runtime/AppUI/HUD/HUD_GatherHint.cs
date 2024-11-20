@@ -11,7 +11,7 @@ namespace TD {
         [SerializeField] Image imgBG;
         [SerializeField] Image imgHint;
 
-
+        public IDSignature idSig;
         public void Ctor() {
         }
 

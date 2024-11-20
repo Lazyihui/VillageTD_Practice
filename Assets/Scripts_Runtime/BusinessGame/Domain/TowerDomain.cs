@@ -92,19 +92,19 @@ namespace TD {
                 CutTree(ctx, tower, nearestTree, dt);
             } else {
                 // 关闭提示框
-                ctx.appUI.HUD_GatherHint_Close();
+                ctx.appUI.HUD_GatherHint_Close(tower.idSig);
             }
         }
         public static void CutTree(GameContext ctx, TowerEntity tower, TreeEntity tree, float dt) {
             var game = ctx.gameEntity;
 
-            // 打开提示跳
-            ctx.appUI.HUD_GatherHint_Open();
+            // 打开提示跳血调 === HUD的IDsig 和 tower的IDsig 一样
+            ctx.appUI.HUD_GatherHint_Open(tower.idSig);
             Vector3 pos = new Vector3(tree.pos.x, tree.pos.y + 0.5f, 0);
-            ctx.appUI.HUD_GatherHint_SetPos(pos);
+            ctx.appUI.HUD_GatherHint_SetPos(pos,tower.idSig);
 
             tower.cutTreeTime += dt;
-            ctx.appUI.HUD_GatherHint_SetHint(tower.cutTreeTime, tower.cutTreeInterval);
+            ctx.appUI.HUD_GatherHint_SetHint(tower.cutTreeTime, tower.cutTreeInterval,tower.idSig);
 
             if (tower.cutTreeTime >= tower.cutTreeInterval) {
                 tower.cutTreeTime = 0;

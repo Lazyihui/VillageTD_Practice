@@ -476,45 +476,45 @@ namespace TD {
 
         #region HUD_GatherHint
 
-        public void HUD_GatherHint_Open() {
-            HUD_GatherHint hud = ctx.hud_GatherHint;
-            if (hud == null) {
-                GameObject prefab = ctx.assetsCore.HUD_GetGatherHint();
-
-                GameObject go = GameObject.Instantiate(prefab, ctx.worldCanvas.transform);
-                hud = go.GetComponent<HUD_GatherHint>();
-                hud.Ctor();
-            }
-
-            hud.Show();
-            ctx.hud_GatherHint = hud;
-        }
-
-        public void HUD_GatherHint_SetHint(float time, float allTime) {
-
-            HUD_GatherHint hud = ctx.hud_GatherHint;
-            if (hud == null) {
+        public void HUD_GatherHint_Open(IDSignature idSig) {
+            ctx.hud_GatherHintRepos.TryGet(idSig, out HUD_GatherHint hudHint);
+            if (hudHint != null) {
                 return;
             }
 
+            GameObject prefab = ctx.assetsCore.HUD_GetGatherHint();
+            GameObject go = GameObject.Instantiate(prefab, ctx.worldCanvas.transform);
+            HUD_GatherHint hud = go.GetComponent<HUD_GatherHint>();
+            hud.Ctor();
+            hud.idSig = idSig;
+            Debug.Log("HUD_GatherHint_Open");
+            ctx.hud_GatherHintRepos.Add(hud);
+
+            hud.Show();
+
+        }
+
+        public void HUD_GatherHint_SetHint(float time, float allTime, IDSignature idSig) {
+            ctx.hud_GatherHintRepos.TryGet(idSig, out HUD_GatherHint hud);
+            if (hud == null) {
+                return;
+            }
             hud.SetHint(time, allTime);
         }
 
-        public void HUD_GatherHint_SetPos(Vector3 pos) {
-            HUD_GatherHint hud = ctx.hud_GatherHint;
+        public void HUD_GatherHint_SetPos(Vector3 pos, IDSignature idSig) {
+            ctx.hud_GatherHintRepos.TryGet(idSig, out HUD_GatherHint hud);
             if (hud == null) {
                 return;
             }
-
             hud.SetPos(pos);
         }
 
-        public void HUD_GatherHint_Close() {
-            HUD_GatherHint hud = ctx.hud_GatherHint;
+        public void HUD_GatherHint_Close(IDSignature idSig) {
+            ctx.hud_GatherHintRepos.TryGet(idSig, out HUD_GatherHint hud);
             if (hud == null) {
                 return;
             }
-
             hud.TearDown();
         }
 
