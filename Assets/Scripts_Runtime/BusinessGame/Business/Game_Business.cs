@@ -121,7 +121,6 @@ namespace TD {
 
             }
 
-            TowerEntity baseTower = ctx.Tower_GetOwner();
 
             int lenTower = ctx.towerRepository.TakeAll(out TowerEntity[] towers);
             for (int i = 0; i < lenTower; i++) {

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tm:
     typeID: 1
-    mapEntity: {fileID: 230205709181933729, guid: e5e22dfe766614f44ad1cd182e7cf92d, type: 3}
+    mapEntity: {fileID: 0}
     roleSpawnTMs:
     - so: {fileID: 11400000, guid: 06b6212800b32cb429965f0b39ea1d20, type: 2}
       position: {x: -6.84, y: 0, z: 0}
@@ -22,4 +22,9 @@ MonoBehaviour:
     caveSpawnTMs:
     - so: {fileID: 11400000, guid: b6c052250beb2864b8370632b011adf0, type: 2}
       position: {x: 17.65, y: 0, z: 0}
+      rotation: {x: -0, y: 0, z: 0}
+      path: []
+    towerSpawnTMs:
+    - so: {fileID: 11400000, guid: 23c69fe328c1c304fbc0f602acc53f23, type: 2}
+      position: {x: 0, y: 0, z: 0}
       rotation: {x: -0, y: 0, z: 0}

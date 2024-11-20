@@ -41,17 +41,26 @@ namespace TD {
         }
 
         public static void FlagHp_GameFail(GameContext ctx) {
-            TowerEntity owner = ctx.Tower_GetOwner();
-            if (owner == null) {
-                return;
+            int len = ctx.towerRepository.TakeAll(out TowerEntity[] towers);
+            for (int i = 0; i < len; i++) {
+                TowerEntity owner = towers[i];
+                if (owner == null) {
+                    continue;
+                }
+                if (!owner.fsmCom.isBaseTower) {
+                    return;
+                }
+                if (owner.hp <= 0) {
+                    ctx.gameEntity.state = GameState.GameOver;
+                    ctx.appUI.Panel_Fail_Open();
+                    ClearAll(ctx);
+                }
             }
 
-            if (owner.hp <= 0) {
-                ctx.gameEntity.state = GameState.GameOver;
-                ctx.appUI.Panel_Fail_Open();
 
-                ClearAll(ctx);
-            }
+
+
+
         }
         #region Victory
         public static void FlagHp_GameWin(GameContext ctx) {
