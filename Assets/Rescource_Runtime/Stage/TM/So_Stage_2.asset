@@ -15,6 +15,7 @@ MonoBehaviour:
   tm:
     typeID: 2
     mapEntity: {fileID: 5469277307554302844, guid: e97578b111cf2444b9371c49769f54fc, type: 3}
+    mapTMs: []
     roleSpawnTMs:
     - so: {fileID: 11400000, guid: 06b6212800b32cb429965f0b39ea1d20, type: 2}
       position: {x: -4.98, y: 0, z: 0}

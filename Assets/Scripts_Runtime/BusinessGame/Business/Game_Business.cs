@@ -17,6 +17,8 @@ namespace TD {
             if (!has) {
                 Debug.LogError("Stage 1 not found");
             }
+
+            // map
             MapEntity map = MapDomain.Spawn(ctx, tm.mapEntity);
 
 
@@ -41,7 +43,9 @@ namespace TD {
 
 
 
-            // TODO:REFACTOR 重构 在运行时存
+
+
+            // // TODO:REFACTOR 重构 在运行时存
             HashSet<Vector2Int> treePosHashSet = MapDomain.GetTilePos(map.treeGrid.tile);
 
             foreach (Vector2Int pos in treePosHashSet) {

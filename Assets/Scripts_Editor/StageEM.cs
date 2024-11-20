@@ -23,8 +23,6 @@ namespace TD {
             }
             so.tm.typeID = typeID;
 
-            so.tm.mapEntity = modelMap;
-
             Debug.Log("Save");
             SaveRole();
             SaveCave();
@@ -79,7 +77,19 @@ namespace TD {
 
         }
 
+
+
         public void SaveMap() {
+            // TODO: 感觉
+            MapEM[] mapsEM = GetComponentsInChildren<MapEM>();
+
+            MapTM[] mapsTM = new MapTM[mapsEM.Length];
+            for (int i = 0; i < mapsTM.Length; i++) {
+                MapEM em = mapsEM[i];
+                em.Save();
+                mapsTM[i] = em.mapSo.tm;
+            }
+
             so.tm.mapEntity = modelMap;
             EditorUtility.SetDirty(so);
         }

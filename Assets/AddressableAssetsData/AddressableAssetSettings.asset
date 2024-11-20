@@ -15,7 +15,7 @@ MonoBehaviour:
   m_DefaultGroup: f6b556ce075db4647a780f8cd7c59b47
   m_currentHash:
     serializedVersion: 2
-    Hash: df24475ef1570bee51721145a245861c
+    Hash: 00000000000000000000000000000000
   m_OptimizeCatalogSize: 0
   m_BuildRemoteCatalog: 0
   m_BundleLocalCatalog: 0
@@ -107,6 +107,7 @@ MonoBehaviour:
     - So_PanelCard
     - So_Cave
     - So_Stage
+    - So_Map
   m_SchemaTemplates: []
   m_GroupTemplateObjects:
   - {fileID: 11400000, guid: e4a33e5171c66cf42b657039c7e85a3c, type: 2}

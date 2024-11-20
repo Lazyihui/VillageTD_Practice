@@ -122,6 +122,20 @@ namespace TD {
 
                 ctx.templateCore.ctx.stagePtr = handle;
             }
+            {
+                AssetLabelReference labelReference = new AssetLabelReference();
+                labelReference.labelString = "So_Map";
+
+                var hanle = Addressables.LoadAssetsAsync<MapSO>(labelReference, null);
+                var all = await hanle.Task;
+
+                foreach(var so in all) {
+                    var tm = so.tm;
+                    ctx.templateCore.ctx.maps.Add(tm.typeID, tm);
+                }
+
+                ctx.templateCore.ctx.mapPtr = hanle;
+            }
         }
         // 找种类的Role
         public bool Role_TryGet(int typeID, out RoleTM role) {

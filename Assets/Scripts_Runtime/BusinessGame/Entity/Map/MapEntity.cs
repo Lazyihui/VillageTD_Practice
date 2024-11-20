@@ -1,4 +1,6 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 
@@ -12,6 +14,8 @@ namespace TD {
         public MapGripElement groundTile;
 
         public MapGripElement treeGrid;
+
+        public HashSet<Vector2Int> treePos;
 
         public void Ctor() {
 

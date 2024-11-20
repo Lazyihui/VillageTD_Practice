@@ -8,35 +8,23 @@ namespace TD.TemplateInternal {
 
     public class TemplateContext {
 
-
         GameTM game;
         public Dictionary<int, RoleTM> roles;
-
         public AsyncOperationHandle rolePtr;
-
         public Dictionary<int, TowerTM> towers;
-
         public AsyncOperationHandle towerPtr;
-
         public Dictionary<int, BulletTM> bullets;
-
         public AsyncOperationHandle bulletPtr;
-
         public Dictionary<int, TreeTM> trees;
-
         public AsyncOperationHandle treePtr;
-
         public Dictionary<int, PanelCardTM> panelCards;
-
         public AsyncOperationHandle panelCardPtr;
-
         public Dictionary<int, CaveTM> caves;
-
         public AsyncOperationHandle cavePtr;
-
         public Dictionary<int, StageTM> stages;
-
         public AsyncOperationHandle stagePtr;
+        public Dictionary<int, MapTM> maps;
+        public AsyncOperationHandle mapPtr;
 
         public TemplateContext() {
             roles = new Dictionary<int, RoleTM>();
@@ -46,6 +34,7 @@ namespace TD.TemplateInternal {
             panelCards = new Dictionary<int, PanelCardTM>();
             caves = new Dictionary<int, CaveTM>();
             stages = new Dictionary<int, StageTM>();
+            maps = new Dictionary<int, MapTM>();
         }
 
        

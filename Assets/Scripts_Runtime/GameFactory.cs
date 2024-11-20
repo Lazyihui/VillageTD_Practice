@@ -159,7 +159,8 @@ namespace TD {
             map.idSig.entityType = EntityType.Map;
             map.idSig.entityID = ctx.idService.stageRecordID++;
             map.Ctor();
-
+            
+            
             return map;
         }
 
@@ -223,7 +224,7 @@ namespace TD {
 
             entity.TF_SetPostion(spawnTM.position);
             entity.TF_SetRotation(spawnTM.rotation);
-            
+
             entity.mstMovePath = spawnTM.path;
 
             return entity;

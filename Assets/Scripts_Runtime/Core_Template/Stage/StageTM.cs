@@ -12,6 +12,8 @@ namespace TD {
 
         public GameObject mapEntity;
 
+        public MapTM[] mapTMs;
+
         public RoleSpawnTM[] roleSpawnTMs;
 
         public CaveSpawnTM[] caveSpawnTMs;

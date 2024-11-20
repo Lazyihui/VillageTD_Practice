@@ -31,7 +31,6 @@ namespace TD {
         public void Save() {
             Debug.Log("Save_Tower");
             towerSpawnTM.position = transform.position;
-            Debug.Log(towerSpawnTM.position);
             towerSpawnTM.rotation = transform.rotation.eulerAngles;
         }
 
