@@ -25,6 +25,10 @@ namespace TD {
                 return;
             }
 
+            if (cave.activeTimer > cave.activeInterval) {
+                return;
+            }
+
             cave.activeTimer += dt;
             if (cave.activeTimer >= cave.activeInterval) {
                 cave.isLive = true;
@@ -33,17 +37,19 @@ namespace TD {
         }
 
         public static bool CaveSpawnMst(GameContext ctx, CaveEntity cave, float dt) {
+
             if (cave.spawnCount >= cave.spawnMaxCount) {
                 return true;
             }
 
             cave.caveSpawnTime += dt;
             if (cave.caveSpawnTime >= cave.caveSpawnInterval) {
-                cave.caveSpawnTime = 0;
-                cave.spawnCount++;
+                cave.spawnCount+=1;
                 Vector3 pos = cave.transform.position;
                 RoleDomain.SpawnMst(ctx, RoleConst.Monster, pos, cave.mstMovePath);
+                cave.caveSpawnTime = 0;
             }
+
             return false;
         }
 

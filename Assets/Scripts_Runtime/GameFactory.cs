@@ -46,6 +46,7 @@ namespace TD {
             entity.idSig.entityType = EntityType.Role;
             entity.idSig.entityID = ctx.idService.mstroleRecordID++;
             entity.typeID = tm.typeID;
+            entity.fsmCom = tm.fsmCom;
 
             entity.Ctor();
             entity.SetCircleActive();

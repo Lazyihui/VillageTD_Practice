@@ -53,17 +53,18 @@ namespace TD {
                 ClearAll(ctx);
             }
         }
-
+        #region Victory
         public static void FlagHp_GameWin(GameContext ctx) {
             GameEntity game = ctx.gameEntity;
 
             if (game.isCavrSpawnMstOver) {
+
                 int mstCount = 0;
+
                 int len = ctx.roleRepository.TakeAll(out RoleEntity[] roles);
                 for (int i = 0; i < len; i++) {
                     RoleEntity role = roles[i];
 
-                    // 要改改成bool
                     if (role.fsmCom.isRole) {
                         continue;
                     }
@@ -86,7 +87,7 @@ namespace TD {
             }
 
         }
-
+        #endregion
         #region  clear
 
         public static void ClearAll(GameContext ctx) {

@@ -14,7 +14,7 @@ namespace TD {
         public int stageID;
         public GameState state;
         public int resCount;
-       
+
 
 
         public bool handHasCard;
@@ -34,7 +34,6 @@ namespace TD {
         public float panel_NoticeCloseTimer;
         public bool isPanel_NoticeOpen;
 
-
         public GameEntity() {
 
             stageID = 1;
@@ -53,6 +52,8 @@ namespace TD {
             panel_GuideCloseTimer = 5;
             panel_NoticeCloseTimer = 2;
 
+           ;
+
         }
 
         public void Ctor() {
@@ -70,6 +71,9 @@ namespace TD {
             MousePaneltypeID = -1;
             panel_GuideCloseTimer = 5;
             panel_NoticeCloseTimer = 2;
+
+            
+
         }
     }
 }

@@ -9,9 +9,9 @@ namespace TD {
     public static class TowerDomain {
 
         #region Lifecycle
-        public static TowerEntity Spawn_HasPos(GameContext ctx, int typeID, Vector2Int pos, IDSignature idsigMap,TowerSpawnTM spawnTM) {
+        public static TowerEntity Spawn_HasPos(GameContext ctx, int typeID, Vector2Int pos, IDSignature idsigMap, TowerSpawnTM spawnTM) {
 
-            TowerEntity entity = GameFactory.Tower_Create_hasPos(ctx, typeID, pos, idsigMap,spawnTM);
+            TowerEntity entity = GameFactory.Tower_Create_hasPos(ctx, typeID, pos, idsigMap, spawnTM);
 
             ctx.towerRepository.Add(entity);
             return entity;
