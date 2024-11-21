@@ -183,12 +183,17 @@ namespace TD {
         }
         // 显示Panel
         public static void ShowPanel_TowerInfo(GameContext ctx) {
+            var game = ctx.gameEntity;
+            var input = ctx.inputEntity;
             bool has = MousePosInteractTower(ctx);
             if (has) {
-                ctx.towerRepository.TryGet(ctx.gameEntity.mouseTowerIDSig, out TowerEntity tower);
-                ctx.appUI.Panel_TowerInfo_Open(ctx.inputEntity.mousePositionWorld, tower);
+                ctx.towerRepository.TryGet(game.mouseTowerIDSig, out TowerEntity tower);
+                ctx.appUI.Panel_TowerInfo_Open(input.mousePositionWorld, tower);
             } else {
-                ctx.appUI.Panel_TowerInfo_Close();
+                if (game.isTowerInfoCanInteractmouse) {
+                    ctx.appUI.Panel_TowerInfo_Close();
+                }
+
             }
         }
         // 打开Panel
@@ -206,6 +211,8 @@ namespace TD {
                 Vector3 pos = new Vector3(tower.transform.position.x, tower.transform.position.y + 1.2f, 0);
                 ctx.appUI.Panel_TowerInfo_Open(pos, tower);
                 game.isHUD_InteractPopupOpen = false;
+                game.isTowerInfoCanInteractmouse = false;
+
             }
         }
         public static void OpenPanel_PanelInfo(GameContext ctx) {
@@ -214,7 +221,6 @@ namespace TD {
                 ctx.appUI.Panel_ManifastInfo_Open();
                 ctx.templateCore.PanelCard_TryGet(ctx.gameEntity.MousePaneltypeID, out PanelCardTM tm);
                 ctx.appUI.Panel_ManifastInfo_SetTxt(tm.typeName, tm.hp, tm.attack, tm.buildCost);
-
             } else {
                 ctx.appUI.Panel_ManifastInfo_Close();
             }
@@ -243,7 +249,6 @@ namespace TD {
                     ctx.appUI.Panel_Notice_Close();
                     ctx.gameEntity.isPanel_NoticeOpen = false;
                     game.panel_NoticeCloseTimer = 2;
-
                 }
             }
         }

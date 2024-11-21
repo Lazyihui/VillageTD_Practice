@@ -37,6 +37,7 @@ namespace TD {
         // 交互页面是否打开
         public bool isHUD_InteractPopupOpen;
         public IDSignature interactTowerIDSig;
+        public bool isTowerInfoCanInteractmouse;
 
         public GameEntity() {
 
@@ -56,6 +57,7 @@ namespace TD {
             panel_GuideCloseTimer = 5;
             panel_NoticeCloseTimer = 2;
             isHUD_InteractPopupOpen = false;
+            isTowerInfoCanInteractmouse = true;
 
         }
 
@@ -76,6 +78,7 @@ namespace TD {
             panel_NoticeCloseTimer = 2;
 
             isHUD_InteractPopupOpen = false;
+            isTowerInfoCanInteractmouse = true;
 
         }
     }

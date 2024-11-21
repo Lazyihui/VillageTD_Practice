@@ -56,7 +56,7 @@ namespace TD {
                     //打开交互面板 
                     Vector3 pos = new Vector3(tower.transform.position.x, tower.transform.position.y + 1.2f, 0);
                     ctx.appUI.HUD_InteractPopup_Open(pos);
-                    // 记录交互的塔
+                    // 记录交互的塔 
                     game.interactTowerIDSig = tower.idSig;
                     game.isHUD_InteractPopupOpen = true;
 
