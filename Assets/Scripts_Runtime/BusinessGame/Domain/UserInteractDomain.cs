@@ -57,8 +57,6 @@ namespace TD {
 
             Tree_Plant(ctx, pos);
         }
-
-
         static void Tower_TryBuild(GameContext ctx, int typeID, Vector2Int pos) {
 
             bool allow = Tower_AllowBuild(ctx, typeID, pos);
@@ -93,8 +91,6 @@ namespace TD {
             ctx.gameEntity.handCardID = -1;
 
         }
-
-
         static bool Tower_AllowBuild(GameContext ctx, int typeID, Vector2Int pos) {
             // 没有这个塔
             bool has = ctx.templateCore.Tower_TryGet(typeID, out TowerTM tm);
@@ -102,17 +98,14 @@ namespace TD {
                 Debug.Log("没有这个typeID" + typeID);
                 return false;
             }
-
             // 此处有塔
             bool hasTower = ctx.towerRepository.TryGetByPos(pos, out _);
             if (hasTower) {
                 Debug.Log("此处有塔" + pos);
                 return false;
             }
-
             bool hasTree = ctx.treeRepository.IsPosHas(pos);
             bool isLand = true;
-
             PlaceConditionType placeConditionType = tm.placeConditionType;
             // ==== Only ====
             // 0110 == 0100
@@ -126,7 +119,6 @@ namespace TD {
                     return false;
                 }
             }
-
             if (placeConditionType == PlaceConditionType.Land) {
                 if (isLand && !hasTree) {
                     return true;
@@ -134,9 +126,7 @@ namespace TD {
                     return false;
                 }
             }
-
             // TODO: 只能造水池
-
             // ==== Or ====
             // 0110 & 0100 != 0
             // 允许建在树上
@@ -153,11 +143,9 @@ namespace TD {
                     return true;
                 }
             }
-
             return false;
 
         }
-
         #endregion
         #region  panel_Info
         // 鼠标和塔交互 鼠标是否在塔上
@@ -173,7 +161,6 @@ namespace TD {
                 }
             }
             return false;
-
         }
 
         public static bool MousePosInteractPanel(GameContext ctx) {
@@ -193,7 +180,6 @@ namespace TD {
             return false;
 
         }
-
         public static void OpenPanel_TowerInfo(GameContext ctx) {
             bool has = MousePosInteractTower(ctx);
             if (has) {
@@ -217,12 +203,14 @@ namespace TD {
             }
         }
 
-
         #endregion
+
+
+        #region  ClosePanel  
+        // 根据时间来关闭引导
         public static void ClosePanel_Guide(GameContext ctx, float dt) {
             InputEntity input = ctx.inputEntity;
             var game = ctx.gameEntity;
-
             if (input.moveAxis != Vector2.zero) {
                 game.panel_GuideCloseTimer -= dt;
                 if (game.panel_GuideCloseTimer <= 0) {
@@ -230,20 +218,18 @@ namespace TD {
                 }
             }
         }
-
         public static void ClosePanel_Notice(GameContext ctx, float dt) {
             var game = ctx.gameEntity;
             if (game.isPanel_NoticeOpen) {
                 game.panel_NoticeCloseTimer -= dt;
                 if (game.panel_NoticeCloseTimer <= 0) {
-
                     ctx.appUI.Panel_Notice_Close();
                     ctx.gameEntity.isPanel_NoticeOpen = false;
                     game.panel_NoticeCloseTimer = 2;
 
                 }
-
             }
         }
+        #endregion
     }
 }

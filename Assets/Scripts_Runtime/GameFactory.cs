@@ -160,7 +160,6 @@ namespace TD {
             map.idSig.entityID = ctx.idService.stageRecordID++;
             map.Ctor();
             
-            
             return map;
         }
 

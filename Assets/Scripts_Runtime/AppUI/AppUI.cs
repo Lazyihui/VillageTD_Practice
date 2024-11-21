@@ -528,6 +528,44 @@ namespace TD {
 
         #endregion
 
+        #region HUD_InteractPopup
+        public void HUD_InteractPopup_Open(Vector3 pos) {
+            HUD_InteractPopup hud = ctx.interactPopup;
+
+            if (hud == null) {
+                GameObject prefab = ctx.assetsCore.HUD_GetInteractPopup();
+                GameObject go = GameObject.Instantiate(prefab, ctx.worldCanvas.transform);
+                hud = go.GetComponent<HUD_InteractPopup>();
+                hud.Ctor();
+
+                hud.SetPos(pos);
+
+            }
+
+
+            hud.Show();
+        }
+
+        public Vector3 HUD_InteractPopup_GetPos() {
+            HUD_InteractPopup hud = ctx.interactPopup;
+            if (hud == null) {
+                return Vector3.zero;
+            }
+            return hud.GetPos();
+        }
+
+        public void HUD_InteractPopup_Close() {
+            HUD_InteractPopup hud = ctx.interactPopup;
+            if (hud == null) {
+                return;
+            }
+
+            hud.TearDown();
+        }
+
+        #endregion
+
+
         public void Clear() {
             panel_Manifast_Close();
             Panel_ResourceInfo_Close();

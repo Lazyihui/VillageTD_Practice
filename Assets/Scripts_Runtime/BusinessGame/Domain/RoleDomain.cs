@@ -41,6 +41,27 @@ namespace TD {
                 BulletDomain.Spawm(ctx, BulletConst.RoleBlt, entity.transform.position);
             }
         }
+
+        public static void InteractTower(GameContext ctx, RoleEntity role) {
+            //   role 判断和Tower的距离来交互
+            int len = ctx.towerRepository.TakeAll(out TowerEntity[] towers);
+
+            for (int i = 0; i < len; i++) {
+                TowerEntity tower = towers[i];
+                float distance = Vector2.Distance(tower.transform.position, role.transform.position);
+                if (distance < 0.9f) {
+                    // 交互
+
+                    //打开交互面板 
+                    Vector3 pos = new Vector3(tower.transform.position.x, tower.transform.position.y + 1.2f, 0);
+                    ctx.appUI.HUD_InteractPopup_Open(pos);
+
+                }
+            }
+        }
+
+
+
         #endregion
 
         // 主角发射子弹

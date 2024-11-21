@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tm:
     typeID: 0
-    prefab: {fileID: 0}
+    prefab: {fileID: 102258634951836099, guid: 940e68a6d0818f2458ccdace275d5ca6, type: 3}
     treeTile: {fileID: 11400000, guid: 0af6fd9572da9714e9fb843e8b25192b, type: 2}

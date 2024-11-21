@@ -28,6 +28,7 @@ namespace TD.UIInternal {
 
         public Panel_ManifasetElementRepos panel_ManifasetElementRepos;
         public HUD_GatherHintRepos hud_GatherHintRepos;
+        public HUD_InteractPopup interactPopup;
 
         public UIContext() {
             panel_ManifasetElementRepos = new Panel_ManifasetElementRepos();

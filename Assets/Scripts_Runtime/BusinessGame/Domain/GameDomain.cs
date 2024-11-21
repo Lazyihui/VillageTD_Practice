@@ -13,10 +13,8 @@ namespace TD {
             SetPanelCardPos(ctx);
             // 右键取消card
             CancelBuiidTowerCard(ctx);
-
             // 游戏结束
             FlagHp_GameFail(ctx);
-
             // 游戏胜利
             FlagHp_GameWin(ctx);
         }
@@ -24,7 +22,6 @@ namespace TD {
 
         public static void SetPanelCardPos(GameContext ctx) {
             if (ctx.gameEntity.handHasCard || ctx.gameEntity.handHasCardTree) {
-
                 Vector2Int pos = ctx.inputEntity.mousePositionGrid;
                 ctx.appUI.Panel_SelectCard_SetPos(pos);
             }
@@ -32,7 +29,6 @@ namespace TD {
 
         public static void CancelBuiidTowerCard(GameContext ctx) {
             if (ctx.gameEntity.handHasCard || ctx.gameEntity.handHasCardTree) {
-
                 if (ctx.inputEntity.mouseRightClick) {
                     ctx.appUI.Panel_SelectCard_Close();
                     ctx.gameEntity.handHasCard = false;
@@ -56,11 +52,6 @@ namespace TD {
                     ClearAll(ctx);
                 }
             }
-
-
-
-
-
         }
         #region Victory
         public static void FlagHp_GameWin(GameContext ctx) {

@@ -157,6 +157,11 @@ namespace TD {
             panels.TryGetValue("HUD_GatherHint", out GameObject hud);
             return hud;
         }
+
+        public GameObject HUD_GetInteractPopup() {
+            panels.TryGetValue("HUD_InteractPopup", out GameObject hud);
+            return hud;
+        }
         // map
 
         public GameObject Entity_GetMap() {

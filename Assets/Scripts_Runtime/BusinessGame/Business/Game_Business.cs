@@ -24,8 +24,8 @@ namespace TD {
 
             foreach (Vector2Int pos in map.treePos) {
                 TreeDomain.Spawn(ctx, pos, 1, map.idSig);
-                
-                Debug.Log("TreeDomain.Spawn"+pos);
+
+                Debug.Log("TreeDomain.Spawn" + pos);
             }
             RoleSpawnTM[] roleSpawnerTMs = tm.roleSpawnTMs;
             for (int i = 0; i < roleSpawnerTMs.Length; i++) {
@@ -113,6 +113,8 @@ namespace TD {
             RoleEntity owner = ctx.Role_GetOwner();
             RoleDomain.Move(owner, dt);
             RoleDomain.SpawnBullet(ctx, owner, dt);
+            // 主角的交互
+            RoleDomain.InteractTower(ctx, owner);
 
 
             int lenMst = ctx.roleRepository.TakeAll(out RoleEntity[] msts);

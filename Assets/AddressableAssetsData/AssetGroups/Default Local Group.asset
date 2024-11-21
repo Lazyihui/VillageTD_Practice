@@ -41,6 +41,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - So_Map
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1b553423be13b2948a895c8b2196f9ef
+    m_Address: HUD_InteractPopup
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Panel
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: ce53ef2a080bb9e41a644841fa038063, type: 2}
   m_SchemaSet:
