@@ -5,22 +5,16 @@ using UnityEngine;
 
 
 namespace TD {
-
+    // TODO: 这个应该叫InputCore 不是InputEntity
     public class InputEntity {
         public InputController Player1;
-
-
         public Vector2 moveAxis;
-
         public Vector2 mousePositionScreen;
-
         public Vector2 mousePositionWorld;
-
         public Vector2Int mousePositionGrid;
-
         public bool mouseLeftClick;
-
         public bool mouseRightClick;
+        public bool ispressF;
 
         public InputEntity() {
             Player1 = new InputController();
@@ -80,7 +74,14 @@ namespace TD {
                 } else {
                     mouseRightClick = false;
                 }
-
+            }
+            {
+                float f = world.KB_PressF.ReadValue<float>();
+                if (f > 0) {
+                    ispressF = true;
+                } else {
+                    ispressF = false;
+                }
             }
         }
     }

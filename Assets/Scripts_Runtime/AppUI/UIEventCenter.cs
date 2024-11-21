@@ -50,5 +50,19 @@ namespace TD {
                 OnStageElementBtnClickHandle.Invoke(stageID);
             }
         }
+
+        public Action OnRemoveClickTowerHandle;
+        public void OnRemoveBtnClickTower() {
+            if (OnRemoveClickTowerHandle != null) {
+                OnRemoveClickTowerHandle.Invoke();
+            }
+        }
+
+        public Action OnUpgradeClickTowerHandle;
+        public void OnUpgradeBtnClickTower() {
+            if (OnUpgradeClickTowerHandle != null) {
+                OnUpgradeClickTowerHandle.Invoke();
+            }
+        }
     }
 }

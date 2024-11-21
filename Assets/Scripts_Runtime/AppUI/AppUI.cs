@@ -233,6 +233,13 @@ namespace TD {
                 GameObject go = GameObject.Instantiate(prefab, ctx.worldCanvas.transform);
                 panel = go.GetComponent<Panel_TowerInfo>();
                 panel.Ctor();
+                panel.OnRemoveClickHandle += () => {
+                    eventCenter.OnRemoveBtnClickTower();
+                };
+                panel.OnUpgradeClickHandle += () => {
+                    eventCenter.OnUpgradeBtnClickTower();
+                };
+
                 panel.SetPos(pos);
             }
 

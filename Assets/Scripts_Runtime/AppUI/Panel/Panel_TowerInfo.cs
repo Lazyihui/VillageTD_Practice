@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 namespace TD {
@@ -8,12 +9,16 @@ namespace TD {
     public class Panel_TowerInfo : MonoBehaviour {
 
         [SerializeField] TextMeshProUGUI txtName;
-
         [SerializeField] TextMeshProUGUI txtHp;
-
         [SerializeField] TextMeshProUGUI txtAttack;
-
         [SerializeField] TextMeshProUGUI txtCost;
+
+        [SerializeField] Button btn_Remove;
+        public Action OnRemoveClickHandle;
+        [SerializeField] Button btn_Upgrade;
+        public Action OnUpgradeClickHandle;
+
+
 
         public void SetData(string name, int hp, float attack, int cost) {
             txtName.text = name;
@@ -27,6 +32,13 @@ namespace TD {
             txtHp.text = "";
             txtAttack.text = "";
             txtCost.text = "";
+
+            btn_Remove.onClick.AddListener(() => {
+                OnRemoveClickHandle?.Invoke();
+            });
+            btn_Upgrade.onClick.AddListener(() => {
+                OnUpgradeClickHandle?.Invoke();
+            });
         }
 
         public void Show() {

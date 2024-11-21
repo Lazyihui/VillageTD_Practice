@@ -89,6 +89,15 @@ public partial class @InputController: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""KB_PressF"",
+                    ""type"": ""Button"",
+                    ""id"": ""5a52ae12-7725-4de0-90a6-c2f211486225"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -212,6 +221,17 @@ public partial class @InputController: IInputActionCollection2, IDisposable
                     ""action"": ""MouseRight"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a9245fda-e8e1-4072-962a-1f6afbf174ff"",
+                    ""path"": ""<Keyboard>/f"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""KB_PressF"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -283,6 +303,7 @@ public partial class @InputController: IInputActionCollection2, IDisposable
         m_World_Mouse_Pos = m_World.FindAction("Mouse_Pos", throwIfNotFound: true);
         m_World_MouseLeft = m_World.FindAction("MouseLeft", throwIfNotFound: true);
         m_World_MouseRight = m_World.FindAction("MouseRight", throwIfNotFound: true);
+        m_World_KB_PressF = m_World.FindAction("KB_PressF", throwIfNotFound: true);
         // New action map1
         m_Newactionmap1 = asset.FindActionMap("New action map1", throwIfNotFound: true);
         m_Newactionmap1_Newaction = m_Newactionmap1.FindAction("New action", throwIfNotFound: true);
@@ -357,6 +378,7 @@ public partial class @InputController: IInputActionCollection2, IDisposable
     private readonly InputAction m_World_Mouse_Pos;
     private readonly InputAction m_World_MouseLeft;
     private readonly InputAction m_World_MouseRight;
+    private readonly InputAction m_World_KB_PressF;
     public struct WorldActions
     {
         private @InputController m_Wrapper;
@@ -368,6 +390,7 @@ public partial class @InputController: IInputActionCollection2, IDisposable
         public InputAction @Mouse_Pos => m_Wrapper.m_World_Mouse_Pos;
         public InputAction @MouseLeft => m_Wrapper.m_World_MouseLeft;
         public InputAction @MouseRight => m_Wrapper.m_World_MouseRight;
+        public InputAction @KB_PressF => m_Wrapper.m_World_KB_PressF;
         public InputActionMap Get() { return m_Wrapper.m_World; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -398,6 +421,9 @@ public partial class @InputController: IInputActionCollection2, IDisposable
             @MouseRight.started += instance.OnMouseRight;
             @MouseRight.performed += instance.OnMouseRight;
             @MouseRight.canceled += instance.OnMouseRight;
+            @KB_PressF.started += instance.OnKB_PressF;
+            @KB_PressF.performed += instance.OnKB_PressF;
+            @KB_PressF.canceled += instance.OnKB_PressF;
         }
 
         private void UnregisterCallbacks(IWorldActions instance)
@@ -423,6 +449,9 @@ public partial class @InputController: IInputActionCollection2, IDisposable
             @MouseRight.started -= instance.OnMouseRight;
             @MouseRight.performed -= instance.OnMouseRight;
             @MouseRight.canceled -= instance.OnMouseRight;
+            @KB_PressF.started -= instance.OnKB_PressF;
+            @KB_PressF.performed -= instance.OnKB_PressF;
+            @KB_PressF.canceled -= instance.OnKB_PressF;
         }
 
         public void RemoveCallbacks(IWorldActions instance)
@@ -541,6 +570,7 @@ public partial class @InputController: IInputActionCollection2, IDisposable
         void OnMouse_Pos(InputAction.CallbackContext context);
         void OnMouseLeft(InputAction.CallbackContext context);
         void OnMouseRight(InputAction.CallbackContext context);
+        void OnKB_PressF(InputAction.CallbackContext context);
     }
     public interface INewactionmap1Actions
     {

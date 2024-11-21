@@ -38,7 +38,7 @@ namespace TD {
             action.Invoke();
 
         }
-
+        #region  Binding
         void Binding() {
             var eventCenter = ctx.appUI.eventCenter;
 
@@ -100,12 +100,21 @@ namespace TD {
                 ctx.appUI.Panel_Victory_Close();
             };
 
+            eventCenter.OnRemoveClickTowerHandle += () => {
+                Debug.Log("OnRemoveClickTowerHandle");
+            };
+
+            eventCenter.OnUpgradeClickTowerHandle += () => {
+                Debug.Log("OnUpgradeClickTowerHandle");
+            };
+
         }
+        #endregion
         void OnGUI() {
             GUILayout.Label("Mouse World Pos: " + ctx.inputEntity.mousePositionWorld);
             GUILayout.Label("Mouse Grid Pos: " + ctx.inputEntity.mousePositionGrid);
 
-        
+
         }
 
         void Update() {
