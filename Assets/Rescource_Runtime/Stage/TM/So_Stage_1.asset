@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tm:
     typeID: 1
-    mapEntity: {fileID: 0}
+    mapEntity: {fileID: 102258634951836099, guid: 940e68a6d0818f2458ccdace275d5ca6, type: 3}
     mapTM:
       typeID: 0
       prefab: {fileID: 0}

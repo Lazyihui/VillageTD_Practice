@@ -1540,7 +1540,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &694176161
 Transform:
   m_ObjectHideFlags: 0
@@ -1585,39 +1585,39 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1217320221163359565, guid: e97578b111cf2444b9371c49769f54fc, type: 3}
       propertyPath: m_Size.x
-      value: 26
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1217320221163359565, guid: e97578b111cf2444b9371c49769f54fc, type: 3}
       propertyPath: m_Size.y
-      value: 17
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1217320221163359565, guid: e97578b111cf2444b9371c49769f54fc, type: 3}
       propertyPath: m_Origin.x
-      value: -19
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1217320221163359565, guid: e97578b111cf2444b9371c49769f54fc, type: 3}
       propertyPath: m_Origin.y
-      value: -7
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1217320221163359565, guid: e97578b111cf2444b9371c49769f54fc, type: 3}
       propertyPath: m_Tiles.Array.size
-      value: 83
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1217320221163359565, guid: e97578b111cf2444b9371c49769f54fc, type: 3}
       propertyPath: m_TileAssetArray.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1217320221163359565, guid: e97578b111cf2444b9371c49769f54fc, type: 3}
       propertyPath: m_TileColorArray.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1217320221163359565, guid: e97578b111cf2444b9371c49769f54fc, type: 3}
       propertyPath: m_TileMatrixArray.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1217320221163359565, guid: e97578b111cf2444b9371c49769f54fc, type: 3}
       propertyPath: m_TileSpriteArray.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1217320221163359565, guid: e97578b111cf2444b9371c49769f54fc, type: 3}
       propertyPath: m_Tiles.Array.data[8].first.x
