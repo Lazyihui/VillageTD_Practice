@@ -37,7 +37,8 @@ namespace TD {
             // ==== 卖塔 ====
 
             // ==== 选中 ====
-            OpenPanel_TowerInfo(ctx);
+            ShowPanel_TowerInfo(ctx);
+            OpenPanel_TowerInfoa(ctx);
             OpenPanel_PanelInfo(ctx);
 
             // ==== 关闭引导 ====
@@ -180,17 +181,33 @@ namespace TD {
             return false;
 
         }
-        public static void OpenPanel_TowerInfo(GameContext ctx) {
+        // 显示Panel
+        public static void ShowPanel_TowerInfo(GameContext ctx) {
             bool has = MousePosInteractTower(ctx);
             if (has) {
-                ctx.appUI.Panel_TowerInfo_Open(ctx.inputEntity.mousePositionWorld);
                 ctx.towerRepository.TryGet(ctx.gameEntity.mouseTowerIDSig, out TowerEntity tower);
-                ctx.appUI.Panel_TowerInfo_SetTxt(tower.name, tower.hp, tower.attackHurt, tower.buildCost);
+                ctx.appUI.Panel_TowerInfo_Open(ctx.inputEntity.mousePositionWorld, tower);
             } else {
                 ctx.appUI.Panel_TowerInfo_Close();
             }
         }
-
+        // 打开Panel
+        public static void OpenPanel_TowerInfoa(GameContext ctx) {
+            var game = ctx.gameEntity;
+            InputEntity input = ctx.inputEntity;
+            if (game.interactTowerIDSig == null) {
+                return;
+            }
+            if (!game.isHUD_InteractPopupOpen) {
+                return;
+            }
+            if (input.ispressF) {
+                ctx.towerRepository.TryGet(game.interactTowerIDSig, out TowerEntity tower);
+                Vector3 pos = new Vector3(tower.transform.position.x, tower.transform.position.y + 1.2f, 0);
+                ctx.appUI.Panel_TowerInfo_Open(pos, tower);
+                game.isHUD_InteractPopupOpen = false;
+            }
+        }
         public static void OpenPanel_PanelInfo(GameContext ctx) {
             bool has = MousePosInteractPanel(ctx);
             if (has) {
@@ -231,5 +248,7 @@ namespace TD {
             }
         }
         #endregion
+
+
     }
 }

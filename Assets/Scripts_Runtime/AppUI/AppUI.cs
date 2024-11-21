@@ -225,7 +225,7 @@ namespace TD {
         #endregion
 
         #region Panel_TowerInfo
-        public void Panel_TowerInfo_Open(Vector3 pos) {
+        public void Panel_TowerInfo_Open(Vector3 pos, TowerEntity tower) {
             Panel_TowerInfo panel = ctx.panel_TowerInfo;
             if (panel == null) {
                 GameObject prefab = ctx.assetsCore.Panel_GetTowerInfo();
@@ -241,20 +241,12 @@ namespace TD {
                 };
 
                 panel.SetPos(pos);
+                panel.SetData(tower.name, tower.hp, tower.attackHurt, tower.buildCost);
+
             }
 
             panel.Show();
             ctx.panel_TowerInfo = panel;
-
-        }
-
-        public void Panel_TowerInfo_SetTxt(string name, int hp, float attack, int cost) {
-            Panel_TowerInfo panel = ctx.panel_TowerInfo;
-            if (panel == null) {
-                return;
-            }
-
-            panel.SetData(name, hp, attack, cost);
 
         }
 

@@ -34,6 +34,10 @@ namespace TD {
         public float panel_NoticeCloseTimer;
         public bool isPanel_NoticeOpen;
 
+        // 交互页面是否打开
+        public bool isHUD_InteractPopupOpen;
+        public IDSignature interactTowerIDSig;
+
         public GameEntity() {
 
             stageID = 1;
@@ -51,8 +55,7 @@ namespace TD {
 
             panel_GuideCloseTimer = 5;
             panel_NoticeCloseTimer = 2;
-
-           ;
+            isHUD_InteractPopupOpen = false;
 
         }
 
@@ -72,7 +75,7 @@ namespace TD {
             panel_GuideCloseTimer = 5;
             panel_NoticeCloseTimer = 2;
 
-            
+            isHUD_InteractPopupOpen = false;
 
         }
     }

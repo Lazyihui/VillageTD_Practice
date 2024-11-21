@@ -1574,7 +1574,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   typeID: 1
   so: {fileID: 11400000, guid: 1773d76787ca7a44daa8a3c347f15186, type: 2}
-  modelMap: {fileID: 159061726}
+  modelMap: {fileID: 102258634951836099, guid: 940e68a6d0818f2458ccdace275d5ca6, type: 3}
 --- !u!1001 &1171243877
 PrefabInstance:
   m_ObjectHideFlags: 0

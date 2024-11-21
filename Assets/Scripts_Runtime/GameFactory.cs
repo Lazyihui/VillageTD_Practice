@@ -143,7 +143,6 @@ namespace TD {
             entity.SetCircleObjActive(false);
 
             entity.idsigMap = idsigMap;
-
             entity.Ctor();
             return entity;
         }
