@@ -64,5 +64,11 @@ namespace TD {
                 OnUpgradeClickTowerHandle.Invoke();
             }
         }
+        public Action OnCloseClickTowerHandle;
+        public void OnCloseBtnClickTower() {
+            if (OnCloseClickTowerHandle != null) {
+                OnCloseClickTowerHandle.Invoke();
+            }
+        }
     }
 }

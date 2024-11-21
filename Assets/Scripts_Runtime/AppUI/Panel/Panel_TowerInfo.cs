@@ -17,6 +17,8 @@ namespace TD {
         public Action OnRemoveClickHandle;
         [SerializeField] Button btn_Upgrade;
         public Action OnUpgradeClickHandle;
+        [SerializeField] Button btn_Close;
+        public Action OnCloseClickHandle;
 
 
 
@@ -38,6 +40,9 @@ namespace TD {
             });
             btn_Upgrade.onClick.AddListener(() => {
                 OnUpgradeClickHandle?.Invoke();
+            });
+            btn_Close.onClick.AddListener(() => {
+                OnCloseClickHandle?.Invoke();
             });
         }
 

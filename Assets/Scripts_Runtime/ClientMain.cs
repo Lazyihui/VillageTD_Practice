@@ -108,6 +108,11 @@ namespace TD {
                 Debug.Log("OnUpgradeClickTowerHandle");
             };
 
+            eventCenter.OnCloseClickTowerHandle += () => {
+                ctx.appUI.Panel_TowerInfo_Close();
+                ctx.gameEntity.isTowerInfoCanInteractmouse = true;
+            };
+
         }
         #endregion
         void OnGUI() {
