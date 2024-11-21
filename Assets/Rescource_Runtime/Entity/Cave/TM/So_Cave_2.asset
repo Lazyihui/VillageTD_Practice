@@ -21,4 +21,5 @@ MonoBehaviour:
     activeTimer: 0
     activeInterval: 0
     spawnMaxCount: 0
-    mstMovePath: []
+    mstMovePath:
+    - {x: 0, y: 0}

@@ -9137,7 +9137,7 @@ MonoBehaviour:
     value: 0
     entityType: 0
     entityID: 0
-  tile: {fileID: 6787451351223479821}
+  tilemap: {fileID: 6787451351223479821}
 --- !u!1 &2684058046240112639
 GameObject:
   m_ObjectHideFlags: 0
@@ -9827,7 +9827,7 @@ MonoBehaviour:
     value: 0
     entityType: 0
     entityID: 0
-  tile: {fileID: 6355658992336297616}
+  tilemap: {fileID: 6355658992336297616}
 --- !u!1 &4791274454968141871
 GameObject:
   m_ObjectHideFlags: 0
