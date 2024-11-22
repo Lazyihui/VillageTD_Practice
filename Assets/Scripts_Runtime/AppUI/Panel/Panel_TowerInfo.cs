@@ -46,17 +46,19 @@ namespace TD {
             });
         }
 
+        public void SetBtnActive(bool isActive) {
+            btn_Remove.gameObject.SetActive(isActive);
+            btn_Upgrade.gameObject.SetActive(isActive);
+            btn_Close.gameObject.SetActive(isActive);
+        }
         public void Show() {
             gameObject.SetActive(true);
         }
-
         public void TearDown() {
             Destroy(gameObject);
         }
-
         public void SetPos(Vector3 pos) {
             transform.position = pos;
         }
-
     }
 }

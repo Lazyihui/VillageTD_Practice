@@ -11,6 +11,10 @@ namespace TD {
         public static RoleEntity Role_Create(GameContext ctx, int typeID, Vector3 pos, RoleSpawnTM spawnTM) {
             RoleTM tm;
             bool has = ctx.templateCore.Role_TryGet(typeID, out tm);
+            if (!has) {
+                Debug.LogError("Role_Create: tm is null" + typeID);
+                return null;
+            }
             GameObject prefab = ctx.assetsCore.Entity_GetRole();
             GameObject go = GameObject.Instantiate(prefab);
             RoleEntity entity = go.GetComponent<RoleEntity>();
@@ -40,6 +44,10 @@ namespace TD {
         public static RoleEntity Mst_Create(GameContext ctx, int typeID, Vector3 pos, Vector2[] path) {
             RoleTM tm;
             bool has = ctx.templateCore.Role_TryGet(typeID, out tm);
+            if (!has) {
+                Debug.LogError("Mst_Create: tm is null" + typeID);
+                return null;
+            }
             GameObject prefab = ctx.assetsCore.Entity_GetRole();
             GameObject go = GameObject.Instantiate(prefab);
             RoleEntity entity = go.GetComponent<RoleEntity>();
@@ -67,7 +75,11 @@ namespace TD {
         }
         public static TowerEntity Tower_Create_hasPos(GameContext ctx, int typeID, Vector2Int pos, IDSignature idsigMap, TowerSpawnTM spawnTM) {
             TowerTM tm;
-            ctx.templateCore.Tower_TryGet(typeID, out tm);
+            bool has = ctx.templateCore.Tower_TryGet(typeID, out tm);
+            if (!has) {
+                Debug.LogError("Tower_Create_hasPos: tm is null" + typeID);
+                return null;
+            }
             GameObject prefab = ctx.assetsCore.Entity_GetTower();
             GameObject go = GameObject.Instantiate(prefab);
             TowerEntity entity = go.GetComponent<TowerEntity>();
@@ -111,12 +123,17 @@ namespace TD {
         public static TowerEntity Tower_Create(GameContext ctx, int typeID, Vector2Int pos, IDSignature idsigMap) {
             TowerTM tm;
             ctx.templateCore.Tower_TryGet(typeID, out tm);
+            if (tm == null) {
+                Debug.LogError("Tower_Create: tm is null" + typeID);
+                return null;
+            }
             GameObject prefab = ctx.assetsCore.Entity_GetTower();
             GameObject go = GameObject.Instantiate(prefab);
             TowerEntity entity = go.GetComponent<TowerEntity>();
 
             entity.idSig.entityType = EntityType.Tower;
             entity.idSig.entityID = ctx.idService.towerRecordID++;
+
             entity.typeName = tm.typeName;
 
             entity.gridPos = pos;
@@ -158,7 +175,7 @@ namespace TD {
             map.idSig.entityType = EntityType.Map;
             map.idSig.entityID = ctx.idService.stageRecordID++;
             map.Ctor();
-            
+
             return map;
         }
 
@@ -180,7 +197,12 @@ namespace TD {
 
         public static BulletEntity Bullet_Create(GameContext ctx, int typeID, Vector3 pos) {
             BulletTM tm;
-            ctx.templateCore.Bullet_TryGet(typeID, out tm);
+            bool has = ctx.templateCore.Bullet_TryGet(typeID, out tm);
+            if (!has) {
+                Debug.LogError("Bullet_Create: tm is null" + typeID);
+                return null;
+            }
+
             GameObject prefab = ctx.assetsCore.Entity_GetBullet();
             GameObject go = GameObject.Instantiate(prefab);
             BulletEntity entity = go.GetComponent<BulletEntity>();
@@ -199,7 +221,11 @@ namespace TD {
 
         public static CaveEntity Cave_Create(GameContext ctx, int typeID, CaveSpawnTM spawnTM) {
             CaveTM tm;
-            ctx.templateCore.Cave_TryGet(typeID, out tm);
+            bool has = ctx.templateCore.Cave_TryGet(typeID, out tm);
+            if (!has) {
+                Debug.LogError("Cave_Create: tm is null" + typeID);
+                return null;
+            }
             GameObject prefab = ctx.assetsCore.Entity_GetCave();
             GameObject go = GameObject.Instantiate(prefab);
             CaveEntity entity = go.GetComponent<CaveEntity>();

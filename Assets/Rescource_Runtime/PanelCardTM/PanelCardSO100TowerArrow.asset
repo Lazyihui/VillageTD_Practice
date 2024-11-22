@@ -10,11 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1cc7d901faa74e743b7ca28f6428316b, type: 3}
-  m_Name: PanelCardSO1TowerArrow
+  m_Name: PanelCardSO100TowerArrow
   m_EditorClassIdentifier: 
   tm:
+    isPlantTree: 0
     typeName: ArrowTower
-    typeID: 1
+    typeID: 100
     buildCost: 300
     hp: 5
     attack: 1

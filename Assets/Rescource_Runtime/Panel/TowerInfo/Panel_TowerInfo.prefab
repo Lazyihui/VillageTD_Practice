@@ -66,7 +66,7 @@ MonoBehaviour:
   txtCost: {fileID: 1083324954822189970}
   btn_Remove: {fileID: 4305441566354546061}
   btn_Upgrade: {fileID: 3965043427638546534}
-  btn_Close: {fileID: 3965043427638546534}
+  btn_Close: {fileID: 5363645032275672843}
 --- !u!1 &3032962726576904808
 GameObject:
   m_ObjectHideFlags: 0

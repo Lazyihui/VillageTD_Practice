@@ -101,11 +101,21 @@ namespace TD {
             };
 
             eventCenter.OnRemoveClickTowerHandle += () => {
-                Debug.Log("OnRemoveClickTowerHandle");
+                // 移除tower
             };
 
             eventCenter.OnUpgradeClickTowerHandle += () => {
-                Debug.Log("OnUpgradeClickTowerHandle");
+                // 升级tower
+                // 1.翠湖旧的tower
+                var game = ctx.gameEntity;
+                ctx.towerRepository.TryGet(game.interactTowerIDSig, out TowerEntity clickTower);
+                Vector3 pos = clickTower.transform.position;
+                Vector2Int posInt = new Vector2Int((int)pos.x, (int)pos.y);
+
+                TowerDomain.UnSpawn(ctx, clickTower);
+                TowerDomain.Spawn(ctx, clickTower.typeID + 100, posInt, clickTower.idsigMap);
+
+
             };
 
             eventCenter.OnCloseClickTowerHandle += () => {

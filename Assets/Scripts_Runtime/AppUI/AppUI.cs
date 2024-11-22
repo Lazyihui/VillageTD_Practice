@@ -239,6 +239,9 @@ namespace TD {
                 panel.OnUpgradeClickHandle += () => {
                     eventCenter.OnUpgradeBtnClickTower();
                 };
+                panel.OnCloseClickHandle += () => {
+                    eventCenter.OnCloseBtnClickTower();
+                };
 
                 panel.SetPos(pos);
                 panel.SetData(tower.name, tower.hp, tower.attackHurt, tower.buildCost);
@@ -250,6 +253,14 @@ namespace TD {
 
         }
 
+        public void Panel_TowerInfo_SetBtnActive(bool isActive) {
+            Panel_TowerInfo panel = ctx.panel_TowerInfo;
+            if (panel == null) {
+                return;
+            }
+
+            panel.SetBtnActive(isActive);
+        }
         public void Panel_TowerInfo_Close() {
             Panel_TowerInfo panel = ctx.panel_TowerInfo;
             if (panel == null) {

@@ -22,7 +22,7 @@ namespace TD {
             }
             var tm = so.tm;
 
-            SetTilePos();
+            // SetTilePos();
 
 
         }

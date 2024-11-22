@@ -189,6 +189,7 @@ namespace TD {
             if (has) {
                 ctx.towerRepository.TryGet(game.mouseTowerIDSig, out TowerEntity tower);
                 ctx.appUI.Panel_TowerInfo_Open(input.mousePositionWorld, tower);
+                ctx.appUI.Panel_TowerInfo_SetBtnActive(false);
             } else {
                 if (game.isTowerInfoCanInteractmouse) {
                     ctx.appUI.Panel_TowerInfo_Close();
@@ -210,6 +211,7 @@ namespace TD {
                 ctx.towerRepository.TryGet(game.interactTowerIDSig, out TowerEntity tower);
                 Vector3 pos = new Vector3(tower.transform.position.x, tower.transform.position.y + 1.2f, 0);
                 ctx.appUI.Panel_TowerInfo_Open(pos, tower);
+                ctx.appUI.Panel_TowerInfo_SetBtnActive(true);
                 game.isHUD_InteractPopupOpen = false;
                 game.isTowerInfoCanInteractmouse = false;
 

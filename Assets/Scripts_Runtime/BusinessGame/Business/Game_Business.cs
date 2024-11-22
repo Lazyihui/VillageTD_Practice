@@ -43,7 +43,7 @@ namespace TD {
             TowerSpawnTM[] towerSpawnTMs = tm.towerSpawnTMs;
             for (int i = 0; i < towerSpawnTMs.Length; i++) {
                 TowerSpawnTM spawnTM = towerSpawnTMs[i];
-                TowerDomain.Spawn_HasPos(ctx, TowerConst.BaseTower, new Vector2Int(0, 0), map.idSig, spawnTM);
+                TowerDomain.Spawn_HasSpawnPos(ctx, TowerConst.BaseTower, new Vector2Int(0, 0), map.idSig, spawnTM);
             }
 
 
@@ -57,7 +57,7 @@ namespace TD {
             ctx.appUI.Panel_Manifaset_Open();
 
             #region  Panel_Manifaset_Open
-            ctx.appUI.Panel_Manifast_AddElement(1);
+            ctx.appUI.Panel_Manifast_AddElement(100);
             ctx.appUI.Panel_Manifast_AddElement(2);
             ctx.appUI.Panel_Manifast_AddElement(3);
             #endregion

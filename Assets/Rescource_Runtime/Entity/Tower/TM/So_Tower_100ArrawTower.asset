@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1568434de4a683b45bc4d0af9171b135, type: 3}
-  m_Name: So_Tower_1ArrawTower
+  m_Name: So_Tower_100ArrawTower
   m_EditorClassIdentifier: 
   tm:
     typeName: ArrowTower
     placeConditionType: 1
-    typeID: 1
+    typeID: 100
     hp: 5
     maxHp: 5
     buildCost: 300

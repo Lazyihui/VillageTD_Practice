@@ -39,8 +39,6 @@ namespace TD {
         public TowerFSMComponent fsmCom;
 
         public void Ctor() {
-
-
         }
 
         public void SetCollider(bool isTriggers) {
